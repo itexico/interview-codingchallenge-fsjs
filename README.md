@@ -18,12 +18,13 @@ This challenge assumes your knowledge or skills to leverage on the following top
 
 ## The rules
 
-This challenge is not set by any hard rule regarding time or style, although both will play key factors on your assessment, although, here are some rules because... rules
+This challenge is not set by any hard rule regarding time or style, although both will play key factors on your assessment, yet, here are some rules because... rules
 
   * You have to fork this project and work on your copy of the code for this to work
   * You must create a commit per step of the challenge finished, wether you want to push it or not is up to you
   * You have to open a pull request to the original repo once you feel your code is ready, for your code to be assessed
   * You are not limited to the set of tools listed on **The prereqs**, you can use any additional tools you feel or know will aid you on your quest
+  * You don't need to complete the whole challenge to create a pull request, if you get stuck at some point, create the pull request and write your issues in the comments
 
 ## The challenge
 
