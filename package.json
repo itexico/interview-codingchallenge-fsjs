@@ -1,9 +1,10 @@
 {
-    "name": "node-api",
-    "main": "./src/server/server.js",
-    "dependencies": {
-        "express": "~4.0.0",
-        "mongoose": "~3.6.13",
-        "body-parser": "~1.0.1"
-    }
+  "name": "node-api",
+  "main": "./src/server/server.js",
+  "dependencies": {
+    "body-parser": "~1.0.1",
+    "express": "~4.0.0",
+    "mongoose": "^4.7.2"
+  }
+  
 }
