@@ -1,0 +1,13 @@
+<md-icon md-svg-icon="list" class="list" ></md-icon>
+<h2>{{$ctrl.selected.name}}  I Like</h2>
+<p ng-hide="$ctrl.selected.items.length>0">aun no contiene nuevas items</p>
+&nbsp;	&nbsp;	&nbsp;<md-icon class="md-secondary" ng-click="$ctrl.delete()" md-svg-icon="delete" ng-show="$ctrl.selected.items.length>0" class="delete" ></md-icon>
+<md-list  ng-cloak>
+	<md-divider></md-divider>
+	<md-list-item  ng-repeat="item in $ctrl.selected.items ">
+		<md-checkbox ng-model="$ctrl.selected.checkboxes[item._id]" ng-click="console.log('si')"></md-checkbox>
+		<p>{{item.n}}</p>
+		<md-icon class="md-secondary" ng-click="doSecondaryAction($event)" md-svg-icon="edit" class="list" ></md-icon>
+		<md-divider></md-divider>
+	</md-list-item>
+</md-list>

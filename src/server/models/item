@@ -2,8 +2,9 @@ var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
 
 var ItemSchema   = new Schema({
-    name: String,
-    description:String
+    n: String,
+    d:String
 });
 
 module.exports = mongoose.model('Item', ItemSchema);
+// module.exports = ItemSchema;
