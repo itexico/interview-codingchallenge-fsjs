@@ -7,7 +7,7 @@
 	<md-list-item  ng-repeat="item in $ctrl.selected.items ">
 		<md-checkbox ng-model="$ctrl.selected.checkboxes[item._id]" ng-click="console.log('si')"></md-checkbox>
 		<p>{{item.n}}</p>
-		<md-icon class="md-secondary" ng-click="doSecondaryAction($event)" md-svg-icon="edit" class="list" ></md-icon>
+		<md-icon class="md-secondary" ng-click="doSecondaryAction($event)" md-svg-icon="edit" class="list" aria-label="edit Item" ></md-icon>
 		<md-divider></md-divider>
 	</md-list-item>
 </md-list>
