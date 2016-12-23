@@ -1,6 +1,8 @@
 import angular from 'angular';
 
 import App from 'src/app';
+// import ngCookies from 'app/src/cookies.js';
+
 
 /**
  * Manually bootstrap the application when AngularJS and

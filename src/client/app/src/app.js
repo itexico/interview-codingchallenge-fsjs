@@ -4,11 +4,12 @@ import angular from 'angular';
 import 'angular-animate';
 import 'angular-aria';
 import 'angular-material';
+ import ngCookies from  'cookies.js';
 
 import AppController from 'src/AppController';
 import Users from 'src/users/Users';
 
-export default angular.module( 'starter-app', [ 'ngMaterial', Users.name ] )
+export default angular.module( 'starter-app', [ 'ngMaterial','ngCookies', Users.name ] )
 
   .config(($mdIconProvider, $mdThemingProvider) => {
     // Register the user `avatar` icons
@@ -42,6 +43,7 @@ export default angular.module( 'starter-app', [ 'ngMaterial', Users.name ] )
       .primaryPalette('indigo')
       .warnPalette('amber')
       .accentPalette('pink');
+
 
 
 

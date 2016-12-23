@@ -16,7 +16,8 @@ db.on('error', console.error.bind(console, 'connection error:'));
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
-var path = require('path');
+var path       = require('path');
+var cookie     = require('cookie-parser');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -43,6 +44,7 @@ router.get('/', function (req,res) {
 
 // middleware to use for all requests
 router.use(function(req, res, next) {
+
     // CORS headers
       res.header("Access-Control-Allow-Origin", "*"); // restrict it to the required domain
       res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
@@ -52,9 +54,8 @@ router.use(function(req, res, next) {
       if (req.method === "OPTIONS") {
           return res.status(200).end();
       }
-if(req.params.auth){
       return next();
-  }else  res.status(404).end();
+
 
 });
 

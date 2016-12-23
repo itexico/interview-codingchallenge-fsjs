@@ -20,11 +20,12 @@ function UsersDataService($q,$http) {
         },/*Get One list*/
         getList: function() {
             // $cookieStore.put('auth', $scope.contextData.sessionId);
-            return $http.get(`${url}/${listId}`,{headers:"set-cookie:auth;"});
+            document.cookie = "pais=" + encodeURIComponent( "Ecuador" );
+            return $http.get(`${url}/${listId}`,{headers:document.cookie,withCredentials: true });
         },/*save one list*/
         saveList: function(name,avatar) {
 
-            return $http.post(url,angular.toJson({name:name,avatar:avatar}));
+            return $http.post(url,angular.toJson({name:name,avatar:avatar}),{withCredentials: true});
         },/*delete one list*/
         deleteList: function(listId) {
             return $http.delete(`${url}/${listId}`);

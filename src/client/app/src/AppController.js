@@ -4,7 +4,9 @@
 * @param $mdSidenav
 * @constructor
 */
-function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast) {
+
+function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast,$cookies) {
+
     var self = this;
 
     self.selected     = null; //this says which list is selected , used to apply css style
@@ -131,6 +133,9 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast) {
         }
 
         function refreshLists(isDelete=false){
+            document.cookie = "pais=" + encodeURIComponent( "Ecuador" );
+            //alert($cookies.getAll());
+            $cookies.put('auth', '33dd33d');
             loadAllUsers().then((lists)=>{
                 console.log(lists);
                 self.users    = [].concat(lists.data);
@@ -215,4 +220,4 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast) {
         }
     }
 
-    export default [ 'UsersDataService', '$mdSidenav','$mdDialog','$mdToast',AppController ];
+    export default [ 'UsersDataService', '$mdSidenav','$mdDialog','$mdToast','$cookies',AppController ];
