@@ -36,6 +36,7 @@ var router = express.Router();              // get an instance of the express Ro
 
 router.get('/', function (req,res) {
   // res.sendFile(path.join(__dirname + './../client/app/index.html'));
+  //this didn't work. i gave up
     res.sendFile(path.resolve('../client/app/index.html'));
 });
 
@@ -51,8 +52,10 @@ router.use(function(req, res, next) {
       if (req.method === "OPTIONS") {
           return res.status(200).end();
       }
-
+if(req.params.auth){
       return next();
+  }else  res.status(404).end();
+
 });
 
 

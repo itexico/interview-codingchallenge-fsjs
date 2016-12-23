@@ -11,7 +11,7 @@ function UsersDataService($q,$http) {
     var apiPort=8081;
     var url=`http://localhost:${apiPort}/api/lists`;
     var mapUsers=function(data){console.log(data);};
-    
+
 
     return {
         /*list all**/
@@ -19,7 +19,8 @@ function UsersDataService($q,$http) {
             return $http.get(url);
         },/*Get One list*/
         getList: function() {
-            return $http.get(`${url}/${listId}`);
+            // $cookieStore.put('auth', $scope.contextData.sessionId);
+            return $http.get(`${url}/${listId}`,{headers:"set-cookie:auth;"});
         },/*save one list*/
         saveList: function(name,avatar) {
 

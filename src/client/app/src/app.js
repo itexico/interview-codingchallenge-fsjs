@@ -10,13 +10,6 @@ import Users from 'src/users/Users';
 
 export default angular.module( 'starter-app', [ 'ngMaterial', Users.name ] )
 
-.filter('randomize', function() {
-  return function(input, scope) {
-    if (input!=null && input!=undefined && input > 1) {
-      return Math.floor((Math.random()*input)+1);
-    }
-  }
-})
   .config(($mdIconProvider, $mdThemingProvider) => {
     // Register the user `avatar` icons
     $mdIconProvider

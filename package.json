@@ -3,6 +3,7 @@
   "main": "./src/server/server.js",
   "dependencies": {
     "body-parser": "~1.0.1",
+    "cookie-parser": "^1.4.3",
     "express": "~4.8.0",
     "lodash": "^4.17.2",
     "mongoose": "^4.7.2"
