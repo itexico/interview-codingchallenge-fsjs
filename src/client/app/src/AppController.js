@@ -17,6 +17,8 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast) {
     self.deleteitems=deleteitems;
     self.$doCheck=update;
      var itemsToDelete=[];
+     var helperIterator=0;
+
     // self.selected.itemsToDelete=Object.keys(self.selected.checkboxes||{}).filter((key)=>{return self.selected.checkboxes[key]===true});
 
     const {deleteList,saveList,loadAllUsers,saveItem,deleteItems}= UsersDataService; //extract the methods from service
@@ -41,7 +43,7 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast) {
             $mdToast.simple()
             .textContent(message)
             .position('bottom right' )
-            .hideDelay(3000)
+            .hideDelay(2000)
         );
     }
 
@@ -87,7 +89,7 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast) {
     function openSavePrompt(action) { /*opens dialog allows for two actions and returns a promise to be used in different places*/
         if(action==='list'){
             const confirm = $mdDialog.prompt()
-            .title('Add the name of your new list')
+            .title(`Add the name of your ${(self.users.length===0)?'first':'new'} list`)
             .textContent('This must be unique.')
             .placeholder('list name')
             .ariaLabel('newList name')
@@ -152,6 +154,7 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast) {
         }
 
         function toggleNewList(item){
+
             if(item){/*new item*/
                 openSavePrompt('item').then(
                     (result)=>{
@@ -169,7 +172,7 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast) {
                     (result)=>{
                         if(result){
                             if(isUnique(result) ){/*save*/
-                                saveList(result).then(
+                                saveList(result,(helperIterator++) % 10).then(
                                     ( )=>{refreshLists();showToast(`"${result}" list saved`);/*success*/},
                                     ( )=>{showAlert('Error: Save operation unsuccessfull.',' please check your server is running.');/*server down*/}
                                 );

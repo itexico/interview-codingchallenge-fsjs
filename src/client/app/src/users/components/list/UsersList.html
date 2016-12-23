@@ -2,10 +2,14 @@
 <md-list>
     <md-list-item ng-repeat="user in $ctrl.users">
         <md-button ng-click="$ctrl.showDetails({user:user})" ng-class="{'selected' : user === $ctrl.selected }">
-            <md-icon md-svg-icon="list" class="list" ></md-icon>
+            <md-icon md-svg-icon="{{user.avatar || '1'}}" class="list" ></md-icon>
             {{user.name}}
         </md-button>
         <md-icon md-svg-icon="delete" class="delete"  ng-click="$ctrl.deletelist({user:user})"></md-icon>
     </md-list-item>
 
 </md-list>
+<script type="text/javascript">
+
+
+</script>

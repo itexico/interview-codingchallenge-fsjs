@@ -4,7 +4,8 @@ var Schema       = mongoose.Schema;
 
 var ListSchema   = new Schema({
     name: String,
-    items:Array
+    items:Array,
+    avatar:String
 
 });
 

@@ -1,4 +1,4 @@
-<md-icon md-svg-icon="list" class="list" ></md-icon>
+<md-icon md-svg-icon="{{$ctrl.selected.avatar || '1'}}" class="list" ></md-icon>
 <h2>{{$ctrl.selected.name}}  I Like</h2>
 <p ng-hide="$ctrl.selected.items.length>0">aun no contiene nuevas items</p>
 

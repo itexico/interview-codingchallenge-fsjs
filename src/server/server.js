@@ -69,7 +69,7 @@ router.route('/lists')
 
     console.log(req.body.name);
     if(req.body.name){
-        var list = new List({ name: req.body.name });
+        var list = new List({ name: req.body.name,avatar:req.body.avatar });
         list.save(function (err) {
             if (err) {
                 console.log(err);

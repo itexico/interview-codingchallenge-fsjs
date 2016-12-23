@@ -11,7 +11,7 @@ function UsersDataService($q,$http) {
     var apiPort=8081;
     var url=`http://localhost:${apiPort}/api/lists`;
     var mapUsers=function(data){console.log(data);};
-
+    
 
     return {
         /*list all**/
@@ -21,8 +21,9 @@ function UsersDataService($q,$http) {
         getList: function() {
             return $http.get(`${url}/${listId}`);
         },/*save one list*/
-        saveList: function(name) {
-            return $http.post(url,angular.toJson({name}));
+        saveList: function(name,avatar) {
+
+            return $http.post(url,angular.toJson({name:name,avatar:avatar}));
         },/*delete one list*/
         deleteList: function(listId) {
             return $http.delete(`${url}/${listId}`);

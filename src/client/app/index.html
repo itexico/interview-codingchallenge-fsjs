@@ -49,9 +49,9 @@
     <user-details ng-cloak   ng-show="app.users.length>0"
         selected="app.selected" delete="app.deleteitems" >  </user-details>
         <div class="" ng-hide="app.users.length>0" >
-            <md-subheader>Oops! It looks like you haven't created any lists yet. Lets Fix that</md-subheader>
-            
-            <img src="assets/empty.png" style="margin:0 auto;"  alt="">
+            <md-subheader>Oops! It looks like you haven't created any lists yet. <a href="#" ng-click="app.toggleNewList()" > Let's fix that</a></md-subheader>
+
+            <img src="assets/empty.png" style="margin:0 auto;opacity:.4;width:20%;"  alt="">
 
         </div>
 
