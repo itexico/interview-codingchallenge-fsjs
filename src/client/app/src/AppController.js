@@ -15,7 +15,8 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast) {
     self.newListName=null; //this is the list to send to server
     self.deletelist= deletelist; // exposes delete method to the scope forbutton input
     self.deleteitems=deleteitems;
-    const {deleteList,saveList,loadAllUsers,saveItem}= UsersDataService; //extract the methods from service
+
+    const {deleteList,saveList,loadAllUsers,saveItem,deleteItems}= UsersDataService; //extract the methods from service
     // self.addList=addList; // not needed
     // self.showEmptyListError=false; //not needed
     // self.shownew= false; // this is the boolean to add show the add new form //not needed
@@ -40,6 +41,7 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast) {
             .hideDelay(3000)
         );
     }
+
     function showAlert(messageTitle,mesageContent){
         $mdDialog.show(
             $mdDialog.alert()
@@ -51,6 +53,7 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast) {
             .ok('ok!')
         );
     }
+
     function openDeletePrompt  (listName) {
         const confirm = $mdDialog.confirm()
         .title(`This will delete the ${listName} list`)
@@ -63,7 +66,7 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast) {
         return $mdDialog.show(confirm)
     };
 
-    function openSavePrompt(action) {
+    function openSavePrompt(action) { /*opens dialog allows for two actions and returns a promise to be used in different places*/
         if(action==='list'){
             const confirm = $mdDialog.prompt()
             .title('Add the name of your new list')
@@ -84,10 +87,15 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast) {
             return $mdDialog.show(confirm);
         }
     };
-/****************************************
-*/
+    /****************************************
+    */
 
-function deleteitems(){console.log('deleted!!!!!');}
+    function deleteitems(){
+        /*this took a bit of work since the checkbox was an object after using key to emulate an array i filtered out the ones that were false to only send the relevant ones*/
+        /*nevere thought io'd actually need Objet.keys :D*/
+        let itemsToDelete=Object.keys(self.selected.checkboxes||{}).filter((key)=>{return self.selected.checkboxes[key]===true});
+        deleteItems(self.selected._id,itemsToDelete);
+    }
 
     function refreshLists(isDelete=false){
         loadAllUsers().then((lists)=>{
@@ -152,23 +160,25 @@ function deleteitems(){console.log('deleted!!!!!');}
                     /*success in delete*/
                 },
                 ( )=>{showAlert('Error: Delete operation unsuccessfull.',' please check your server is running.');/*server down*//*clicked cancel in delete window*/}
-            ); },
-            ()=>{console.info('user canceled delete dialog');});
-        }
-        /**
-        * Select the current avatars and CSS classes
-        * @param menuId
-        */
-        function selectUser ( user ) {
-            self.selected = angular.isNumber(user) ? $self.users[user] : user;
-        }
-
-        /**********************
-        *     Helper methods
-        *************************/
-        function isUnique(list){
-            return self.users.every(user=>list.toUpperCase()!=user.name.toUpperCase())
-        }
+            );
+        },
+        ()=>{console.info('user canceled delete dialog');});
     }
+    /**
+    * Select the current avatars and CSS classes
+    * @param menuId
+    */
+    function selectUser ( user ) {
+        self.selected = angular.isNumber(user) ? $self.users[user] : user;
+
+    }
+
+    /**********************
+    *     Helper methods
+    *************************/
+    function isUnique(list){
+        return self.users.every(user=>list.toUpperCase()!=user.name.toUpperCase())
+    }
+}
 
     export default [ 'UsersDataService', '$mdSidenav','$mdDialog','$mdToast',AppController ];

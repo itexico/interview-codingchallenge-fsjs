@@ -5,6 +5,7 @@
 var mongoose = require('mongoose');
 var List    = require('./models/list');
 var Item  = require('./models/item');
+var _ = require('lodash');
 
 
 mongoose.connect('mongodb://admin:root@jello.modulusmongo.net:27017/upaDyh2u');
@@ -105,7 +106,7 @@ router.route('/lists/:name')
         res.json({message:list.length+' List found',data:list});
     })
 })
-.put(function(req, res) {
+.post(function(req, res) {
     var itemsList=[];
     //var list.items=list[0].items;
     var item=new Item({n:req.body.name,d:req.body.description});
@@ -143,6 +144,90 @@ router.route('/lists/:name')
         res.json({status:204})
     });
 });
+
+
+
+//************************************
+
+//new items deletelist
+
+router.route('/lists/:id/:item')
+// create a list (accessed at POST http://localhost:8080/api/lists)
+// if name is not empty, it will create a list,
+//if name is empty it will return error
+.delete(function(req, res) {
+var itemsURL = JSON.parse(req.params.item);
+    //console.log('\n list ID:',req.params.id);
+    //console.log('\n list items: ', req.params.item);
+console.log('\n list array from URL: ', itemsURL);
+// var itemsList=[];
+//var list.items=list[0].items;
+// var item=new Item({n:req.body.name,d:req.body.description});
+
+List.findById(req.params.id,function(err, list){
+    console.log('\n the list in question: ',list.name);
+    console.log('\n the items stored in DB: ',list.items);
+    var listItems=list.items;
+    var itemsList= _.pullAllWith(listItems,itemsURL,(arrVal, othVal)=>{return arrVal._id==othVal}).map((item)=>new Item({n:item.n,d:'empty'}));;
+    List.findOneAndUpdate({ _id: list._id }, { items:itemsList} , function(err, list) {
+        if (err) throw err;
+        // we have the updated user returned to us
+        list.items=itemsList;
+        console.log(list);
+        res.json(list);
+    });
+});
+
+    // if(list.items && list.items.length>=1){itemsList=list.items;}
+    // itemsList.push(item);
+    // console.log('itemslist: ',itemsList,'\n');
+
+    //
+    // List.findOneAndUpdate({ _id: list._id }, { items:itemsList} , function(err, list) {
+    //     if (err) throw err;
+    //     // we have the updated user returned to us
+    //     list.items=itemsList;
+    //     console.log(list);
+    //     res.json(list);
+    // });
+
+
+
+
+
+
+
+})
+// get all lists (accessed at GET http://localhost:8080/api/lists)
+.get(function(req, res) {
+        // res.header("Access-Control-Allow-Origin", "*");
+    List.find(function (err, lists) {
+        if (err) return console.error(err);
+        console.log(lists);
+        // res.json({ message:`${lists.length} lists found`,data:lists.map((item)=>{return{name:item.name,id:item._id}})});
+        res.json(lists);
+    });
+
+});
+
+//****************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // more routes for our API will happen here
 

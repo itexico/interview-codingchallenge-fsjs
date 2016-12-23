@@ -14,18 +14,26 @@ function UsersDataService($q,$http) {
 
 
     return {
+        /*list all**/
         loadAllUsers: function() {
             return $http.get(url);
-        },
+        },/*Get One list*/
+        getList: function() {
+            return $http.get(`${url}/${listId}`);
+        },/*save one list*/
         saveList: function(name) {
             return $http.post(url,angular.toJson({name}));
-        },
+        },/*delete one list*/
         deleteList: function(listId) {
             return $http.delete(`${url}/${listId}`);
-        },
+        },/*save one item*/
         saveItem: function(listId,itemName) {
-            return $http.put(`${url}/${listId}`,angular.toJson({name:itemName}));
-        }
+            return $http.post(`${url}/${listId}`,angular.toJson({name:itemName}));
+        },
+        deleteItems: function(listId,itemsToDelete={}) {
+
+            return $http.delete(`${url}/${listId}/${angular.toJson(itemsToDelete)}`);
+         }
     };
 
 }

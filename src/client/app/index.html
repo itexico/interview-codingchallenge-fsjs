@@ -16,40 +16,39 @@
 
     <!-- Container #1 (see wireframe) -->
     <md-toolbar layout="row" class="md-toolbar-tools">
-        <md-button class="menu md-icon-button" hide-gt-sm ng-click="app.toggleList()"
-        aria-label="Show User List">
-        <md-icon md-svg-icon="menu"></md-icon>
+        <md-button class="menu md-icon-button" hide-gt-sm ng-click="app.toggleList()" aria-label="Show User List">
+            <md-icon md-svg-icon="menu"></md-icon>
+        </md-button>
+        <h1>Lists of things i like</h1>
+    </md-toolbar>
+
+    <!-- Container #2 -->
+    <div flex layout="row">
+
+        <!-- Container #3 -->
+        <md-sidenav class="md-whiteframe-4dp" md-is-locked-open="$mdMedia('gt-sm')"  md-component-id="left" ng-click="app.toggleList()">
+
+        <!-- Custom UsersList component -->
+        <users-list
+        users="app.users"
+        selected="app.selected"
+        on-selected="app.selectUser(user)"
+        shownew="app.shownew"
+        on-deletelist="app.deletelist(user)"
+        >
+        </users-list>
+
+    <md-button class="md-fab md-fab-bottom-right" ng-click="app.toggleNewList()" aria-label="addList">
+        <md-icon md-svg-icon="add" ></md-icon>
     </md-button>
-    <h1>Lists of things i like</h1>
-</md-toolbar>
-
-<!-- Container #2 -->
-<div flex layout="row">
-
-    <!-- Container #3 -->
-    <md-sidenav class="md-whiteframe-4dp" md-is-locked-open="$mdMedia('gt-sm')"
-    md-component-id="left" ng-click="app.toggleList()">
-
-    <!-- Custom UsersList component -->
-    <users-list
-    users="app.users"
-    selected="app.selected"
-    on-selected="app.selectUser(user)"
-    shownew="app.shownew"
-    on-deletelist="app.deletelist(user)"
-    >
-</users-list>
-
-<md-button class="md-fab md-fab-bottom-right" ng-click="app.toggleNewList()" aria-label="addList">
-    <md-icon md-svg-icon="add" ></md-icon>
-</md-button>
 </md-sidenav>
 
 <!-- Container #4 -->
 <md-content flex id="content" style="overflow: scroll;">
     <!-- Custom ListItems component -->
-    <user-details ng-show="app.users.length>0" selected="app.selected" on-delete="app.deleteitems" >  </user-details>
-
+    <user-details ng-show="app.users.length>0"
+        selected="app.selected" delete="app.deleteitems" >  </user-details>
+&nbsp;	&nbsp;	&nbsp;<md-icon class="md-secondary" ng-click=" app.deleteitems()" md-svg-icon="delete" ng-show="app.selected.items.length>0" class="delete" ></md-icon>
 </md-content>
 <md-button class="md-fab md-fab-bottom-right" ng-click="app.toggleNewList(app.selected)" aria-label="addItem">
     <md-icon md-svg-icon="add" ></md-icon>
