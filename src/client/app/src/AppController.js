@@ -15,6 +15,9 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast) {
     self.newListName=null; //this is the list to send to server
     self.deletelist= deletelist; // exposes delete method to the scope forbutton input
     self.deleteitems=deleteitems;
+    self.$doCheck=update;
+     var itemsToDelete=[];
+    // self.selected.itemsToDelete=Object.keys(self.selected.checkboxes||{}).filter((key)=>{return self.selected.checkboxes[key]===true});
 
     const {deleteList,saveList,loadAllUsers,saveItem,deleteItems}= UsersDataService; //extract the methods from service
     // self.addList=addList; // not needed
@@ -54,17 +57,32 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast) {
         );
     }
 
-    function openDeletePrompt  (listName) {
+    function openDeletePrompt  (name,itemsToDelete=false) {
+        if(itemsToDelete){
+            var itemsMessage=(itemsToDelete.length >1)?`these ${itemsToDelete.length} items`:`item "${self.selected.items.find((item)=>{return item._id==itemsToDelete[0]}).n}"`;
+        }
+
+        let message=(itemsToDelete)?`this will delete delete ${itemsMessage}`:`This will delete the ${name} list`;
+
         const confirm = $mdDialog.confirm()
-        .title(`This will delete the ${listName} list`)
+        .title(message)
         .textContent('are you sure?')
-        .ariaLabel('delete list')
+        .ariaLabel('delete listOrItem')
         .ok('I am ')
         .theme('default')
         .openFrom('top')
         .cancel('no');
         return $mdDialog.show(confirm)
     };
+    function update(){
+
+
+        if(self.selected)
+         self.selected.deleteIsEmpty=!self.selected.checkboxes || Object.values(self.selected.checkboxes).every((value)=>{return !value});
+
+
+
+    }
 
     function openSavePrompt(action) { /*opens dialog allows for two actions and returns a promise to be used in different places*/
         if(action==='list'){
@@ -91,94 +109,107 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast) {
     */
 
     function deleteitems(){
-        /*this took a bit of work since the checkbox was an object after using key to emulate an array i filtered out the ones that were false to only send the relevant ones*/
-        /*nevere thought io'd actually need Objet.keys :D*/
-        let itemsToDelete=Object.keys(self.selected.checkboxes||{}).filter((key)=>{return self.selected.checkboxes[key]===true});
-        deleteItems(self.selected._id,itemsToDelete);
-    }
-
-    function refreshLists(isDelete=false){
-        loadAllUsers().then((lists)=>{
-            console.log(lists);
-            self.users    = [].concat(lists.data);
-            if(isDelete){self.selected=lists.data[0];
-            }else{
-                self.selected=(self.selected)?self.selected=self.users.find(user=>user.name===self.selected.name):self.users[0];//if first load, it takes the first element, if just a refresh , it stays on the same list
-            }
-
-            /*on load it loads the firsrt openSavePromptwhen i add one it refreshes the current list*/
-            /**doenst kneo what to do if list is deleted*/
-
-
-        });
-    };
-    /*
-    * Hide or Show the 'left' sideNav area
-    */
-
-    function toggleUsersList($http) {
-        $mdSidenav('left').toggle();
-    }
-
-    function toggleNewList(item){
-        if(item){/*new item*/
-            openSavePrompt('item').then(
-                (result)=>{
-                    if(result){
-                        saveItem(self.selected.name,result).then(
-                            ( )=>{refreshLists();showToast(`"${result}" item added to the ${self.selected.name} list`);/*success*/},
-                            ( )=>{showAlert('Error: Save operation unsuccessfull.',' please check your server is running.');/*server down*/}
-                        );
-                    }else{showAlert('Error: Item name empty','The Item must have a valid name.');/* alert can't be empty*/}
+        itemsToDelete=Object.keys(self.selected.checkboxes||{}).filter((key)=>{return self.selected.checkboxes[key]===true});
+        /*this took a bit of work since the checkbox was an object. After using key to emulate an array, I filtered out the ones that were false to only send the relevant ones*/
+        /*never thought I'd actually need Objet.keys :D*/
+        if(itemsToDelete.length>0){
+            openDeletePrompt(self.selected.name,itemsToDelete).then(
+                ()=>{deleteItems(self.selected._id,itemsToDelete).then(()=>{
+                    refreshLists();
+                    showToast(` ${itemsToDelete.length} item(s) deleted from the ${self.selected.name} list`);});
                 },
-                ()=>{console.info('user canceled save dialog');}
-            );
-        }else{/*new list*/
-            openSavePrompt('list').then(
-                (result)=>{
-                    if(result){
-                        if(isUnique(result) ){/*save*/
-                            saveList(result).then(
-                                ( )=>{refreshLists();showToast(`"${result}" list saved`);/*success*/},
+                    ()=>{console.info('user canceled deleteItem dialog')}
+                );
+            }else{console.log('ignored: nothing selected to delete');}
+
+
+
+
+
+        }
+
+        function refreshLists(isDelete=false){
+            loadAllUsers().then((lists)=>{
+                console.log(lists);
+                self.users    = [].concat(lists.data);
+                if(isDelete){self.selected=lists.data[0];
+                }else{
+                    self.selected=(self.selected)?self.selected=self.users.find(user=>user.name===self.selected.name):self.users[0];//if first load, it takes the first element, if just a refresh , it stays on the same list
+                }
+
+                /*on load it loads the firsrt openSavePromptwhen i add one it refreshes the current list*/
+                /**doenst kneo what to do if list is deleted*/
+
+
+            });
+        };
+        /*
+        * Hide or Show the 'left' sideNav area
+        */
+
+        function toggleUsersList($http) {
+            $mdSidenav('left').toggle();
+        }
+
+        function toggleNewList(item){
+            if(item){/*new item*/
+                openSavePrompt('item').then(
+                    (result)=>{
+                        if(result){
+                            saveItem(self.selected.name,result).then(
+                                ( )=>{refreshLists();showToast(`"${result}" item added to the ${self.selected.name} list`);/*success*/},
                                 ( )=>{showAlert('Error: Save operation unsuccessfull.',' please check your server is running.');/*server down*/}
                             );
-                        }else{showAlert('Error: List name not unique','The list name should be unique.');/*name is not unique*/}
-                    }else{showAlert('Error: List name empty','The list must have a valid name.');/* alert can't be empty*/}
-                },
-                ()=>{console.info('user canceled save dialog');}
-            );
+                        }else{showAlert('Error: Item name empty','The Item must have a valid name.');/* alert can't be empty*/}
+                    },
+                    ()=>{console.info('user canceled save dialog');}
+                );
+            }else{/*new list*/
+                openSavePrompt('list').then(
+                    (result)=>{
+                        if(result){
+                            if(isUnique(result) ){/*save*/
+                                saveList(result).then(
+                                    ( )=>{refreshLists();showToast(`"${result}" list saved`);/*success*/},
+                                    ( )=>{showAlert('Error: Save operation unsuccessfull.',' please check your server is running.');/*server down*/}
+                                );
+                            }else{showAlert('Error: List name not unique','The list name should be unique.');/*name is not unique*/}
+                        }else{showAlert('Error: List name empty','The list must have a valid name.');/* alert can't be empty*/}
+                    },
+                    ()=>{console.info('user canceled save dialog');}
+                );
+            }
+        }
+
+        function deletelist(user){
+            openDeletePrompt(user.name).then(()=>{
+                deleteList(user._id).then(
+                    ( )=> {
+                        showToast(`"${user.name}" list deleted`);
+                        refreshLists(true);
+
+                        /*success in delete*/
+                    },
+                    ( )=>{showAlert('Error: Delete operation unsuccessfull.',' please check your server is running.');/*server down*//*clicked cancel in delete window*/}
+                );
+            },
+            ()=>{console.info('user canceled delete dialog');});
+        }
+        /**
+        * Select the current avatars and CSS classes
+        * @param menuId
+        */
+        function selectUser ( user ) {
+            self.selected = angular.isNumber(user) ? $self.users[user] : user;
+
+        }
+
+        /**********************
+        *     Helper methods
+        *************************/
+        function isUnique(list){
+            return self.users.every(user=>list.toUpperCase()!=user.name.toUpperCase())
         }
     }
-
-    function deletelist(user){
-        openDeletePrompt(user.name).then(()=>{
-            deleteList(user._id).then(
-                ( )=> {
-                    showToast(`"${user.name}" list deleted`);
-                    refreshLists(true);
-
-                    /*success in delete*/
-                },
-                ( )=>{showAlert('Error: Delete operation unsuccessfull.',' please check your server is running.');/*server down*//*clicked cancel in delete window*/}
-            );
-        },
-        ()=>{console.info('user canceled delete dialog');});
-    }
-    /**
-    * Select the current avatars and CSS classes
-    * @param menuId
-    */
-    function selectUser ( user ) {
-        self.selected = angular.isNumber(user) ? $self.users[user] : user;
-
-    }
-
-    /**********************
-    *     Helper methods
-    *************************/
-    function isUnique(list){
-        return self.users.every(user=>list.toUpperCase()!=user.name.toUpperCase())
-    }
-}
 
     export default [ 'UsersDataService', '$mdSidenav','$mdDialog','$mdToast',AppController ];

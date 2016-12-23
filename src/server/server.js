@@ -156,46 +156,24 @@ router.route('/lists/:id/:item')
 // if name is not empty, it will create a list,
 //if name is empty it will return error
 .delete(function(req, res) {
-var itemsURL = JSON.parse(req.params.item);
-    //console.log('\n list ID:',req.params.id);
-    //console.log('\n list items: ', req.params.item);
-console.log('\n list array from URL: ', itemsURL);
-// var itemsList=[];
-//var list.items=list[0].items;
-// var item=new Item({n:req.body.name,d:req.body.description});
+    var itemsToDelete = JSON.parse(req.params.item);
+    console.log('\n list ID:',req.params.id);
+    console.log('\n list items: ', req.params.item);
+    console.log('\n list array from URL: ', itemsToDelete);
 
-List.findById(req.params.id,function(err, list){
-    console.log('\n the list in question: ',list.name);
-    console.log('\n the items stored in DB: ',list.items);
-    var listItems=list.items;
-    var itemsList= _.pullAllWith(listItems,itemsURL,(arrVal, othVal)=>{return arrVal._id==othVal}).map((item)=>new Item({n:item.n,d:'empty'}));;
-    List.findOneAndUpdate({ _id: list._id }, { items:itemsList} , function(err, list) {
-        if (err) throw err;
-        // we have the updated user returned to us
-        list.items=itemsList;
-        console.log(list);
-        res.json(list);
+    List.findById(req.params.id,function(err, list){
+        console.log('\n the list in question: ',list.name);
+        console.log('\n the items stored in DB: ',list.items);
+        var listItems=list.items;
+        var itemsList= _.pullAllWith(listItems,itemsToDelete,(arrVal, othVal)=>{return arrVal._id==othVal}).map((item)=>new Item({n:item.n,d:'empty'}));
+        List.findOneAndUpdate({ _id: list._id }, { items:itemsList} , function(err, list) {
+            if (err) throw err;
+            // we have the updated user returned to us
+            list.items=itemsList;
+            console.log(list);
+            res.json(list);
+        });
     });
-});
-
-    // if(list.items && list.items.length>=1){itemsList=list.items;}
-    // itemsList.push(item);
-    // console.log('itemslist: ',itemsList,'\n');
-
-    //
-    // List.findOneAndUpdate({ _id: list._id }, { items:itemsList} , function(err, list) {
-    //     if (err) throw err;
-    //     // we have the updated user returned to us
-    //     list.items=itemsList;
-    //     console.log(list);
-    //     res.json(list);
-    // });
-
-
-
-
-
-
 
 })
 // get all lists (accessed at GET http://localhost:8080/api/lists)

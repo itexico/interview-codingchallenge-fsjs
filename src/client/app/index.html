@@ -26,10 +26,10 @@
     <div flex layout="row">
 
         <!-- Container #3 -->
-        <md-sidenav class="md-whiteframe-4dp" md-is-locked-open="$mdMedia('gt-sm')"  md-component-id="left" ng-click="app.toggleList()">
+        <md-sidenav ng-cloak  class="md-whiteframe-4dp" md-is-locked-open="$mdMedia('gt-sm')"  md-component-id="left" ng-click="app.toggleList()">
 
         <!-- Custom UsersList component -->
-        <users-list
+        <users-list ng-cloak
         users="app.users"
         selected="app.selected"
         on-selected="app.selectUser(user)"
@@ -46,9 +46,16 @@
 <!-- Container #4 -->
 <md-content flex id="content" style="overflow: scroll;">
     <!-- Custom ListItems component -->
-    <user-details ng-show="app.users.length>0"
+    <user-details ng-cloak   ng-show="app.users.length>0"
         selected="app.selected" delete="app.deleteitems" >  </user-details>
-&nbsp;	&nbsp;	&nbsp;<md-icon class="md-secondary" ng-click=" app.deleteitems()" md-svg-icon="delete" ng-show="app.selected.items.length>0" class="delete" ></md-icon>
+        <div class="" ng-hide="app.users.length>0" >
+            <md-subheader>Oops! It looks like you haven't created any lists yet. Lets Fix that</md-subheader>
+            
+            <img src="assets/empty.png" style="margin:0 auto;"  alt="">
+
+        </div>
+
+&nbsp;	&nbsp;	&nbsp;<md-icon class="md-secondary" ng-class="{'pale' : app.selected.deleteIsEmpty }" ng-click=" app.deleteitems()" md-svg-icon="delete" ng-show="app.selected.items.length>0" class="delete" ></md-icon>
 </md-content>
 <md-button class="md-fab md-fab-bottom-right" ng-click="app.toggleNewList(app.selected)" aria-label="addItem">
     <md-icon md-svg-icon="add" ></md-icon>

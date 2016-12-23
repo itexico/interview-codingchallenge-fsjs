@@ -18,7 +18,7 @@ class UsersListDirective {
 export default {
   name : 'usersList',
   config : {
-    bindings         : {  users: '<', selected : '<', showDetails : '&onSelected',shownew:'<' ,deletelist:'&onDeletelist'},
+    bindings         : {  users: '<', selected : '=', showDetails : '&onSelected',shownew:'<' ,deletelist:'&onDeletelist'},
     templateUrl      : 'src/users/components/list/UsersList.html'
   }
 };
