@@ -122,7 +122,7 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast,$cookies)
                     refreshLists();
                     showToast(` ${itemsToDelete.length} item(s) deleted from the ${self.selected.name} list`);});
                 },
-                    ()=>{console.info('user canceled deleteItem dialog')}
+                    ()=>{console.info('user canceled deleteItem dialog');self.selected.checkboxes={};}
                 );
             }else{console.log('ignored: nothing selected to delete');}
 
@@ -133,9 +133,11 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast,$cookies)
         }
 
         function refreshLists(isDelete=false){
-            document.cookie = "pais=" + encodeURIComponent( "Ecuador" );
-            //alert($cookies.getAll());
-            $cookies.put('auth', '33dd33d');
+            // document.cookie = "pais=" + encodeURIComponent( "Ecuador" );
+            // alert($cookies.getAll());
+
+            // $cookies.put('auth', '33dd33d');
+            // $cookies.putObject('panama', 'gorilla');
             loadAllUsers().then((lists)=>{
                 console.log(lists);
                 self.users    = [].concat(lists.data);
@@ -145,7 +147,8 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast,$cookies)
                 }
 
                 /*on load it loads the firsrt openSavePromptwhen i add one it refreshes the current list*/
-                /**doenst kneo what to do if list is deleted*/
+                helperIterator=self.users.length;
+
 
 
             });
@@ -159,7 +162,7 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast,$cookies)
         }
 
         function toggleNewList(item){
-
+// helperIterator
             if(item){/*new item*/
                 openSavePrompt('item').then(
                     (result)=>{

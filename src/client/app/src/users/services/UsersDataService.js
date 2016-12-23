@@ -20,8 +20,8 @@ function UsersDataService($q,$http) {
         },/*Get One list*/
         getList: function() {
             // $cookieStore.put('auth', $scope.contextData.sessionId);
-            document.cookie = "pais=" + encodeURIComponent( "Ecuador" );
-            return $http.get(`${url}/${listId}`,{headers:document.cookie,withCredentials: true });
+
+            return $http.get(`${url}/${listId}`,{withCredentials: true });
         },/*save one list*/
         saveList: function(name,avatar) {
 

@@ -17,19 +17,20 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var path       = require('path');
-var cookie     = require('cookie-parser');
+var cookieParser     = require('cookie-parser');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
 var port = process.env.PORT || 8081;        // set our port
 
 // ROUTES FOR OUR API
 // =============================================================================
 var router = express.Router();              // get an instance of the express Router
-
+app.use(cookieParser());
 // router.get('/', function(res, req) {
 //     // res.json({ message: 'welcome to the iTexico Interview api!' });
 //      res.sendFile();
@@ -38,22 +39,28 @@ var router = express.Router();              // get an instance of the express Ro
 router.get('/', function (req,res) {
   // res.sendFile(path.join(__dirname + './../client/app/index.html'));
   //this didn't work. i gave up
-    res.sendFile(path.resolve('../client/app/index.html'));
+    // res.sendFile(path.resolve('../client/app/index.html'));
+
 });
 
 
 // middleware to use for all requests
 router.use(function(req, res, next) {
-
+// res.cookie('name', 'express').send('cookie set'); //Sets name=express
     // CORS headers
-      res.header("Access-Control-Allow-Origin", "*"); // restrict it to the required domain
+      res.header("Access-Control-Allow-Origin", "http://127.0.0.1:51842"); // restrict it to the required domain
       res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
       // Set custom headers for CORS
       res.header("Access-Control-Allow-Headers", "Content-type,Accept,X-Custom-Header");
+      res.header("Access-Control-Allow-Credentials", "true");
 
       if (req.method === "OPTIONS") {
           return res.status(200).end();
       }
+
+ console.log('\n \n cookies are: ',req.cookies);
+   console.log('Signed Cookies: ', req.signedCookies);
+   console.log('Signed Cookies: ', req.headers);
       return next();
 
 
@@ -88,6 +95,7 @@ router.route('/lists')
 })
 // get all lists (accessed at GET http://localhost:8080/api/lists)
 .get(function(req, res) {
+
         // res.header("Access-Control-Allow-Origin", "*");
     List.find(function (err, lists) {
         if (err) return console.error(err);
