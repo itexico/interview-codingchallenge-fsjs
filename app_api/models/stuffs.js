@@ -17,4 +17,4 @@ var stuffSchema = new mongoose.Schema({
     items: [itemSchema]
 });
 
-mongoose.model('Stuff', stuffSchema);
+module.exports = mongoose.model('Stuff', stuffSchema);
