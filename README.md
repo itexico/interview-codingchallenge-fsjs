@@ -1,4 +1,4 @@
-#To run:
+# To run:
 
 Make sure you have node.js (https://nodejs.org/en/ ) and git (https://git-scm.com/downloads) installed.
 
