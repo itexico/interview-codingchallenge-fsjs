@@ -10,7 +10,7 @@ function UsersDataService($q,$http) {
 
     var apiPort=8081;
     var url=`http://localhost:${apiPort}/api/lists`;
-    var mapUsers=function(data){console.log(data);};
+    var mapUsers=function(data){console.log('me regso',data);};
 
 
     return {

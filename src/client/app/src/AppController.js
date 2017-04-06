@@ -5,7 +5,7 @@
 * @constructor
 */
 
-function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast,$cookies) {
+function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast) {
 
     var self = this;
 
@@ -223,4 +223,4 @@ function AppController(UsersDataService, $mdSidenav,$mdDialog,$mdToast,$cookies)
         }
     }
 
-    export default [ 'UsersDataService', '$mdSidenav','$mdDialog','$mdToast','$cookies',AppController ];
+    export default [ 'UsersDataService', '$mdSidenav','$mdDialog','$mdToast',AppController ];

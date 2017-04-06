@@ -6,9 +6,10 @@ var mongoose = require('mongoose');
 var List    = require('./models/list');
 var Item  = require('./models/item');
 var _ = require('lodash');
+// var cors = require('cors')
 
 
-mongoose.connect('mongodb://admin:root@jello.modulusmongo.net:27017/upaDyh2u');
+mongoose.connect('mongodb://luismasg:luismasg@ds133388.mlab.com:33388/listsluisma');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
@@ -21,6 +22,7 @@ var cookieParser     = require('cookie-parser');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
+// app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -30,7 +32,7 @@ var port = process.env.PORT || 8081;        // set our port
 // ROUTES FOR OUR API
 // =============================================================================
 var router = express.Router();              // get an instance of the express Router
-app.use(cookieParser());
+//app.use(cookieParser());
 // router.get('/', function(res, req) {
 //     // res.json({ message: 'welcome to the iTexico Interview api!' });
 //      res.sendFile();
@@ -48,7 +50,7 @@ router.get('/', function (req,res) {
 router.use(function(req, res, next) {
 // res.cookie('name', 'express').send('cookie set'); //Sets name=express
     // CORS headers
-      res.header("Access-Control-Allow-Origin", "http://127.0.0.1:51842"); // restrict it to the required domain
+      res.header("Access-Control-Allow-Origin", "http://127.0.0.1:49429"); // restrict it to the required domain
       res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
       // Set custom headers for CORS
       res.header("Access-Control-Allow-Headers", "Content-type,Accept,X-Custom-Header");
