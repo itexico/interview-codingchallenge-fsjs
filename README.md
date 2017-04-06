@@ -1,6 +1,7 @@
 to run:
 Make sure you have node.js (https://nodejs.org/en/ ) and git (https://git-scm.com/downloads) installed.
 
+# the first time you install the project:
 
 open up a new terminal at proyect root, type the following commands :
 
@@ -13,13 +14,33 @@ once app opens up , take note of the port in the url bar (the number after the '
 
 leave that terminal running and open up a new one inside the project root. type:
 
-    npm install && node src/server/server.js
+    npm install
+    node src/server/server.js
 
 if you get an issue creating lists or list Items, open up ' server.js ' inside ' src/server/ '   and modify the first line 
      
      var frontEndPort = 8080; 
         
-to point to the correct port  
+to point to the correct port .
+
+# Any other time after install
+
+You can just do the following at the project root
+
+    node src/server/server.js
+    
+in one window and 
+    
+    live-server --open=src/client/app
+    
+in another one
+
+    
+
+
+
+
+
 
 ======================================================
 
