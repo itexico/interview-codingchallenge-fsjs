@@ -2,15 +2,14 @@ to run:
 Make sure you have node.js installed
 
 open up a new terminal at proyect root, type :
- npm install
- node src/server/server.js
+ npm install && node src/server/server.js
 
 leave that terminal running and open up a new one inside the project root
 
-*npm install jspm live-server -g
-*cd src/client
-* jspm update
-* live-server --open=app
+npm install jspm live-server -g
+cd src/client
+jspm update
+live-server --open=app
 
 ======================================================
 
