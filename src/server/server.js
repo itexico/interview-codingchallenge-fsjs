@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var List    = require('./models/list');
 var Item  = require('./models/item');
 var _ = require('lodash');
-// var cors = require('cors')
+var cors = require('cors')
 
 
 mongoose.connect('mongodb://luismasg:luismasg@ds133388.mlab.com:33388/listsluisma');
@@ -18,11 +18,11 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var path       = require('path');
-var cookieParser     = require('cookie-parser');
+var cookieParser = require('cookie-parser'); //not used
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
-// app.use(cors());
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -50,11 +50,12 @@ router.get('/', function (req,res) {
 router.use(function(req, res, next) {
 // res.cookie('name', 'express').send('cookie set'); //Sets name=express
     // CORS headers
-      res.header("Access-Control-Allow-Origin", "http://127.0.0.1:49429"); // restrict it to the required domain
-      res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+    //   res.header("Access-Control-Allow-Origin", "http://127.0.0.1:49429"); // restrict it to the required domain
+    //   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
       // Set custom headers for CORS
-      res.header("Access-Control-Allow-Headers", "Content-type,Accept,X-Custom-Header");
-      res.header("Access-Control-Allow-Credentials", "true");
+    //   res.header("Access-Control-Allow-Headers", "Content-type,Accept,X-Custom-Header");
+    //   res.header("Access-Control-Allow-Credentials", "true");
+    // res(cors());
 
       if (req.method === "OPTIONS") {
           return res.status(200).end();

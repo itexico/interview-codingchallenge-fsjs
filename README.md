@@ -1,6 +1,22 @@
+to run:
+Make sure you have node.js installed
+
+open up a new terminal at proyect root, type :
+ npm install
+ node src/server/server.js
+
+leave that terminal running and open up a new one inside the project root
+
+*npm install jspm live-server -g
+*cd src/client
+* jspm update
+* live-server --open=app
+
+======================================================
+
 # Let's code some JS!
 
-Hey, welcome to the first coding challenge of your interview process, you'll be presented with a set of steps to accomplish in order to get yourself graded on 
+Hey, welcome to the first coding challenge of your interview process, you'll be presented with a set of steps to accomplish in order to get yourself graded on
 
 > Fullstack JavaScript using the MEAN stack
 
@@ -30,21 +46,21 @@ This challenge is not set by any hard rule regarding time or style, although bot
 
 You will be creating a simple server-client application so common nowadays, using the MEAN stack, the requirements are as follows.
 
-  - As an individual, 
+  - As an individual,
     - I need a way to create lists of my favorite stuff ( so cliche, right? ) so, several lists of different stuff (books, movies, stores, pizza flavors, whatevs...)
     - I need a way to add, edit, and delete items on such lists
     - I need a way to view the lists I create
   - As a developer,
-    - I need the node_modules to be ignored by git 
+    - I need the node_modules to be ignored by git
     - I need to be able to access the CRUD capabilities of the lists through a RESTful API, json based, from external domains
     - I need schemas ( mongoose preferred ) for the Lists and Items entities
     - I need an exposed CRUD API to affect the Lists and Items entities using the correct HTTP verbs for each
       - Create, update, remove, fetch all and fetch by id should be supported for lists and items (10 endpoints total)
     - I need middleware to happen on each request validating that the user has a cookie named "auth" or not (log the value to output, we are not managing authentication of any kind just yet)
-    
-    - I need a test suit testing the endpoints 
+
+    - I need a test suit testing the endpoints
     - I need a test suit testing the middleware covering the cases where the user has a cookie named "auth", a cookie with another name or no cookie at all
-     
+
 
 ## The small print
 
@@ -54,4 +70,3 @@ Stuff that will be graded
     Code coverage               ( Is my code tested? Are all scenarios considered? )
     Requirement coverage        ( Is the application doing what it is meant to be doing? )
     Rule compliance             ( Did i follow the few rules set on **The rules** ? )
-    
