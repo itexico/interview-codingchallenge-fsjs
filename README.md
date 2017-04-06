@@ -9,7 +9,7 @@ open up a new terminal at proyect root, type the following commands :
     jspm update
     live-server --open=app
 
-    once app opens up , take note of the port in the url bar (the number after the ':' symbol) could be 8080 or 42369 or something different.
+once app opens up , take note of the port in the url bar (the number after the ':' symbol) could be 8080 or 42369 or something different.
 
 leave that terminal running and open up a new one inside the project root. type:
 
