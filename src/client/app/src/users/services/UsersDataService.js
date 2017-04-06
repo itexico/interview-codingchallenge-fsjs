@@ -10,7 +10,7 @@ function UsersDataService($q,$http) {
 
     var apiPort=8081;
     var url=`http://localhost:${apiPort}/api/lists`;
-    var mapUsers=function(data){console.log('me regso',data);};
+    var mapUsers=function(data){console.log('me regreso:\n',data);};
 
 
     return {
@@ -25,7 +25,7 @@ function UsersDataService($q,$http) {
         },/*save one list*/
         saveList: function(name,avatar) {
 
-            return $http.post(url,angular.toJson({name:name,avatar:avatar}),{withCredentials: true});
+            return $http.post(url,angular.toJson({name:name,avatar:avatar}),{withCredentials: false});
         },/*delete one list*/
         deleteList: function(listId) {
             return $http.delete(`${url}/${listId}`);

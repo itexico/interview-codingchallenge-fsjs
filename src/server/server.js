@@ -50,7 +50,7 @@ router.get('/', function (req,res) {
 router.use(function(req, res, next) {
 // res.cookie('name', 'express').send('cookie set'); //Sets name=express
     // CORS headers
-      res.header("Access-Control-Allow-Origin", "http://127.0.0.1:"+frontEndPort); // restrict it to the required domain
+      res.header("Access-Control-Allow-Origin", '*'); // restrict it to the required domain
       res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
       // Set custom headers for CORS
       res.header("Access-Control-Allow-Headers", "Content-type,Accept,X-Custom-Header");
