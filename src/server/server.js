@@ -1,5 +1,5 @@
 // server.js
-
+var frontEndPort = 8080;
 // BASE SETUP
 // =============================================================================
 var mongoose = require('mongoose');
@@ -22,7 +22,7 @@ var cookieParser = require('cookie-parser'); //not used
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
-app.use(cors());
+// app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -37,7 +37,7 @@ var router = express.Router();              // get an instance of the express Ro
 //     // res.json({ message: 'welcome to the iTexico Interview api!' });
 //      res.sendFile();
 // });
-
+// app.options('*', cors());
 router.get('/', function (req,res) {
   // res.sendFile(path.join(__dirname + './../client/app/index.html'));
   //this didn't work. i gave up
@@ -50,11 +50,11 @@ router.get('/', function (req,res) {
 router.use(function(req, res, next) {
 // res.cookie('name', 'express').send('cookie set'); //Sets name=express
     // CORS headers
-    //   res.header("Access-Control-Allow-Origin", "http://127.0.0.1:49429"); // restrict it to the required domain
-    //   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+      res.header("Access-Control-Allow-Origin", "http://127.0.0.1:"+frontEndPort); // restrict it to the required domain
+      res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
       // Set custom headers for CORS
-    //   res.header("Access-Control-Allow-Headers", "Content-type,Accept,X-Custom-Header");
-    //   res.header("Access-Control-Allow-Credentials", "true");
+      res.header("Access-Control-Allow-Headers", "Content-type,Accept,X-Custom-Header");
+      res.header("Access-Control-Allow-Credentials", "true");
     // res(cors());
 
       if (req.method === "OPTIONS") {
@@ -75,10 +75,12 @@ router.use(function(req, res, next) {
 
 // on routes that end in /list
 // ----------------------------------------------------
+
 router.route('/lists')
 // create a list (accessed at POST http://localhost:8080/api/lists)
 // if name is not empty, it will create a list,
 //if name is empty it will return error
+
 .post(function(req, res) {
 
     console.log(req.body.name);
