@@ -1,30 +1,34 @@
 # To run:
 
-Make sure you have node.js (https://nodejs.org/en/ ) and git (https://git-scm.com/downloads) installed.
+Make sure you have node.js (https://nodejs.org/en/ ) and git (https://git-scm.com/downloads) installed.   
+   
+      
 
-## the first time you install the project:
 
-open up a new administer terminal at proyect root, type the following commands  :
 
-    npm install jspm live-server -g      // install jspm globally  
-    cd src/client                        //change to client folder
-    jspm update                          // make sure you have all the jspm packages installed
-    live-server --open=app               //since you already in client folder, launch app
+## The first time you install the project:
 
-leave that terminal running and open up a new one inside the project root. type:
+Open up a new administer terminal at proyect root, type the following commands  :
 
-    npm install                          //install al dependencies for server
-    node src/server/server.js            //run server 
+    npm install jspm live-server -g      // install jspm globally.
+    cd src/client                        //change to client folder.
+    jspm update                          // make sure you have all the jspm packages installed.
+    live-server --open=app               //since you are already in client folder, launch app.
+
+Leave that terminal running and open up a new one at the project root, type:
+
+    npm install                          //install all dependencies for server.
+    node src/server/server.js            //run server.
 
 ## Any other time after install
 
 In a terminal at project root type
 
-    node src/server/server.js                 //run server
+    node src/server/server.js                 //run server.
     
 Leave that running and in another window type
     
-    live-server --open=src/client/app        //launch front end
+    live-server --open=src/client/app        //launch front end, notice how it points to app's path from root.
     
 
 
