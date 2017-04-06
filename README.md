@@ -1,39 +1,32 @@
-to run:
+#To run:
+
 Make sure you have node.js (https://nodejs.org/en/ ) and git (https://git-scm.com/downloads) installed.
 
-# the first time you install the project:
+## the first time you install the project:
 
-open up a new terminal at proyect root, type the following commands :
+open up a new administer terminal at proyect root, type the following commands  :
 
-    npm install jspm live-server -g
-    cd src/client
-    jspm update
-    live-server --open=app
-
-once app opens up , take note of the port in the url bar (the number after the ' : ' symbol) could be 8080 or 42369 or something different.
+    npm install jspm live-server -g      // install jspm globally  
+    cd src/client                        //change to client folder
+    jspm update                          // make sure you have all the jspm packages installed
+    live-server --open=app               //since you already in client folder, launch app
 
 leave that terminal running and open up a new one inside the project root. type:
 
-    npm install
-    node src/server/server.js
+    npm install                          //install al dependencies for server
+    node src/server/server.js            //run server 
 
-if you get an issue creating lists or list Items, open up ' server.js ' inside ' src/server/ '   and modify the first line 
-     
-     var frontEndPort = 8080; 
-        
-to point to the correct port .
+## Any other time after install
 
-# Any other time after install
+In a terminal at project root type
 
-You can just do the following at the project root
-
-    node src/server/server.js
+    node src/server/server.js                 //run server
     
-in one window and 
+Leave that running and in another window type
     
-    live-server --open=src/client/app
+    live-server --open=src/client/app        //launch front end
     
-in another one
+
 
     
 
