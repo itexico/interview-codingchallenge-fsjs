@@ -1,0 +1,12 @@
+var mongoose     = require('mongoose');
+var Schema       = mongoose.Schema;
+// var ItemSchema   = require('./item');
+
+var ListSchema   = new Schema({
+    name: String,
+    items:Array,
+    avatar:String
+
+});
+
+module.exports = mongoose.model('List', ListSchema);
