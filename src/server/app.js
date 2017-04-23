@@ -11,6 +11,9 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 
+//The port to listen to
+const port = process.env.PORT || 3000
+
 const app = express()
 const server = http.Server(app)
 
@@ -67,7 +70,7 @@ if (app.get('env') === 'development') {
 }
 
 
-server.listen(port, () => {
+app.listen(port, () => {
     console.log('App is running at http://localhost:%d in %s mode', port, app.get('env'))
 })
 
