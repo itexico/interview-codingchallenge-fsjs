@@ -4,6 +4,7 @@
   "description": "This is the server for the interview challenge",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "mocha test"
   },
   "author": "WillSnake",
