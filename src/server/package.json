@@ -21,7 +21,8 @@
     "mongoose": "^4.9.5",
     "morgan": "^1.8.1",
     "multer": "^1.3.0",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "short-uuid": "^2.2.0"
   },
   "devDependencies": {
     "certainty": "^1.3.1",
