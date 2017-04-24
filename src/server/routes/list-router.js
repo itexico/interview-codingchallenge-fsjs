@@ -1,7 +1,7 @@
 'use strict'
 
-/** Express router providing the cookies unique identifier
- * @module /cookies
+/** Express router providing the lists functions
+ * @module /lists
  * @requires express
  */
 

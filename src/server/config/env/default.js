@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  port: process.env.PORT || 3000,
+  port: process.env.PORT || 3005,
   mongo: {
     port: process.env.MONGO_PORT || 27017,
     url: process.env.MONGO_URL || 'localhost',
