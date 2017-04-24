@@ -7,6 +7,7 @@
         "**/CVS": true,
         "**/.DS_Store": true,
         "**/src/server/node_modules": true,
+        "**/src/client/node_modules": true,
         ".vscode": true
     }
 }
