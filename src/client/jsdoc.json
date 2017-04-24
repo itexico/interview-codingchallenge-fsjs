@@ -1,0 +1,33 @@
+{
+    "plugins": [
+        "plugins/markdown",
+        "node_modules/angular-jsdoc/common/plugins/ngdoc"
+    ],
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc","closure"]
+    },
+    "source": {
+        "include": ["src"],
+        "exclude": ["src/**/*.spec.js"],
+        "includePattern": ".+\\.js(doc|x)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    },
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false,
+        "theme": "spacelab",
+        "navType": "vertical",
+        "default": {
+            "outputSourceFiles": true
+        },
+        "linenums": true,
+        "dateFormat": "MMMM Do YYYY, h:mm:ss a"
+    },
+    "opts": {
+        "destination": "./docs/",
+        "recurse": true,
+        "template": "node_modules/ink-docstrap/template",
+        "readme": "README.md"
+    }
+}

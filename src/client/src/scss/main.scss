@@ -1,0 +1,25 @@
+@import "vars";
+@import "mixins";
+
+@include fontFace('MartelSansRegular', '/assets/fonts/Martel/MartelSans-Regular');
+@include fontFace('MartelSansBlack', '/assets/fonts/Martel/MartelSans-Black');
+@include fontFace('MartelSansBold', '/assets/fonts/Martel/MartelSans-Bold');
+@include fontFace('MartelSansExtraBold', '/assets/fonts/Martel/MartelSans-ExtraBold');
+@include fontFace('MartelSansExtraLight', '/assets/fonts/Martel/MartelSans-ExtraLight');
+@include fontFace('MartelSansLight', '/assets/fonts/Martel/MartelSans-Light');
+@include fontFace('MartelSansSemiBold', '/assets/fonts/Martel/MartelSans-SemiBold');
+
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+    display: none !important;
+}
+
+body {
+    background: #2A3F54;
+    font-family: MartelSansRegular;
+    font-size: 12px;
+}

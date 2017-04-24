@@ -1,0 +1,34 @@
+{
+  "name": "server-interview-challenge",
+  "version": "1.0.0",
+  "description": "This is the server for the interview challenge",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha test"
+  },
+  "author": "WillSnake",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.3",
+    "debug": "^2.6.4",
+    "express": "^4.15.2",
+    "joi": "^10.4.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "mongoose": "^4.9.5",
+    "morgan": "^1.8.1",
+    "multer": "^1.3.0",
+    "request": "^2.81.0",
+    "short-uuid": "^2.2.0"
+  },
+  "devDependencies": {
+    "certainty": "^1.3.1",
+    "co-mocha": "^1.2.0",
+    "faker": "^4.1.0",
+    "mocha": "^3.2.0",
+    "supertest": "^3.0.0"
+  }
+}
