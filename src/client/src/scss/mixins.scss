@@ -1,0 +1,11 @@
+/**
+  * Creates font families
+ */
+@mixin fontFace($family,$src,$style: normal,$weight: normal) {
+    @font-face {
+        font-family: $family;
+        src: url('#{$src}.ttf') format('truetype');
+        font-style: $style;
+        font-weight: $weight;
+    }
+}

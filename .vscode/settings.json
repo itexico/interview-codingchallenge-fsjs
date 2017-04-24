@@ -1,0 +1,13 @@
+// Coloque su configuración en este archivo para sobrescribir la configuración predeterminada y de usuario.
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/src/server/node_modules": true,
+        "**/src/client/node_modules": true,
+        ".vscode": true
+    }
+}
