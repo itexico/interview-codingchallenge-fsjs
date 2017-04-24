@@ -8,5 +8,8 @@ module.exports = {
     db: process.env.MONGO_DATABASE || 'challenge-test',
     user: process.env.MONGO_USER || '',
     password: process.env.MONGO_PASSWORD || ''
+  },
+  cookieParser: {
+    secret: process.env.COOKIE_PARSER_SECRET ||  'N3tz}ZQ7Atr\R=n&7,'
   }
 }
