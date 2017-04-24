@@ -1,9 +1,10 @@
 'use strict'
 
-const cors = require('cors')
 const path = require('path')
 const fs = require('fs')
 const http = require('http')
+const config = require('./config/env')
+const cors = require('cors')
 const logger = require('morgan')
 const multer = require('multer')
 const express = require('express')
@@ -23,7 +24,7 @@ const server = http.Server(app)
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(cookieParser())
+app.use(cookieParser(config.cookieParser.secret))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(cors())
 
