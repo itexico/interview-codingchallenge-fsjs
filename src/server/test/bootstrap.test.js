@@ -14,7 +14,9 @@ before(function (done) {
     agent: agent(process.env.TEST_URL || server.listen()),
     token: '',
     fixtures: {
-      users: []
+      users: [],
+      cookies: [],
+      lists: []
     }
   }
   done()
