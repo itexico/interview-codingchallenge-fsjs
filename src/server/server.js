@@ -22,9 +22,9 @@ app.use(middlewares.cookie_parser)
 app.use("/node_modules", middlewares.node_modules_dir);
 app.use("/app", middlewares.app_dir);
 app.use("/*.html",middlewares.renderhtml);
-
 app.use("/",middlewares.check_auth_cookie);
 
+/* include routes for controller and API REST */
 app.use('/', controllers);
 app.use('/', api_rest);
 

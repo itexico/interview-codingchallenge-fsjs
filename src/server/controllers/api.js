@@ -10,7 +10,7 @@ router.all('/api*', function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   next();
  });
-
+ 
 
 router.get('/', function (req, res) {
     res.render('index.html', {title: "Interview Coding Challenge"});
