@@ -1,7 +1,9 @@
 const  express = require('express');
 var router = express.Router();
-var models = require('../models');
 
+/* Require model */
+var models = require('../models');
+/* Require middlewares functions */
 
 router.get('/', function (req, res) {
     res.render('index.html', {title: "Interview Coding Challenge"});

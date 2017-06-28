@@ -1,31 +1,32 @@
 const  express = require('express');
-const  path = require('path');
+
+var middlewares = require("./middlewares");
+var controllers = require('./controllers');
+var api_rest = require('./controllers/api');
 var bodyParser = require('body-parser')
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/icfsjs');
-
 let port = 3000;
 let app = express();
-
-// parse application/x-www-form-urlencoded 
-app.use(bodyParser.urlencoded({ extended: false }))
- 
-// parse application/json 
-app.use(bodyParser.json())
+/* Connect with Database */
+mongoose.connect('mongodb://localhost/icfsjs');
 
 app.set('views', './src/client/views');
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
+// parse application/x-www-form-urlencoded 
+app.use(middlewares.bodyparser);
+// parse application/json 
+app.use(middlewares.json_parse);
+// parse cookies
+app.use(middlewares.cookie_parser)
+app.use("/node_modules", middlewares.node_modules_dir);
+app.use("/app", middlewares.app_dir);
+app.use("/*.html",middlewares.renderhtml);
 
-app.use("/node_modules", express.static(path.resolve(__dirname, '../../node_modules')));
-app.use("/app", express.static(path.resolve(__dirname, '../client/app')));
+app.use("/",middlewares.check_auth_cookie);
 
-app.use("/*.html", function (req, res) {
-    res.render(req.params[0] + ".html");
-});
-
-var fav_stuff = require('./controllers/fav_stuff')
-app.use('/', fav_stuff);
+app.use('/', controllers);
+app.use('/', api_rest);
 
 let server = app.listen(port, function () {
     let host = server.address().address;

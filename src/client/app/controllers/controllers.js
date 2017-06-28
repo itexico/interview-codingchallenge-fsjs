@@ -24,8 +24,9 @@ interview_coding_app.controller('show_fav_stuff_list', function ($scope, FavStuf
 
         });
     }
-    $scope.delete_item = function (id) {
+    $scope.delete_item = function (id,index_remove) {
          FavStuffService.DeleteFavStuff(id).then(function (response) {
+              $scope.fav_stuff.splice(index_remove,1);
              console.log(response);
         }, function (err) {
 

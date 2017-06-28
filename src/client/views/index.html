@@ -33,7 +33,7 @@ and open the template in the editor.
                         <th>Favorite Stuff List</th>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="sn in fav_stuff">
+                            <tr ng-repeat="sn in fav_stuff track by $index">
                                 <td valign="top" style="padding:10px;">
                                     <input type="text" ng-disabled="!sn[is_editing]" ng-model="sn.fav_stuff_name">
                                 </td>
@@ -47,7 +47,7 @@ and open the template in the editor.
                                 <td valign="top" style="padding:10px;">
                                     <button class="btn" ng-click="sn[is_editing] = !sn[is_editing]" type="button">Edit</button>
                                     <button type="button"  ng-disabled="!sn[is_editing]" class="btn btn-success" ng-click="save_changes(sn)">Save Changes</button>
-                                    <button type="button" ng-confirm-click="Do you really want to delete thi item?" class="btn btn-danger" ng-click="delete_item(sn._id)">Delete Complete Item</button>
+                                    <button type="button" ng-confirm-click="Do you really want to delete thi item?" class="btn btn-danger" ng-click="delete_item(sn._id,$index)">Delete Complete Item</button>
                                 </td>
                             </tr>
                         </tbody>
