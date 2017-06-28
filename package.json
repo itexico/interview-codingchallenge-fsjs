@@ -1,0 +1,31 @@
+{
+  "name": "interview-codingchallenge-fsjs",
+  "version": "1.0.0",
+  "description": "Interview Coding challenge fsjs",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/obeddiaz/interview-codingchallenge-fsjs.git"
+  },
+  "author": "Obed Díaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/obeddiaz/interview-codingchallenge-fsjs/issues"
+  },
+  "homepage": "https://github.com/obeddiaz/interview-codingchallenge-fsjs#readme",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "mongoose": "^4.11.0",
+    "path": "^0.12.7"
+  }
+}
