@@ -1,0 +1,35 @@
+{
+  "name": "interview-codingchallenge-fsjs",
+  "version": "1.0.0",
+  "description": "coding challenge for full-stack position in iTexico",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "bootstrap": "^3.3.7",
+    "cookie-session": "^2.0.0-beta.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeMagio/interview-codingchallenge-fsjs.git"
+  },
+  "keywords": [
+    "challenge",
+    "iTexico",
+    "full-stack"
+  ],
+  "author": "José Luis Muñoz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeMagio/interview-codingchallenge-fsjs/issues"
+  },
+  "homepage": "https://github.com/LeMagio/interview-codingchallenge-fsjs#readme"
+}
