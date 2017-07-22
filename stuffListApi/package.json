@@ -1,0 +1,31 @@
+{
+  "name": "stufflistapi",
+  "version": "1.0.0",
+  "description": "RESTful stuffListApi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emigdio821/interview-codingchallenge-fsjs.git"
+  },
+  "keywords": [
+    "RESTful",
+    "API"
+  ],
+  "author": "Emigdio Torres R.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emigdio821/interview-codingchallenge-fsjs/issues"
+  },
+  "homepage": "https://github.com/emigdio821/interview-codingchallenge-fsjs#readme",
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.11.3"
+  }
+}
