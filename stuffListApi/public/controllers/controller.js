@@ -84,7 +84,6 @@ app.controller('StuffController', ['$scope', '$filter', 'Stuffs', function($scop
     }
 
     $scope.handleEvents = function() {
-        debugger;
         showSpinner(true);
         var action = $('#modalSubmitBtn')[0].textContent; //dummy action.
         if (action === 'Delete') {
