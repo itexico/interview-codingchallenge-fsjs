@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myStuffApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Favorite Stuff</title>
+    <!-- Bootstrap CDN's-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- JQuery CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- AngularJS CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.5/angular-route.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!--Main JS-->
+    <script src="controllers/controller.js"></script>
+    <style type="text/css" media="screen">
+        #spinner {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" ng-controller="StuffController">
+        <div class="col-xs-12">
+
+            <div id="spinner">
+                <img id="img-spinner" src="resources/spinner.gif" alt="Loading...">
+            </div>
+
+            <h4>My Favorite Stuff</h4>
+            <div class="form">
+                <div id="stuffInput" class="input-group">
+                    <input type="text" class="form-control" ng-disabled="disableInput" placeholder="Add some stuffs you love" ng-model="stuff">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" ng-disabled="disableInput || !stuff" type="button" ng-click="addStuff()"><span
+                            class="glyphicon glyphicon-plus"></span> Add Stuff</button>
+                    </span>
+                </div>
+            </div>
+            <hr/>
+
+            <ul class="list-group" ng-show="stuffs.length > 0">
+                <li class="list-group-item clearfix" ng-repeat="stuff in stuffs">
+                    <p class="lead">{{stuff.name}}</p>
+                    <div>
+                        <span class="pull-right">
+                            <button class="btn btn-default btn-xs" ng-click="editStuffDialog(stuff._id)">Edit</button>
+                            <button class="btn btn-danger btn-xs" ng-click="deleteStuffDialog(stuff._id)">Delete</button>
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="genericModal" tabindex="-1" role="dialog" aria-labelledby="genericModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">{{modalTitle}}</h4>
+                    </div>
+                    <div class="modal-body" id="modalBody">
+                        <form>
+                            <div class="form-group">
+                                <label for="recipient-name" class="control-label">Stuff Name:</label>
+                                <input type="text" class="form-control" id="recipient-name" placeholder="{{stuffName}}" ng-model="stuffName">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button id="modalSubmitBtn" type="button" class="btn btn-primary" ng-click="handleEvents(stuffName)">{{buttonState}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal -->
+    </div>
+</body>
+
+</html>

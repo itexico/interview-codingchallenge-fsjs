@@ -5,6 +5,7 @@ var mongoose = require('mongoose'),
 exports.list_all_stuffs = function(req, res) {
     Stuff.find({}, function(err, stuff) {
         if (err) res.send(err);
+        console.log(stuff);
         res.json(stuff);
     });
 };

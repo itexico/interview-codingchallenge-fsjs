@@ -8,16 +8,16 @@ var express = require('express'),
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/stuffListdb');
 
-
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
 
-
 var routes = require('./api/routes/stuffListRoutes');
 routes(app);
 app.listen(port);
+
+app.use(express.static(__dirname + '/public'));
 
 app.use(function(req, res) {
     res.status(404).send({
