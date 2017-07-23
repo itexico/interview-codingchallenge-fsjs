@@ -5,6 +5,13 @@ var StuffSchema = new Schema({
     name: {
         type: String,
         Required: 'Please enter some favorite stuff you love.'
+    },
+    updated: {
+        type: Date,
+        default: Date.now
+    },
+    category: {
+        type: String
     }
 });
 

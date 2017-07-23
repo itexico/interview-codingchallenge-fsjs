@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My Favorite Stuff</title>
+    <link rel="shortcut icon" type="image/ico" href="resources/_previmg.ico" />
     <!-- Bootstrap CDN's-->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -29,35 +30,53 @@
 
 <body>
     <div class="container" ng-controller="StuffController">
-        <div class="col-xs-12">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <p class="navbar-brand" href="#">My Favorite Stuff</p>
+                </div>
 
-            <div id="spinner">
-                <img id="img-spinner" src="resources/spinner.gif" alt="Loading...">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <form class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search stuffs" ng-disabled="!stuffs.length" ng-model="search" ng-model-options="{debounce: 600}">
+                            <button type="button" class="btn btn-primary" ng-click="createStuffDialog()">
+                                <span class="glyphicon glyphicon-plus"></span> Create Stuff
+                            </button>
+                            <button type="button" class="btn btn-success" ng-click="onFetchData()">
+                                <span class="glyphicon glyphicon-refresh"></span> Fetch/Reload
+                            </button>
+                            <button type="button" class="btn btn-danger" ng-disabled="!stuffs.length" ng-click="deleteAllStuffDialog()">
+                                <span class="glyphicon glyphicon-trash"></span> Delete All
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.navbar-collapse -->
             </div>
+            <!-- /.container-fluid -->
+        </nav>
 
-            <h4>My Favorite Stuff</h4>
-            <div class="form">
-                <div id="stuffInput" class="input-group">
-                    <input type="text" class="form-control" ng-disabled="disableInput" placeholder="Add some stuffs you love" ng-model="stuff">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" ng-disabled="disableInput || !stuff" type="button" ng-click="addStuff()"><span
-                            class="glyphicon glyphicon-plus"></span> Add Stuff</button>
-                    </span>
+        <div id="spinner">
+            <img id="img-spinner" src="resources/spinner.gif" alt="Loading...">
+        </div>
+
+        <div class="row" ng-if="stuffs.length > 0">
+            <div class="col-sm-6 col-md-4 fadeIn animated" ng-repeat="stuff in stuffs">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>{{stuff.category}}</h3>
+                        <p>{{stuff.name}}</p>
+                        <button class="btn btn-default btn-xs" ng-click="editStuffDialog(stuff._id)">Edit</button>
+                        <button class="btn btn-danger btn-xs" ng-click="deleteStuffDialog(stuff._id)">Delete</button>
+                    </div>
                 </div>
             </div>
-            <hr/>
-
-            <ul class="list-group" ng-show="stuffs.length > 0">
-                <li class="list-group-item clearfix" ng-repeat="stuff in stuffs">
-                    <p class="lead">{{stuff.name}}</p>
-                    <div>
-                        <span class="pull-right">
-                            <button class="btn btn-default btn-xs" ng-click="editStuffDialog(stuff._id)">Edit</button>
-                            <button class="btn btn-danger btn-xs" ng-click="deleteStuffDialog(stuff._id)">Delete</button>
-                        </span>
-                    </div>
-                </li>
-            </ul>
+        </div>
+        <div class="row col-md-12" ng-if="!stuffs.length">
+            <div>
+                There are no stuffs.
+            </div>
         </div>
         <!-- Modal -->
         <div class="modal fade" id="genericModal" tabindex="-1" role="dialog" aria-labelledby="genericModalLabel">
@@ -72,12 +91,14 @@
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">Stuff Name:</label>
                                 <input type="text" class="form-control" id="recipient-name" placeholder="{{stuffName}}" ng-model="stuffName">
+                                <label for="recipient-category" class="control-label">Stuff Category:</label>
+                                <input type="text" class="form-control" id="recipient-category" placeholder="{{stuffCategory}}" ng-model="stuffCategory">
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button id="modalSubmitBtn" type="button" class="btn btn-primary" ng-click="handleEvents(stuffName)">{{buttonState}}</button>
+                        <button id="modalSubmitBtn" type="button" class="btn btn-primary" ng-disabled="!(!!stuffName && !!stuffCategory)" ng-click="handleEvents()">{{buttonState}}</button>
                     </div>
                 </div>
             </div>

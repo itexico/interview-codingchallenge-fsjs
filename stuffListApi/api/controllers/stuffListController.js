@@ -5,7 +5,6 @@ var mongoose = require('mongoose'),
 exports.list_all_stuffs = function(req, res) {
     Stuff.find({}, function(err, stuff) {
         if (err) res.send(err);
-        console.log(stuff);
         res.json(stuff);
     });
 };
@@ -43,6 +42,15 @@ exports.delete_stuff = function(req, res) {
         if (err) res.send(err);
         res.json({
             message: 'Stuff deleted successfully.'
+        });
+    });
+};
+
+exports.delete_all_stuffs = function(req, res) {
+    Stuff.remove({}, function(err, stuff) {
+        if (err) res.send(err);
+        res.json({
+            message: 'All Stuff deleted successfully.'
         });
     });
 };

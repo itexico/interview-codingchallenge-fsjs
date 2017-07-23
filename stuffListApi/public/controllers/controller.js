@@ -23,6 +23,10 @@ app.factory('Stuffs', ['$http', function($http) {
         return $http.delete('/stuffs/' + stuffId);
     }
 
+    stuffsFactory.deleteAllStuff = function() {
+        return $http.delete('/stuffs');
+    }
+
     return stuffsFactory;
 }]);
 
@@ -52,6 +56,7 @@ app.controller('StuffController', ['$scope', '$filter', 'Stuffs', function($scop
         Stuffs.readStuff(stuffId).then(function successCallback(response) {
             record = response.data;
             $scope.stuffName = record.name;
+            $scope.stuffCategory = record.category;
             $scope.currentStuffId = record._id;
             genericModalConfig(modalTitle, action);
         }, function errorCallback(response) {
@@ -62,15 +67,16 @@ app.controller('StuffController', ['$scope', '$filter', 'Stuffs', function($scop
     showSpinner(true);
     refresh();
 
-    $scope.addStuff = function() {
-        Stuffs.createStuff({
-            'name': $scope.stuff
-        }).then(function successCallback(response) {
-            console.log(response.data);
-            refresh();
-        }, function errorCallback(response) {
-            console.log(response.data);
-        });
+    $scope.onFetchData = function() {
+        refresh();
+    }
+
+    $scope.createStuffDialog = function() {
+        $('#modalBody').show();
+        $('#modalSubmitBtn').prop('disabled', true);
+        $scope.stuffName = null; //cleaning the inputs.
+        $scope.stuffCategory = null;
+        genericModalConfig('Create a stuff you love ❤', 'Create');
     }
 
     $scope.editStuffDialog = function(_id) {
@@ -80,13 +86,29 @@ app.controller('StuffController', ['$scope', '$filter', 'Stuffs', function($scop
 
     $scope.deleteStuffDialog = function(_id) {
         $('#modalBody').hide();
-        readRecord(_id, 'Are you sure?', 'Delete');
+        readRecord(_id, 'Do you really want to delete this stuff?', 'Delete');
+    }
+
+    $scope.deleteAllStuffDialog = function() {
+        $('#modalBody').hide();
+        $('#modalSubmitBtn').prop('disabled', false);
+        genericModalConfig('Do you really want to delete all stuff?', 'Delete All');
     }
 
     $scope.handleEvents = function() {
         showSpinner(true);
         var action = $('#modalSubmitBtn')[0].textContent; //dummy action.
-        if (action === 'Delete') {
+        if (action === 'Create') {
+            Stuffs.createStuff({
+                'name': $scope.stuffName,
+                'category': $scope.stuffCategory
+            }).then(function successCallback(response) {
+                console.log(response.data);
+                refresh();
+            }, function errorCallback(response) {
+                console.log(response.data);
+            });
+        } else if (action === 'Delete') {
             Stuffs.deleteStuff($scope.currentStuffId).then(function successCallback(response) {
                 console.log(response.data);
                 refresh();
@@ -95,8 +117,16 @@ app.controller('StuffController', ['$scope', '$filter', 'Stuffs', function($scop
             });
         } else if (action === 'Update') {
             Stuffs.updateStuff($scope.currentStuffId, {
-                'name': $scope.stuffName
+                'name': $scope.stuffName,
+                'category': $scope.stuffCategory
             }).then(function successCallback(response) {
+                console.log(response.data);
+                refresh();
+            }, function errorCallback(response) {
+                console.log(response.message);
+            });
+        } else if (action === 'Delete All') {
+            Stuffs.deleteAllStuff($scope.currentStuffId, {}).then(function successCallback(response) {
                 console.log(response.data);
                 refresh();
             }, function errorCallback(response) {
@@ -104,10 +134,10 @@ app.controller('StuffController', ['$scope', '$filter', 'Stuffs', function($scop
             });
         }
 
-        $('#genericModal').modal('toggle'); //close modal
+        $('#genericModal').modal('toggle'); //close modal.
     }
 
-    function genericModalConfig(modalTitle, buttonState) { //build the modal title and button text
+    function genericModalConfig(modalTitle, buttonState) { //build the modal title and button text.
         $('#genericModal').modal('show');
         $scope.modalTitle = modalTitle;
         $scope.buttonState = buttonState;

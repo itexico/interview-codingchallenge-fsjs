@@ -4,6 +4,7 @@ module.exports = function(app) {
 
     app.route('/stuffs')
         .get(stuffList.list_all_stuffs)
+        .delete(stuffList.delete_all_stuffs)
         .post(stuffList.create_stuff);
 
     app.route('/stuffs/:stuffId')
