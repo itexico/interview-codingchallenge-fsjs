@@ -1,3 +1,9 @@
+# Comments from developer
+Simple app using NodeJs (Express), MongoDB (Mongoose), Bootstrap and AngularJS.
+To test the endpoints in a simpler way I was using Postman, maybe that can be helpful.
+App is running under 8080 port.
+If there are questions, please send a mail to: emigdio821@gmail.com
+
 # Let's code some JS!
 
 Hey, welcome to the first coding challenge of your interview process, you'll be presented with a set of steps to accomplish in order to get yourself graded on 

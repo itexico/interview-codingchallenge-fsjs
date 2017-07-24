@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myStuffApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Favorite Stuff</title>
+    <link rel="shortcut icon" type="image/ico" href="resources/_previmg.ico" />
+    <!-- Bootstrap CDN's-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- JQuery CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- AngularJS CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.5/angular-route.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!--Main JS-->
+    <script src="controllers/controller.js"></script>
+    <style type="text/css" media="screen">
+        #spinner {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" ng-controller="StuffController">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <p class="navbar-brand" href="#">My Favorite Stuff</p>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <form class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search stuffs" ng-disabled="!stuffs.length" ng-model="search" ng-model-options="{debounce: 600}">
+                            <button type="button" class="btn btn-primary" ng-click="createStuffDialog()">
+                                <span class="glyphicon glyphicon-plus"></span> Create Stuff
+                            </button>
+                            <button type="button" class="btn btn-success" ng-click="onFetchData()">
+                                <span class="glyphicon glyphicon-refresh"></span> Fetch/Reload
+                            </button>
+                            <button type="button" class="btn btn-danger" ng-disabled="!stuffs.length" ng-click="deleteAllStuffDialog()">
+                                <span class="glyphicon glyphicon-trash"></span> Delete All
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+
+        <div id="spinner">
+            <img id="img-spinner" src="resources/spinner.gif" alt="Loading...">
+        </div>
+        <h3 ng-if="stuffs.length > 0">Stuffs which I love</h3>
+        <hr>
+        <div class="row" ng-if="stuffs.length > 0">
+            <div class="col-sm-6 col-md-4 fadeIn animated" ng-repeat="stuff in stuffs | filter:search">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h4>{{stuff.category}}</h4>
+                        <p>{{stuff.name}}</p>
+                        <button class="btn btn-default btn-xs" ng-click="editStuffDialog(stuff._id)">Edit</button>
+                        <button class="btn btn-danger btn-xs" ng-click="deleteStuffDialog(stuff._id)">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 ng-if="stuffs.length > 0">Categories</h3>
+        <hr>
+        <div class="row" ng-if="stuffs.length > 0">
+            <div class="col-sm-6 col-md-4 fadeIn animated" ng-repeat="stuff in stuffCategorized | filter:search">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h4>{{stuff.category}}</h4>
+                        <div>
+                            <p ng-repeat="stuffName in stuff.names">{{stuffName}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row col-md-12" ng-if="!stuffs.length">
+            <div>
+                There are no stuffs.
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="genericModal" tabindex="-1" role="dialog" aria-labelledby="genericModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">{{modalTitle}}</h4>
+                    </div>
+                    <div class="modal-body" id="modalBody">
+                        <form>
+                            <div class="form-group">
+                                <label for="recipient-name" class="control-label">Stuff Name:</label>
+                                <input type="text" class="form-control" id="recipient-name" placeholder="{{stuffName}}" ng-model="stuffName">
+                                <label for="recipient-category" class="control-label">Stuff Category:</label>
+                                <input type="text" class="form-control" id="recipient-category" placeholder="{{stuffCategory}}" ng-model="stuffCategory">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button id="modalSubmitBtn" type="button" class="btn btn-primary" ng-disabled="!(!!stuffName && !!stuffCategory)" ng-click="handleEvents()">{{buttonState}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal -->
+    </div>
+</body>
+
+</html>
