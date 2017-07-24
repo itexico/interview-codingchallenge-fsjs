@@ -44,6 +44,7 @@ app.controller('StuffController', ['$scope', '$filter', 'Stuffs', function($scop
     var refresh = function() {
         Stuffs.getStuffs().then(function successCallback(response) {
             $scope.stuffs = response.data;
+            putRecordInCategory();
             showSpinner(false);
         }, function errorCallback(response) {
             console.log(response.data);
@@ -63,6 +64,36 @@ app.controller('StuffController', ['$scope', '$filter', 'Stuffs', function($scop
             console.log(response.data);
         });
     };
+
+    var putRecordInCategory = function() {
+        var categories = [];
+        $scope.stuffCategorized = categories;
+
+        for (var i = 0; i < $scope.stuffs.length; i++) {
+            if (categories.length) {
+                var match = false;
+                var counter = categories.length;
+                for (var j = 0; j < counter; j++) {
+                    if (categories[j].category.toLowerCase().indexOf($scope.stuffs[i].category.toLowerCase()) > -1) {
+                        categories[j].names.push($scope.stuffs[i].name);
+                        match = true;
+                        continue;
+                    } else if ((j === categories.length - 1) && !match) {
+                        match = false;
+                        categories.push({
+                            'category': $scope.stuffs[i].category,
+                            'names': [$scope.stuffs[i].name]
+                        });
+                    }
+                }
+            } else {
+                categories.push({
+                    'category': $scope.stuffs[i].category,
+                    'names': [$scope.stuffs[i].name]
+                });
+            }
+        }
+    }
 
     showSpinner(true);
     refresh();

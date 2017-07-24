@@ -60,12 +60,13 @@
         <div id="spinner">
             <img id="img-spinner" src="resources/spinner.gif" alt="Loading...">
         </div>
-
+        <h3 ng-if="stuffs.length > 0">Stuffs which I love</h3>
+        <hr>
         <div class="row" ng-if="stuffs.length > 0">
-            <div class="col-sm-6 col-md-4 fadeIn animated" ng-repeat="stuff in stuffs">
+            <div class="col-sm-6 col-md-4 fadeIn animated" ng-repeat="stuff in stuffs | filter:search">
                 <div class="thumbnail">
                     <div class="caption">
-                        <h3>{{stuff.category}}</h3>
+                        <h4>{{stuff.category}}</h4>
                         <p>{{stuff.name}}</p>
                         <button class="btn btn-default btn-xs" ng-click="editStuffDialog(stuff._id)">Edit</button>
                         <button class="btn btn-danger btn-xs" ng-click="deleteStuffDialog(stuff._id)">Delete</button>
@@ -73,6 +74,22 @@
                 </div>
             </div>
         </div>
+
+        <h3 ng-if="stuffs.length > 0">Categories</h3>
+        <hr>
+        <div class="row" ng-if="stuffs.length > 0">
+            <div class="col-sm-6 col-md-4 fadeIn animated" ng-repeat="stuff in stuffCategorized | filter:search">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h4>{{stuff.category}}</h4>
+                        <div>
+                            <p ng-repeat="stuffName in stuff.names">{{stuffName}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row col-md-12" ng-if="!stuffs.length">
             <div>
                 There are no stuffs.
