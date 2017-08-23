@@ -1,0 +1,33 @@
+{
+  "name": "interview-codingchallenge-fsjs",
+  "version": "1.0.0",
+  "description": "itexico challenge",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdrianaHY/interview-codingchallenge-fsjs.git"
+  },
+  "keywords": [
+    "react",
+    "mongodb",
+    "mongoose"
+  ],
+  "author": "AdrianaHY",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdrianaHY/interview-codingchallenge-fsjs/issues"
+  },
+  "homepage": "https://github.com/AdrianaHY/interview-codingchallenge-fsjs#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.11.7"
+  }
+}
