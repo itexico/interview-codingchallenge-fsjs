@@ -1,0 +1,32 @@
+{
+  "name": "interview-codingchallenge-fsjs",
+  "version": "1.0.0",
+  "description": "itexico challenge",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabyx08/interview-codingchallenge-fsjs.git"
+  },
+  "keywords": [
+    "Node.js",
+    "Express",
+    "MongoDb",
+    "Mongoose"
+  ],
+  "author": "Gabriela Rangel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabyx08/interview-codingchallenge-fsjs/issues"
+  },
+  "homepage": "https://github.com/gabyx08/interview-codingchallenge-fsjs#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4"
+  }
+}
