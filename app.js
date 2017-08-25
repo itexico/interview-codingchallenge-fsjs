@@ -4,6 +4,11 @@ var express = require("express"),
         methodOverride = require("method-override"),
         mongoose = require("mongoose");
 
+mongoose.createConnection('mongodb://localhost/books', function(err, res) {
+  if(err) throw err;
+  console.log('Connected to Database');
+});
+
 app.use(bodyParser.urlencoded({ extended : false}));
 app.use(bodyParser.json());
 app.use(methodOverride());
@@ -16,6 +21,12 @@ router.get('/', function(req, res){
 
 app.use(router);
 
-app.listen(3000,function(){
-  console.log("Node server running on http://localhost:3000");
+mongoose.createConnection('mongodb://localhost/books', function(err,res){
+  if(err){
+    console.log('ERROR: connecting to Database. ' + err);
+  }
+  app.listen(3000,function(){
+    console.log("Node server running on http://localhost:3000");
+  });
+
 });
