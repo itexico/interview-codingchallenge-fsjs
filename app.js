@@ -13,6 +13,22 @@ app.use(bodyParser.urlencoded({ extended : false}));
 app.use(bodyParser.json());
 app.use(methodOverride());
 
+var BookCtrl = require("./controllers/books");
+
+//API routes
+var books = express.Router();
+
+books.route("/books")
+  .get(BookCtrl.findAllBooks)
+  .post(BookCtrl.addBook);
+
+books.route("/books/:id")
+  .get(BookCtrl.findById)
+  .put(BookCtrl.updateBook)
+  .delete(BookCtrl.deleteBook);
+
+app.use("/api", books);
+
 var router = express.Router();
 
 router.get('/', function(req, res){
