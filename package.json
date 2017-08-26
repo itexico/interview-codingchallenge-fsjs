@@ -28,7 +28,8 @@
   "homepage": "https://github.com/gabyx08/interview-codingchallenge-fsjs#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "mongoose": "^4.11.8"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
