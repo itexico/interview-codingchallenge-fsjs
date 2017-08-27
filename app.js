@@ -31,9 +31,9 @@ app.use("/api", books);
 
 var router = express.Router();
 
-router.get('/', function(req, res){
-  res.send("Hello world!");
-});
+// router.get('/', function(req, res){
+//   res.send("Hello world!");
+// });
 
 app.use(router);
 

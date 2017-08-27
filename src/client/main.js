@@ -25,7 +25,7 @@ function mainController($scope, $http) {
 
  //delete a book with a specified id
 
- $scope.deleteBook = function(){
+ $scope.deleteBook = function(id){
    $http.delete("/books/:id")
     .success(function(data){
       $scope.books = data;

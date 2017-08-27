@@ -4,10 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <title>iTexico's challenge</title>
 </head>
-
 <body ng-controller="mainController">
+  <div class="container">
+    <div class="page-header">
+      <h1>My Book List<small>iTexico</small></h1>
+    </div>
 
+    <div class="checkbox" ng-repeat="book in books">
+    	<label>
+        	<input type="checkbox" ng-click="deleteBook(book._id)"> {{ book.text }}
+    	</label>
+    </div>
+    <form>
+    	<div class="form-group">
+    		<input type="text" class="form-control input-lg text-center" placeholder="Insert a new book" ng-model="formData.text">
+    	</div>
+    	<button class="btn btn-primary btn-lg" ng-click="addBook()">
+    		Add
+    	</button>
+    </form>
+  </div>
+
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.6.6/angular-locale_en-us.min.js"></script>
+   <script src="main.js"></script>
 </body>
 </html>
