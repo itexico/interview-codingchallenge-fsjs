@@ -6,7 +6,6 @@ var Books = mongoose.model("Books", bookSchema);
 exports.findAllBooks = function(req, res) {
   Book.find(function(err, books){
     if(err) res.send(500, err.message);
-
     console.log("GET/books")
     res.status(200),jsonp(books);
   });
