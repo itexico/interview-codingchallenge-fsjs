@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/IlseMagali/interview-codingchallenge-fsjs/issues"
   },
-  "homepage": "https://github.com/IlseMagali/interview-codingchallenge-fsjs#readme"
+  "homepage": "https://github.com/IlseMagali/interview-codingchallenge-fsjs#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
 }
