@@ -34,6 +34,10 @@ var router = express.Router();
 // router.get('/', function(req, res){
 //   res.send("Hello world!");
 // });
+app.use(express.static(__dirname + '/src'));
+app.get('*', function(req, res) {
+	res.sendFile('./src/client/index.html');
+});
 
 app.use(router);
 
