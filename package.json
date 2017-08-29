@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/IlseMagali/interview-codingchallenge-fsjs#readme",
   "dependencies": {
-    "express": "^4.15.4"
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.11.9"
   }
 }
