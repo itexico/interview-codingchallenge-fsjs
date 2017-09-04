@@ -55,3 +55,9 @@ Stuff that will be graded
     Requirement coverage        ( Is the application doing what it is meant to be doing? )
     Rule compliance             ( Did i follow the few rules set on **The rules** ? )
     
+
+Para arrancarlo es necesario correr en la carpeta del server el bower install 
+y por su parte en la carpeta del server el npm install 
+para correr el server es npm run start y el front yo lo tenía montado sobre apache.
+
+Saludos.
