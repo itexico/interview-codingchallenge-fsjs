@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="dismiss()">&times;</button>
+    <h4 class="modal-title">Add list</h4>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="description">Description</label>  
+            <div class="col-md-9">
+                <input ng-model="addListVm.list.description" id="description" name="description" type="text" placeholder="Write description" class="form-control input-md-12">
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <div ng-show="addListVm.displayError === false" class="alert alert-success">
+      <strong>Success!</strong> Item has been updated.
+    </div>
+    <div ng-show="addListVm.displayError === true" class="alert alert-danger">
+      <strong>Error!</strong> This feature is unavailable.
+    </div>
+    <button type="button" class="btn btn-default" ng-click="dismiss()">Close</button>
+    <button type="button" class="btn btn-primary" ng-click="addList()">Add</button>
+</div>

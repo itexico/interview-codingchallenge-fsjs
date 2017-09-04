@@ -1,0 +1,27 @@
+{
+  "name": "itexico-client",
+  "description": "Itexico POC",
+  "main": "",
+  "license": "MIT",
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "^1.6.6",
+    "angular-ui-router": "^1.0.6",
+    "angular-resource": "^1.6.6",
+    "angular-bootstrap": "^2.5.0"
+  },
+  "dependencies": {
+    "angular": "^1.6.6",
+    "angular-ui-router": "^1.0.6",
+    "angular-resource": "^1.6.6",
+    "angular-bootstrap": "^2.5.0"
+  }
+}

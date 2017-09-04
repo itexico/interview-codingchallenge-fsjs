@@ -1,0 +1,23 @@
+{
+  "name": "itexico-server",
+  "version": "1.0.0",
+  "description": "Itexico POC",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Esteban",
+  "license": "ISC",
+  "devDependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "nodemon": "^1.11.0",
+    "mongoose": "^4.11.9"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.4",
+    "nodemon": "^1.11.0",
+    "mongoose": "^4.11.9"
+  }
+}

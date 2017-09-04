@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title">Delete item #{{ deleteItemVm.item.id }}</h4>
+</div>
+<div class="modal-body">
+    Are you sure you want to delete this item, "{{ deleteItemVm.item.description }}"?
+</div>
+<div class="modal-footer">
+    <div ng-show="deleteItemVm.displayError === false" class="alert alert-success">
+      <strong>Success!</strong> Item has been updated.
+    </div>
+    <div ng-show="deleteItemVm.displayError === true" class="alert alert-danger">
+      <strong>Error!</strong> This feature is unavailable.
+    </div>
+    <button type="button" class="btn btn-default" ng-click="dismiss()">Close</button>
+    <button type="button" class="btn btn-primary" ng-click="deleteItem()">Delete</button>
+</div>

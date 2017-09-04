@@ -1,0 +1,59 @@
+<div ng-controller="listsController as listsVm">
+    <div class="panel panel-default">
+        <div class="panel-heading">My Lists</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <form class="form-horizontal">
+                        <!-- Select Basic -->
+                        <div class="form-group col-md-6 col-xs-12">
+                            <label class="col-md-2 control-label" for="list">My lists</label>
+                            <div class="col-md-10">
+                                <select ng-model="listsVm.optionSelected" id="list" name="list" class="form-control">
+                                    <option value="">Select a list to start</option>
+                                    <option ng-repeat="option in listsVm.lists" ng-value="option.id">{{option.description}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 col-xs-12">
+                            <div ng-show="listsVm.optionSelected" class="col-md-4 col-xs-12">
+                                <button ng-click="updateListForm(listsVm.listSelected)" class="btn btn-default col-md-12 col-xs-12">Edit</button>
+                            </div>
+                            <div ng-show="listsVm.optionSelected" class="col-md-4 col-xs-12">
+                                <button ng-click="deleteListForm(listsVm.listSelected)" class="btn btn-danger col-md-12 col-xs-12">Delete</button>
+                            </div>
+                            <div class="col-md-4 col-xs-12">
+                                <button ng-click="addListForm()" class="btn btn-primary col-md-12 col-xs-12">Add list</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-12" ng-show="listsVm.optionSelected">
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button ng-click="addItemForm(listsVm.listSelected)" class="btn btn-primary">Add item</button>
+                        </div>
+                    </div>
+                    <table ng-show="listsVm.listSelected.items.length > 0" class="table table-striped col-md-12">
+                        <thead>
+                            <tr>
+                                <th class="col-md-9">Item</th>
+                                <th class="col-md-3">Options </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in listsVm.listSelected.items">
+                                <td>{{item.description}}</td>
+                                <td>
+                                    <button ng-click="updateItemForm(item)" class="btn btn-default col-md-5 col-xs-12">Edit</button>
+                                    <button ng-click="deleteItemForm(item)" class="btn btn-danger col-md-5 col-xs-12">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>

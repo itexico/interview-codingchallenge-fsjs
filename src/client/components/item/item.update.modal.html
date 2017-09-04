@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title">Update item #{{ updateItemVm.item.id }}</h4>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="description">Description</label>  
+            <div class="col-md-9">
+                <input ng-model="updateItemVm.item.description" id="description" name="description" type="text" placeholder="Write description" class="form-control input-md-12">
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <div ng-show="updateItemVm.displayError === false" class="alert alert-success">
+      <strong>Success!</strong> Item has been updated.
+    </div>
+    <div ng-show="updateItemVm.displayError === true" class="alert alert-danger">
+      <strong>Error!</strong> This feature is unavailable.
+    </div>
+    <button type="button" class="btn btn-default" ng-click="dismiss()">Close</button>
+    <button type="button" class="btn btn-primary" ng-click="updateItem()">Save changes</button>
+</div>

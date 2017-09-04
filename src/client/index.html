@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Itexico POC</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css"/>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script src="app.module.js"></script>
+        <script src="app.config.js"></script>
+        <script src="components/services/user.service.js"></script>
+        <script src="components/services/item.service.js"></script>
+        <script src="components/services/list.service.js"></script>
+        <script src="components/layout/navbar.controller.js"></script>
+        <script src="components/layout/dashboard.controller.js"></script>
+        <script src="components/list/list.controller.js"></script>
+        <script src="components/list/list.add.modal.controller.js"></script>
+        <script src="components/list/list.update.modal.controller.js"></script>
+        <script src="components/list/list.delete.modal.controller.js"></script>
+        <script src="components/item/item.add.modal.controller.js"></script>
+        <script src="components/item/item.update.modal.controller.js"></script>
+        <script src="components/item/item.delete.modal.controller.js"></script>
+    </head>
+    <body>
+        <div ng-app="app">
+            <header ng-include="'components/layout/navbar.html'" ng-controller="navBarController"></header>
+            <div ui-view class="container">
+            </div>
+        </div>
+    </body>
+</html>
