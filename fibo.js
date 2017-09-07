@@ -20,4 +20,9 @@ const fibonacci = function (inWhatever){
         }
     } else { console.log("Not a Number, NaN") }
 }
+fibonacci(3);
 fibonacci(6);
+fibonacci(610);
+fibonacci(13500);
+fibonacci(4181);
+fibonacci("=P");
