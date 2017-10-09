@@ -1,0 +1,37 @@
+{
+  "name": "testApp",
+  "version": "1.0.0",
+  "description": "RESTFul API for list creation.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./app/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Oscarz90/OnlineStore.git"
+  },
+  "author": "Oscarz90",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Oscarz90/OnlineStore/issues"
+  },
+  "homepage": "https://github.com/Oscarz90/OnlineStore#readme",
+  "dependencies": {
+    "async": "^2.1.4",
+    "body-parser": "^1.16.1",
+    "change-case": "^3.0.1",
+    "dotenv": "^4.0.0",
+    "express": "^4.14.1",
+    "jquery": "^3.2.1",
+    "mongoose": "^4.8.2",
+    "nconf": "^0.8.4",
+    "require-dir": "^0.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
