@@ -15,6 +15,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
 app.use(cookieParser());
 
+app.use((req, res, next) => {
+  if (!req.cookies.auth) return res.json({ message: 'missing cookie' });
+  console.log('Auth cookie value: ', req.cookies.auth);
+  next();
+});
+
 app.use('/api', routes);
 
 module.exports = app;
