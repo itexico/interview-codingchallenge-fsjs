@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 const expressValidator = require('express-validator');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const path = require('path');
 const routes = require('./routes');
 
 const app = express();
 
+app.use(cors());
 app.use(express.static(path.join(__dirname, 'static')));
 
 app.use(bodyParser.json());
