@@ -3,5 +3,8 @@
     ["env", {
       "modules": false
     }]
+  ],
+  "plugins": [
+    "transform-runtime"
   ]
 }

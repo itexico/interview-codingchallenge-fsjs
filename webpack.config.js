@@ -29,14 +29,18 @@ const config = {
   module: {
     rules: [javascript]
   },
+  resolve: {
+    alias: {
+      vue: 'vue/dist/vue.js'
+    }
+  },
   plugins: [
     uglify,
     new HtmlWebpackPlugin({
-      title: 'Challenge App'
+      title: 'Challenge App',
+      template: './src/client/index.template.html'
     })
   ]
 };
-// webpack is cranky about some packages using a soon to be deprecated API. shhhhhhh
-process.noDeprecation = true;
 
 module.exports = config;
