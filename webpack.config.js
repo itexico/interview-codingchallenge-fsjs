@@ -12,10 +12,6 @@ const javascript = {
   exclude: /node_modules/
 };
 
-const uglify = new webpack.optimize.UglifyJsPlugin({
-  compress: { warnings: false }
-});
-
 const config = {
   entry: {
     app: './src/client/index.js'
@@ -35,7 +31,6 @@ const config = {
     }
   },
   plugins: [
-    uglify,
     new HtmlWebpackPlugin({
       title: 'Challenge App',
       template: './src/client/index.template.html'

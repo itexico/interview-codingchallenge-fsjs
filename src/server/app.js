@@ -20,7 +20,6 @@ app.use(cookieParser());
 
 app.use((req, res, next) => {
   if (!req.cookies.auth) return res.json({ message: 'missing cookie' });
-  console.log('Auth cookie value: ', req.cookies.auth);
   next();
 });
 
