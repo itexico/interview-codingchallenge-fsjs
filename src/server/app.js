@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const routes = require('./routes');
+const { showErrors } = require('./controllers/errorsController');
 
 const app = express();
 
@@ -24,5 +25,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/api', routes);
+
+app.use(showErrors);
 
 module.exports = app;

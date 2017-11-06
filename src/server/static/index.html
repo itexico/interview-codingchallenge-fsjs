@@ -10,6 +10,10 @@
 <body>
   <div id="app" class="container">
 
+    <div class="notification" style="z-index: 10000" v-for="error in errors">
+      {{ error.message }}
+    </div>
+
     <div class="column field is-grouped">
       <p class="control">
         <a class="button" @click="isListModalActive = true">New List</a>
@@ -18,14 +22,14 @@
         <input class="input" type="text" placeholder="Update List Name" v-model="listType">
       </p>
       <p class="control">
-        <a class="button is-info" :disabled="selectedListId === '' " @click="editList">Update List</a>
+        <a class="button is-info" :disabled="selectedListId === '' " @click="editList().catch(showErrors)">Update List</a>
       </p>
       <p class="control">
-        <a class="button is-danger" :disabled="selectedListId === '' " @click="deleteList">Delete List</a>
+        <a class="button is-danger" :disabled="selectedListId === '' " @click="deleteList().catch(showErrors)">Delete List</a>
       </p>
     </div>
 
-    <div class="tabs">
+    <div class="tabs column">
       <ul>
         <list @list-selected="selectList" v-for="(list, index) in lists" :list="list" :key="index" :is-active="list._id === selectedListId"></list>
       </ul>
@@ -36,7 +40,8 @@
     </div>
 
     <div class="column">
-      <item @edit-item="editItem" @delete-item="deleteItem" v-for="(item, index) in listItems" :key="index" :item="item"></item>
+      <item @edit-item="editItem($event).catch(showErrors)" @delete-item="deleteItem" v-for="(item, index) in listItems" :key="index"
+        :item="item"></item>
     </div>
 
     <div class="modal" :class="{'is-active': isModalActive }">
@@ -49,7 +54,7 @@
           </div>
         </div>
         <div class="field">
-          <a class="button" @click="saveItem">Save Item</a>
+          <a class="button" @click="saveItem().catch(showErrors)">Save Item</a>
         </div>
       </div>
       <button class="modal-close is-large" aria-label="close" @click=""></button>
@@ -65,7 +70,7 @@
           </div>
         </div>
         <div class="field">
-          <a class="button" @click="saveList">Create List</a>
+          <a class="button" @click="saveList().catch(showErrors)">Create List</a>
         </div>
       </div>
       <button class="modal-close is-large" aria-label="close" @click="reset"></button>
