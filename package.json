@@ -7,9 +7,10 @@
     "test": "test"
   },
   "scripts": {
+    "server": "node ./src/server/index.js",
     "start": "npm run client &&  node ./src/server/index.js",
     "client": "webpack",
-    "test": "concurrently --kill-others \"npm run start\" \"npm run really-test\"",
+    "test": "concurrently --kill-others \"npm run server\" \"npm run really-test\"",
     "really-test": "BABEL_ENV=test mocha --compilers js:babel-core/register ./test/endpoints.spec.js "
   },
   "repository": {
