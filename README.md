@@ -7,13 +7,13 @@ Hey, welcome to the first coding challenge of your interview process, you'll be 
 ## The Prereqs
 This challenge assumes your knowledge or skills to leverage on the following topics,
 
-  - Vanilla JavaScript (or plain JavaScript)
+  - JavaScript
   - NodeJS
   - Express
   - MongoDB
   - Mongoose (or another nodejs based ORM for mongodb)
   - RESTful APIs, webservices
-  - A client side MV* framwork or library (Angular1, Angular2, React(not an mvc, tho) )
+  - A client side MV* framwork or library (Angular1, Angular2, React(not an mv*, tho) )
   - Code quality and testing
 
 ## The rules
