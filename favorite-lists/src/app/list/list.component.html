@@ -1,0 +1,11 @@
+<h1>List Main component</h1>
+
+<pre>
+    {{ lists | json}}
+</pre>
+
+
+<app-list-new (createNewListEvent)="create($event)">
+</app-list-new>
+
+<app-list-items [lists] ="lists"></app-list-items>
