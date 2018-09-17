@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Favorite Lists</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="icon" href="./assets/images/favs.png" type="text/x-icon">
+    <link rel="stylesheet" href="css/assets/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!--Header - Nav-->
+    <header>
+        <nav id="nav-bar">
+            <h2>Favs</h2>
+            <!--<img class="logo-favs" src="assets/images/favs.png" alt="logo-favs">-->
+            <ul id="list-icons" class=" nav justify-content-end">
+                <li class="nav-item">
+                    <a id="about" class="nav-link active" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a id="contact" class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!--Content Section-->
+    <section id="content-section" class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="start-now col-md-4">
+            <!--<img src="assets/images/start.gif" alt="">-->
+            <h4>Create now your favorite list!</h4>
+            <button type="button" class="btn btn-info btn-start" data-toggle="modal" data-target="#exampleModal">Start</button>
+            <div id="container-lists">
+            </div>
+        </div>
+    </section>
+    <!--Modal Create Lists-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add a new fav list</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Name of list</label>
+                            <input id="nameOfList" type="text" class="form-control" id="formGroupExampleInput" placeholder="Example: movies">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button id="createBtn" class="btn btn-info btn-start" data-dismiss="modal">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal Create Item-->
+    <div class="modal fade add-item" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add an item</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="formGroupExampleInput">Name of list</label>
+                                <input id="nameOfList" type="text" class="form-control" id="formGroupExampleInput" placeholder="Example: movies">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button id="createBtn" class="btn btn-info btn-start" data-dismiss="modal">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--Footer-->
+    <!--
+    <footer id="footer-section">
+        <small>© 2018. All rights reserved Favs.</small>
+    </footer>-->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/assets/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
