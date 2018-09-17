@@ -1,8 +1,8 @@
-<h3>List items component</h3>
+<h3>Lists of favorite items</h3>
 
 <div *ngFor="let list of lists">
   {{list._id}} - {{list.title}} - {{list.item}}
-
+  <br>
   <button>
     Add
   </button>
@@ -10,10 +10,11 @@
     Edit
   </button>
   <app-list-edit *ngIf = "list.editable" [list]="list" (updateListEvent) = "update($event)">
-    
   </app-list-edit>
   <button (click)="destroy(list)">
     Delete
   </button>
+  <br>
+  <br>
 </div>
 

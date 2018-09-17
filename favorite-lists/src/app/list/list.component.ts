@@ -9,9 +9,7 @@ import { List } from './list';
 })
 export class ListComponent implements OnInit {
   lists: List[] = [
-    new List(1, 'Favorite food', 'Vegetable soup'),
-    new List(2, 'Favorite movie', 'Mulan'),
-    new List(3, 'Favorite place', 'Swiss Alps')
+    new List(1, 'Favorite food', 'Vegetable soup')
   ];
 
   constructor(
