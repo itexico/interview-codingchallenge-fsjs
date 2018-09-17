@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ListService } from './list.service';
 import { List } from './list';
 
@@ -30,6 +29,16 @@ export class ListComponent implements OnInit {
 
   create(list: List) {
     this.lists.push(list);
+  }
+
+  destroy(list: List) {
+    const removeList = this.lists.indexOf(list);
+    this.lists.splice(removeList, 1);
+  }
+
+  update(lists) {
+    const editList = this.lists.indexOf(lists.original);
+    this.lists[editList] = lists.edited;
   }
 
 }

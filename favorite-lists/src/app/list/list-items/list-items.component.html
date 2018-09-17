@@ -2,4 +2,18 @@
 
 <div *ngFor="let list of lists">
   {{list._id}} - {{list.title}} - {{list.item}}
+
+  <button>
+    Add
+  </button>
+  <button (click)="list.editable = !list.editable">
+    Edit
+  </button>
+  <app-list-edit *ngIf = "list.editable" [list]="list" (updateListEvent) = "update($event)">
+    
+  </app-list-edit>
+  <button (click)="destroy(list)">
+    Delete
+  </button>
 </div>
+

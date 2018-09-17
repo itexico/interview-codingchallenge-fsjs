@@ -19,4 +19,5 @@ export class ListNewComponent implements OnInit {
     this.createNewListEvent.emit(this.newList);
     this.newList = new List();
   }
+
 }
