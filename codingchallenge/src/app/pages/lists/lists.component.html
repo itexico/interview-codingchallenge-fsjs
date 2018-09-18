@@ -1,0 +1,29 @@
+<section class="row">
+    <h3 class="col s9">Mis Listas !!</h3>
+</section>
+<section>
+    <form class="col s12">
+        <div class="row">
+            <div class="input-field col s9">
+                <input id="new_list" type="text" class="validate">
+                <label for="new_list">Nueva Lista</label>
+            </div>
+            <div class="input-field col s2">
+                <a class="btn-floating btn-large waves-effect waves-light red center"><i class="material-icons">add</i></a>
+            </div>
+        </div>
+    </form>
+    <div id="containerLists">
+        <div *ngFor="let name of infoService.listas" class="row" id="{{name.tittle}}">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">mode_edit</i>
+                        <textarea id="icon_prefix2" class="materialize-textarea">{{name.tittle}}</textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</section>
