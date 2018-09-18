@@ -35,11 +35,10 @@ div.start-now  {
     padding-top: 25px;
 }
 
-/*
-@keyframes jump { 0% { top: 0; } 50% { top: 30px; } 100% { top: 0; } }
+@keyframes jump { 0% { top: 0; } 50% { top: 3px; } 100% { top: 0; } }
 
-.btn-start { position: relative; margin: 0 auto; text-align: center; animation: jump 5s infinite;
-}*/
+#btnStart { position: relative; margin: 0 auto; text-align: center; animation: jump 2s infinite;
+}
 
 div.card-template {
     min-width: 500px;
@@ -53,4 +52,8 @@ div#container-lists {
 
 a.btn-add {
     margin-right: 15px;
+}
+
+button#btnStart {
+    margin-left: 15px;
 }

@@ -14,7 +14,7 @@
     <header>
         <nav id="nav-bar">
             <h2>Favs</h2>
-            <!--<img class="logo-favs" src="assets/images/favs.png" alt="logo-favs">-->
+            <img class="logo-favs" src="assets/images/favs.png" alt="logo-favs">
             <ul id="list-icons" class=" nav justify-content-end">
                 <li class="nav-item">
                     <a id="about" class="nav-link active" href="#">About</a>
@@ -29,10 +29,13 @@
     <section id="content-section" class="row">
         <div class="col-md-4">
         </div>
-        <div class="start-now col-md-4">
-            <!--<img src="assets/images/start.gif" alt="">-->
-            <h4>Create now your favorite list!</h4>
-            <button type="button" class="btn btn-info btn-start" data-toggle="modal" data-target="#exampleModal">Start</button>
+        <div class="start-now col-md-7">
+            <img src="assets/images/start.gif" alt="">
+            <br>
+            <br>
+            <h4>Create now your favorite list!
+                <button id="btnStart" type="button" class="btn btn-info btn-start" data-toggle="modal" data-target="#exampleModal">Start</button>
+            </h4>
             <div id="container-lists">
             </div>
         </div>
@@ -75,14 +78,12 @@
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <label for="formGroupExampleInput">Name of list</label>
-                                <input id="nameOfList" type="text" class="form-control" id="formGroupExampleInput" placeholder="Example: movies">
+                                <input type="text" class="form-control new-item" id="formGroupExampleInput">
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button id="createBtn" class="btn btn-info btn-start" data-dismiss="modal">Create</button>
+                        <button class="btn btn-info add-btn" data-dismiss="modal">Add</button>
                     </div>
                 </div>
             </div>
