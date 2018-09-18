@@ -1,17 +1,17 @@
 <h3>Lists of favorite items</h3>
 
-<div *ngFor="let list of lists">
+<div id="container" *ngFor="let list of lists">
   {{list._id}} - {{list.title}} - {{list.item}}
   <br>
-  <button>
+  <button class="btn btn-outline-info">
     Add
   </button>
-  <button (click)="list.editable = !list.editable">
+  <button (click)="list.editable = !list.editable" class="btn btn-outline-info">
     Edit
   </button>
   <app-list-edit *ngIf = "list.editable" [list]="list" (updateListEvent) = "update($event)">
   </app-list-edit>
-  <button (click)="destroy(list)">
+  <button (click)="destroy(list)" class="btn btn-outline-info">
     Delete
   </button>
   <br>
