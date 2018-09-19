@@ -6,7 +6,7 @@ import { ItemsListComponent } from './pages/items-list/items-list.component';
 //Especificar rutas
 const app_routes: Routes = [
     {path: 'lists', component: ListsComponent},
-    {path: 'itemList', component: ItemsListComponent},
+    {path: 'itemList/:id', component: ItemsListComponent},
     {path: '**', pathMatch: 'full', redirectTo: ''}
 ]
 

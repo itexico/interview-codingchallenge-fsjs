@@ -14,7 +14,7 @@
         </div>
     </form>
     <div id="containerLists">
-        <div *ngFor="let name of infoService.listas" class="row" id="{{name.tittle}}">
+        <a *ngFor="let name of infoService.listas" class="row" [routerLink]="['/itemList', name.tittle]">
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col s6">
@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </form>
-        </div>
+        </a>
     </div>
 
 </section>

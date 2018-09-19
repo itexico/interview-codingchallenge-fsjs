@@ -1,7 +1,8 @@
 {
     "Listas": [{
             "tittle": "Movies",
-            "items": ["Star Wars", "La bella y la bestia", "Jurassic Park"]
+            "Movies": ["Star Wars", "La bella y la bestia", "Jurassic Park"]
+
         },
         {
             "tittle": "Tacos",

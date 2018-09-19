@@ -6,4 +6,5 @@ export interface InfoList{
 export interface Lista {
   tittle?: string;
   items?: string[];
+  Movies?: string[];
 }

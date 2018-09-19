@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router'
+import { InfoList, Lista } from '../../interfaces/info-lists.interface';
+import { InfoListsService } from '../../../assets/services/info-lists.service';
 
 @Component({
   selector: 'app-items-list',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemsListComponent implements OnInit {
 
-  constructor() { }
+  constructor( private route: ActivatedRoute,
+              public infoList:InfoListsService) { }
 
   ngOnInit() {
+
+    this.route.params
+    .subscribe(params =>{
+      console.log(params['id'])
+      this.infoList.getItemList()
+        
+      
+    });
   }
 
 }
