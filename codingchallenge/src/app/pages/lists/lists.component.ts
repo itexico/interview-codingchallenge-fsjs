@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { InfoListsService } from '../../../assets/services/info-lists.service';
-import { ActivatedRoute } from '../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-lists',
@@ -14,6 +13,7 @@ export class ListsComponent implements OnInit {
    }
 
   ngOnInit() {
+  
   }
 
 }

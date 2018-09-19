@@ -7,6 +7,10 @@
         {
             "tittle": "Tacos",
             "items": ["Asada", "Al pastor", "buche"]
+        },
+        {
+            "tittle": "Música",
+            "items": ["Pop", "Rock"]
         }
     ]
 }

@@ -7,7 +7,7 @@ import { ItemsListComponent } from './pages/items-list/items-list.component';
 const app_routes: Routes = [
     {path: 'lists', component: ListsComponent},
     {path: 'itemList/:id', component: ItemsListComponent},
-    {path: '**', pathMatch: 'full', redirectTo: ''}
+    {path: '**', pathMatch: 'full', redirectTo: 'list'}
 ]
 
 

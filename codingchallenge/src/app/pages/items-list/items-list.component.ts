@@ -9,18 +9,15 @@ import { InfoListsService } from '../../../assets/services/info-lists.service';
   styleUrls: ['./items-list.component.css']
 })
 export class ItemsListComponent implements OnInit {
-
+  tittle: any;
   constructor( private route: ActivatedRoute,
               public infoList:InfoListsService) { }
 
   ngOnInit() {
-
     this.route.params
     .subscribe(params =>{
-      console.log(params['id'])
-      this.infoList.getItemList()
-        
-      
+      this.tittle = params['id']
+      console.log(params['id']) 
     });
   }
 

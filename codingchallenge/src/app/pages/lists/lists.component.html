@@ -14,7 +14,7 @@
         </div>
     </form>
     <div id="containerLists">
-        <a *ngFor="let name of infoService.listas" class="row" [routerLink]="['/itemList', name.tittle]">
+        <a *ngFor="let name of infoService.listas; let i = index" [attr.data-index]="i" class="row" [routerLink]="['/itemList', name.tittle]">
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col s6">
