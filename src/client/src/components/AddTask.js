@@ -48,14 +48,14 @@ class AddTask extends Component{
       )
     }
 
-    componentWillMount(){
-        fetch('https://randomuser.me/api/?results=50')
-            .then(response => response.json())
-            .then(users => {
+    // componentWillMount(){
+    //     fetch('https://randomuser.me/api/?results=50')
+    //         .then(response => response.json())
+    //         .then(users => {
 
                 
-            })
-    }
+    //         })
+    // }
 }
 
 
