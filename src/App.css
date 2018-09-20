@@ -1,0 +1,73 @@
+/*  ***** APP  ***** */
+.App {
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+h1 {
+    color: white;
+    flex: 0;
+    margin: 0;
+    padding: .5em 2em;
+}
+
+.container-lists {
+    flex: 2;
+    padding: .5em;
+}
+
+input {
+    text-align: center;
+}
+
+/* ***** LIST ***** */ 
+.List {
+    height: auto;
+    width: 25%;
+    border: 1px solid white;
+}
+
+h3 {
+    margin: 0;
+    padding: .5em;
+    color: purple;
+}
+
+.container-items {
+    padding: .5em;
+}
+
+.container-items > ol {
+    margin: 0;
+    padding-left: 25px;
+    box-sizing: border-box;
+}
+
+/* ***** ITEMS ***** */ 
+.item {
+    text-align: left;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.item > i {
+    float: right;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.fa-pen {
+    color: blue;
+}
+
+.fa-trash-alt {
+    color: gray;
+}
+
+.fa-plus {
+    color: white;
+}
