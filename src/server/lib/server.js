@@ -8,6 +8,10 @@ var _FavoritesRouter = require('./routes/FavoritesRouter');
 
 var _FavoritesRouter2 = _interopRequireDefault(_FavoritesRouter);
 
+var _mongoose = require('mongoose');
+
+var _mongoose2 = _interopRequireDefault(_mongoose);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express2.default)();
@@ -18,3 +22,5 @@ app.listen(port, function () {
 });
 
 app.use('/api/Favorites', _FavoritesRouter2.default);
+
+var db = _mongoose2.default.connect('mongodb://<Ambar>:<dbFavs123>@ds259912.mlab.com:59912/favsdb');
