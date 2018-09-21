@@ -1,3 +1,4 @@
+let globalId;
 
 //Saving info from Card
 function getCardData() {
@@ -13,21 +14,23 @@ function getCardData() {
   $("#addTaste").val("");
   
 }
+
 //Adding data
 function addCardData(title,comment,favorites) {
   
-  console.log("aqui manda la data")
+  console.log("aqui manda la data");
   console.log(title);
   console.log(comment);
   console.log(favorites);
-  let titleId= title.split(" ").join("-")
+  let titleId= title.split(" ").join("-");
   console.log(titleId)
   //Card Template
-  
+ 
+
   let template = `
   <div class="card offset-1" style="width: 18rem;">
   <div class="card-body">
-  <h5 class="card-title">{{title}}</h5>
+  <h5 class="card-title headersStyle">{{title}}</h5>
   <p class="card-text">{{comment}}</p>
   </div>
   <ul class="list-group list-group-flush " id="{{dynamicId}}"  >
@@ -42,6 +45,23 @@ function addCardData(title,comment,favorites) {
   let finalTemplate = template.replace("{{title}}",title).replace("{{dynamicId}}",titleId).replace("{{comment}}",comment).replace("{{favorites}}",favorites);
   $("main").append(finalTemplate);
   swal("Good job!", "Lista Agregada!", "success");
+  globalId=titleId;
+}
+
+
+
+//retrieve data from new item
+function retrieveData() {
+  let addingFavorite= $("#addSecondFavorite").val();
+  console.log(addingFavorite);
+  let templatelist = `<li class="list-group-item deleteItem">{{addingFavorite}}  <button class=" btn text-right data-toggle="modal" data-target="#modalAdd" ><i class="fas fa-eraser" ></i></button> </li>
+  `
+  let finalTemplateList = templatelist.replace("{{addingFavorite}}",addingFavorite);
+  
+  
+  $("#"+globalId).append(finalTemplateList); 
+  $("#addSecondFavorite").val("");
+  
 }
 
 //saving button
@@ -49,35 +69,15 @@ $("#savingChanges").click(function (e) {
   e.preventDefault();
   getCardData(); 
 });
-
-//retrieve data from new item
-function retrieveData() {
-  let addingFavorite= $("#addSecondFavorite").val();
-  console.log(addingFavorite)
-  let templatelist = `<li class="list-group-item deleteItem">{{addingFavorite}}  <button class=" btn text-right"><i class="fas fa-edit"></i></button><button class="btn text-right" onClick="deleteList()" ><i class="fas fa-eraser" ></i></button> </li>
-  `
-  let finalTemplateList = templatelist.replace("{{addingFavorite}}",addingFavorite);
-  let itemCall = $(event.target);
-  let parentItem= itemCall.parent();
-  console.log(parentItem);
-  
-  
-  $("itemAdded").append(finalTemplateList); 
-  $("#addSecondFavorite").val("");
-  
-}
-
-
 //hearing the click favorite
 $("#savingFavorite").click(function(e){
   retrieveData();
 })
 //delete button
 function deleteList() {
-  
-  console.log("borrado")
-  var item = $(event.currentTarget);
-  var card= item.parent();
+  console.log("borrado");
+  let item = $(event.currentTarget);
+  let card= item.parent();
   card.remove();
 }
 //Modal
