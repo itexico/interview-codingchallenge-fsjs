@@ -15,4 +15,4 @@ app.use('/api/Favorites', FavoritesRouter);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const db = mongoose.connect('mongodb://<Ambar>:<dbFavs123>@ds259912.mlab.com:59912/favsdb');
+const db = mongoose.connect('mongodb://Ambar:dbFavs123@ds259912.mlab.com:59912/favsdb',{useNewUrlParser: true});

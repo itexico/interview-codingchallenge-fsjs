@@ -12,6 +12,10 @@ var _mongoose = require('mongoose');
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
 
+var _bodyParser = require('body-parser');
+
+var _bodyParser2 = _interopRequireDefault(_bodyParser);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express2.default)();
@@ -22,5 +26,7 @@ app.listen(port, function () {
 });
 
 app.use('/api/Favorites', _FavoritesRouter2.default);
+app.use(_bodyParser2.default.json());
+app.use(_bodyParser2.default.urlencoded({ extended: true }));
 
-var db = _mongoose2.default.connect('mongodb://<Ambar>:<dbFavs123>@ds259912.mlab.com:59912/favsdb');
+var db = _mongoose2.default.connect('mongodb://Ambar:dbFavs123@ds259912.mlab.com:59912/favsdb', { useNewUrlParser: true });
