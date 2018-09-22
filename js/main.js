@@ -54,12 +54,12 @@ function addCardData(title,comment,favorites) {
 function retrieveData() {
   let addingFavorite= $("#addSecondFavorite").val();
   console.log(addingFavorite);
-  let templatelist = `<li class="list-group-item deleteItem">{{addingFavorite}}  <button class=" btn text-right data-toggle="modal" data-target="#modalAdd" ><i class="fas fa-eraser" ></i></button> </li>
+  let templatelist = `<li class="list-group-item deleteItem">{{addingFavorite}} <button class="btn text-right"><i class="fas fa-edit"></i></button> <button class=" btn text-right data-toggle="modal" data-target="#modalAdd" onClick="deleteList()"  ><i class="fas fa-eraser" ></i></button> </li>
   `
   let finalTemplateList = templatelist.replace("{{addingFavorite}}",addingFavorite);
   
   
-  $("#"+globalId).append(finalTemplateList); 
+  $("ul").append(finalTemplateList); 
   $("#addSecondFavorite").val("");
   
 }
