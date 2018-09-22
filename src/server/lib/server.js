@@ -20,13 +20,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var app = (0, _express2.default)();
 var port = process.env.PORT || 5656;
-// routes go here
-app.listen(port, function () {
-    console.log('http://localhost:' + port);
-});
 
-app.use('/api/Favorites', _FavoritesRouter2.default);
+//bodyParser
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
 
+//API Routes
+app.use('/api/Favorites', _FavoritesRouter2.default);
+
+// Connecting to the database
 var db = _mongoose2.default.connect('mongodb://Ambar:dbFavs123@ds259912.mlab.com:59912/favsdb', { useNewUrlParser: true });
+
+//Running the server
+app.listen(port, function () {
+    console.log('http://localhost:' + port);
+});
