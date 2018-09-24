@@ -5,6 +5,7 @@ function getCardData() {
   let favorites= $("#addTaste").val();
   console.log(title, comment, favorites);
   
+  
   addCardData(title,comment,favorites); 
   
   $("#titleId").val("");
@@ -20,7 +21,7 @@ function addCardData(title,comment,favorites) {
   console.log(title);
   console.log(comment);
   console.log(favorites);
-  let titleId= title.split(" ").join("-");
+  let titleId= title.toLowerCase().split(" ").join("-");
   console.log(titleId)
   //Card Template
   
@@ -75,13 +76,13 @@ function retrieveData() {
   let getId= $(getUl).attr("id");
   console.log(getId)
   $("#savingFavorite").click(function (e) { 
-    
+
     $("#"+ getId).append(finalTemplateList); 
-    
+      $("#addNewItem").val("");
+
     
   });
-  $("#addNewItem").val("");
-  
+
 }
 
 //saving button
@@ -92,7 +93,7 @@ $("#savingChanges").click(function (e) {
 //hearing the click favorite
 // $("savingFavorite").click(function(e){
 //   console.log("escuchado aqui");
-
+  
 //   retrieveData();
 // })
 //delete button
