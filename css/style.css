@@ -20,4 +20,5 @@ body{
 }
 .card{
     margin-top: 5vh;
+    display: inline-flex;
 }
