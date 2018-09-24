@@ -1,3 +1,4 @@
+//Global variable to rescue id
 let idRescue="";
 //Values for card
 $("#savingChanges").click(function (e) { 
@@ -34,10 +35,7 @@ function addCardData(title,comment,favorites) {
   <p class="card-text">{{comment}}</p>
   </div>
   <ul class="list-group list-group-flush " id="{{dynamicId}}"  >
-  <li class="list-group-item" >{{favorites}}
-  <button class="btn text-right editItem">
-  <i class="fas fa-edit"></i>
-  </button>
+  <li class="list-group-item" contentEditable="true" >{{favorites}}
   <button class="btn text-right" onClick="deleteList()" >
   <i class="fas fa-eraser" >
   </i>
@@ -67,10 +65,8 @@ $("#savingFavorite").click(function (e) {
   let addingItem= $("#addNewItem").val();
   console.log(addingItem);
   let templatelist =
-  `<li class="list-group-item">{{addingItem}}
-  <button class="btn text-right editItem">
-  <i class="fas fa-edit"></i>
-  </button>
+  `<li class="list-group-item" contentEditable="true">{{addingItem}}
+ 
   <button class="btn text-right" onClick="deleteList()" >
   <i class="fas fa-eraser" >
   </i>
@@ -89,7 +85,15 @@ $("#savingFavorite").click(function (e) {
     
   });
   
-  
+  //Edit button
+  $('.editItem').click(function(){
+    console.log("entrando a editar");
+    
+    let boxclicked= $(event.currentTarget).parent();
+    console.log(boxclicked);
+    
+    $(boxclicked).attr('contenteditable','true');
+})
   //delete button
   function deleteList() {
     console.log("borrado");
