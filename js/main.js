@@ -33,8 +33,8 @@ function addCardData(title,comment,favorites) {
   <p class="card-text">{{comment}}</p>
   </div>
   <ul class="list-group list-group-flush " id="{{dynamicId}}"  >
-  <li class="list-group-item">{{favorites}}
-  <button class="btn text-right">
+  <li class="list-group-item" >{{favorites}}
+  <button class="btn text-right editItem">
   <i class="fas fa-edit"></i>
   </button>
   <button class="btn text-right" onClick="deleteList()" >
@@ -54,10 +54,7 @@ function addCardData(title,comment,favorites) {
 }
 
 //retrieve data from new item
-$().click(function (e) { 
-  e.preventDefault();
-  
-});
+
 function retrieveData() {
 
   let addingItem= $("#addNewItem").val();
@@ -69,7 +66,7 @@ function retrieveData() {
   console.log(getId)
   let templatelist =
    `<li class="list-group-item">{{addingItem}}
-   <button class="btn text-right">
+   <button class="btn text-right editItem">
    <i class="fas fa-edit"></i>
    </button>
    <button class="btn text-right" onClick="deleteList()" >
@@ -88,7 +85,11 @@ function retrieveData() {
   });
   
 }
-
+$(".editItem").click(function (e) { 
+  e.preventDefault();
+  console.log("entre");
+  
+});
 
 
 //delete button
