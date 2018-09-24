@@ -22,12 +22,10 @@ $("#savingChanges").click(function (e) {
 });
 //Adding data to card
 function addCardData(title,comment,favorites) {
-  
-  console.log("data moved");
-  
+  // console.log("data moved");
   let titleId= title.toLowerCase().split(" ").join("-");
-  console.log(titleId)
-  //Card Template literal creating a dynamic Id from the title
+  // console.log(titleId)
+  //Card Template literal creating a dynamic Id from the title and make content editable
   let template = `
   <div class="card offset-1" style="width: 18rem;">
   <div class="card-body">
