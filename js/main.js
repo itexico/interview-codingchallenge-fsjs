@@ -78,22 +78,6 @@ $("#savingFavorite").click(function (e) {
     $("#addNewItem").val(" ")
 }); 
   
-  
-  $(".editItem").click(function (e) { 
-    e.preventDefault();
-    console.log("entre");
-    
-  });
-  
-  //Edit button
-  $('.editItem').click(function(){
-    console.log("entrando a editar");
-    
-    let boxclicked= $(event.currentTarget).parent();
-    console.log(boxclicked);
-    
-    $(boxclicked).attr('contenteditable','true');
-})
   //delete button
   function deleteList() {
     console.log("borrado");
