@@ -12,7 +12,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Schema = _mongoose2.default.Schema;
 var listModel = new Schema({
-    name: { type: String }
-    // favs: { type: Array}
+    name: { type: String },
+    favs: { type: String }
 });
 exports.default = _mongoose2.default.model('lists', listModel);

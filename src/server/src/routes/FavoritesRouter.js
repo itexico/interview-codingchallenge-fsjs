@@ -38,6 +38,7 @@ const FavoritesRouter = express.Router();
         //We use PUT to edit a specific entry. In the case of our lists PUT is used to edit one list.
         .put((req, res) => {
             req.list.name = req.body.name;
+            req.list.favs = req.body.favs;
             req.list.save()
             res.json(req.list)
         })
