@@ -20,15 +20,19 @@ class List extends React.Component {
       })
   
       return(
-        <div className ="row">
-          <div className ="list offset-l1 offset-m1 offset-s1 col l10 m10 s10">
-            <h6>{this.props.name}</h6>
-            
-            <ul>
-              {favorite}
-            </ul>
-          </div>
-        </div>
+        
+          <div className ="row">
+            <div className ="list-container offset-l1 offset-m1 offset-s1 col l10 m10 s10 z-depth-2">
+              <div className ="list">
+                <h6>{this.props.name}</h6>
+              </div>
+              <div className ="favs-list">  
+                <ul>
+                  {favorite}
+                </ul>
+              </div>
+            </div>
+         </div>
       )
     }
 }

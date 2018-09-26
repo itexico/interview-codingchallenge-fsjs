@@ -5,7 +5,7 @@ class Favorite extends React.Component {
         console.log(this.props.favorite);
         
         return(
-            <li>
+            <li className="favorite">
                 <p>{this.props.favorite}</p>
             </li>
         )
