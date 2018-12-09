@@ -1,0 +1,31 @@
+{
+  "name": "interview-codingchallenge-fsjs",
+  "version": "1.0.0",
+  "description": "Stack MERN",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Valencb/interview-codingchallenge-fsjs.git"
+  },
+  "author": "Blanca Valencia <valenciablancalun@gmail.com> (https://twitter.com/BLANKMIZAKY)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Valencb/interview-codingchallenge-fsjs/issues"
+  },
+  "homepage": "https://github.com/Valencb/interview-codingchallenge-fsjs#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.7"
+  }
+}
