@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const List = require('../models/list');
-const Item = require('../models/list');
 
 router.get('/', async (req, res) => {
-    const lists = await List.find().populate('_owner').exec();
+    const lists = await List.find();
     res.json(lists);
 });
 
@@ -15,11 +14,30 @@ router.post('/', async (req, res) => {
     res.json({status: 'List saved'});
 });
 
-router.post('/item', async (req, res) => {
-    const { _owner, title } = req.body;
-    const item = new Item({_owner, title});
-    await item.save();    
+router.post('/item/:id', async (req, res) => {
+    const { title } = req.body;
+    await List.findById(req.params.id).then(record => {
+        record.items.push({title});
+        record.save();
+    }) 
     res.json({status: 'Item saved'});
+});
+
+router.delete('/:id', async (req, res) => {
+    await List.findByIdAndDelete(req.params.id);
+    res.json({status: 'List Deleted'});
+});
+
+router.delete('/item/:id/:idItem', async (req, res) => {
+    await List.findById(req.params.id).then(record => {
+        for (let index = 0; index < record.items.length; index++) {
+            if (record.items[index]._id == req.params.idItem) {
+                record.items[index].remove();
+                record.save();
+            }
+        }
+    }) 
+    res.json({status: 'Item deleted'})
 });
 
  
