@@ -7,6 +7,6 @@ app
   .set('port', process.env.PORT)
   .use(express.urlencoded({extended:false})) // Code the data
   .use(express.json())
-  .use('/api') // The api's home 
+  .use('/api', router) // The api's home 
 
 module.exports = app
