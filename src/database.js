@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const URI = 'mongodb://localhost/favorite';
+const URI = 'mongodb+srv://admin:admin123@area-snhw9.mongodb.net/test?';
 
 mongoose.connect(URI)
     .then(db => console.log('conected'))
