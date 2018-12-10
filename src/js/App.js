@@ -1,15 +1,20 @@
 import React from 'react';
 
+import {Cookies} from 'react-cookie'; 
+
 //import ReactDOM from 'react';
 
 class App extends React.Component{
 
   constructor(props){
-    super(props)
+    super(props);
+
+    //const cookies = new Cookies();
 
     this.state = {
       name: 'My list',
-      tasks: []
+      tasks: [],
+      //myCookie: cookies.get('auth')
     }
 
     this.eventClick = this.eventClick.bind(this);
@@ -19,6 +24,17 @@ class App extends React.Component{
     this.eventChange = this.eventChange.bind(this); 
 
     this.eventSend = this.eventSend.bind(this); 
+
+    const cookies = new Cookies();
+    if(!cookies.get('auth')){
+      var bAuth = 'auth'; 
+      cookies.set('auth',bAuth);
+    }else if(cookies.get('auth') !=='auth'){
+      cookies.set('auth',bAuth);
+    }else if(cookies.get('auth') === 'auth'){
+      cookies.set('auth', bAuth); 
+    }
+
   }
 
   eventClick(event){
