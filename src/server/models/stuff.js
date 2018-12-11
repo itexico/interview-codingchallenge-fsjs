@@ -3,7 +3,8 @@ const mongoose = require('mongoose'),
   itemSchema = new Schema({
     name:{
       type: String,
-      required:[true, 'Necesito el nombre del la lista']
+      required:[true, 'Necesito el nombre del la lista'],
+      unique: true
     },
     categorie:{
       type: String,
