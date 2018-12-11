@@ -1,11 +1,14 @@
 const mongoose = require('mongoose'),
   Schema = mongoose.Schema,
-  itemsSchema = new Schema({
-    /**
-     * name
-     * categorie
-     * image
-     */
+  itemSchema = new Schema({
+    name:{
+      type: String,
+      required:[true, 'Necesito el nombre del la lista']
+    },
+    categorie:{
+      type: String,
+      required:[true,'El nombre de la categoria es requerida']
+    }
   })
 
 // Model in singular

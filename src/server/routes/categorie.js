@@ -1,1 +1,0 @@
-const Categorie = require('../models/categorie')
