@@ -8,7 +8,7 @@ class App extends Component {
     this.state = {
       listas:[],
       name: '',
-      categorie: ''
+      categorie: '',
 
     }
     this.sendData = this.sendData.bind(this)
@@ -38,6 +38,16 @@ class App extends Component {
     }).then(res => res.json()).then(json => console.log(json))
   }
 
+  updateData(e){
+    e.preventDefault()
+    let formData = new FormData(e.target.parentNode),
+      id = formData.get('_id')
+    fetch(`http://localhost:3000/api/stuff/${id}`,{
+      method:'put',
+      body: formData
+    }).then(res => res.json()).then(json => console.log(json))
+  }
+
   onChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
@@ -53,6 +63,13 @@ class App extends Component {
             <input type="text" name="name" onChange={this.onChange} placeholder="Nombre de la lista"></input>
             <input type="text" name="categorie" onChange={this.onChange} placeholder="Categoría de la lista"></input>
             <input type="submit" value="Enviar" onClick={this.sendData}></input>
+          </form> 
+          <p>UPDATE</p>
+          <form className="form-container">
+            <input type="text" name="name" onChange={this.onChange} placeholder="Nombre de la lista"></input>
+            <input type="text" name="categorie" onChange={this.onChange} placeholder="Categoría de la lista"></input>
+            <input type="text" name='_id' placeholder='_id'></input>
+            <input type="submit" value="Enviar" onClick={this.updateData}></input>
           </form> 
         </div>
       )
