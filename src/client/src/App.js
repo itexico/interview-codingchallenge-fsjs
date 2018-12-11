@@ -48,6 +48,16 @@ class App extends Component {
     }).then(res => res.json()).then(json => console.log(json))
   }
 
+  deleteData(e){
+    e.preventDefault()
+    let formData = new FormData(e.target.parentNode),
+      id = formData.get('_id')
+    fetch(`http://localhost:3000/api/stuff/${id}`,{
+      method:'delete',
+      body: formData
+    }).then(res => res.json()).then(json => console.log(json))
+  }
+
   onChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
@@ -70,7 +80,12 @@ class App extends Component {
             <input type="text" name="categorie" onChange={this.onChange} placeholder="Categoría de la lista"></input>
             <input type="text" name='_id' placeholder='_id'></input>
             <input type="submit" value="Enviar" onClick={this.updateData}></input>
-          </form> 
+          </form>
+          <p>DELETE</p>
+          <form className="form-container">
+            <input type="text" name='_id' placeholder='_id'></input>
+            <input type="submit" value="Enviar" onClick={this.deleteData}></input>
+          </form>
         </div>
       )
     }
