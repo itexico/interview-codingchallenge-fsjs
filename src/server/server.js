@@ -1,5 +1,6 @@
 const c = console.log,
-  app = require('./app')
+  app = require('./app'),
+  db = require('./models/db')
 
 app.listen(
   app.get('port'), // Request variable
@@ -10,7 +11,7 @@ c(
   '',
   process.env.NODE_ENV,
   '\n',
-  process.env.urlDB,
+  process.env.URL_DB,
   '\n',
   process.env.PORT
 )
