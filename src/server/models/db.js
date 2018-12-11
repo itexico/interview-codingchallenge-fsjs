@@ -12,6 +12,7 @@ class Database {
   }
 
   connect() {
+    mongoose.set('useCreateIndex', true) // New version mongoose
     // return promise
     mongoose.connect(process.env.URL_DB, { useNewUrlParser: true })
       .then(() => c(`Successful connection: ${process.env.URL_DB}`))
