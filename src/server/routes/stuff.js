@@ -29,6 +29,7 @@ const getStuffs = async(req, res) => {
 const postStuff = async(req, res) => {
   let stuff = new Stuff(req.body)
   c(req.body)
+  c(JSON.stringify(req.body.cosa))
   await stuff.save((err,data)=> (req, res, err, data))
 }
 
