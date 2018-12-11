@@ -9,7 +9,8 @@ const mongoose = require('mongoose'),
     categorie:{
       type: String,
       required:[true,'El nombre de la categoria es requerida']
-    }
+    },
+    cosa: [{type: Object}]
   })
 
 // Model in singular
