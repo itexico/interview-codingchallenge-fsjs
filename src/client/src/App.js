@@ -1,27 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import List from './components/List'
 
 class App extends Component {
+
+  constructor(){
+    super()
+    this.state = {
+      listas:[]
+    }
+  }
+
+  componentWillMount() {
+    fetch('http://localhost:3000/api/stuffs')
+    .then(res => res.json())
+    .then(lists => {
+      lists.data.forEach(list => {
+        let data = {
+          id: list._id,
+          name: list.name,
+          categorie: list.categorie
+        }
+        this.setState({ listas: this.state.listas.concat([data]) }) // u.u)/ invoca el render de nuevo
+        return 'banana'
+      })
+    })
+  }
+
+
   render() {
+    if( this.state.listas.length > 0) {
+      return(
+        <div>
+          { this.state.listas.map(lista => <List key={lista.id} name = {lista.name} categorie = {lista.categorie}> </List>)}
+        </div>
+      )
+    }
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+      <p>Cargando Listas</p> 
+    )
   }
 }
 
