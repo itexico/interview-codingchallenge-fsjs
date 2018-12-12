@@ -36,6 +36,7 @@ module.exports = (app) => {
 		res.send(respuesta);
 	});
 
+	/*Delete*/
 	app.delete('/api/datos/:id', async (req, res) =>{
 		const respuesta = await Datos.deleteOne({_id: req.params.id});
 		res.send(respuesta);

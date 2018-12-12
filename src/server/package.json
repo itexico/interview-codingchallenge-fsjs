@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon index.js"
+    "server": "nodemon index.js",
+    "start": "nodemon index.js"
+  },
+  "engines": {
+    "node": "8.12.0"
   },
   "author": "Miguel Moran",
   "license": "ISC",

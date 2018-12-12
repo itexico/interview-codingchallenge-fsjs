@@ -10,6 +10,14 @@ module.exports = (app) => {
 		res.send(respuesta);
 	});
 
+	/*Traer Solo Uno Header*/
+
+	app.get('/api/headers/:id', async (req, res) => {
+		const respuesta = await Header.findOne({_id: req.params.id});
+		res.send(respuesta);
+	});
+
+	/*Postear nuevo dato*/
 	app.post('/api/headers', async (req, res) => {
 		const {nombre, descripcion} = req.body; /*Solo estoy destructurando dos dato pero siempre es bueno declararlo por si se cambia en un futuro*/
 		const header = new Header({
@@ -23,5 +31,4 @@ module.exports = (app) => {
 		const respuesta = await Header.deleteOne({_id: req.params.id});
 		res.send(respuesta);
 	});
-
 };

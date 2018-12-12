@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const headerSchema = new Schema({
+const datosSchema = new Schema({
 	IDPadre: String,
 	nombre : String
 });
 
-mongoose.model('datos', headerSchema)
+mongoose.model('datos', datosSchema)
