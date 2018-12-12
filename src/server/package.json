@@ -1,0 +1,26 @@
+{
+  "name": "api-restful",
+  "version": "1.0.0",
+  "description": "API RESTFul stuff",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "restart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kikiondo/interview-codingchallenge-fsjs.git"
+  },
+  "author": "Carlos Alberto Vera <kikisvv@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kikiondo/interview-codingchallenge-fsjs/issues"
+  },
+  "homepage": "https://github.com/kikiondo/interview-codingchallenge-fsjs#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.3.15",
+    "multer": "^1.4.1",
+    "nodemon": "^1.18.8"
+  }
+}

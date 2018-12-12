@@ -1,0 +1,32 @@
+html{
+  width: 100vw;
+  height: 100vh;
+}
+
+.App-Container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.List-Container {
+  width: 50%;
+  padding: 1rem;
+}
+
+.Form-Container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.patata {
+  width: 10%;
+  height: auto;
+}
