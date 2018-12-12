@@ -41,9 +41,8 @@ You will be creating a simple server-client application so common nowadays, usin
     - I need an exposed CRUD API to affect the Lists and Items entities using the correct HTTP verbs for each
       - Create, update, remove, fetch all and fetch by id should be supported for lists and items (10 endpoints total)
     - I need middleware to happen on each request validating that the user has a cookie named "auth" or not (log the value to output, we are not managing authentication of any kind just yet)
-    
-    - I need a test suit testing the endpoints 
-    - I need a test suit testing the middleware covering the cases where the user has a cookie named "auth", a cookie with another name or no cookie at all
+    - I need a test suite testing the endpoints 
+    - I need a test suite testing the middleware covering the cases where the user has a cookie named "auth", a cookie with another name or no cookie at all
      
 
 ## The small print
@@ -53,5 +52,5 @@ Stuff that will be graded
     Logic and code complexity   ( How easy will my code be to maintain by someone else? Am I using good practices and/or design patterns? )
     Code coverage               ( Is my code tested? Are all scenarios considered? )
     Requirement coverage        ( Is the application doing what it is meant to be doing? )
-    Rule compliance             ( Did i follow the few rules set on **The rules** ? )
+    Rule compliance             ( Did i follow the few rules set on __The rules__ ? )
     
