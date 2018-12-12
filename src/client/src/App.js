@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import List from './components/List'
-
+import './App.css'
+import patata from './img/patata.jpeg'
 class App extends Component {
 
   constructor(){
@@ -67,8 +68,13 @@ class App extends Component {
   render() {
     if( this.state.listas.length > 0) {
       return(
-        <div>
-          { this.state.listas.map(lista => <List key={lista.id} name = {lista.name} categorie = {lista.categorie}> </List>)}
+        <div className="App-Container">
+          <h1>Lists</h1>
+          <section className="List-Container">
+            { this.state.listas.map(lista => <List key={lista.id} name = {lista.name} categorie = {lista.categorie}> </List>)}
+          </section>
+          <div className="Form-Container">
+          <p>ADD</p>
           <form className="form-container">
             <input type="text" name="name" onChange={this.onChange} placeholder="Nombre de la lista"></input>
             <input type="text" name="categorie" onChange={this.onChange} placeholder="Categoría de la lista"></input>
@@ -86,6 +92,8 @@ class App extends Component {
             <input type="text" name='_id' placeholder='_id'></input>
             <input type="submit" value="Enviar" onClick={this.deleteData}></input>
           </form>
+          </div>
+          <img className="patata" src={patata}></img>
         </div>
       )
     }
