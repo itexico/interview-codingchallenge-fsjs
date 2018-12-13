@@ -12,3 +12,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.centrarV{
+ margin-top: 2em;
+}
+
+.card{
+	height: 170px;
+}

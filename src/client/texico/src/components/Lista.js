@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as listasActions from '../actions/listasActions'
 
-import {Table, Input, Row, Icon, Button, Modal} from 'react-materialize';
+import {Table, Input, Row, Icon, Button, Modal, Preloader} from 'react-materialize';
 
 import {EDITAR, NUEVO} from '../types/listasTypes.js'
 
@@ -75,6 +75,8 @@ render(){
 			 <Row>
 			 <Button onClick={this.enviarNuevo}> add</Button>
 			 <Input s={5}  value={this.props.nuevo} onChange={(event)=>this.handleChange(event, NUEVO)}/></Row>
+			{this.props.cargando ?   <div className="center"><Preloader flashing /></div> : '' }
+
 			{this.listado()}
 			</div>
 		);
