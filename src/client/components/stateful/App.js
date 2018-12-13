@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Input from "../stateless/Input";
 import Button from "../stateless/Button";
+import Lists from "../stateless/Lists"
 
 class App extends Component {
 
@@ -11,7 +12,7 @@ class App extends Component {
 
     this.state = {
       newList: {
-        category: '',
+        category: ''
       },
       lists: []
     };
@@ -64,6 +65,10 @@ class App extends Component {
         <Button
             handleClick={this.createCategory}
             text="Add new list"
+        />
+        <br/>
+        <Lists
+            listsArray={this.state.lists}
         />
       </div>
     );
