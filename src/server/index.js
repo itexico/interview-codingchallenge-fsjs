@@ -4,6 +4,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
+
 
 require('./models/Headers.js');
 require('./models/Datos.js');
@@ -21,6 +23,7 @@ app.use(function(req, res, next) {
 mongoose.connect('mongodb://user:password1@ds131954.mlab.com:31954/itexicomike');
 
 app.use(bodyParser.json());
+app.use(cookieParser())
 
 const headersRoutes = require ('./routes/headerRoutes');
 headersRoutes(app);

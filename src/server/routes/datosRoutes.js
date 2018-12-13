@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 /*Todas las rutas que se van a usar para la parte de los Datos o elementos de las listas*/
+const datosMiddleware = require('../middleware/datosMiddleware.js');
 
 const Datos = mongoose.model('datos')
 
@@ -11,7 +12,10 @@ module.exports = (app) => {
 		res.send(respuesta);
 	});
 	/*Postear un nuevo dato en una lista , el Header se da por el ID en el Link*/
-	app.post('/api/datos/:id', async (req, res) => {
+	app.post('/api/datos/:id',
+		datosMiddleware.datosPrimitivos,
+		datosMiddleware.datosCompletos,
+		async (req, res) => {
 		const {nombre} = req.body; 
 		const IDPadre = req.params.id;
 		const datos = new Datos({
@@ -23,7 +27,10 @@ module.exports = (app) => {
 
 	/*Modificar un dato*/
 
-	app.post('/api/datos/:idPadre/edit', async (req, res) => {
+	app.post('/api/datos/:idPadre/edit', 
+		datosMiddleware.datosPrimitivos,
+		datosMiddleware.datosCompletos,
+		async (req, res) => {
 		const {nombre, idHijo} = req.body; 
 		const IDPadre = req.params.idPadre;
 		
