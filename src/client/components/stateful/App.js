@@ -19,6 +19,9 @@ class App extends Component {
 
     this.getCategoryText = this.getCategoryText.bind(this)
     this.createCategory = this.createCategory.bind(this)
+    this.createListItem = this.createListItem.bind(this)
+    this.deleteListItem = this.deleteListItem.bind(this)
+    this.editListItem = this.editListItem.bind(this)
   }
 
   getCategoryText(event) {
@@ -36,16 +39,58 @@ class App extends Component {
 
     if (this.state.newList.category) {
 
-      let tempList = this.state.lists
-      let tempNewList = this.state.newList
+      let existingLists = new Array(...this.state.lists)
+      let newList = {...this.state.newList, items: new Array(0)}
 
-      tempList.push(tempNewList)
+      existingLists.push(newList)
 
       this.setState ({
-        lists: tempList,
+        lists: existingLists,
         newList: {
           category: ''
         }
+      })
+    }
+  }
+
+  createListItem(index) {
+
+    let newValue = prompt('Write your new item here:')
+
+    if (newValue) {
+
+      let itemsArray = this.state.lists[index].items
+
+      itemsArray.push(newValue)
+
+      this.setState ({
+        lists: [...this.state.lists]
+      })
+    }
+  }
+
+  deleteListItem(listIndex, itemNo) {
+
+    let itemsArray = this.state.lists[listIndex].items
+    itemsArray.splice(itemNo, 1)
+
+    this.setState ({
+      lists: [...this.state.lists]
+    })
+  }
+
+  editListItem(listIndex, itemNo) {
+
+    let itemsArray = this.state.lists[listIndex].items
+
+    let newValue = prompt(`Edit "${itemsArray[itemNo]}":`)
+
+    if (newValue) {
+
+      itemsArray.splice(itemNo, 1, newValue)
+
+      this.setState ({
+        lists: [...this.state.lists]
       })
     }
   }
@@ -69,9 +114,13 @@ class App extends Component {
         <br/>
         <Lists
             listsArray={this.state.lists}
+            onAddNewItem={this.createListItem}
+            onDeleteItem={this.deleteListItem}
+            onEditItem={this.editListItem}
         />
       </div>
     );
   }
 }
+
 export default App;
