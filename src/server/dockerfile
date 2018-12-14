@@ -1,0 +1,33 @@
+# BASE IMAGE
+FROM node:alpine AS base
+WORKDIR /app
+
+# DEPENDENCIES
+FROM base AS dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copying the environment data
+FROM base as build
+COPY dist .env .env.example ./
+
+# DEVELOPMENT STAGE
+FROM build AS development
+
+COPY --from=dependencies /app ./
+ENV NODE_ENV development
+RUN npm install -g nodemon
+EXPOSE 8000
+CMD [ "nodemon", "index.js"]
+
+# PRODUCTION RELEASE
+FROM gcr.io/distroless/nodejs as production
+
+USER node
+WORKDIR /app
+COPY --from=build /app ./
+COPY --from=dependencies /app/package*.json ./
+ENV NODE_ENV production
+RUN npm install --only=production
+EXPOSE 8080
+CMD ["node", "-r", "dotenv/config", "index.js"]
