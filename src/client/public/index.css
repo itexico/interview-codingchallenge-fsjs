@@ -1,0 +1,24 @@
+.list-container{
+    background-color: #3498DB;
+    color: white;
+    border-radius: .3rem;
+}
+
+h6 {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.favs-list {
+    background-color: #5DADE2;
+    border-radius: 1rem;  
+}
+
+.favorite {
+    background-color: rgb(234, 244, 250);
+    color:black;
+}
+
+p{
+    padding:  .5rem  .5rem .5rem  .5rem ;
+    font-family: 'Tajawal', sans-serif;
+}
