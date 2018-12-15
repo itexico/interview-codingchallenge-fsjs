@@ -1,0 +1,20 @@
+{
+  "name": "lists-manager",
+  "version": "1.0.0",
+  "description": "A Node.js RESTful API that allows to create and manage lists",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "restful",
+    "api",
+    "lists"
+  ],
+  "author": "Adilson Sandoval",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
