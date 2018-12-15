@@ -1,14 +1,13 @@
-// import npm modules
+// Import npm modules
 const express = require('express')
 
-// initialize the app
+// Initialize the app
 const app = express();
 
+// Import routes
+const noteRoutes = require('./api/routes/notes');
 
-app.use((req, res, next) => {
-  res.status(200).json({
-    message: 'App has connected'
-  });
-});
+// Use API routes in the app
+app.use('/notes', noteRoutes);
 
 module.exports = app;
