@@ -1,0 +1,13 @@
+$p_color: #ffbf00;
+$p_font_family: arial;
+$p_font_weight: bold;
+
+$head-color:#143849;
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  background-color: $body-color;
+  margin: 0;
+}
