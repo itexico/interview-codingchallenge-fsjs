@@ -1,0 +1,42 @@
+.input {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input__new-note {
+    width: 50%;
+    background: #F4F4F4;
+    border: none;
+    border-radius: 50px;
+    margin: auto;
+    padding: 17px 0 17px 30px;
+}
+
+.input__title {
+    font-family: 'Bad Script', cursive;
+    font-size: 30px;
+    color: #1c1c1c;
+    border: none;
+}
+
+.input__list{
+    border: none;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 260px;
+    max-height: 260px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.input__submit {
+    position: relative;
+    left: -50px;
+    background: none;
+    border: none;
+}
+
+.input__item{
+    border: none;
+    font-family: 'Bad Script', cursive;
+}

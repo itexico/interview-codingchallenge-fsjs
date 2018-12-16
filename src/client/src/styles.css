@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('assets/base/global.css');
+@import url('assets/base/flex.css');
+@import url('assets/base/container.css');
+@import url('assets/base/text.css');
+@import url('assets/base/spacing.css');
+@import url('assets/modules/note.css');
+@import url('assets/modules/input.css');
+@import url('assets/modules/modal.css');
+@import url('assets/modules/list.css');
+
+body {
+    background: #ffffff;
+    font-family: 'Cabin', sans-serif;
+}
