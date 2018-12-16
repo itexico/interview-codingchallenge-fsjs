@@ -18,8 +18,13 @@ router.get("/", (req, res, next) => {
 
 // create a note
 router.post("/", (req, res, next) => {
+  const note = {
+    noteId: req.body.productId,
+    content: req.body.content
+  };
   res.status(201).json({
-    message: "Note was created"
+    message: "Note was created",
+    note: note
   });
 });
 
