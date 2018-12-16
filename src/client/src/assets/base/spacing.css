@@ -1,0 +1,115 @@
+.w-100{ width: 100%; }
+.w-75{ width: 75%; }
+.w-66{ width: 66.66%; }
+.w-50{ width: 50%; }
+.w-33{ width: 33.33%; }
+.w-25{ width: 25%; }
+.w-20{ width: 20%; }
+
+/* MARGIN-VERTICAL */
+.my-10{ margin-top: 6.25rem; margin-bottom: 6.25rem; }
+.my-9{ margin-top: 5.625rem; margin-bottom: 5.625rem; }
+.my-8{ margin-top: 5rem; margin-bottom: 5rem; }
+.my-7{ margin-top: 4.375rem; margin-bottom: 4.375rem; }
+.my-6{ margin-top: 3.75rem; margin-bottom: 3.75rem; }
+.my-5{ margin-top: 3.125rem; margin-bottom: 3.125rem; }
+.my-45{ margin-top: 2.8125rem; margin-bottom: 2.8125rem; }
+.my-4{ margin-top: 2.5rem; margin-bottom: 2.5rem; }
+.my-35{ margin-top: 2.1875rem; margin-bottom: 2.1875rem; }
+.my-3{ margin-top: 1.875rem; margin-bottom: 1.875rem; }
+.my-25{ margin-top: 1.5625rem; margin-bottom: 1.5625rem; }
+.my-2{ margin-top: 1.25rem; margin-bottom: 1.25rem; }
+.my-15{ margin-top: 0.9375rem; margin-bottom: 0.9375rem; }
+.my-1{ margin-top: 0.625rem; margin-bottom: 0.625rem; }
+.my-0{ margin-top: 0; margin-bottom: 0; }
+.my-auto{ margin-top: auto; margin-bottom: auto; }
+
+/* MARGIN-TOP */
+.mt-10{ margin-top: 6.25rem; }
+.mt-9{ margin-top: 5.625rem; }
+.mt-8{ margin-top: 5rem; }
+.mt-7{ margin-top: 4.375rem; }
+.mt-6{ margin-top: 3.75rem; }
+.mt-5{ margin-top: 3.125rem; }
+.mt-45{ margin-top: 2.8125rem; }
+.mt-4{ margin-top: 2.5rem; }
+.mt-35{ margin-top: 2.1875rem; }
+.mt-3{ margin-top: 1.875rem; }
+.mt-25{ margin-top: 1.5625rem; }
+.mt-2{ margin-top: 1.25rem; }
+.mt-15{ margin-top: 0.9375rem; }
+.mt-1{ margin-top: 0.625rem; }
+.mt-0{ margin-top: 0; }
+.mt-auto{ margin-top: auto; }
+
+/* MARGIN-BOTTOM */
+.mb-10{ margin-bottom: 6.25rem; }
+.mb-9{ margin-bottom: 5.625rem; }
+.mb-8{ margin-bottom: 5rem; }
+.mb-7{ margin-bottom: 4.375rem; }
+.mb-6{ margin-bottom: 3.75rem; }
+.mb-5{ margin-bottom: 3.125rem; }
+.mb-45{ margin-bottom: 2.8125rem; }
+.mb-4{ margin-bottom: 2.5rem; }
+.mb-35{ margin-bottom: 2.1875rem; }
+.mb-3{ margin-bottom: 1.875rem; }
+.mb-25{ margin-bottom: 1.5625rem; }
+.mb-2{ margin-bottom: 1.25rem; }
+.mb-15{ margin-bottom: 0.9375rem; }
+.mb-1{ margin-bottom: 0.625rem; }
+.mb-0{ margin-bottom: 0; }
+.mb-auto{ margin-bottom: auto; }
+
+/* MARGIN-HORIZONTAL */
+.mx-10{ margin-left: 6.25rem; margin-right: 6.25rem; }
+.mx-9{ margin-left: 5.625rem; margin-right: 5.625rem; }
+.mx-8{ margin-left: 5rem; margin-right: 5rem; }
+.mx-7{ margin-left: 4.375rem; margin-right: 4.375rem; }
+.mx-6{ margin-left: 3.75rem; margin-right: 3.75rem; }
+.mx-5{ margin-left: 3.125rem; margin-right: 3.125rem; }
+.mx-45{ margin-left: 2.8125rem; margin-right: 2.8125rem; }
+.mx-4{ margin-left: 2.5rem; margin-right: 2.5rem; }
+.mx-35{ margin-left: 2.1875rem; margin-right: 2.1875rem; }
+.mx-3{ margin-left: 1.875rem; margin-right: 1.875rem; }
+.mx-25{ margin-left: 1.5625rem; margin-right: 1.5625rem; }
+.mx-2{ margin-left: 1.25rem; margin-right: 1.25rem; }
+.mx-15{ margin-left: 0.9375rem; margin-right: 0.9375rem; }
+.mx-1{ margin-left: 0.625rem; margin-right: 0.625rem; }
+.mx-0{ margin-left: 0; margin-right: 0; }
+.mx-auto{ margin-left: auto; margin-right: auto; }
+
+/* MARGIN-LEFT */
+.ml-10{ margin-left: 6.25rem; }
+.ml-9{ margin-left: 5.625rem; }
+.ml-8{ margin-left: 5rem; }
+.ml-7{ margin-left: 4.375rem; }
+.ml-6{ margin-left: 3.75rem; }
+.ml-5{ margin-left: 3.125rem; }
+.ml-45{ margin-left: 2.8125rem; }
+.ml-4{ margin-left: 2.5rem; }
+.ml-35{ margin-left: 2.1875rem; }
+.ml-3{ margin-left: 1.875rem; }
+.ml-25{ margin-left: 1.5625rem; }
+.ml-2{ margin-left: 1.25rem; }
+.ml-15{ margin-left: 0.9375rem; }
+.ml-1{ margin-left: 0.625rem; }
+.ml-0{ margin-left: 0; }
+.ml-auto{ margin-left: auto; }
+
+/* MARGIN-RIGHT */
+.mr-10{ margin-right: 6.25rem; }
+.mr-9{ margin-right: 5.625rem; }
+.mr-8{ margin-right: 5rem; }
+.mr-7{ margin-right: 4.375rem; }
+.mr-6{ margin-right: 3.75rem; }
+.mr-5{ margin-right: 3.125rem; }
+.mr-45{ margin-right: 2.8125rem; }
+.mr-4{ margin-right: 2.5rem; }
+.mr-35{ margin-right: 2.1875rem; }
+.mr-3{ margin-right: 1.875rem; }
+.mr-25{ margin-right: 1.5625rem; }
+.mr-2{ margin-right: 1.25rem; }
+.mr-15{ margin-right: 0.9375rem; }
+.mr-1{ margin-right: 0.625rem; }
+.mr-0{ margin-right: 0; }
+.mr-auto{ margin-right: auto; }

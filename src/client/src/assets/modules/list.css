@@ -1,0 +1,36 @@
+.list {
+    font-family: 'Bad Script', cursive;
+    width: 90%;
+    margin: auto;
+}
+
+.list li {
+    margin: 3px auto;
+}
+
+.list__buttons {
+    height: 40px;
+}
+
+.list__btn-close {
+    font-family: 'Cabin', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    background: #1c1c1c;
+    padding: 10px 20px;
+    border: none;
+    float: right;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.list__btn-close:hover {
+    background: #979797;
+    color: #fff;
+}
+
+.focused {
+    display: flex;
+    justify-content: space-between;
+    width: 30px;
+}

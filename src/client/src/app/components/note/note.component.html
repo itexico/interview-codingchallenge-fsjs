@@ -1,0 +1,10 @@
+<div class="col-md-3">
+    <div (click)="onDisplay()" class="note {{ this.noteColor }}">
+        <div class="note__text">
+            <h4 class="note__title">{{ this.note.title }}</h4>
+            <ul class="note__list">
+                <li *ngFor="let item of this.note.items">{{ item.content }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
