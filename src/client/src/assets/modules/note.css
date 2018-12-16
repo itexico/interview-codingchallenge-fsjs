@@ -1,0 +1,33 @@
+.note {
+    min-width: 250px;
+    padding-top: 1px;
+    padding-bottom: 60px;
+    margin-top: 15px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.note__container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.note__text {
+    margin: auto;
+    width: 80%;
+}
+
+.note__title {
+    font-size: 20px;
+    color: #1c1c1c;
+}
+
+.note--baby-blue{ background: #73DDD7; }
+.note--grey{ background: #E7E5E5; }
+.note--white{ border: 1px solid rgba(0,0,0,0.5); }
+.note--orange{ background: #FFC667; }
+.note--navy-blue{ background: #373C5A; }
+.note--pink{ background: #ED6CA3; }
+.note--purple{ background: #F4EAE2; }
+.note--green{ background: #42BB7D; }

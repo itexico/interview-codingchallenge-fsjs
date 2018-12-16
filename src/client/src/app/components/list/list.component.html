@@ -1,0 +1,22 @@
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <div class="list">
+            <input class="input__title mb-3" type="text" [(ngModel)]="this.listTitle" value="{{ this.listTitle }}">
+            
+            <div *ngFor="let item of this.list.items" class="col-md-12">
+                <Item (refreshItems)="refreshItems()" [Item]="item" [listId]="this.list._id"></Item>
+            </div>
+
+            <div class="col-md-12">
+                <input class="input__new-item mt-2" type="text" [(ngModel)]="this.newItem.content">
+                <span class="ml-3" (click)="onSaveItem()">Add</span>
+            </div>
+                
+            <div class="list__buttons">
+                <button *ngIf="this.list._id != null" class="list__btn-close ml-1" (click)="onSave()">Close</button>
+                <button *ngIf="this.list._id != null" class="list__btn-close" (click)="onDelete()">Delete</button>
+            </div>
+
+        </div>
+    </div>
+</div>

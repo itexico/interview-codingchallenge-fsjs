@@ -1,0 +1,16 @@
+<List *ngIf="this.modal == 'on'" (closeModal)="closeModal($event)" (refreshNotes)="refreshNotes($event)" [list]="this.modalNote"></List>
+<div class="container">
+  <div class="col-md-12">
+    <div class="text-center mt-4">
+      <form class="form w-100 mt-4" #newNoteForm="ngForm" (ngSubmit)="onSubmit(newNoteForm)">
+          <div>
+              <input  type="text" #title="ngModel" [(ngModel)]="this.newNote.title" name="title" class="input__new-note" placeholder="Create a new note" required>
+              <button class="input__submit fas fa-share-square" type="submit" [disabled]="!newNoteForm.valid" style="position: relative; left: -50px;"></button>
+          </div>
+      </form>
+    </div>
+  </div>
+  <div class="note__container">
+    <Note *ngFor="let list of this.lists; index as i" (displayModal)="displayNote($event)" [index]="i" [note]="list"></Note>
+  </div>
+</div>

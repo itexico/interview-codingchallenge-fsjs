@@ -1,0 +1,13 @@
+<div class="input">
+    <input class="input__item" type="text" 
+        (keydown)="onFocus()"
+        [(ngModel)]="this.item.content"
+        value="{{ this.item.content }}">
+    
+    <div class="focused">
+        <i class="fas fa-times"
+           (click)="onDelete()"></i>
+        <i *ngIf="this.status == 'focus'" class="fas fa-save"
+           (click)="onUpdate()"></i>
+    </div>
+</div>
