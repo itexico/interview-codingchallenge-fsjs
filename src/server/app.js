@@ -4,23 +4,33 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
+const config = require('./config');
+
 // Initialize the app
 const app = express();
 
 // Import routes
 const noteRoutes = require("./api/routes/notes");
 
+// set the right database host to use
+const DBHost =
+  process.env.NODE_ENV === "test"
+    ? config.DBHostTest
+    : config.DBHostDev;
+
+// Connect to database   
 mongoose.connect(
-  "mongodb://user-notes:" +
-    process.env.MONGO_ATLAS_PW +
-    "@node-rest-notes-shard-00-00-eyg6h.mongodb.net:27017,node-rest-notes-shard-00-01-eyg6h.mongodb.net:27017,node-rest-notes-shard-00-02-eyg6h.mongodb.net:27017/test?ssl=true&replicaSet=node-rest-notes-shard-0&authSource=admin&retryWrites=true",
-    {
-      useNewUrlParser: true
-    }
+  DBHost,
+  {
+    useNewUrlParser: true
+  }
 );
+mongoose.Promise = global.Promise;
 
 // Initialize middleware
-app.use(morgan("dev"));
+if(process.env.NODE_ENV !== "test") {
+  app.use(morgan("dev"));
+}
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -52,9 +62,7 @@ app.use((req, res, next) => {
 app.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.json({
-    error: {
-      message: error.message
-    }
+    error: err
   });
 });
 

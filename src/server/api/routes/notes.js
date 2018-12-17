@@ -16,13 +16,17 @@ const Note = require("../models/note");
 // ----------------------------
 router.get("/", (req, res, next) => {
   Note.find()
+    .select('title items _id')
     .exec()
     .then(docs => {
-      console.log(docs);
-      res.status(200).json(docs);
+      // console.log(docs);
+      res.status(200).json({
+        count: docs.length,
+        notes: docs
+      });
     })
     .catch(err => {
-      console.log(err);
+      // console.log(err);
       res.status(500).json({
         error: err
       });
@@ -41,14 +45,18 @@ router.post("/", (req, res, next) => {
   note
     .save()
     .then(result => {
-      console.log(result);
+      // console.log(result);
       res.status(201).json({
-        message: "a note was created",
-        note: result
+        message: "Note created successfully!",
+        createdNote: {
+          title: result.title,
+          items: result.items,
+          _id: result._id
+        }
       });
     })
     .catch(err => {
-      console.log(err);
+      // console.log(err);
       res.status(500).json({ error: err });
     });
 });
@@ -59,17 +67,21 @@ router.post("/", (req, res, next) => {
 router.get("/:noteId", (req, res, next) => {
   const noteId = req.params.noteId;
   Note.findById(noteId)
+    .select('title items _id')
     .exec()
     .then(note => {
-      console.log(note);
+      // console.log(note);
       if (note) {
-        res.status(200).json(note);
+        res.status(200).json({
+          message: "Note found!",
+          note: note
+        });
       } else {
         res.status(404).json({ message: "Invalid ID for note" });
       }
     })
     .catch(err => {
-      console.log(err);
+      // console.log(err);
       res.status(500).json({ error: err });
     });
 });
@@ -86,11 +98,13 @@ router.patch("/:noteId", (req, res, next) => {
   Note.update({ _id: noteId }, { $set: req.body })
     .exec()
     .then(result => {
-      console.log(result);
-      res.status(200).json(result);
+      // console.log(result);
+      res.status(200).json({
+        message: "Note updated successfully!",
+      });
     })
     .catch(err => {
-      console.log(err);
+      // console.log(err);
       res.status(500).json({
         error: err
       });
@@ -105,7 +119,9 @@ router.delete("/:noteId", (req, res, next) => {
   Note.remove({ _id: noteId })
     .exec()
     .then(result => {
-      res.status(200).json(result);
+      res.status(200).json({
+        message: 'Note deleted successfully!'
+      });
     })
     .catch(err => {
       console.log(err);
@@ -125,20 +141,19 @@ router.delete("/:noteId", (req, res, next) => {
 router.get("/:noteId/entries", (req, res, next) => {
   const noteId = req.params.noteId;
   Note.findById(noteId)
+    .select('title items _id')
     .exec()
     .then(note => {
-      console.log(note);
       if (note) {
         res.status(200).json({
-          title: note.title,
-          items: note.items
+          message: "Note successfully found",
+          note: note
         });
       } else {
         res.status(404).json({ message: "Invalid ID for note" });
       }
     })
     .catch(err => {
-      console.log(err);
       res.status(500).json({ error: err });
     });
 });
@@ -153,7 +168,7 @@ router.post("/:noteId/entries", (req, res, next) => {
   if (!newItem)
     return res.status(400).json({
       // handle incorrect request
-      message: "invalid body request, use the 'item' key"
+      message: "Invalid body request, 'item' field is required"
     });
 
   Note.findById(noteId)
@@ -164,14 +179,16 @@ router.post("/:noteId/entries", (req, res, next) => {
         note
           .save()
           .then(result => {
-            console.log(result);
             res.status(201).json({
-              message: "a new item was added to the note",
-              updatedNote: result
+              message: "New item was added to the note successfully!",
+              updatedNote: {
+                title: result.title,
+                items: result.items,
+                _id: result._id
+              }
             });
           })
           .catch(err => {
-            console.log(err);
             res.status(500).json({ error: err });
           });
       } else {
@@ -180,7 +197,6 @@ router.post("/:noteId/entries", (req, res, next) => {
       }
     })
     .catch(err => {
-      console.log(err);
       res.status(500).json({ error: err });
     });
 });
@@ -193,6 +209,7 @@ router.get("/:noteId/entries/:itemIndex", (req, res, next) => {
   const itemIndex = req.params.itemIndex;
 
   Note.findById(noteId)
+    .select('title items _id')
     .exec()
     .then(note => {
       if (note) {
@@ -200,6 +217,7 @@ router.get("/:noteId/entries/:itemIndex", (req, res, next) => {
         if (item === undefined)
           return res.status(400).json({ message: "Wrong entry index" });
         res.status(200).json({
+          message: "Item successfully found!",
           item: item,
           note: note
         });
@@ -225,7 +243,7 @@ router.patch("/:noteId/entries/:itemIndex", (req, res, next) => {
   if (!updatedItem)
     return res.status(400).json({
       // handle incorrect request
-      message: "invalid body request, use the 'item' key"
+      message: "Invalid body request, 'item' field is required"
     });
 
   Note.findById(noteId)
@@ -243,8 +261,13 @@ router.patch("/:noteId/entries/:itemIndex", (req, res, next) => {
           .then( result => {
             console.log(result);
             res.status(200).json({
+              message: "Item successfully updated!",
               updatedItem: updatedItem,
-              updatedNote: result 
+              updatedNote: {
+                title: result.title,
+                items: result.items,
+                _id: result._id
+              } 
             })
           })
           .catch(err => {
@@ -284,8 +307,12 @@ router.delete("/:noteId/entries/:itemIndex", (req, res, next) => {
           .then( result => {
             console.log(result);
             res.status(200).json({
-              message: "Item removed",
-              updatedNote: result 
+              message: "Item removed successfully!",
+              updatedNote: {
+                title: result.title,
+                items: result.items,
+                _id: result._id
+              } 
             })
           })
           .catch(err => {
