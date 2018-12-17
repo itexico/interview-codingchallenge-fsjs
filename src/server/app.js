@@ -2,9 +2,10 @@
 const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 
-const config = require('./config');
+const config = require("./config");
 
 // Initialize the app
 const app = express();
@@ -14,11 +15,9 @@ const noteRoutes = require("./api/routes/notes");
 
 // set the right database host to use
 const DBHost =
-  process.env.NODE_ENV === "test"
-    ? config.DBHostTest
-    : config.DBHostDev;
+  process.env.NODE_ENV === "test" ? config.DBHostTest : config.DBHostDev;
 
-// Connect to database   
+// Connect to database
 mongoose.connect(
   DBHost,
   {
@@ -28,7 +27,7 @@ mongoose.connect(
 mongoose.Promise = global.Promise;
 
 // Initialize middleware
-if(process.env.NODE_ENV !== "test") {
+if (process.env.NODE_ENV !== "test") {
   app.use(morgan("dev"));
 }
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -47,6 +46,17 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+app.use(cookieParser());
+// Add auth cookie for no test env
+// This is a temporal solution, it will change once client side has been developed
+if (process.env.NODE_ENV !== "test") {
+  app.use((req, res, next) => {
+    console.log("assigning cookie");
+    res.cookie("auth", "");
+    next();
+  });
+}
 
 // Use API routes in the app
 app.use("/notes", noteRoutes);

@@ -27,6 +27,7 @@ describe("Notes", () => {
       chai
         .request(server)
         .get("/notes")
+        .set('Cookie', 'auth=')
         .end((err, res) => {
           res.should.have.status(200);
           res.body.notes.should.be.a("array");
@@ -52,6 +53,7 @@ describe("Notes", () => {
           chai
             .request(server)
             .get("/notes")
+            .set('Cookie', 'auth=')
             .end((err, res) => {
               res.should.have.status(200);
               res.body.notes.should.be.a("array");
@@ -75,6 +77,7 @@ describe("Notes", () => {
       chai
         .request(server)
         .post("/notes")
+        .set('Cookie', 'auth=')
         .send(note)
         .end((err, res) => {
           res.should.have.status(500);
@@ -93,6 +96,7 @@ describe("Notes", () => {
       chai
         .request(server)
         .post("/notes")
+        .set('Cookie', 'auth=')
         .send(note)
         .end((err, res) => {
           res.should.have.status(201);
@@ -114,6 +118,7 @@ describe("Notes", () => {
       chai
         .request(server)
         .post("/notes")
+        .set('Cookie', 'auth=')
         .send(note)
         .end((err, res) => {
           res.should.have.status(201);
@@ -138,6 +143,7 @@ describe("Notes", () => {
       chai
         .request(server)
         .post("/notes")
+        .set('Cookie', 'auth=')
         .send(note)
         .end((err, res) => {
           res.should.have.status(201);
@@ -169,6 +175,7 @@ describe("Notes", () => {
         chai
           .request(server)
           .get("/notes/" + note._id)
+          .set('Cookie', 'auth=')
           .end((err, res) => {
             res.should.have.status(200);
             res.body.should.have.property("message").eql("Note found!");
@@ -193,6 +200,7 @@ describe("Notes", () => {
         chai
           .request(server)
           .get("/notes/" + newId)
+          .set('Cookie', 'auth=')
           .end((err, res) => {
             res.should.have.status(404);
             res.body.should.have.property("message").eql("Invalid ID for note");
@@ -221,6 +229,7 @@ describe("Notes", () => {
         chai
           .request(server)
           .patch("/notes/" + note._id)
+          .set('Cookie', 'auth=')
           .send(fieldsUpdated)
           .end((err, res) => {
             res.should.have.status(200);
@@ -230,6 +239,7 @@ describe("Notes", () => {
             chai
               .request(server)
               .get("/notes/" + note._id)
+              .set('Cookie', 'auth=')
               .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.have.property("message").eql("Note found!");
@@ -260,6 +270,7 @@ describe("Notes", () => {
         chai
           .request(server)
           .patch("/notes/" + note._id)
+          .set('Cookie', 'auth=')
           .send(fieldsUpdated)
           .end((err, res) => {
             res.should.have.status(200);
@@ -269,6 +280,7 @@ describe("Notes", () => {
             chai
               .request(server)
               .get("/notes/" + note._id)
+              .set('Cookie', 'auth=')
               .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.have.property("message").eql("Note found!");
@@ -297,6 +309,7 @@ describe("Notes", () => {
         chai
           .request(server)
           .patch("/notes/" + note._id)
+          .set('Cookie', 'auth=')
           .send(fieldsUpdated)
           .end((err, res) => {
             res.should.have.status(200);
@@ -306,6 +319,7 @@ describe("Notes", () => {
             chai
               .request(server)
               .get("/notes/" + note._id)
+              .set('Cookie', 'auth=')
               .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.have.property("message").eql("Note found!");
@@ -335,6 +349,7 @@ describe("Notes", () => {
         chai
           .request(server)
           .del("/notes/" + note._id)
+          .set('Cookie', 'auth=')
           .end((err, res) => {
             res.should.have.status(200);
             res.body.should.have
@@ -343,6 +358,7 @@ describe("Notes", () => {
             chai
               .request(server)
               .get("/notes")
+              .set('Cookie', 'auth=')
               .end((err, res) => {
                 res.should.have.status(200);
                 res.body.count.should.be.eql(0);

@@ -2,6 +2,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
+const checkAuth = require('../middleware/check-auth')
+
 // Initialize express router
 const router = express.Router();
 
@@ -14,7 +16,7 @@ const Note = require("../models/note");
 // ----------------------------
 // Retrieve a list of all notes
 // ----------------------------
-router.get("/", (req, res, next) => {
+router.get("/", checkAuth, (req, res, next) => {
   Note.find()
     .select('title items _id')
     .exec()
@@ -36,7 +38,7 @@ router.get("/", (req, res, next) => {
 // -------------
 // Create a note
 // -------------
-router.post("/", (req, res, next) => {
+router.post("/", checkAuth, (req, res, next) => {
   const note = new Note({
     _id: new mongoose.Types.ObjectId(),
     title: req.body.title,
@@ -64,7 +66,7 @@ router.post("/", (req, res, next) => {
 // ------------------------
 // Retrieve a specific note
 // ------------------------
-router.get("/:noteId", (req, res, next) => {
+router.get("/:noteId", checkAuth, (req, res, next) => {
   const noteId = req.params.noteId;
   Note.findById(noteId)
     .select('title items _id')
@@ -89,7 +91,7 @@ router.get("/:noteId", (req, res, next) => {
 //-----------------------
 // Update a specific note
 //-----------------------
-router.patch("/:noteId", (req, res, next) => {
+router.patch("/:noteId", checkAuth, (req, res, next) => {
   const noteId = req.params.noteId;
   // const updateOps = {};
   // for (const ops of req.body) {
@@ -114,9 +116,9 @@ router.patch("/:noteId", (req, res, next) => {
 // -----------------------
 // Remove a specific note
 // -----------------------
-router.delete("/:noteId", (req, res, next) => {
+router.delete("/:noteId", checkAuth, (req, res, next) => {
   const noteId = req.params.noteId;
-  Note.remove({ _id: noteId })
+  Note.deleteOne({ _id: noteId })
     .exec()
     .then(result => {
       res.status(200).json({
@@ -138,7 +140,7 @@ router.delete("/:noteId", (req, res, next) => {
 // -----------------------------------------------
 // Retrieve a list of entries from a specific note
 // -----------------------------------------------
-router.get("/:noteId/entries", (req, res, next) => {
+router.get("/:noteId/entries", checkAuth, (req, res, next) => {
   const noteId = req.params.noteId;
   Note.findById(noteId)
     .select('title items _id')
@@ -161,7 +163,7 @@ router.get("/:noteId/entries", (req, res, next) => {
 // ------------------------------------
 // Create an entry from a specific note
 // ------------------------------------
-router.post("/:noteId/entries", (req, res, next) => {
+router.post("/:noteId/entries", checkAuth, (req, res, next) => {
   const noteId = req.params.noteId;
   const newItem = req.body.item;
 
@@ -204,7 +206,7 @@ router.post("/:noteId/entries", (req, res, next) => {
 // ----------------------------------------------
 // Retrieve a specific entry from a specific note
 // ----------------------------------------------
-router.get("/:noteId/entries/:itemIndex", (req, res, next) => {
+router.get("/:noteId/entries/:itemIndex", checkAuth, (req, res, next) => {
   const noteId = req.params.noteId;
   const itemIndex = req.params.itemIndex;
 
@@ -235,7 +237,7 @@ router.get("/:noteId/entries/:itemIndex", (req, res, next) => {
 // ---------------------------------------------
 // Update a specific entry from a specific note
 // ---------------------------------------------
-router.patch("/:noteId/entries/:itemIndex", (req, res, next) => {
+router.patch("/:noteId/entries/:itemIndex", checkAuth, (req, res, next) => {
   const noteId = req.params.noteId;
   const itemIndex = req.params.itemIndex;
   const updatedItem = req.body.item;
@@ -288,7 +290,7 @@ router.patch("/:noteId/entries/:itemIndex", (req, res, next) => {
 // ---------------------------------------------
 // Remove a specific entry from a specific note
 // ---------------------------------------------
-router.delete("/:noteId/entries/:itemIndex", (req, res, next) => {
+router.delete("/:noteId/entries/:itemIndex", checkAuth, (req, res, next) => {
   const noteId = req.params.noteId;
   const itemIndex = req.params.itemIndex;
 
