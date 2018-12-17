@@ -1,5 +1,4 @@
 module.exports = (req, res, next) => {
-  console.log("authorizing")
   if('auth' in req.cookies){
     next(); 
   } else {

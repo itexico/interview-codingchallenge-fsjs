@@ -52,7 +52,6 @@ app.use(cookieParser());
 // This is a temporal solution, it will change once client side has been developed
 if (process.env.NODE_ENV !== "test") {
   app.use((req, res, next) => {
-    console.log("assigning cookie");
     res.cookie("auth", "");
     next();
   });
