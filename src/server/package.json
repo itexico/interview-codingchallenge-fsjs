@@ -1,0 +1,30 @@
+{
+  "name": "lists-manager",
+  "version": "1.0.0",
+  "description": "A Node.js RESTful API that allows to create and manage lists",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha api/tests/*.js --timeout 10000 --exit ",
+    "start": "NODE_ENV=dev nodemon server.js"
+  },
+  "keywords": [
+    "node",
+    "restful",
+    "api",
+    "lists"
+  ],
+  "author": "Adilson Sandoval",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.0",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
+}
