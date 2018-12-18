@@ -1,7 +1,11 @@
-import React from "react"
-import ReactDOM from "react-dom"
+//React Dependencies
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import App from '../components/stateful/App';
+//Styles
+import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const root = document.getElementById("root");
-root ? ReactDOM.render(<App />, root) : false;
+import App from './App';
+
+ReactDOM.render(<App />, document.getElementById('root'));
