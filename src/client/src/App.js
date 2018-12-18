@@ -12,8 +12,14 @@ class App extends Component {
 
     this.state = {
       listName: '',
-      lists: []
+      lists: [],
     };
+  }
+
+  componentDidMount() {
+    fetch('/test')
+    .then(res => res.json())
+    .then(lists => this.setState({ lists }));
   }
 
   //Gets name for new list from text field
