@@ -1,0 +1,24 @@
+.list {
+    max-height: 400px;
+    overflow: auto;
+}
+
+.list-row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.icon-edit:hover {
+    color: #176571 !important;
+}
+
+.icon-delete:hover {    
+    cursor: pointer;
+    pointer-events: auto;
+    color: #d81629 !important;
+}
+
+.icon-list {
+    margin-right: 15px;
+    font-size: 20px;
+}

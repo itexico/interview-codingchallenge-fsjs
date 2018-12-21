@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Edit item {{ item.description }}</h2>
+  <hr>
+  <form [formGroup]="itemForm" (submit)="editItem()">
+    <div class="row">        
+      <mat-form-field class="col-12">
+          <input formControlName="description"
+            matInput
+            placeholder="Description"
+            required>                  
+        <mat-error
+          *ngIf="itemForm.controls['description'].errors?.required && itemForm.controls['description'].touched">
+          The description of the item is necessary
+        </mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div class="col-md-12 text-center">
+      <button [disabled]="!itemForm.valid" mat-raised-button color="primary" type="submit">
+        Edit
+      </button>
+    </div>
+  </form>
+</div>

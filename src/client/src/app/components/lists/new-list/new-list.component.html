@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>New list</h2>
+  <hr>
+  <form [formGroup]="listForm" (submit)="addList()">
+    <div class="row">        
+      <mat-form-field class="col-12">
+          <input formControlName="name"
+            matInput
+            placeholder="Name"
+            required>                  
+        <mat-error
+          *ngIf="listForm.controls['name'].errors?.required && listForm.controls['name'].touched">
+          The name of the list is necessary
+        </mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div class="col-md-12 text-center">
+      <button [disabled]="!listForm.valid" mat-raised-button color="primary" type="submit">
+        Create
+      </button>
+    </div>
+  </form>
+</div>
