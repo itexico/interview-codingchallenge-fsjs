@@ -1,0 +1,52 @@
+<div class="container">
+    <h2>My favorites {{ list?.name }}</h2>    
+    <hr>
+    <div>
+      <button mat-stroked-button color="primary" [routerLink]="['/new-item', listId]">Add Item</button>
+    </div>    
+    <hr>
+    <app-loader *ngIf="isLoading"></app-loader>
+    <div *ngIf="!isLoading" class="list">
+      <div class="list-row row" *ngFor="let item of items">
+        <div class="col-md-9">
+          <a mat-button color="primary" [routerLink]="['/edit-item', item._id]" class="list-link">
+            {{ item.description }}
+          </a>
+        </div>
+        <div class="col-md-3 text-right">
+          <a class="icon-list pointer" [routerLink]="['/edit-item', item._id]">
+            <i class="material-icons icon-edit">edit</i>
+          </a>
+          <a class="icon-list pointer" (click)="itemSelected = item"
+              data-toggle="modal" data-target="#deleteModal">
+              <i class="material-icons text-danger icon-delete">delete</i>
+          </a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Delete Item</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <p>Are you sure you want to delete the {{ itemSelected?.description }} of your favorite stuff?</p>
+        </div>
+        <div class="modal-footer">
+          <button style="display: none" type="button" class="btn btn-secondary" data-dismiss="modal" #btnCancel></button>
+          <button mat-raised-button type="button" color="warn" data-dismiss="modal" (click)="deleteItem()">
+            Yes
+          </button>
+          <button mat-raised-button type="button" color="warn" data-dismiss="modal">
+            No
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,50 @@
+<div class="container">
+  <h2>My Favorite Stuff</h2>
+  <h5>Select the list to see your favorite stuff.</h5>
+  <hr>
+  
+  <app-loader *ngIf="isLoading"></app-loader>
+  <div *ngIf="!isLoading" class="list">
+    <div class="list-row row" *ngFor="let list of lists">
+      <div class="col-md-9">
+        <a mat-button color="primary" [routerLink]="['/items', list._id]" class="list-link">
+          {{ list.name }}
+        </a>
+      </div>
+      <div class="col-md-3 text-right">
+        <a class="icon-list pointer" [routerLink]="['/edit-list', list._id]">
+          <i class="material-icons icon-edit">edit</i>
+        </a>
+        <a class="icon-list pointer" (click)="listSelected = list"
+            data-toggle="modal" data-target="#deleteModal">
+            <i class="material-icons text-danger icon-delete">delete</i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Delete List</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <p>Are you sure you want to delete the list "{{ listSelected?.name }}"?</p>
+      </div>
+      <div class="modal-footer">
+        <button style="display: none" type="button" class="btn btn-secondary" data-dismiss="modal" #btnCancel></button>
+        <button mat-raised-button type="button" color="warn" data-dismiss="modal" (click)="deleteList()">
+          Yes
+        </button>
+        <button mat-raised-button type="button" color="warn" data-dismiss="modal">
+          No
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
