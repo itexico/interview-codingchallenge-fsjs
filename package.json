@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon src/index"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/luism3861/interview-codingchallenge-fsjs/issues"
   },
-  "homepage": "https://github.com/luism3861/interview-codingchallenge-fsjs#readme"
+  "homepage": "https://github.com/luism3861/interview-codingchallenge-fsjs#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
 }
