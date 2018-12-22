@@ -8,7 +8,7 @@ Hey, welcome to the first coding challenge of your interview process, you'll be 
 This challenge assumes your knowledge or skills to leverage on the following topics,
 
   - JavaScript
-  - NodeJS
+  - NodeJ
   - Express
   - MongoDB
   - Mongoose (or another nodejs based ORM for mongodb)
