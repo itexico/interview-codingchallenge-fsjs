@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Challenge App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.css" />
+</head>
+
+<body>
+  <div id="app" class="container">
+
+    <div class="notification" style="z-index: 10000" v-for="error in errors">
+      {{ error.message }}
+    </div>
+
+    <div class="column field is-grouped">
+      <p class="control">
+        <a class="button" @click="isListModalActive = true">New List</a>
+      </p>
+      <p class="control">
+        <input class="input" type="text" placeholder="Update List Name" v-model="listType">
+      </p>
+      <p class="control">
+        <a class="button is-info" :disabled="selectedListId === '' " @click="editList().catch(showErrors)">Update List</a>
+      </p>
+      <p class="control">
+        <a class="button is-danger" :disabled="selectedListId === '' " @click="deleteList().catch(showErrors)">Delete List</a>
+      </p>
+    </div>
+
+    <div class="tabs column">
+      <ul>
+        <list @list-selected="selectList" v-for="(list, index) in lists" :list="list" :key="index" :is-active="list._id === selectedListId"></list>
+      </ul>
+    </div>
+
+    <div class="column">
+      <a class="button" @click="isModalActive = true">Add Item to List</a>
+    </div>
+
+    <div class="column">
+      <item @edit-item="editItem($event).catch(showErrors)" @delete-item="deleteItem" v-for="(item, index) in listItems" :key="index"
+        :item="item"></item>
+    </div>
+
+    <div class="modal" :class="{'is-active': isModalActive }">
+      <div class="modal-background" @click="reset"></div>
+      <div class="modal-content">
+        <div class="field">
+          <label class="label has-text-white">Name</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Text input" v-model="itemName">
+          </div>
+        </div>
+        <div class="field">
+          <a class="button" @click="saveItem().catch(showErrors)">Save Item</a>
+        </div>
+      </div>
+      <button class="modal-close is-large" aria-label="close" @click=""></button>
+    </div>
+
+    <div class="modal" :class="{'is-active': isListModalActive }">
+      <div class="modal-background" @click="reset"></div>
+      <div class="modal-content">
+        <div class="field">
+          <label class="label has-text-white">Type</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Text input" v-model="listType">
+          </div>
+        </div>
+        <div class="field">
+          <a class="button" @click="saveList().catch(showErrors)">Create List</a>
+        </div>
+      </div>
+      <button class="modal-close is-large" aria-label="close" @click="reset"></button>
+    </div>
+
+
+  </div>
+<script type="text/javascript" src="/app.bundle.js"></script></body>
+
+</html>

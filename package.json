@@ -1,0 +1,48 @@
+{
+  "name": "interview-codingchallenge-fsjs",
+  "version": "1.0.0",
+  "description": "Small lists app",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "server": "node ./src/server/index.js",
+    "start": "npm run client &&  node ./src/server/index.js",
+    "client": "webpack",
+    "test": "concurrently --kill-others \"npm run server\" \"npm run really-test\"",
+    "really-test": "BABEL_ENV=test mocha --compilers js:babel-core/register ./test/endpoints.spec.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbaidon/interview-codingchallenge-fsjs.git"
+  },
+  "author": "sbaidon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sbaidon/interview-codingchallenge-fsjs/issues"
+  },
+  "homepage": "https://github.com/sbaidon/interview-codingchallenge-fsjs#readme",
+  "dependencies": {
+    "axios": "^0.17.0",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "express-validator": "^4.3.0",
+    "mongoose": "^4.13.0",
+    "vue": "^2.5.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "concurrently": "^3.5.0",
+    "html-webpack-plugin": "^2.30.1",
+    "mocha": "^4.0.1",
+    "webpack": "^3.8.1"
+  }
+}

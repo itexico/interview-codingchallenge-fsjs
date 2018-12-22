@@ -1,0 +1,20 @@
+{
+  "env": {
+    "dev": {
+      "presets": [
+        ["env", {
+          "modules": true
+        }]
+      ],
+      "plugins": [
+        "transform-runtime"
+      ]
+    },
+    "test": {
+      "presets": ["env"],
+      "plugins": [
+        "transform-runtime"
+      ]
+    }
+  }
+}
