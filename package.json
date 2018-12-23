@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "start": "nodemon src/index"
+    "start": "nodemon src/index",
+    "webpack": "webpack --mode development --watch"
   },
   "repository": {
     "type": "git",
@@ -21,9 +22,18 @@
   "homepage": "https://github.com/luism3861/interview-codingchallenge-fsjs#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "morgan": "^1.9.1"
+    "mongoose": "^5.4.0",
+    "morgan": "^1.9.1",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "nodemon": "^1.18.9",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2"
   }
 }
