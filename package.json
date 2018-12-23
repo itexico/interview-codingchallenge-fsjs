@@ -1,0 +1,39 @@
+{
+  "name": "interview-codingchallenge-fsjs",
+  "version": "1.0.0",
+  "description": "Hey, welcome to the first coding challenge of your interview process, you'll be presented with a set of steps to accomplish in order to get yourself graded on",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "nodemon src/index",
+    "webpack": "webpack --mode development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luism3861/interview-codingchallenge-fsjs.git"
+  },
+  "author": "luismedina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luism3861/interview-codingchallenge-fsjs/issues"
+  },
+  "homepage": "https://github.com/luism3861/interview-codingchallenge-fsjs#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.0",
+    "morgan": "^1.9.1",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "nodemon": "^1.18.9",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
