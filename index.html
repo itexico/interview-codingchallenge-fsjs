@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>My Favorites</title>
+	<!--Style Resources-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Cagliostro|NTR|Pacifico" rel="stylesheet">	<link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <!--End Style Resources-->
+</head>
+<body>
+	<!--Header-->
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <a class="navbar-brand headersStyle headerFont col-8 offset-1 text-center" href="#">My Favorite Things</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn bg-info text-white   offset-1 fontSameStyle mainBtn" data-toggle="modal" data-target="#modalTitle">
+        <i class="fab fa-first-order-alt"> ADD A LIST</i>
+    </button>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="modalTitle" tabindex="-1" role="dialog" aria-labelledby="modalTitleLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Adding a List</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="form">
+                        <div class="form-group">
+                            <label for="titleId">Title List </label><br>
+                            <input type="text" name="" id="titleId">
+                            <br>
+                            <label for="commentId">Comment for your List </label>
+                            <textarea class="form-control" id="commentId" rows="3"></textarea>
+                            
+                            <label for="addTaste">Add a fancy taste </label><br>
+                            <input type="text" name="" id="addTaste">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="savingChanges">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--List-->
+    <main >
+
+    </main>
+    
+    <!--Adding an item Modal-->
+    <div class="modal fade" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="modalAddLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            
+                            <label for="addSecondFavorite">Add a fancy taste </label><br>
+                            <input type="text" name="ItemValue" id="addNewItem">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"data-dismiss="modal" id="savingFavorite">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Js Resources-->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>  
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./js/main.js"></script>
+    <!--End Js Resources-->
+</body>
+</html>

@@ -1,0 +1,20 @@
+body{
+    background-image: url("https://guic.cat/wp-content/uploads/whitepaper.jpg");
+    font-family: 'NTR', sans-serif;
+    font-size: 1.3rem;
+}
+
+.headerFont{
+    background-color: rgba(137, 43, 226, 0.472);
+}
+
+.mainBtn{
+    margin-top: 5vh;
+}
+.card{
+    margin-top: 5vh;
+    display: inline-flex;
+}
+.editable{ 
+    background:#EAEAEA;
+}
