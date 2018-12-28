@@ -22,4 +22,15 @@ body {
 
 .lists-list-item {
   overflow: auto;
+  padding: 8px;
+  margin: 0px;
+}
+
+.lists-list-number {
+  display: inline-block;
+  background-color: rgb(124, 147, 197);
+  color: white;
+  padding: 5px 12px 5px 12px;
+  margin: 0 2px 0 0;
+  border-radius: 50%;
 }

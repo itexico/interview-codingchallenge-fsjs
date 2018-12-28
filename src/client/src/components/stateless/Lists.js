@@ -13,13 +13,13 @@ const Lists = (props) => {
   let renderedLists = lists.map((item, index) => {
 
     //Returns an array of the items inside the "items" array
-    let itemsFromList = lists[index].items
+    let itemsFromList = Object.values(lists[index].items)
     let renderedItems = itemsFromList.map((v, i) => {
 
       return (
         <li className='lists-list-item list-group-item list-group-flush d-flex justify-content-between' key={i}>
           <div>
-          {v}
+            <div className={"lists-list-number"}>{i+1}</div> {v.content}
           </div>
           <div>
             <InputButton

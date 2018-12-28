@@ -4,7 +4,11 @@ const { Schema } = mongoose;
 const listSchema = new Schema ({
   lists: [{
     listName: String,
-    items: Array
+    listID: Number,
+    items: [{
+      content: String,
+      itemID: Number
+    }]
   }]
 })
 

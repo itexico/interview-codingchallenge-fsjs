@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node bin/www"
+    "start": "PORT=3001 node bin/www"
   },
   "dependencies": {
     "assert": "^1.4.1",

@@ -13,6 +13,8 @@ class App extends Component {
     this.state = {
       listName: '',
       lists: [],
+      itemIDCounter: 0,
+      listIDCounter: 0
     };
   }
 
@@ -35,15 +37,24 @@ class App extends Component {
   //Pushes new list into 'lists' array
   createList = () => {
 
+    let listCounter = this.state.listIDCounter
+
     if (this.state.listName) {
 
       let existingLists = new Array(...this.state.lists)
-      let newList = {...this.state, items: new Array(0)}
+      
+      let newList = {
+        listName: this.state.listName, 
+        items: new Array(0),
+        listID: listCounter
+      }
 
       existingLists.push(newList)
+      listCounter++
 
       this.setState ({
         lists: existingLists,
+        listIDCounter: listCounter,
         listName: ''
       })
     }
@@ -52,16 +63,24 @@ class App extends Component {
   //Creates a new item for a designated list
   createListItem = (index) => {
 
-    let newValue = prompt('Write your new item here:')
+    let itemContent = prompt(`Write item for list number ${index} here:`)
+    let itemCounter = this.state.itemIDCounter
 
-    if (newValue) {
+    if (itemContent) {
 
       let itemsArray = this.state.lists[index].items
 
+      let newValue = {
+        content: itemContent,
+        itemID: itemCounter
+      }
+
       itemsArray.push(newValue)
+      itemCounter++
 
       this.setState ({
-        lists: [...this.state.lists]
+        lists: [...this.state.lists],
+        itemIDCounter: itemCounter
       })
     }
   }
@@ -72,7 +91,7 @@ class App extends Component {
     let itemsArray = this.state.lists[listIndex].items
     const list = this.state.lists[listIndex].listName
 
-    let confirmation = window.confirm(`Are you sure you want to delete '${itemsArray[itemNo]}' from list '${list}'?`)
+    let confirmation = window.confirm(`Are you sure you want to delete '${itemsArray[itemNo].content}' from list '${list}'?`)
 
     if (confirmation) {
 
@@ -90,8 +109,11 @@ class App extends Component {
     let itemsArray = this.state.lists[listIndex].items
     const list = this.state.lists[listIndex].listName
 
-    let newValue = window.prompt(`Edit '${itemsArray[itemNo]}' from list '${list}':`)
-
+    let newValue = {
+      content: window.prompt(`Edit '${itemsArray[itemNo].content}' from list '${list}':`),
+      itemID: itemsArray[itemNo].itemID
+    }
+    
     if (newValue) {
 
       itemsArray.splice(itemNo, 1, newValue)
