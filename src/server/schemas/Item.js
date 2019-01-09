@@ -1,9 +1,9 @@
-let mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-let ItemSchema = mongoose.Schema({
+const ItemSchema = mongoose.Schema({
   title: String,
   list: {
-    type: mongoose.Schema.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "List"
   }
 });

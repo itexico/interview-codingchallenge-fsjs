@@ -1,6 +1,6 @@
-let mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-let ListSchema = mongoose.Schema({
+const ListSchema = mongoose.Schema({
   title: String
 });
 
