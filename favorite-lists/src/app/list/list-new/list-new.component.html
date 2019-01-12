@@ -1,0 +1,8 @@
+<h3>New favorite list</h3>
+
+<form (submit)="create()"> 
+    <input type="text" name="title" placeholder="Favorite item" [(ngModel)]="newList.title">
+    <input type="text" name="item" placeholder="First item "  [(ngModel)]="newList.item">
+    <br>
+    <button id="new-btn" type="submit" class="btn btn-info"> New </button>
+</form>

@@ -1,0 +1,8 @@
+<h3>Edit list</h3>
+
+<form (submit)="update()"> 
+    <input type="text" name="title" placeholder="Name list" [(ngModel)]="editList.title">
+    <input type="text" name="item" placeholder="First Item list"  [(ngModel)]="editList.item">
+
+    <button type="submit" class="btn btn-outline-secondary"> Edit </button>
+</form>

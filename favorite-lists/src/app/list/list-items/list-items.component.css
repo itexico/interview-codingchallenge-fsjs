@@ -1,0 +1,8 @@
+h3, #container {
+    text-align: center;
+}
+
+button {
+    margin: 0.8em  1em;
+    padding: 3px 10px;
+}

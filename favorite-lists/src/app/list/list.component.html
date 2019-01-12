@@ -1,0 +1,10 @@
+<app-list-new (createNewListEvent)="create($event)">
+</app-list-new>
+
+<app-list-items [lists] ="lists" (destroyListEvent)="destroy($event)" (updateListEvent) ="update($event)"></app-list-items>
+
+
+<h1>Developer info</h1>
+<pre>
+    {{ lists | json}}
+</pre>
