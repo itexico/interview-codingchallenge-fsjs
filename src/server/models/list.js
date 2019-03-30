@@ -1,13 +1,9 @@
-var mongoose = require('mongoose');
-var db = mongoose.createConnection('mongodb://localhost:27017/myListDb');
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log('Database Connected.');
-});
-var Schema = mongoose.Schema;
-var ObjectId = require('mongoose').Types.ObjectId; 
+import { mongoose, db } from '../dal/mongoDbConn.js';
 
-var MyListSchema   = mongoose.Schema({
+var Schema = mongoose.Schema;
+var ObjectId = mongoose.Types.ObjectId; 
+
+var MyListSchema = Schema({
     name: String,
     description: String,
     creation_date: Date,
@@ -22,4 +18,4 @@ MyListSchema.static('findById', function (id, callback) {
   return this.find({ _id: idFromString }, callback);
 });
 
-module.exports = db.model('MyList', MyListSchema);
+export default db.model('MyList', MyListSchema);
