@@ -1,7 +1,7 @@
 {
   "name": "interview-codingchallenge-fsjs",
   "version": "1.0.0",
-  "description": "coding challenge for full-stack position in iTexico",
+  "description": "list manager",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -15,7 +15,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prestart": "start mongod --dbpath d:\\mongodb\\data",
+    "start": "node ./src/server/bin/www",
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,6 @@
   },
   "keywords": [
     "challenge",
-    "iTexico",
     "full-stack"
   ],
   "author": "José Luis Muñoz",
