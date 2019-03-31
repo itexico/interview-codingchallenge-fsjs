@@ -5,10 +5,21 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node",
+            "type": "chrome",
+            "request": "attach",
+            "name": "Attach to Chrome",
+            "port": 9222,
+            "webRoot": "${workspaceFolder}/src/server",
+            "userDataDir": true
+        },
+        {
+            "type": "chrome",
             "request": "launch",
-            "name": "Iniciar programa",
-            "program": "${file}"
+            "name": "Launch Chrome",
+            "port": 9222,
+            "webRoot": "${workspaceFolder}/src/server",
+            "url": "http://localhost:8080",
+            "userDataDir": true
         }
     ]
 }

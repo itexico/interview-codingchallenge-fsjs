@@ -1,7 +1,7 @@
-import { mongoose, db } from '../dal/mongoDbConn.js';
+var mongoDbAccess = require('../dal/mongoDbConn.js');
 
-var Schema = mongoose.Schema;
-var ObjectId = mongoose.Types.ObjectId; 
+var Schema = mongoDbAccess.mongoose.Schema;
+var ObjectId = mongoDbAccess.mongoose.Types.ObjectId; 
 
 var MyListSchema = Schema({
     name: String,
@@ -18,4 +18,4 @@ MyListSchema.static('findById', function (id, callback) {
   return this.find({ _id: idFromString }, callback);
 });
 
-export default db.model('MyList', MyListSchema);
+module.exports = mongoDbAccess.db.model('MyList', MyListSchema);

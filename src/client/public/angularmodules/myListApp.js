@@ -23,6 +23,7 @@ angular.module('myListApp', ['ngRoute'])
 
     .service('StorageService', function($q, $http, $location, configuration) {
         this.saveList = function (listData) {
+            var isCorrect = true;
             console.log("Saving list...");
             var method = "POST";
             if(listData._id)
@@ -38,10 +39,15 @@ angular.module('myListApp', ['ngRoute'])
                 }
             }).then(function(data) {
                 $location.path('/');
+                isCorrect = true;
+            }, function(data){
+                isCorrect = false;
             });
+            return isCorrect;
         };
 
-        this.removeList=function(id){
+        this.removeList = function(id){
+            var isCorrect = true;
             $http({
                 url: configuration.server + '/mylists',
                 method: "DELETE",
@@ -51,8 +57,12 @@ angular.module('myListApp', ['ngRoute'])
                     'Content-Type': 'application/json; charset=utf-8'
                 }
             }).then(function(data) {
+                isCorrect = true;
                 $location.path('/');
+            }, function(data){
+                isCorrect = false;
             });
+            return isCorrect;
         };
     })
 
@@ -66,17 +76,17 @@ angular.module('myListApp', ['ngRoute'])
         $routeProvider
             .when('/', {
                 controller:'ShowListsController as currentLists',
-                templateUrl:'list.html',
+                templateUrl:'views/list.html',
                 resolve: resolveList
             })
             .when('/edit/:listId', {
                 controller:'EditListController as editingList',
-                templateUrl:'detail.html',
+                templateUrl:'views/detail.html',
                 resolve: resolveList    //TODO: here can be improved by only passing the 'id' for the list
             })
             .when('/new', {
                 controller:'NewProjectController as editingList',
-                templateUrl:'detail.html'
+                templateUrl:'views/detail.html'
             })
             .otherwise({
                 template:"<h1>Nothing to show here!</h1>"
@@ -88,7 +98,7 @@ angular.module('myListApp', ['ngRoute'])
         this.lists = lists;
     })
     
-    .controller('NewProjectController', function($location, $http, $scope, StorageService) {
+    .controller('NewProjectController', function($scope, $rootScope, StorageService, NotificationService) {
         var editingList = this;
         $scope.action = 'New list';
         var newList={
@@ -101,11 +111,12 @@ angular.module('myListApp', ['ngRoute'])
 
         editingList.save = function() {
             console.log(this.list);
-            StorageService.saveList(this.list);
+            var result = StorageService.saveList(this.list);
+            $rootScope.notificationList = [NotificationService.createNotificationObject(result)];
         };
 
         editingList.addItem = function(){
-            if(editingList.list.items.length<=10)
+            if(editingList.list.items.length <= 10)
                 editingList.list.items.push({"name":""});
         }
 
@@ -114,7 +125,7 @@ angular.module('myListApp', ['ngRoute'])
         };
     })
 
-    .controller('EditListController', function($location, $routeParams, $http, $scope, lists, StorageService) {
+    .controller('EditListController', function($routeParams, $scope, $rootScope, lists, StorageService, NotificationService) {
         $scope.action = 'Edit list';
         var editingList = this;
         var listId = $routeParams.listId;
@@ -123,11 +134,14 @@ angular.module('myListApp', ['ngRoute'])
         editingList.list = list;
     
         editingList.destroy = function() {
-            StorageService.removeList(this.list._id);
+            var result = StorageService.removeList(this.list._id);
+            $rootScope.notificationList = [NotificationService.createNotificationObject(result)];
         };
     
         editingList.save = function() {
-            StorageService.saveList(this.list);
+            debugger;
+            var result = StorageService.saveList(this.list);
+            $rootScope.notificationList = [NotificationService.createNotificationObject(result)];
         };
 
         editingList.addItem = function(){

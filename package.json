@@ -16,7 +16,8 @@
   "devDependencies": {},
   "scripts": {
     "prestart": "start mongod --dbpath d:\\mongodb\\data",
-    "start": "node ./src/server/bin/www"
+    "start": "node ./src/server/bin/www",
+    "client": "node ./src/client/bin/www"
   },
   "repository": {
     "type": "git",

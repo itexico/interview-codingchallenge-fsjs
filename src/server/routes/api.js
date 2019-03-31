@@ -1,9 +1,9 @@
-import { Router } from 'express';
-var router = Router();
+var express = require('express');
+var router = express.Router();
 
 var ObjectId = require('mongoose').Types.ObjectId; 
 
-var MyList = require('../models/list').default.default.default;
+var MyList = require('../models/list');
 
 /* GET api listing. */
 router.get('/', function(req, res, next) {
@@ -72,4 +72,4 @@ router.route('/mylists/:id')
     });
   });
 
-export default router;
+module.exports = router;

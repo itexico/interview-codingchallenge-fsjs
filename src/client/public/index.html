@@ -22,6 +22,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
     
     <script type="text/javascript" src="angularmodules/myListApp.js"></script>
+    <script type="text/javascript" src="angularmodules/notifications.js"></script>
     <script type="text/javascript" src="angularmodules/config.js"></script>
     
     <link href="stylesheets/style.css" rel="stylesheet">
@@ -34,7 +35,7 @@
             <li role="presentation" class="active"><a href="/">Home</a></li>
           </ul>
         </nav>
-        <h3 class="text-muted">Listinator</h3>
+        <h3 class="text-muted">Listinator</h3>  
       </div>
 
       <div class="well">
@@ -43,6 +44,13 @@
         <p><a class="btn btn-lg btn-success" href="#!new" role="button">Let's get started!</a></p>
       </div>
 
+      <div ng-contoller="NotificationController">
+        <div ng-repeat="notification in notificationList" class="alert alert-{{notification.type}} alert-dismissible fade in">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>{{notification.shortMessage}}</strong> {{notification.message}}
+        </div>
+      </div>
+      
       <div class="container">
         <div class="row marketing" data-ng-view>
           
@@ -50,7 +58,7 @@
       </div>
 
       <footer class="footer">
-        <p>&copy; 2017 Le Magio works</p>
+        <p>&copy; 2019 Le Magio works</p>
       </footer>
 
     </div> <!-- /container -->
