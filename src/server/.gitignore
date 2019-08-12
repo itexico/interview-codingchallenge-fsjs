@@ -1,0 +1,5 @@
+# Specifies intentionally untracked files to ignore when using Git
+
+.vscode/
+
+node_modules/

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <title>Fibonacci</title>
+</head>
+
+<body>
+    <div style="text-align:center">
+        <h1>Fibonacci</h1>
+    </div>
+    <div ng-app="App" ng-controller="mathCalc">
+        <form novalidate>
+            <p>Input number: <input type="text" ng-model="number"></p>
+            <button ng-click="search()"> Find </button>
+            <p>The number is: {{result}}</p>
+            <p>Te position of that number is in: {{position}}</p>
+        </form>
+    </div>
+    <script>
+        var app = angular.module('App', []);
+        app.controller('mathCalc', function ($scope) {
+            $scope.search = function () {
+
+                //First of all determinate if the input number is a fibonacci number or not, if is we continue to the construction of the serie, if not nothing happens
+
+                var inputNumber = $scope.number;
+                var test = Math.pow(inputNumber, 2);
+                var isFiboPos = (5 * test + 4);
+                var isFiboNeg = (5 * test - 4);
+                if (Number.isInteger(Math.sqrt(isFiboNeg)) == true || Number.isInteger(Math.sqrt(isFiboPos)) == true) {
+                    $scope.result = "Fibonacci";
+                    console.log(fibo(inputNumber));
+                } else {
+                    $scope.result = "Not Fibonacci";
+                }
+
+            }
+
+            //this function is called if the number is fibonacci, we create the fibonacci serie until the input number to determinate the position
+            function fibo(num) {
+                var arr = [0, 1];
+                var sum = 0;
+                var a = 1;
+                var b = 0;
+                console.log("entro a la funcion");
+                    while(a != num){
+                        sum = a;
+                        a = a + b;
+                        b = sum;
+                        console.log(a);
+                        arr.push(a);
+                    }
+                    var length = arr.length;
+                    $scope.position = length;
+                    console.log("el tamano es:" + length);
+                    return arr;
+            }
+        });
+    </script>
+</body>
+
+</html>
