@@ -1,0 +1,159 @@
+/* BODY */
+
+body {
+    background-color: rgb(211, 210, 210);
+    font-family: 'PT Sans', sans-serif;
+    margin: 0;
+    width: 100%;
+}
+
+
+/* HEADER */
+
+header {
+    background-color: #027179;
+    border: #027179;
+    box-sizing: border-box;
+    height: 25vh;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0%;
+    position: relative;
+    width: 100%;
+}
+
+h1 {
+    color: rgb(211, 210, 210);
+    font-weight: 900;
+    font-size: 10vh;
+    margin: 0%;
+    padding-top: 6vh;
+    text-align: center;
+}
+
+
+/* MAIN */
+
+
+/**Input**/
+
+.newInput {
+    display: inline-block;
+    border-style: none;
+    border-radius: 24px;
+    background-color: rgb(253, 251, 251);
+    font-weight: bold;
+    height: 5vh;
+    margin-left: 1vh;
+    padding-left: 1vh;
+    margin-top: 3vh;
+    text-align: left;
+    width: 18vw;
+}
+
+
+/**Container**/
+
+#firtsId,
+#secondId {
+    display: inline-block;
+    float: left;
+    height: auto;
+    width: fit-content;
+}
+
+.container {
+    background-color: #027179;
+    border-radius: 24px;
+    float: left;
+    margin-left: 10vw;
+    padding-left: 1vh;
+    margin-top: 6vh;
+    width: 20vw;
+}
+
+.containerauto {
+    background-color: #0397a1;
+    border-radius: 3px;
+    color: white;
+    float: left;
+    height: auto;
+    margin: 5px;
+    margin-left: 10vw;
+    padding: 2.5px;
+}
+
+
+/**Botones**/
+
+.btnCancel {
+    background-color: #0397a1;
+    border: none;
+    display: inline-block;
+    color: #AAAAAA;
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-left: 10vw;
+    margin-top: 2vh;
+    text-align: center;
+}
+
+#guardar,
+.buttonAdd {
+    background-color: #519839;
+    border: none;
+    border-radius: 3px;
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    margin-left: 1vw;
+    margin-bottom: 2.5vh;
+    margin-top: 2.5vw;
+    padding: 7px;
+}
+
+
+/*Titulo y link para añadir en la lista*/
+
+.newElement {
+    font-weight: bold;
+    margin-left: 1vw;
+    margin-bottom: 5vh;
+    width: auto;
+}
+
+.link {
+    font-weight: normal;
+    margin-left: 1vw;
+    margin-bottom: 5vh;
+    padding-bottom: 5vh;
+    text-decoration: underline;
+    width: auto;
+}
+
+
+/*Text Area para agregar elementos y lista de elementos*/
+
+.textArea {
+    background-color: rgb(253, 251, 251);
+    border-radius: 15px;
+    font-weight: normal;
+    font-size: 1em;
+    height: auto;
+    margin-left: 1vw;
+    margin-bottom: 2vh;
+    margin-top: 0;
+    width: 17vw;
+}
+
+h4 {
+    color: white;
+    font-weight: normal;
+    font-size: 1em;
+    margin-left: 1vw;
+    margin-bottom: 2vh;
+    margin-top: 0;
+    width: 17vw;
+}
