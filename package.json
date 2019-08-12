@@ -1,0 +1,28 @@
+{
+  "name": "interview-codingchallenge-fsjs",
+  "version": "1.0.0",
+  "description": "A  coding challenge for Fullstack JavaScript candidates, part of the interview process",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IlseMagali/interview-codingchallenge-fsjs.git"
+  },
+  "author": "Ilse Keymolen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IlseMagali/interview-codingchallenge-fsjs/issues"
+  },
+  "homepage": "https://github.com/IlseMagali/interview-codingchallenge-fsjs#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.11.9"
+  }
+}
