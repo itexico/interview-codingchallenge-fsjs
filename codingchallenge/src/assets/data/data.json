@@ -1,0 +1,16 @@
+{
+    "Listas": [{
+            "tittle": "Movies",
+            "Movies": ["Star Wars", "La bella y la bestia", "Jurassic Park"]
+
+        },
+        {
+            "tittle": "Tacos",
+            "items": ["Asada", "Al pastor", "buche"]
+        },
+        {
+            "tittle": "Música",
+            "items": ["Pop", "Rock"]
+        }
+    ]
+}
