@@ -1,0 +1,103 @@
+/*  ***** APP  ***** */
+.App {
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+h1 {
+    color: white;
+    flex: 0;
+    margin: 0;
+    padding: .5em 2em;
+}
+
+.container-lists {
+    flex: 2;
+    padding: .5em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.div-input-add {
+    width: 30%;
+    align-self: center;
+}
+
+input {
+    text-align: center;
+    flex: 0;
+    width: 80%;
+    align-self: center;
+}
+
+/* ***** LIST ***** */ 
+.List {
+    max-height: auto;
+    height: 6em;
+    width: 31%;
+    border: 1px solid white;
+    flex-direction: column;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+h3 {
+    margin: 0;
+    padding: .5em;
+    color: purple;
+}
+
+.container-items {
+    padding: .5em;
+}
+
+.container-items > ol {
+    margin: 0;
+    padding-left: 25px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+/* ***** ITEMS ***** */ 
+.item {
+    text-align: left;
+    margin-left: 5px;
+    margin-top: 10px;
+    align-items: baseline;
+}
+
+.input-item {
+    width: 35%;
+    max-width: 50%;
+    height: auto;
+    background-color: transparent;
+    border: none;
+    flex: 1;
+    margin: 0;
+}
+
+.btn {
+    float: right;
+    margin-right: 8px;
+    background-color: transparent;
+    border: 1px solid white;
+    flex: 0;
+}
+
+.fa-pen {
+    color: blue;
+}
+
+.fa-trash-alt {
+    color: gray;
+}
+
+.fa-plus {
+    color: white;
+    margin-right: 0;
+}
