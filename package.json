@@ -1,0 +1,34 @@
+{
+  "name": "interview-codingchallenge-fsjs",
+  "version": "1.0.0",
+  "description": "List builder",
+  "main": "/src/server/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulioMoreno/interview-codingchallenge-fsjs.git"
+  },
+  "keywords": [],
+  "author": "Julio César Moreno Guillén",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JulioMoreno/interview-codingchallenge-fsjs/issues"
+  },
+  "homepage": "https://github.com/JulioMoreno/interview-codingchallenge-fsjs#readme",
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.4",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.7"
+  }
+}
