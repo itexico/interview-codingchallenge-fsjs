@@ -2,6 +2,7 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import DisplayListElements from '../DisplayListElements/DisplayListElements';
 import AddItem from '../AddItem/AddItem';
 import { handleChange } from '../../shared';
@@ -11,45 +12,55 @@ import {
   editListItem,
   toggleEditionItem,
   deleteListItem,
+  isFormInvalid,
+  wait,
  } from '../shared.list.logic';
 
 const styles = () => ({
+  editForm: {
+    width: '95%',
+  },
   actionsContainer: {
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'center',
     marginTop: '50px',
+    marginBottom: '20px',
   },
   addListButton: {
-    width: '200px',
+    maxWidth: '200px',
   },
   itemsAlert: {
     marginTop: '10px',
   }
 });
 
-function EditList({ classes, currentList }) {
-  console.log('currentList: ', currentList);
+function EditList({ classes, currentList, updateCurrentEditedList }) {
 
   const [list, setList] = React.useState(currentList);
-  console.log('list: ', list);
+  const [submitting, setSubmitting] = React.useState(false);
 
-  // React.useEffect(() => {
-  //   setList(list => ({ ...list, title: currentList.title, items: [ ...list.items, ...currentList.items ] }))
-  // }, [currentList]);
   async function submitList(e) {
-    // e.preventDefault();
-    // await axios.post('/list', list).catch(err => console.log(err));
-    // handleChangeCurrentTab(null, 1);
+    e.preventDefault();
+
+    try {
+      setSubmitting(true);
+      await Promise.all([
+        // Artificial delay to improve LinearProgress experience for the user.
+        wait(1000),
+        axios.patch(`/list/${list._id}`, list),
+      ]);
+
+      setSubmitting(false);
+      updateCurrentEditedList(list);
+    } catch(err) {
+      console.log('err: ', err);
+    }
+
   }
 
-  const isFormInvalid = () => 
-    list.title.length === 0 || 
-    list.items.length === 0 || 
-    !list.items.every(el => el.itemDescription.length >= 1);
-
   return (
-    <form onSubmit={e => submitList(e)}>
+    <form className={classes.editForm} onSubmit={e => submitList(e)}>
       <TextField
         fullWidth
         id="title"
@@ -77,14 +88,15 @@ function EditList({ classes, currentList }) {
       <div className={classes.actionsContainer}>
         <Button 
           className={classes.addListButton}
-          disabled={isFormInvalid()}
+          disabled={isFormInvalid(list) || submitting}
           variant="contained"
           color="primary"
           type="submit"
         >
-          Edit list
+          Save list changes
         </Button>
       </div>
+      { submitting && <LinearProgress /> }
     </form>
   );
 }

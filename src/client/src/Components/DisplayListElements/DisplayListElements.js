@@ -19,7 +19,7 @@ const styles = theme => ({
     overflowX: 'auto',
   },
   table: {
-    minWidth: 700,
+    wordBreak: 'break-word',
   },
   buttonColumns: {
     width: '10px',

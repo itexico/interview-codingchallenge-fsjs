@@ -2,6 +2,7 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import DisplayListElements from '../DisplayListElements/DisplayListElements';
 import AddItem from '../AddItem/AddItem';
 import { handleChange } from '../../shared';
@@ -11,6 +12,8 @@ import {
   editListItem,
   toggleEditionItem,
   deleteListItem,
+  isFormInvalid,
+  wait,
  } from '../shared.list.logic';
 
 const styles = () => ({
@@ -31,17 +34,26 @@ const styles = () => ({
 function AddList({ classes, handleChangeCurrentTab }) {
 
   const [list, setList] = React.useState({ title: '', items: []});
+  const [submitting, setSubmitting] = React.useState(false);
 
   async function submitList(e) {
     e.preventDefault();
-    await axios.post('/list', list).catch(err => console.log(err));
-    handleChangeCurrentTab(null, 1);
-  }
+    setSubmitting(true);
 
-  const isFormInvalid = () => 
-    list.title.length === 0 || 
-    list.items.length === 0 || 
-    !list.items.every(el => el.itemDescription.length >= 1);
+    try {
+      await Promise.all([
+        // Artificial delay to improve LinearProgress experience for the user.
+        wait(1000),
+        await axios.post('/list', list).catch(err => console.log(err)),
+      ]);
+
+      setSubmitting(false);
+      handleChangeCurrentTab(null, 1);
+    } catch(err) {
+      console.log('err: ', err);
+    }
+
+  }
 
   return (
     <form onSubmit={e => submitList(e)}>
@@ -72,7 +84,7 @@ function AddList({ classes, handleChangeCurrentTab }) {
       <div className={classes.actionsContainer}>
         <Button 
           className={classes.addListButton}
-          disabled={isFormInvalid()}
+          disabled={isFormInvalid(list) || submitting}
           variant="contained"
           color="primary"
           type="submit"
@@ -80,6 +92,7 @@ function AddList({ classes, handleChangeCurrentTab }) {
           Add list
         </Button>
       </div>
+      { submitting && <LinearProgress /> }
     </form>
   );
 }

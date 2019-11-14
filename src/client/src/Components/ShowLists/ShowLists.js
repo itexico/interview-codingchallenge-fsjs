@@ -57,6 +57,24 @@ class ShowLists extends React.Component {
     this.setState({ lists });
   }
 
+  updateCurrentEditedList = list => {
+    const { lists: currentLists } = this.state; 
+    
+    this.setState({
+      lists: currentLists.map(current => {
+        if(current._id === list._id) {
+          return {
+            ...current,
+            editing: !current.editing,
+            title: list.title,
+            items: list.items,
+          };
+        } else return current;
+      })
+    });
+    
+  }
+
   render() {
     const { classes } = this.props;
     const { lists, initialLoad } = this.state;
@@ -67,7 +85,11 @@ class ShowLists extends React.Component {
         {lists.map(row => (
           <div key={row._id} className={`${classes.row} ${row.editing ? classes.rowEditing : ''}`}>
             <strong className={classes.listTitle}>{row.title}</strong>
-            {row.editing ? <EditList currentList={row}/> : null }
+            { row.editing ? 
+              <EditList
+                updateCurrentEditedList={this.updateCurrentEditedList}
+                currentList={row}/> : null 
+            }
 
             { !row.editing ? 
               <IconButton 

@@ -27,9 +27,18 @@ function deleteListItem(_, itemId, setList) {
   }));
 }
 
+const wait = (amount = 0) => new Promise(resolve => setTimeout(resolve, amount));
+
+const isFormInvalid = (list) => 
+    list.title.length === 0 || 
+    list.items.length === 0 || 
+    !list.items.every(el => el.itemDescription.length >= 1);
+
 export {
   addListItem,
   editListItem,
   toggleEditionItem,
   deleteListItem,
+  isFormInvalid,
+  wait,
 }
