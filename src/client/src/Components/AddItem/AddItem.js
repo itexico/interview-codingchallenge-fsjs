@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import uuidv4 from 'uuid/v4';
-import { handleChange } from '../../../shared';
+import { handleChange } from '../../shared';
 
 const styles = () => ({
   addItemContainer: {
@@ -25,7 +25,7 @@ function AddItem(props) {
 
   const [currentItem, setItem] = React.useState({ 
     key: uuidv4(),
-    item: '',
+    itemDescription: '',
     inEdition: false,
   });
   const { classes } = props;
@@ -35,23 +35,23 @@ function AddItem(props) {
       <TextField
         className={classes.textbox}
         id="item"
-        name="item"
+        name="itemDescription"
         label="List item"
         margin="normal"
-        value={currentItem.item}
+        value={currentItem.itemDescription}
         onChange={e => handleChange(e, currentItem, setItem)}
         type="text"
         variant="outlined"
       />
       <Button 
         onClick={e => {
-          props.addListItem(e, currentItem);
-          setItem({ key: uuidv4(), item: '' });
+          props.addListItem(e, currentItem, props.setList);
+          setItem({ key: uuidv4(), itemDescription: '' });
         }}
         className={classes.button}
         color="secondary"
         variant="contained"
-        disabled={currentItem.item.length === 0}
+        disabled={currentItem.itemDescription.length === 0}
       >
         Add item
       </Button>

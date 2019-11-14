@@ -28,14 +28,19 @@ const styles = () => ({
   }
 });
 
-function AddList({ classes, handleChangeCurrentTab }) {
+function EditList({ classes, currentList }) {
+  console.log('currentList: ', currentList);
 
-  const [list, setList] = React.useState({ title: '', items: []});
+  const [list, setList] = React.useState(currentList);
+  console.log('list: ', list);
 
+  // React.useEffect(() => {
+  //   setList(list => ({ ...list, title: currentList.title, items: [ ...list.items, ...currentList.items ] }))
+  // }, [currentList]);
   async function submitList(e) {
-    e.preventDefault();
-    await axios.post('/list', list).catch(err => console.log(err));
-    handleChangeCurrentTab(null, 1);
+    // e.preventDefault();
+    // await axios.post('/list', list).catch(err => console.log(err));
+    // handleChangeCurrentTab(null, 1);
   }
 
   const isFormInvalid = () => 
@@ -77,11 +82,11 @@ function AddList({ classes, handleChangeCurrentTab }) {
           color="primary"
           type="submit"
         >
-          Add list
+          Edit list
         </Button>
       </div>
     </form>
   );
 }
 
-export default withStyles(styles)(AddList);
+export default withStyles(styles)(EditList);

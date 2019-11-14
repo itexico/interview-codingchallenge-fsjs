@@ -33,7 +33,7 @@ const styles = theme => ({
 });
 
 function DisplayListElements(props) {
-  const { classes, rows, deleteListItem, editListItem, toggleEditionItem } = props;
+  const { classes, rows, deleteListItem, editListItem, toggleEditionItem, setList } = props;
 
   if(rows.length === 0) return null;
 
@@ -47,15 +47,15 @@ function DisplayListElements(props) {
                 <TableCell scope="row">
                   <strong 
                     className={row.inEdition ? classes.hideElement : ''}
-                  >{row.item}</strong>
+                  >{row.itemDescription}</strong>
                   <input
                     className={`${classes.inputEdit} ${!row.inEdition ? classes.hideElement : ''}`}
                     id="edit-item"
                     name="edit-item"
                     label="Editing item"
                     margin="normal"
-                    value={row.item}
-                    onChange={e => editListItem(e, row)}
+                    value={row.itemDescription}
+                    onChange={e => editListItem(e, row, setList)}
                     type="text"
                     variant="outlined"
                   />
@@ -65,7 +65,7 @@ function DisplayListElements(props) {
                     className={classes.button}
                     aria-label="Delete"
                     color="primary"
-                    onClick={e => deleteListItem(e, row.key)}
+                    onClick={e => deleteListItem(e, row.key, setList)}
                   >
                     <DeleteIcon />
                   </IconButton>
@@ -76,7 +76,7 @@ function DisplayListElements(props) {
                       className={classes.button}
                       aria-label="Edit"
                       color="primary"
-                      onClick={e => toggleEditionItem(e, row.key)}
+                      onClick={e => toggleEditionItem(e, row.key, setList)}
                     >
                       <EditIcon />
                     </IconButton> 
@@ -87,7 +87,7 @@ function DisplayListElements(props) {
                       className={classes.button}
                       aria-label="Edit"
                       color="primary"
-                      onClick={e => toggleEditionItem(e, row.key)}
+                      onClick={e => toggleEditionItem(e, row.key, setList)}
                     >
                       <CheckCircleIcon />
                     </IconButton>

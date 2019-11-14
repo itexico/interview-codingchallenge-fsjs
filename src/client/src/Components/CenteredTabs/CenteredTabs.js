@@ -4,9 +4,10 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import Paper from '@material-ui/core/Paper';
 
 import AddList from '../AddList/AddList';
-import Paper from '@material-ui/core/Paper';
+import ShowLists from '../ShowLists/ShowLists';
 
 const styles = theme => ({
   root: {
@@ -21,7 +22,7 @@ const styles = theme => ({
 
 class SimpleTabs extends React.Component {
   state = {
-    value: 0,
+    value: 1,
   };
 
   handleChange = (event, value) => {
@@ -41,8 +42,8 @@ class SimpleTabs extends React.Component {
           </Tabs>
         </AppBar>
         <Paper className={classes.mainContainer}>
-          {value === 0 && <AddList/>}
-          {value === 1 && <p>Item Two</p>}
+          {value === 0 && <AddList handleChangeCurrentTab={this.handleChange}/>}
+          {value === 1 && <ShowLists/>}
         </Paper>
       </div>
     );
