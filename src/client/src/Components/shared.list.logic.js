@@ -6,24 +6,24 @@ function addListItem(_, item, setList) {
 
 function editListItem(e, item, setList) {
   e.persist();
-  const key = item.key;
+  const key = item._id;
   setList(list => ({
     ...list, 
-    items: list.items.map(el => el.key === key ? { ...el, itemDescription: e.target.value } : el)
+    items: list.items.map(el => el._id === key ? { ...el, itemDescription: e.target.value } : el)
   }));
 }
 
-function toggleEditionItem(_, itemKey, setList) {
+function toggleEditionItem(_, itemId, setList) {
   setList(list => ({
     ...list, 
-    items: list.items.map(el => el.key === itemKey ? { ...el, inEdition: !el.inEdition } : el)
+    items: list.items.map(el => el._id === itemId ? { ...el, inEdition: !el.inEdition } : el)
   }));
 }
 
-function deleteListItem(_, itemKey, setList) {
+function deleteListItem(_, itemId, setList) {
   setList(list => ({
     ...list,
-    items: list.items.filter(item => item.key !== itemKey),
+    items: list.items.filter(item => item._id !== itemId),
   }));
 }
 

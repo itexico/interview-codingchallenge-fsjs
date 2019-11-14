@@ -24,7 +24,7 @@ const styles = () => ({
 function AddItem(props) {
 
   const [currentItem, setItem] = React.useState({ 
-    key: uuidv4(),
+    _id: uuidv4(),
     itemDescription: '',
     inEdition: false,
   });
@@ -46,7 +46,7 @@ function AddItem(props) {
       <Button 
         onClick={e => {
           props.addListItem(e, currentItem, props.setList);
-          setItem({ key: uuidv4(), itemDescription: '' });
+          setItem({ _id: uuidv4(), itemDescription: '' });
         }}
         className={classes.button}
         color="secondary"

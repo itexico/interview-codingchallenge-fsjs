@@ -43,7 +43,7 @@ function DisplayListElements(props) {
         <TableBody>
           {rows.map(row => {
             return (
-              <TableRow key={row.key}>
+              <TableRow key={row._id}>
                 <TableCell scope="row">
                   <strong 
                     className={row.inEdition ? classes.hideElement : ''}
@@ -65,7 +65,7 @@ function DisplayListElements(props) {
                     className={classes.button}
                     aria-label="Delete"
                     color="primary"
-                    onClick={e => deleteListItem(e, row.key, setList)}
+                    onClick={e => deleteListItem(e, row._id, setList)}
                   >
                     <DeleteIcon />
                   </IconButton>
@@ -76,7 +76,7 @@ function DisplayListElements(props) {
                       className={classes.button}
                       aria-label="Edit"
                       color="primary"
-                      onClick={e => toggleEditionItem(e, row.key, setList)}
+                      onClick={e => toggleEditionItem(e, row._id, setList)}
                     >
                       <EditIcon />
                     </IconButton> 
@@ -87,7 +87,7 @@ function DisplayListElements(props) {
                       className={classes.button}
                       aria-label="Edit"
                       color="primary"
-                      onClick={e => toggleEditionItem(e, row.key, setList)}
+                      onClick={e => toggleEditionItem(e, row._id, setList)}
                     >
                       <CheckCircleIcon />
                     </IconButton>

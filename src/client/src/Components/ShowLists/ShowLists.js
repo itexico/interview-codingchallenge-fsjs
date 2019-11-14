@@ -11,7 +11,7 @@ import axios from '../../axios';
 const styles = theme => ({
   row: {
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
     padding: '10px',
     '&:hover': {
