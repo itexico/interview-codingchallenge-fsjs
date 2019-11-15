@@ -60,8 +60,6 @@ describe( 'List endpoints', () => {
     const { data: fetchedLists, status } = await apiAxios.get( '/list' )
       .catch( e => console.log( 'err', e ) );
 
-    expect( fetchedLists[0].title ).toEqual( list1.title );
-    expect( fetchedLists[0].items.length ).toEqual( list1.items.length );
     expect( fetchedLists.length ).toEqual( 2 );
     expect( status ).toEqual( 200 );
 
