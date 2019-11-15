@@ -4,8 +4,11 @@ import { withStyles, lighten } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 import CancelIcon from '@material-ui/icons/Cancel';
+import DeleteIcon from '@material-ui/icons/Delete';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import EditList from '../EditList/EditList';
 import axios from '../../axios';
+import { wait } from '../shared.list.logic';
 
 
 const styles = theme => ({
@@ -39,6 +42,12 @@ const styles = theme => ({
     color: '#9E0101',
     fontSize: '50px',
   },
+  hideElement: {
+    display: 'none',
+  },
+  listOptions: {
+    display: 'flex',
+  }
 });
 
 class ShowLists extends React.Component {
@@ -49,12 +58,28 @@ class ShowLists extends React.Component {
 
   async componentDidMount() {
     const { data: lists } = await axios.get('/list').catch(err => console.log(err));
-    this.setState({ lists: lists.map(list => ({ ...list, editing: false })), initialLoad: true });
+    this.setState({ lists: lists.map(list => ({ ...list, editing: false, deleting: false })), initialLoad: true });
   }
 
-  toggleEditList = (e, listToEdit) => {
-    const lists = this.state.lists.map(list => list._id === listToEdit._id ? { ...list, editing: !listToEdit.editing } : list);
-    this.setState({ lists });
+  deleteList = async (e, list) => {
+    await this.toggleStateList(null, list, 'deleting');
+    await axios.delete(`/list/${list._id}`).catch(err => console.log(err));
+    await wait(1000);
+    await this.toggleStateList(null, list, 'deleting');
+    this.setState(prevState => ({
+      lists: prevState.lists.filter(currentList => currentList._id !== list._id)
+    }));
+
+  }
+
+  toggleStateList = (e, baseList, property) => {
+    const lists = this.state.lists
+      .map(list => list._id === baseList._id ? { ...list, [property]: !list[property] } : list);
+    
+    // Promise to wait for setState to finish the state update.
+    return new Promise(resolve => {
+      this.setState({ lists }, resolve);
+    })
   }
 
   updateCurrentEditedList = list => {
@@ -92,14 +117,25 @@ class ShowLists extends React.Component {
             }
 
             { !row.editing ? 
-              <IconButton 
-                className={classes.button}
-                aria-label="Edit"
-                color="primary"
-                onClick={e => this.toggleEditList(e, row)}
-              >
-                <EditIcon />
-              </IconButton> 
+              <div className={classes.listOptions}>
+                <IconButton 
+                  className={classes.button}
+                  aria-label="Edit"
+                  color="primary"
+                  onClick={e => this.toggleStateList(e, row, 'editing')}
+                >
+                  <EditIcon />
+                </IconButton>
+                <IconButton 
+                  className={`${classes.button} ${row.deleting ? classes.hideElement : ''}`}
+                  aria-label="Edit"
+                  color="primary"
+                  onClick={e => this.deleteList(e, row, 'deleting')}
+                >
+                  <DeleteIcon />
+                </IconButton>
+                <CircularProgress className={`${classes.button} ${!row.deleting ? classes.hideElement : ''}`}/>
+              </div> 
               
               :
 
@@ -107,7 +143,7 @@ class ShowLists extends React.Component {
                 className={classes.button}
                 aria-label="Edit"
                 color="primary"
-                onClick={e => this.toggleEditList(e, row)}
+                onClick={e => this.toggleStateList(e, row, 'editing')}
               >
                 <CancelIcon className={classes.cancelIcon} />
               </IconButton>

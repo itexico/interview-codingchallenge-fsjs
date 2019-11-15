@@ -24,6 +24,7 @@ const styles = () => ({
     marginTop: '50px',
   },
   addListButton: {
+    marginBottom: '20px',
     width: '200px',
   },
   itemsAlert: {
@@ -35,7 +36,7 @@ function AddList({ classes, handleChangeCurrentTab }) {
 
   const [list, setList] = React.useState({ title: '', items: []});
   const [submitting, setSubmitting] = React.useState(false);
-
+  
   async function submitList(e) {
     e.preventDefault();
     setSubmitting(true);
