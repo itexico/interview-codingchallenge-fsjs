@@ -66,14 +66,14 @@ router.patch( '/:id', getList, async ( req, res ) => {
     req.body.items.forEach( item => incomingReqItemsIds[item._id] = true );
 
     // Update modified items from the current list.
-    const waitUpdateListItems = Promise.all( updateListItems({
+    await Promise.all( updateListItems({
       bodyItems: req.body.items,
       currentListDBItemsIds,
       ItemModel: Item
     }) );
 
     // Delete the items that were removed in the frontend.
-    const waitDeleteMissingListItems = Promise.all( deleteMissingListItems({
+    await Promise.all( deleteMissingListItems({
       dbListItems: res.list.items,
       incomingReqItemsIds,
       ItemModel: Item,
@@ -88,11 +88,7 @@ router.patch( '/:id', getList, async ( req, res ) => {
       },
     );
 
-    const [ resultItems ] = await Promise.all( [
-      Item.insertMany( itemsToInsert ),
-      waitUpdateListItems,
-      waitDeleteMissingListItems,
-    ] );
+    const resultItems = await Item.insertMany( itemsToInsert );
 
     // Create relation for new items with the current list.
     resultItems.forEach( item => res.list.items.push( item._id ) );
