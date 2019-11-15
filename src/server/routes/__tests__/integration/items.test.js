@@ -6,7 +6,7 @@ const axios = require( 'axios' );
 const startServer = require( '../../../server' );
 
 const Item = require( '../../../models/item' );
-const BASE_PORT = 8880;
+const BASE_PORT = parseInt( process.env.SERVER_PORT_TESTING || 8880 );
 const PORT = BASE_PORT + parseInt( process.env.JEST_WORKER_ID || 1 );
 
 const getBaseItem = baseNumber => ({
