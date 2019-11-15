@@ -10,12 +10,17 @@
     "mongoose": "^5.7.10"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "axios": "^0.19.0",
+    "detect-port": "^1.3.0",
     "eslint": "^6.6.0",
+    "jest": "^24.9.0",
     "nodemon": "^1.19.4"
   },
   "scripts": {
     "dev": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "jest --watch --maxWorkers=1"
   },
   "keywords": [],
   "author": "",
