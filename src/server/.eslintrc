@@ -1,0 +1,64 @@
+{
+  "env": {
+    "es6": true,
+    "node": true,
+    "commonjs": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "rules": {
+    "no-trailing-spaces": "error",
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 3,
+        "maxEOF": 1
+      }
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "space-in-parens": [
+      2,
+      "always",
+      {
+        "exceptions": [
+          "empty",
+          "{}"
+        ]
+      }
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "args": "none"
+      }
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 105
+      }
+    ],
+    "camelcase": [
+      "error",
+      {
+        "properties": "never"
+      }
+    ]
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  }
+}
