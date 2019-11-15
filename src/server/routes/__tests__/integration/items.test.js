@@ -2,7 +2,6 @@
 
 jest.unmock( 'axios' );
 
-// const mongoose = require( 'mongoose' );
 const axios = require( 'axios' );
 const startServer = require( '../../../server' );
 
@@ -25,9 +24,7 @@ beforeAll( async () => {
 afterAll( () => server.close() );
 
 afterEach( async () => {
-  await Promise.all( [
-    Item.deleteMany({}),
-  ] );
+  await Item.deleteMany({});
 });
 
 describe( 'Item endpoints', () => {

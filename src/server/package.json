@@ -20,7 +20,7 @@
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
-    "test": "jest --watch --maxWorkers=1"
+    "test": "jest --watch --maxWorkers=8"
   },
   "keywords": [],
   "author": "",

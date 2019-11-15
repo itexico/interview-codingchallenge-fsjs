@@ -1,5 +1,4 @@
 const express = require( 'express' );
-const app = express();
 const mongoose = require( 'mongoose' );
 const cors = require( 'cors' );
 const detectPort = require( 'detect-port' );
@@ -14,7 +13,7 @@ async function startServer({ port = process.env.SERVER_PORT } = {}) {
   app.use( express.json() );
 
   const databaseURL = process.env.NODE_ENV === 'test' ?
-    process.env.DATABASE_URL_TEST :
+    `${process.env.DATABASE_URL_TEST}${process.env.JEST_WORKER_ID}` :
     process.env.DATABASE_URL;
 
   mongoose.connect( databaseURL, { useNewUrlParser: true, useUnifiedTopology: true });
