@@ -16,6 +16,8 @@ app.use( cors() );
 app.use( express.json() );
 
 const listsRoutes = require( './routes/lists' );
+const itemsRoutes = require( './routes/items' );
+app.use( '/item', itemsRoutes );
 app.use( '/list', listsRoutes );
 
 app.listen( port, () => console.log( 'Server running on port: ' + port ) );
