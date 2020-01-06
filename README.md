@@ -56,3 +56,10 @@ Stuff that will be graded
 
 
 ___
+# Ernesto Jara
+
+## Start the project on dev both back and front
+
+```bash
+$ npm start
+```

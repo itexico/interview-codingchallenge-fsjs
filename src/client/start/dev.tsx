@@ -23,8 +23,8 @@ function init (): void {
 
 init();
 
-if (process.env.NODE_ENV === "development" && module.hot) {
-    module.hot.accept("../components/app", () => {
+if (process.env.NODE_ENV === "development" && (module as any).hot) {
+    (module as any).hot.accept("../components/app", () => {
         init();
     });
 }

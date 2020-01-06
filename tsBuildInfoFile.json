@@ -153,86 +153,6 @@
         "version": "7b9ef30613f75edb29f8e5da8b563fc0b0d6f24357b1713fd36aa35bf7e4550b",
         "signature": "2f79d407b086af7f70ee99da6bf0673a8772b67807c380bcbba9d4d0ec9fb9c0"
       },
-      "./src/client/modules/item/item-actions.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "ec9a20596255bc443f68d05c1c04b1f516de1745824984aa86407547c4e05969"
-      },
-      "./node_modules/axios/index.d.ts": {
-        "version": "9b3812f5ae5c9c8c9daf7107e1041f4ad9d19aebd12b738a81f22a1ac1f5e371",
-        "signature": "9b3812f5ae5c9c8c9daf7107e1041f4ad9d19aebd12b738a81f22a1ac1f5e371"
-      },
-      "./node_modules/http-status-codes/index.d.ts": {
-        "version": "fabcb7cb3d0f75ffebbbd8b73c16be6bc5d770942a2198dc931c273355451d5f",
-        "signature": "fabcb7cb3d0f75ffebbbd8b73c16be6bc5d770942a2198dc931c273355451d5f"
-      },
-      "./node_modules/symbol-observable/index.d.ts": {
-        "version": "7ccece60f62968f5765383f1f5322ace6937e42c3a2068834ac214fe24f9b7bc",
-        "signature": "7ccece60f62968f5765383f1f5322ace6937e42c3a2068834ac214fe24f9b7bc"
-      },
-      "./node_modules/redux/index.d.ts": {
-        "version": "7d194050bddceaddf8956706259fd6076cff3b5505ae83857f33fb03db6eda76",
-        "signature": "7d194050bddceaddf8956706259fd6076cff3b5505ae83857f33fb03db6eda76"
-      },
-      "./src/client/types/resume-app/index.d.ts": {
-        "version": "6506a7504445a53a6e3ca8495900e4345e0705eb934a8aa4cda4a234349ffb0e",
-        "signature": "6506a7504445a53a6e3ca8495900e4345e0705eb934a8aa4cda4a234349ffb0e"
-      },
-      "./src/client/utils/api.ts": {
-        "version": "af43514f22769e314d4feb3318ff96f2a8d0f7a6168823337b4e3be3308685e6",
-        "signature": "5f2ff699e4abe93d1bc04d27689badbf4ebbf9591fb7e09152d925223f8577eb"
-      },
-      "./src/client/modules/item/item-api.ts": {
-        "version": "e0a1f6b71e8c389589681a08c4ca29070547ffe95c687d9c1f43c0a7261a4a70",
-        "signature": "45f1240ff315118f422b567377a8aa46657e674d70d6b1de82c1d55ad4ad729b"
-      },
-      "./src/client/modules/item/item-reducer.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "fdd6557d59f4256df5fe6699707158e446dbb31fdc1019d6b379a0991386b455"
-      },
-      "./src/client/modules/item/item-watchers.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "f888470981d57266bfe27f751231fe2608607f86715b293c98747bfa87e310e4"
-      },
-      "./src/client/modules/item/item-worker.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "c8a4f3967e9ac579405a289cf0758ed54d1847a1d850e08f722dd492a28e2163"
-      },
-      "./src/client/modules/list/list-actions.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "c08b5bad12de80844f8a1d00c5f5840fc8cc78d5620f80704440ac87aa95660d"
-      },
-      "./src/client/modules/list/list-api.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "a8cc5e1f6252375a9096ed4a14c3cace498c680469bf245188a89aad40b1939f"
-      },
-      "./src/client/modules/list/list-reducer.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "0922b5aa504891cf2847bba7d14d7b494fb6b43d2717c7e6c1da5fc09d689591"
-      },
-      "./src/client/modules/list/list-watchers.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "bf718d3a5fe9f7583d407f2e6603a8a9377265d2434621b5c9974ca4bc1d49ca"
-      },
-      "./src/client/modules/list/list-worker.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "f7f19d18eeacaf1e0db8eaf3a97cd1294bdd898185a5267be893aadb7f962104"
-      },
-      "./src/client/redux/reducers.ts": {
-        "version": "b1ee163aad28640c53cbb40f1f0c8f924ace627c4e6ad94134965d46c722e8c6",
-        "signature": "e0cc533d8e4a1c0dddb267ed355f503d6661e0ee389276918f9e37c1b2f85777"
-      },
-      "./src/client/redux/store/dev.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "f96782e4bf1b6a2c0213d7cecf557bd1b182247b5d72ff3118387e5f112f349a"
-      },
-      "./src/client/redux/store/prod.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "da82cf0739c83564b6104fded73757f2b81fa1e25609920958c811ac27be029d"
-      },
-      "./src/client/types/lib.d.ts": {
-        "version": "0034bcababee2d647bbc894fe0acd01e03c61bfc250ced88c74ca3a2e351c328",
-        "signature": "0034bcababee2d647bbc894fe0acd01e03c61bfc250ced88c74ca3a2e351c328"
-      },
       "./node_modules/@types/react/global.d.ts": {
         "version": "b4cd656db9b65fff477f65dbda00a5de4e2e765375316abd0c3ffd1282664ccc",
         "signature": "b4cd656db9b65fff477f65dbda00a5de4e2e765375316abd0c3ffd1282664ccc"
@@ -249,13 +169,53 @@
         "version": "ae8ae1f2476bb8e3b17685c49cfa20f1dc5764fabf4bc571006dd50df57a53f2",
         "signature": "ae8ae1f2476bb8e3b17685c49cfa20f1dc5764fabf4bc571006dd50df57a53f2"
       },
-      "./node_modules/@types/react-dom/index.d.ts": {
-        "version": "1923cbe22fe3f5005de4192f014b558a88e0fdec16726bb4f94ac76dd1a82c92",
-        "signature": "1923cbe22fe3f5005de4192f014b558a88e0fdec16726bb4f94ac76dd1a82c92"
-      },
       "./node_modules/react-hot-loader/index.d.ts": {
         "version": "b9327c652634ee93dad9bb68b7325823b2a19c0ed2bfdd8b774926e0563920be",
         "signature": "b9327c652634ee93dad9bb68b7325823b2a19c0ed2bfdd8b774926e0563920be"
+      },
+      "./node_modules/@types/history/DOMUtils.d.ts": {
+        "version": "dc49082466ff7e61cfbaf146f106a59274dbb95f726ed1e22a54375f82992953",
+        "signature": "dc49082466ff7e61cfbaf146f106a59274dbb95f726ed1e22a54375f82992953"
+      },
+      "./node_modules/@types/history/createBrowserHistory.d.ts": {
+        "version": "9b7ecef2a99fc603b20ce8524a3459d260fa8b128f4dd71c8718e93ded32023d",
+        "signature": "9b7ecef2a99fc603b20ce8524a3459d260fa8b128f4dd71c8718e93ded32023d"
+      },
+      "./node_modules/@types/history/createHashHistory.d.ts": {
+        "version": "fe2cd61bbf91d54ff07a1cd0174dd9338c1fd3f6069ae2a6119136aef817a9c8",
+        "signature": "fe2cd61bbf91d54ff07a1cd0174dd9338c1fd3f6069ae2a6119136aef817a9c8"
+      },
+      "./node_modules/@types/history/createMemoryHistory.d.ts": {
+        "version": "9f96df319156b4debf90395c415c53f0080a4d9db97966fe69396760217413e0",
+        "signature": "9f96df319156b4debf90395c415c53f0080a4d9db97966fe69396760217413e0"
+      },
+      "./node_modules/@types/history/LocationUtils.d.ts": {
+        "version": "7c076b2d16b2254072943e10999e08a5a650e0c6621ba04a501fc9e3f03f7371",
+        "signature": "7c076b2d16b2254072943e10999e08a5a650e0c6621ba04a501fc9e3f03f7371"
+      },
+      "./node_modules/@types/history/PathUtils.d.ts": {
+        "version": "bca166983a1b4bea5aff7ac14949ed25c065d0a006990136b75c3f4690c4e93c",
+        "signature": "bca166983a1b4bea5aff7ac14949ed25c065d0a006990136b75c3f4690c4e93c"
+      },
+      "./node_modules/@types/history/index.d.ts": {
+        "version": "577eb25bca27a3a4ddd46b57f28cd83211501bfbc4786bd65639b951f20cff82",
+        "signature": "577eb25bca27a3a4ddd46b57f28cd83211501bfbc4786bd65639b951f20cff82"
+      },
+      "./node_modules/@types/react-router/index.d.ts": {
+        "version": "59c1bfe6d0f8f856fde9896b29f028508fabe9702218a9f96b1c5c271dcf7d5a",
+        "signature": "59c1bfe6d0f8f856fde9896b29f028508fabe9702218a9f96b1c5c271dcf7d5a"
+      },
+      "./node_modules/@types/react-router-dom/index.d.ts": {
+        "version": "16cfb661be918f74b772680e4f43ec3d6bad99e44a7d0c41ab117748580b35de",
+        "signature": "16cfb661be918f74b772680e4f43ec3d6bad99e44a7d0c41ab117748580b35de"
+      },
+      "./node_modules/symbol-observable/index.d.ts": {
+        "version": "7ccece60f62968f5765383f1f5322ace6937e42c3a2068834ac214fe24f9b7bc",
+        "signature": "7ccece60f62968f5765383f1f5322ace6937e42c3a2068834ac214fe24f9b7bc"
+      },
+      "./node_modules/redux/index.d.ts": {
+        "version": "7d194050bddceaddf8956706259fd6076cff3b5505ae83857f33fb03db6eda76",
+        "signature": "7d194050bddceaddf8956706259fd6076cff3b5505ae83857f33fb03db6eda76"
       },
       "./node_modules/@types/hoist-non-react-statics/index.d.ts": {
         "version": "bfe1b52cf71aea9bf8815810cc5d9490fa9617313e3d3c2ee3809a28b80d0bb4",
@@ -265,12 +225,204 @@
         "version": "de25c073e95a4ba8b4556147c8cef60fa0a7aba72d424dd53d898ec071949a90",
         "signature": "de25c073e95a4ba8b4556147c8cef60fa0a7aba72d424dd53d898ec071949a90"
       },
+      "./src/client/types/resume-app/index.ts": {
+        "version": "6506a7504445a53a6e3ca8495900e4345e0705eb934a8aa4cda4a234349ffb0e",
+        "signature": "93a3e27cf89553142f94828ab66c836930fb080b759832be39dc8bd454fd5e14"
+      },
+      "./node_modules/@types/qs/index.d.ts": {
+        "version": "c048b9659fff2e130bd6408317fa8cc833e50a1e8b8bdbf81544848b2c278c59",
+        "signature": "c048b9659fff2e130bd6408317fa8cc833e50a1e8b8bdbf81544848b2c278c59"
+      },
+      "./src/client/utils/constants.ts": {
+        "version": "667ef21deb9d89e5fd268e9fea8ea386dbea0319dd6c1cf68b5e6673672acc6f",
+        "signature": "dd9851d9479830e343a1e9d4ed5411cc869a21707150cdd4c520519108dd4688"
+      },
+      "./src/client/modules/list/list-actions.ts": {
+        "version": "116a99c06403e2765b40146661f3bf2d34840ed37410e45334b32a203e851735",
+        "signature": "ed3e3c30e03cbfc406d568d729623456c3e20419b6c25344084a9a0fd6f92b26"
+      },
+      "./src/client/components/home/home-component.tsx": {
+        "version": "397bf28cdda2fa055608904176c2da2f9c70a591318add08ad2fc23a91fe34f8",
+        "signature": "68e8cd430a5c39a98082b2570c8a41328336a84c5bd9f5b48367cf501e2d3225"
+      },
+      "./src/client/components/home/index.ts": {
+        "version": "85159778e4830c7b80fd0482ceaeeef67ea261fb0703f36b89e2d81f74c3c9ef",
+        "signature": "cb7e02f960c8f76babe98bf9e38f12a4564fa6a0856c68b7dee7c93be3e75e0c"
+      },
+      "./node_modules/reselect/lib/index.d.ts": {
+        "version": "da7001dfd188e468782cbc0f742fdc397787b8b669d51b421fd885401dc16f48",
+        "signature": "da7001dfd188e468782cbc0f742fdc397787b8b669d51b421fd885401dc16f48"
+      },
+      "./src/client/modules/list/list-selectors.ts": {
+        "version": "44b747e4075d2e6886b6d52063c289abb1d48451dcef89f345529394d17f23b8",
+        "signature": "27e41790ff70ec2ba03fe03b563e5ad4e2df8bf88a746556ad09ede894ec51d3"
+      },
+      "./src/client/containers/home-contaier.ts": {
+        "version": "4566c2847c86266676037f4d89068b6381f04376ea10dfcecd27e2185a8252c3",
+        "signature": "f027efa8119e1b0b2c3ac0a3c13b9ae95c88af106a6ae6c8f983d925a5889ebd"
+      },
+      "./src/client/hoc/header/header-hoc.tsx": {
+        "version": "3c12064da2f15f808cbe448fa1a5cf13f641572025786512281013ed05d08874",
+        "signature": "fb2f2a1a80228e0b1dec5bfceb49aac12de6d81e56e4790a27708c62c61381cf"
+      },
+      "./src/client/hoc/header/index.ts": {
+        "version": "c46e50383a2ca559ec845eb03b2ef722bfd3de5898df3933afb0d8e114e837d7",
+        "signature": "75679ba2d23d2f12c0aea1b3d603e7d97f5c3f4000df05b516581ad0edb4f72c"
+      },
+      "./src/client/hoc/layout/layout-hoc.tsx": {
+        "version": "22e5ac5bc99bada9582e25471ea2f8472262ace03d43729fe418ff972600d672",
+        "signature": "2a995c7c014e881666fc58266ee24dff00e9351b081e8bd01c4ad53af7772c80"
+      },
+      "./src/client/hoc/layout/index.ts": {
+        "version": "f5bb96340de26f9423d88a6390dd99582748e7da863881bebf69e4743bd7fd3a",
+        "signature": "bf6e7b0c2fcc3067f1885eebadfc3a301857f0ed1dcd3f2bd5e5dc31188258c6"
+      },
+      "./src/client/hoc/main/main-hoc.tsx": {
+        "version": "63068fbee6ebe41dca3581a8278859fd61dff9e84f4047ee15ffd52f18173334",
+        "signature": "20d8fb89f409975b2668daf3a48dcbb6a4517b4d56ae4a08e9992da0ef347cb7"
+      },
+      "./src/client/hoc/main/index.ts": {
+        "version": "58fdee820f093f830dae233c888716a02de0f8417c4fe3a8ec972d50fb6fd5d4",
+        "signature": "1b19705e25f392cd599d92cb9f8cc4942ae73cbace0ff3dc7bac86dfed978286"
+      },
+      "./src/client/hoc/side-nav/side-nav-hoc.tsx": {
+        "version": "9a0c35aac68f6937cd0ca0d538190f2c053299b9b4a6bff33487bcd5b5a12cb5",
+        "signature": "a44a4fd0aad2cb8ea8ff36a519d6d589f0a3ded84d839927fcb5458c5baf5855"
+      },
+      "./src/client/hoc/side-nav/index.ts": {
+        "version": "6546fbb46d6beed80af26b909b23a2d69988b6d32ba70c9db54b50947b6b9c6a",
+        "signature": "fe9e59c9a2b2802bcbecfcc59b9ac6a6dc898f0c29d986802c609710debc1efa"
+      },
+      "./src/client/hoc/index.ts": {
+        "version": "7f5df379d2186cb4cea58ea87ec6897ce199c6300ec5bc18ef25bfe551da2727",
+        "signature": "aeaffb42e471b92a938ed358b02faf4b6247f8b575940fd2d8670fb9ccbe96a7"
+      },
+      "./src/client/components/app/app-component.tsx": {
+        "version": "44b7ffb320fde9c0e35368b9a12b28f51acf9c5a90f148095a0a53ee1810399c",
+        "signature": "915df05b89c26bfd7a4e5db4100b7fa0545b8617b7cc3887a04a6d26c29a55d9"
+      },
+      "./src/client/components/app/index.ts": {
+        "version": "12c8f7dbf0d589a2a4b8ed545d74c585dbf6b45e0e627f79d61ac0e967d9edb2",
+        "signature": "76fa72901ae605e6dfcceca20280659f53d1000b6be4453c0c689a508118e1ff"
+      },
+      "./node_modules/typescript-logic/index.d.ts": {
+        "version": "abac194d49522ea9368fc1d6ee9d4ca9373e755effe564a39b229e9938193934",
+        "signature": "abac194d49522ea9368fc1d6ee9d4ca9373e755effe564a39b229e9938193934"
+      },
+      "./node_modules/typescript-compare/index.d.ts": {
+        "version": "ab1a88901c35536c4602345929ad79f98a6bdf2ecaafa9afa49ab92ccc838a8a",
+        "signature": "ab1a88901c35536c4602345929ad79f98a6bdf2ecaafa9afa49ab92ccc838a8a"
+      },
+      "./node_modules/typescript-tuple/lib/utils.d.ts": {
+        "version": "c811fd5cd98701082a5fdc1f6376334ef6ebedd0298ce78ad6df9fa8d359ea68",
+        "signature": "c811fd5cd98701082a5fdc1f6376334ef6ebedd0298ce78ad6df9fa8d359ea68"
+      },
+      "./node_modules/typescript-tuple/lib/index.d.ts": {
+        "version": "ffbcaa91a74c5aa4d31a95aa32210de5eaa144424ccbfc165d36a6ca75c86a69",
+        "signature": "ffbcaa91a74c5aa4d31a95aa32210de5eaa144424ccbfc165d36a6ca75c86a69"
+      },
+      "./node_modules/typescript-tuple/index.d.ts": {
+        "version": "6f308b141358ac799edc3e83e887441852205dc1348310d30b62c69438b93ca0",
+        "signature": "6f308b141358ac799edc3e83e887441852205dc1348310d30b62c69438b93ca0"
+      },
+      "./node_modules/@redux-saga/types/types/ts3.6/index.d.ts": {
+        "version": "f55cafc0d80eef35b1e5c42a7b48f6430aeb0d17cb1593f5318222bca01ab64c",
+        "signature": "f55cafc0d80eef35b1e5c42a7b48f6430aeb0d17cb1593f5318222bca01ab64c"
+      },
+      "./node_modules/@redux-saga/core/types/ts3.6/index.d.ts": {
+        "version": "286f5e88d76e92126f180e94939123ed4d0d8aa200cd278319c4afd1f66b4995",
+        "signature": "286f5e88d76e92126f180e94939123ed4d0d8aa200cd278319c4afd1f66b4995"
+      },
+      "./node_modules/@redux-saga/core/types/ts3.6/effects.d.ts": {
+        "version": "76c885d17d146c3e0fc78f51942e139e92e7d9b5876b2bef02530aa583699f48",
+        "signature": "76c885d17d146c3e0fc78f51942e139e92e7d9b5876b2bef02530aa583699f48"
+      },
+      "./node_modules/redux-saga/effects.d.ts": {
+        "version": "d7584f06c8026bc776ac6ec204f7732a7ebc60a3538583132a428264d3743458",
+        "signature": "d7584f06c8026bc776ac6ec204f7732a7ebc60a3538583132a428264d3743458"
+      },
+      "./src/client/modules/list/list-worker.ts": {
+        "version": "afb9b1194046e56f50ea63b9ae60ae9340274617ef84b2c7a36213f22438d036",
+        "signature": "ed05a99c42d580b950dc93d55028c6a7feb26db47fa39689e4708975380bc4e6"
+      },
+      "./src/client/modules/list/list-watchers.ts": {
+        "version": "7b2b8d30b02045bfaa154dc033d0ef0372387508e6f7a45d4a184c897c2f7333",
+        "signature": "72868270d8be2cdf15310cc8c888398b37123f434d6736185febc4bf51d57cad"
+      },
+      "./src/client/modules/index.ts": {
+        "version": "f5d4d8a4f4be87a3fc5160064bd1522ad96a9f2e450453df88757dfbf4b7c4c9",
+        "signature": "fa021c27873af9730ea2fb953909ce9c5cffd0008eb0d0d9533a3f532cbae641"
+      },
+      "./src/client/modules/item/item-actions.ts": {
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "signature": "ec9a20596255bc443f68d05c1c04b1f516de1745824984aa86407547c4e05969"
+      },
+      "./node_modules/axios/index.d.ts": {
+        "version": "9b3812f5ae5c9c8c9daf7107e1041f4ad9d19aebd12b738a81f22a1ac1f5e371",
+        "signature": "9b3812f5ae5c9c8c9daf7107e1041f4ad9d19aebd12b738a81f22a1ac1f5e371"
+      },
+      "./src/client/utils/api.ts": {
+        "version": "af43514f22769e314d4feb3318ff96f2a8d0f7a6168823337b4e3be3308685e6",
+        "signature": "5f2ff699e4abe93d1bc04d27689badbf4ebbf9591fb7e09152d925223f8577eb"
+      },
+      "./src/client/modules/item/item-api.ts": {
+        "version": "ca8918430fb7891ef227c1d3ddbcc5196078b8e51a1409b923ecfb76cc30e36b",
+        "signature": "037954c5daec8f12816c5d9de33e72fd12f172438b95c4ba40a505d5f5827a4a"
+      },
+      "./src/client/modules/item/item-reducer.ts": {
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "signature": "fdd6557d59f4256df5fe6699707158e446dbb31fdc1019d6b379a0991386b455"
+      },
+      "./src/client/modules/item/item-watchers.ts": {
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "signature": "f888470981d57266bfe27f751231fe2608607f86715b293c98747bfa87e310e4"
+      },
+      "./src/client/modules/item/item-worker.ts": {
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "signature": "c8a4f3967e9ac579405a289cf0758ed54d1847a1d850e08f722dd492a28e2163"
+      },
+      "./src/client/modules/list/list-api.ts": {
+        "version": "dbd7f5f33a5cfaa79686a44c42e137ab951834c3993674de563f840a7766f596",
+        "signature": "7faca136efa92ca71bfaa48d2a879439dcbf6cde723d1b76333459f1f8d46b05"
+      },
+      "./src/client/modules/list/list-reducer.ts": {
+        "version": "92d422dc006a77bf63c64a91586d1ef1d3de2c21289d358c3f29165f200e120c",
+        "signature": "df6ca9caacf602140bcb87ea9ecc0c0b37380bc71a2f750088779151dca8e41c"
+      },
+      "./src/client/redux/reducers.ts": {
+        "version": "f7723684130d9456e34a493eb8b7b2a4252461e1abcd932de57e8fcf576e033c",
+        "signature": "e0cc533d8e4a1c0dddb267ed355f503d6661e0ee389276918f9e37c1b2f85777"
+      },
+      "./node_modules/redux-devtools-extension/index.d.ts": {
+        "version": "cc2dfe25b8097d41159130b416b1ee6f2a311eeed12ec1544cac9894a2d1b777",
+        "signature": "cc2dfe25b8097d41159130b416b1ee6f2a311eeed12ec1544cac9894a2d1b777"
+      },
+      "./node_modules/redux-saga/index.d.ts": {
+        "version": "7b6e484e6b248b0b2c9393549bae07b882bb50e997f1da5eb2405c33a1fd8c1e",
+        "signature": "7b6e484e6b248b0b2c9393549bae07b882bb50e997f1da5eb2405c33a1fd8c1e"
+      },
+      "./src/client/redux/store/dev.ts": {
+        "version": "d871f7a409df01237c6b502d5e4c3fa3510aadc92fbf4b6e44a85f1bcfa0f0e9",
+        "signature": "bc8f2db3eb3584da0d3befff6adf947cf9111337daa34f454a4779bb6e40e073"
+      },
+      "./src/client/redux/store/prod.ts": {
+        "version": "5062a3a35279491a3657f129aae78152c6fa9c048312cd80c16e619ce50c9561",
+        "signature": "808577564c2f3e178f2f9e88346fef43a1a83dbb80f0b11413dd3341122fcac2"
+      },
+      "./src/client/types/lib.d.ts": {
+        "version": "0034bcababee2d647bbc894fe0acd01e03c61bfc250ced88c74ca3a2e351c328",
+        "signature": "0034bcababee2d647bbc894fe0acd01e03c61bfc250ced88c74ca3a2e351c328"
+      },
+      "./node_modules/@types/react-dom/index.d.ts": {
+        "version": "1923cbe22fe3f5005de4192f014b558a88e0fdec16726bb4f94ac76dd1a82c92",
+        "signature": "1923cbe22fe3f5005de4192f014b558a88e0fdec16726bb4f94ac76dd1a82c92"
+      },
       "./src/client/start/dev.tsx": {
-        "version": "2dd21861421aa0c993ee7a1297eb2dbb357abc8cd5eddb92599b277dce04cacb",
+        "version": "a420cc6b978f3acb53b8b645049d26f1229745ffd8de228e36e39305d86c1708",
         "signature": "915d4021ab32686852fda4fe863033482277c485ab9e6e5f6611d6f29d598fcd"
       },
       "./src/client/start/prod.tsx": {
-        "version": "48c652b933807299a17e39b94aad59dbdd470f50a5cb333f64a28af0167bc214",
+        "version": "b16d952fe1085790d969ee50626a82321bae542b8f3c4d503853522f1e1d1b3b",
         "signature": "f4001287c6e14d11070b13e85a7b0ba8c45dd5751ad5a54279d31dac4feeb32d"
       },
       "./node_modules/@types/node/globals.d.ts": {
@@ -457,85 +609,9 @@
         "version": "7c7dabe6de2f88a1b4a4d9a15479c2a99b6f5864b434b9d960fc312ba9498c0a",
         "signature": "7c7dabe6de2f88a1b4a4d9a15479c2a99b6f5864b434b9d960fc312ba9498c0a"
       },
-      "./node_modules/@redux-saga/types/types/ts3.6/index.d.ts": {
-        "version": "f55cafc0d80eef35b1e5c42a7b48f6430aeb0d17cb1593f5318222bca01ab64c",
-        "signature": "f55cafc0d80eef35b1e5c42a7b48f6430aeb0d17cb1593f5318222bca01ab64c"
-      },
-      "./node_modules/typescript-logic/index.d.ts": {
-        "version": "abac194d49522ea9368fc1d6ee9d4ca9373e755effe564a39b229e9938193934",
-        "signature": "abac194d49522ea9368fc1d6ee9d4ca9373e755effe564a39b229e9938193934"
-      },
-      "./node_modules/typescript-compare/index.d.ts": {
-        "version": "ab1a88901c35536c4602345929ad79f98a6bdf2ecaafa9afa49ab92ccc838a8a",
-        "signature": "ab1a88901c35536c4602345929ad79f98a6bdf2ecaafa9afa49ab92ccc838a8a"
-      },
-      "./node_modules/typescript-tuple/lib/utils.d.ts": {
-        "version": "c811fd5cd98701082a5fdc1f6376334ef6ebedd0298ce78ad6df9fa8d359ea68",
-        "signature": "c811fd5cd98701082a5fdc1f6376334ef6ebedd0298ce78ad6df9fa8d359ea68"
-      },
-      "./node_modules/typescript-tuple/lib/index.d.ts": {
-        "version": "ffbcaa91a74c5aa4d31a95aa32210de5eaa144424ccbfc165d36a6ca75c86a69",
-        "signature": "ffbcaa91a74c5aa4d31a95aa32210de5eaa144424ccbfc165d36a6ca75c86a69"
-      },
-      "./node_modules/typescript-tuple/index.d.ts": {
-        "version": "6f308b141358ac799edc3e83e887441852205dc1348310d30b62c69438b93ca0",
-        "signature": "6f308b141358ac799edc3e83e887441852205dc1348310d30b62c69438b93ca0"
-      },
-      "./node_modules/@redux-saga/core/types/ts3.6/effects.d.ts": {
-        "version": "76c885d17d146c3e0fc78f51942e139e92e7d9b5876b2bef02530aa583699f48",
-        "signature": "76c885d17d146c3e0fc78f51942e139e92e7d9b5876b2bef02530aa583699f48"
-      },
-      "./node_modules/@redux-saga/core/types/ts3.6/index.d.ts": {
-        "version": "286f5e88d76e92126f180e94939123ed4d0d8aa200cd278319c4afd1f66b4995",
-        "signature": "286f5e88d76e92126f180e94939123ed4d0d8aa200cd278319c4afd1f66b4995"
-      },
-      "./node_modules/redux-saga/index.d.ts": {
-        "version": "7b6e484e6b248b0b2c9393549bae07b882bb50e997f1da5eb2405c33a1fd8c1e",
-        "signature": "7b6e484e6b248b0b2c9393549bae07b882bb50e997f1da5eb2405c33a1fd8c1e"
-      },
-      "./node_modules/@types/qs/index.d.ts": {
-        "version": "c048b9659fff2e130bd6408317fa8cc833e50a1e8b8bdbf81544848b2c278c59",
-        "signature": "c048b9659fff2e130bd6408317fa8cc833e50a1e8b8bdbf81544848b2c278c59"
-      },
       "./node_modules/@types/react-loadable/index.d.ts": {
         "version": "250b4235aa324457213be43b29b7887d52bbdf30f45807b6aeafcdf4749eeb73",
         "signature": "250b4235aa324457213be43b29b7887d52bbdf30f45807b6aeafcdf4749eeb73"
-      },
-      "./node_modules/@types/history/DOMUtils.d.ts": {
-        "version": "dc49082466ff7e61cfbaf146f106a59274dbb95f726ed1e22a54375f82992953",
-        "signature": "dc49082466ff7e61cfbaf146f106a59274dbb95f726ed1e22a54375f82992953"
-      },
-      "./node_modules/@types/history/createBrowserHistory.d.ts": {
-        "version": "9b7ecef2a99fc603b20ce8524a3459d260fa8b128f4dd71c8718e93ded32023d",
-        "signature": "9b7ecef2a99fc603b20ce8524a3459d260fa8b128f4dd71c8718e93ded32023d"
-      },
-      "./node_modules/@types/history/createHashHistory.d.ts": {
-        "version": "fe2cd61bbf91d54ff07a1cd0174dd9338c1fd3f6069ae2a6119136aef817a9c8",
-        "signature": "fe2cd61bbf91d54ff07a1cd0174dd9338c1fd3f6069ae2a6119136aef817a9c8"
-      },
-      "./node_modules/@types/history/createMemoryHistory.d.ts": {
-        "version": "9f96df319156b4debf90395c415c53f0080a4d9db97966fe69396760217413e0",
-        "signature": "9f96df319156b4debf90395c415c53f0080a4d9db97966fe69396760217413e0"
-      },
-      "./node_modules/@types/history/LocationUtils.d.ts": {
-        "version": "7c076b2d16b2254072943e10999e08a5a650e0c6621ba04a501fc9e3f03f7371",
-        "signature": "7c076b2d16b2254072943e10999e08a5a650e0c6621ba04a501fc9e3f03f7371"
-      },
-      "./node_modules/@types/history/PathUtils.d.ts": {
-        "version": "bca166983a1b4bea5aff7ac14949ed25c065d0a006990136b75c3f4690c4e93c",
-        "signature": "bca166983a1b4bea5aff7ac14949ed25c065d0a006990136b75c3f4690c4e93c"
-      },
-      "./node_modules/@types/history/index.d.ts": {
-        "version": "577eb25bca27a3a4ddd46b57f28cd83211501bfbc4786bd65639b951f20cff82",
-        "signature": "577eb25bca27a3a4ddd46b57f28cd83211501bfbc4786bd65639b951f20cff82"
-      },
-      "./node_modules/@types/react-router/index.d.ts": {
-        "version": "59c1bfe6d0f8f856fde9896b29f028508fabe9702218a9f96b1c5c271dcf7d5a",
-        "signature": "59c1bfe6d0f8f856fde9896b29f028508fabe9702218a9f96b1c5c271dcf7d5a"
-      },
-      "./node_modules/@types/react-router-dom/index.d.ts": {
-        "version": "16cfb661be918f74b772680e4f43ec3d6bad99e44a7d0c41ab117748580b35de",
-        "signature": "16cfb661be918f74b772680e4f43ec3d6bad99e44a7d0c41ab117748580b35de"
       }
     },
     "options": {
@@ -564,14 +640,6 @@
       "importHelpers": true,
       "downlevelIteration": true,
       "isolatedModules": true,
-      "strict": true,
-      "noImplicitAny": true,
-      "strictNullChecks": true,
-      "strictFunctionTypes": true,
-      "strictBindCallApply": true,
-      "strictPropertyInitialization": true,
-      "noImplicitThis": true,
-      "alwaysStrict": true,
       "noUnusedLocals": true,
       "noUnusedParameters": true,
       "noImplicitReturns": true,
@@ -838,136 +906,6 @@
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "./src/client/modules/item/item-actions.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/axios/index.d.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/http-status-codes/index.d.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/symbol-observable/index.d.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/redux/index.d.ts": [
-        "./node_modules/symbol-observable/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./src/client/types/resume-app/index.d.ts": [
-        "./node_modules/redux/index.d.ts",
-        "./src/client/types/resume-app/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./src/client/utils/api.ts": [
-        "./node_modules/axios/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./src/client/modules/item/item-api.ts": [
-        "./node_modules/axios/index.d.ts",
-        "./node_modules/http-status-codes/index.d.ts",
-        "./src/client/types/resume-app/index.d.ts",
-        "./src/client/utils/api.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./src/client/modules/item/item-reducer.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./src/client/modules/item/item-watchers.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./src/client/modules/item/item-worker.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./src/client/modules/list/list-actions.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./src/client/modules/list/list-api.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./src/client/modules/list/list-reducer.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./src/client/modules/list/list-watchers.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./src/client/modules/list/list-worker.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./src/client/redux/reducers.ts": [
-        "./node_modules/redux/index.d.ts",
-        "./src/client/types/resume-app/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./src/client/redux/store/dev.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./src/client/redux/store/prod.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./src/client/types/lib.d.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "./node_modules/@types/react/global.d.ts": [
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
@@ -995,15 +933,93 @@
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "./node_modules/@types/react-dom/index.d.ts": [
+      "./node_modules/react-hot-loader/index.d.ts": [
         "./node_modules/@types/react/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "./node_modules/react-hot-loader/index.d.ts": [
+      "./node_modules/@types/history/DOMUtils.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/history/createBrowserHistory.d.ts": [
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/history/DOMUtils.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/history/createHashHistory.d.ts": [
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/history/DOMUtils.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/history/createMemoryHistory.d.ts": [
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/history/DOMUtils.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/history/LocationUtils.d.ts": [
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/history/PathUtils.d.ts": [
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/history/index.d.ts": [
+        "./node_modules/@types/history/createBrowserHistory.d.ts",
+        "./node_modules/@types/history/createHashHistory.d.ts",
+        "./node_modules/@types/history/createMemoryHistory.d.ts",
+        "./node_modules/@types/history/LocationUtils.d.ts",
+        "./node_modules/@types/history/PathUtils.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/react-router/index.d.ts": [
         "./node_modules/@types/react/index.d.ts",
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/react-router-dom/index.d.ts": [
+        "./node_modules/@types/react-router/index.d.ts",
+        "./node_modules/@types/react/index.d.ts",
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/symbol-observable/index.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/redux/index.d.ts": [
+        "./node_modules/symbol-observable/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/util.d.ts",
@@ -1025,11 +1041,378 @@
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "./src/client/types/resume-app/index.ts": [
+        "./node_modules/redux/index.d.ts",
+        "./src/client/types/resume-app/index.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/qs/index.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/utils/constants.ts": [
+        "./node_modules/@types/qs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/modules/list/list-actions.ts": [
+        "./src/client/types/resume-app/index.ts",
+        "./src/client/utils/constants.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/components/home/home-component.tsx": [
+        "./node_modules/@types/react/index.d.ts",
+        "./node_modules/@types/react-router-dom/index.d.ts",
+        "./src/client/modules/list/list-actions.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/components/home/index.ts": [
+        "./src/client/components/home/home-component.tsx",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/reselect/lib/index.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/modules/list/list-selectors.ts": [
+        "./node_modules/reselect/lib/index.d.ts",
+        "./src/client/types/resume-app/index.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/containers/home-contaier.ts": [
+        "./node_modules/@types/react-redux/index.d.ts",
+        "./src/client/components/home/index.ts",
+        "./src/client/modules/list/list-actions.ts",
+        "./src/client/modules/list/list-selectors.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/hoc/header/header-hoc.tsx": [
+        "./node_modules/@types/react/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/hoc/header/index.ts": [
+        "./src/client/hoc/header/header-hoc.tsx",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/hoc/layout/layout-hoc.tsx": [
+        "./node_modules/@types/react/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/hoc/layout/index.ts": [
+        "./src/client/hoc/layout/layout-hoc.tsx",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/hoc/main/main-hoc.tsx": [
+        "./node_modules/@types/react/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/hoc/main/index.ts": [
+        "./src/client/hoc/main/main-hoc.tsx",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/hoc/side-nav/side-nav-hoc.tsx": [
+        "./node_modules/@types/react/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/hoc/side-nav/index.ts": [
+        "./src/client/hoc/side-nav/side-nav-hoc.tsx",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/hoc/index.ts": [
+        "./src/client/hoc/header/index.ts",
+        "./src/client/hoc/layout/index.ts",
+        "./src/client/hoc/main/index.ts",
+        "./src/client/hoc/side-nav/index.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/components/app/app-component.tsx": [
+        "./node_modules/@types/react/index.d.ts",
+        "./node_modules/react-hot-loader/index.d.ts",
+        "./node_modules/@types/react-router-dom/index.d.ts",
+        "./src/client/containers/home-contaier.ts",
+        "./src/client/hoc/index.ts",
+        "./src/client/utils/constants.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/components/app/index.ts": [
+        "./src/client/components/app/app-component.tsx",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/typescript-logic/index.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/typescript-compare/index.d.ts": [
+        "./node_modules/typescript-logic/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/typescript-tuple/lib/utils.d.ts": [
+        "./node_modules/typescript-compare/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/typescript-tuple/lib/index.d.ts": [
+        "./node_modules/typescript-tuple/lib/utils.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/typescript-tuple/index.d.ts": [
+        "./node_modules/typescript-tuple/lib/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@redux-saga/types/types/ts3.6/index.d.ts": [
+        "./node_modules/redux/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@redux-saga/core/types/ts3.6/index.d.ts": [
+        "./node_modules/redux/index.d.ts",
+        "./node_modules/@redux-saga/types/types/ts3.6/index.d.ts",
+        "./node_modules/@redux-saga/core/types/ts3.6/effects.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@redux-saga/core/types/ts3.6/effects.d.ts": [
+        "./node_modules/redux/index.d.ts",
+        "./node_modules/typescript-tuple/index.d.ts",
+        "./node_modules/@redux-saga/types/types/ts3.6/index.d.ts",
+        "./node_modules/@redux-saga/core/types/ts3.6/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/redux-saga/effects.d.ts": [
+        "./node_modules/@redux-saga/core/types/ts3.6/effects.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/modules/list/list-worker.ts": [
+        "./node_modules/redux-saga/effects.d.ts",
+        "./src/client/modules/list/list-actions.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/modules/list/list-watchers.ts": [
+        "./node_modules/redux-saga/effects.d.ts",
+        "./src/client/utils/constants.ts",
+        "./src/client/modules/list/list-worker.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/modules/index.ts": [
+        "./node_modules/redux-saga/effects.d.ts",
+        "./src/client/modules/list/list-watchers.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/modules/item/item-actions.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/axios/index.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/utils/api.ts": [
+        "./node_modules/axios/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/modules/item/item-api.ts": [
+        "./node_modules/axios/index.d.ts",
+        "./src/client/utils/api.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/modules/item/item-reducer.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/modules/item/item-watchers.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/modules/item/item-worker.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/modules/list/list-api.ts": [
+        "./node_modules/axios/index.d.ts",
+        "./src/client/types/resume-app/index.ts",
+        "./src/client/utils/api.ts",
+        "./src/client/utils/constants.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/modules/list/list-reducer.ts": [
+        "./src/client/types/resume-app/index.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/redux/reducers.ts": [
+        "./node_modules/redux/index.d.ts",
+        "./src/client/types/resume-app/index.ts",
+        "./src/client/modules/list/list-reducer.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/redux-devtools-extension/index.d.ts": [
+        "./node_modules/redux/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/redux-saga/index.d.ts": [
+        "./node_modules/@redux-saga/core/types/ts3.6/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/redux/store/dev.ts": [
+        "./node_modules/redux/index.d.ts",
+        "./node_modules/redux-devtools-extension/index.d.ts",
+        "./node_modules/redux-saga/index.d.ts",
+        "./src/client/types/resume-app/index.ts",
+        "./src/client/redux/reducers.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/redux/store/prod.ts": [
+        "./node_modules/redux/index.d.ts",
+        "./node_modules/redux-saga/index.d.ts",
+        "./src/client/redux/reducers.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/types/lib.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/react-dom/index.d.ts": [
+        "./node_modules/@types/react/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "./src/client/start/dev.tsx": [
         "./node_modules/@types/react/index.d.ts",
         "./node_modules/@types/react-dom/index.d.ts",
         "./node_modules/react-hot-loader/index.d.ts",
         "./node_modules/@types/react-redux/index.d.ts",
+        "./src/client/components/app/index.ts",
+        "./src/client/modules/index.ts",
+        "./src/client/redux/store/dev.ts",
         "./src/client/worker.ts",
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
@@ -1040,7 +1423,9 @@
         "./node_modules/@types/react/index.d.ts",
         "./node_modules/@types/react-dom/index.d.ts",
         "./node_modules/@types/react-redux/index.d.ts",
-        "./src/client/types/resume-app/index.d.ts",
+        "./src/client/components/app/index.ts",
+        "./src/client/modules/index.ts",
+        "./src/client/redux/store/prod.ts",
         "./src/client/worker.ts",
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
@@ -1410,153 +1795,8 @@
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ],
-      "./node_modules/@redux-saga/types/types/ts3.6/index.d.ts": [
-        "./node_modules/redux/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/typescript-logic/index.d.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/typescript-compare/index.d.ts": [
-        "./node_modules/typescript-logic/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/typescript-tuple/lib/utils.d.ts": [
-        "./node_modules/typescript-compare/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/typescript-tuple/lib/index.d.ts": [
-        "./node_modules/typescript-tuple/lib/utils.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/typescript-tuple/index.d.ts": [
-        "./node_modules/typescript-tuple/lib/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@redux-saga/core/types/ts3.6/effects.d.ts": [
-        "./node_modules/redux/index.d.ts",
-        "./node_modules/typescript-tuple/index.d.ts",
-        "./node_modules/@redux-saga/types/types/ts3.6/index.d.ts",
-        "./node_modules/@redux-saga/core/types/ts3.6/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@redux-saga/core/types/ts3.6/index.d.ts": [
-        "./node_modules/redux/index.d.ts",
-        "./node_modules/@redux-saga/types/types/ts3.6/index.d.ts",
-        "./node_modules/@redux-saga/core/types/ts3.6/effects.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/redux-saga/index.d.ts": [
-        "./node_modules/@redux-saga/core/types/ts3.6/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/qs/index.d.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "./node_modules/@types/react-loadable/index.d.ts": [
         "./node_modules/@types/react/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/history/DOMUtils.d.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/history/createBrowserHistory.d.ts": [
-        "./node_modules/@types/history/index.d.ts",
-        "./node_modules/@types/history/DOMUtils.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/history/createHashHistory.d.ts": [
-        "./node_modules/@types/history/index.d.ts",
-        "./node_modules/@types/history/DOMUtils.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/history/createMemoryHistory.d.ts": [
-        "./node_modules/@types/history/index.d.ts",
-        "./node_modules/@types/history/DOMUtils.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/history/LocationUtils.d.ts": [
-        "./node_modules/@types/history/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/history/PathUtils.d.ts": [
-        "./node_modules/@types/history/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/history/index.d.ts": [
-        "./node_modules/@types/history/createBrowserHistory.d.ts",
-        "./node_modules/@types/history/createHashHistory.d.ts",
-        "./node_modules/@types/history/createMemoryHistory.d.ts",
-        "./node_modules/@types/history/LocationUtils.d.ts",
-        "./node_modules/@types/history/PathUtils.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/react-router/index.d.ts": [
-        "./node_modules/@types/react/index.d.ts",
-        "./node_modules/@types/history/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/react-router-dom/index.d.ts": [
-        "./node_modules/@types/react-router/index.d.ts",
-        "./node_modules/@types/react/index.d.ts",
-        "./node_modules/@types/history/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/util.d.ts",
@@ -1600,53 +1840,6 @@
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "./node_modules/axios/index.d.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/http-status-codes/index.d.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/symbol-observable/index.d.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/redux/index.d.ts": [
-        "./node_modules/symbol-observable/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./src/client/types/resume-app/index.d.ts": [
-        "./node_modules/redux/index.d.ts",
-        "./src/client/types/resume-app/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./src/client/utils/api.ts": [
-        "./node_modules/axios/index.d.ts"
-      ],
-      "./src/client/modules/item/item-api.ts": [
-        "./node_modules/axios/index.d.ts",
-        "./src/client/types/resume-app/index.d.ts",
-        "./src/client/utils/api.ts"
-      ],
-      "./src/client/types/lib.d.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "./node_modules/@types/react/global.d.ts": [
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
@@ -1674,15 +1867,93 @@
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "./node_modules/@types/react-dom/index.d.ts": [
+      "./node_modules/react-hot-loader/index.d.ts": [
         "./node_modules/@types/react/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "./node_modules/react-hot-loader/index.d.ts": [
+      "./node_modules/@types/history/DOMUtils.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/history/createBrowserHistory.d.ts": [
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/history/DOMUtils.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/history/createHashHistory.d.ts": [
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/history/DOMUtils.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/history/createMemoryHistory.d.ts": [
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/history/DOMUtils.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/history/LocationUtils.d.ts": [
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/history/PathUtils.d.ts": [
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/history/index.d.ts": [
+        "./node_modules/@types/history/createBrowserHistory.d.ts",
+        "./node_modules/@types/history/createHashHistory.d.ts",
+        "./node_modules/@types/history/createMemoryHistory.d.ts",
+        "./node_modules/@types/history/LocationUtils.d.ts",
+        "./node_modules/@types/history/PathUtils.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/react-router/index.d.ts": [
         "./node_modules/@types/react/index.d.ts",
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/react-router-dom/index.d.ts": [
+        "./node_modules/@types/react-router/index.d.ts",
+        "./node_modules/@types/react/index.d.ts",
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/symbol-observable/index.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/redux/index.d.ts": [
+        "./node_modules/symbol-observable/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/util.d.ts",
@@ -1699,6 +1970,218 @@
         "./node_modules/@types/react/index.d.ts",
         "./node_modules/redux/index.d.ts",
         "./node_modules/@types/hoist-non-react-statics/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/types/resume-app/index.ts": [
+        "./src/client/types/resume-app/index.ts",
+        "./node_modules/redux/index.d.ts"
+      ],
+      "./node_modules/@types/qs/index.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/modules/list/list-actions.ts": [
+        "./src/client/types/resume-app/index.d.ts",
+        "./src/client/utils/constants.ts"
+      ],
+      "./src/client/components/home/home-component.tsx": [
+        "./node_modules/@types/react-router-dom/index.d.ts",
+        "./src/client/modules/list/list-actions.ts",
+        "./node_modules/@types/react/index.d.ts"
+      ],
+      "./src/client/components/home/index.ts": [
+        "./src/client/components/home/home-component.tsx"
+      ],
+      "./node_modules/reselect/lib/index.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/modules/list/list-selectors.ts": [
+        "./src/client/types/resume-app/index.d.ts",
+        "./node_modules/reselect/lib/index.d.ts"
+      ],
+      "./src/client/containers/home-contaier.ts": [
+        "./src/client/components/home/home-component.tsx",
+        "./node_modules/@types/react-redux/index.d.ts",
+        "./src/client/components/home/index.ts"
+      ],
+      "./src/client/hoc/header/header-hoc.tsx": [
+        "./node_modules/@types/react/index.d.ts"
+      ],
+      "./src/client/hoc/header/index.ts": [
+        "./src/client/hoc/header/header-hoc.tsx"
+      ],
+      "./src/client/hoc/layout/layout-hoc.tsx": [
+        "./node_modules/@types/react/index.d.ts"
+      ],
+      "./src/client/hoc/layout/index.ts": [
+        "./src/client/hoc/layout/layout-hoc.tsx"
+      ],
+      "./src/client/hoc/main/main-hoc.tsx": [
+        "./node_modules/@types/react/index.d.ts"
+      ],
+      "./src/client/hoc/main/index.ts": [
+        "./src/client/hoc/main/main-hoc.tsx"
+      ],
+      "./src/client/hoc/side-nav/side-nav-hoc.tsx": [
+        "./node_modules/@types/react/index.d.ts"
+      ],
+      "./src/client/hoc/side-nav/index.ts": [
+        "./src/client/hoc/side-nav/side-nav-hoc.tsx"
+      ],
+      "./src/client/hoc/index.ts": [
+        "./src/client/hoc/header/index.ts",
+        "./src/client/hoc/layout/index.ts",
+        "./src/client/hoc/main/index.ts",
+        "./src/client/hoc/side-nav/index.ts"
+      ],
+      "./src/client/components/app/app-component.tsx": [
+        "./node_modules/@types/react/index.d.ts"
+      ],
+      "./src/client/components/app/index.ts": [
+        "./src/client/components/app/app-component.tsx"
+      ],
+      "./node_modules/typescript-logic/index.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/typescript-compare/index.d.ts": [
+        "./node_modules/typescript-logic/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/typescript-tuple/lib/utils.d.ts": [
+        "./node_modules/typescript-compare/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/typescript-tuple/lib/index.d.ts": [
+        "./node_modules/typescript-tuple/lib/utils.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/typescript-tuple/index.d.ts": [
+        "./node_modules/typescript-tuple/lib/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@redux-saga/types/types/ts3.6/index.d.ts": [
+        "./node_modules/redux/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@redux-saga/core/types/ts3.6/index.d.ts": [
+        "./node_modules/redux/index.d.ts",
+        "./node_modules/@redux-saga/types/types/ts3.6/index.d.ts",
+        "./node_modules/@redux-saga/core/types/ts3.6/effects.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@redux-saga/core/types/ts3.6/effects.d.ts": [
+        "./node_modules/redux/index.d.ts",
+        "./node_modules/typescript-tuple/index.d.ts",
+        "./node_modules/@redux-saga/types/types/ts3.6/index.d.ts",
+        "./node_modules/@redux-saga/core/types/ts3.6/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/redux-saga/effects.d.ts": [
+        "./node_modules/@redux-saga/core/types/ts3.6/effects.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/modules/list/list-worker.ts": [
+        "./src/client/types/resume-app/index.d.ts",
+        "./node_modules/redux-saga/effects.d.ts"
+      ],
+      "./src/client/modules/list/list-watchers.ts": [
+        "./node_modules/redux-saga/effects.d.ts"
+      ],
+      "./src/client/modules/index.ts": [
+        "./node_modules/redux-saga/effects.d.ts"
+      ],
+      "./node_modules/axios/index.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/utils/api.ts": [
+        "./node_modules/axios/index.d.ts"
+      ],
+      "./src/client/modules/item/item-api.ts": [
+        "./node_modules/axios/index.d.ts",
+        "./src/client/utils/api.ts"
+      ],
+      "./src/client/modules/list/list-api.ts": [
+        "./node_modules/axios/index.d.ts",
+        "./src/client/types/resume-app/index.d.ts",
+        "./src/client/utils/api.ts"
+      ],
+      "./src/client/modules/list/list-reducer.ts": [
+        "./src/client/types/resume-app/index.d.ts"
+      ],
+      "./src/client/redux/reducers.ts": [
+        "./node_modules/redux/index.d.ts",
+        "./src/client/types/resume-app/index.d.ts"
+      ],
+      "./node_modules/redux-devtools-extension/index.d.ts": [
+        "./node_modules/redux/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/redux-saga/index.d.ts": [
+        "./node_modules/@redux-saga/core/types/ts3.6/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/client/redux/store/dev.ts": [
+        "./node_modules/redux-saga/index.d.ts",
+        "./node_modules/redux/index.d.ts",
+        "./src/client/types/resume-app/index.d.ts"
+      ],
+      "./src/client/redux/store/prod.ts": [
+        "./node_modules/redux-saga/index.d.ts",
+        "./node_modules/redux/index.d.ts",
+        "./src/client/types/resume-app/index.d.ts"
+      ],
+      "./src/client/types/lib.d.ts": [
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/react-dom/index.d.ts": [
+        "./node_modules/@types/react/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/util.d.ts",
@@ -2067,161 +2550,12 @@
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ],
-      "./node_modules/@redux-saga/types/types/ts3.6/index.d.ts": [
-        "./node_modules/redux/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/typescript-logic/index.d.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/typescript-compare/index.d.ts": [
-        "./node_modules/typescript-logic/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/typescript-tuple/lib/utils.d.ts": [
-        "./node_modules/typescript-compare/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/typescript-tuple/lib/index.d.ts": [
-        "./node_modules/typescript-tuple/lib/utils.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/typescript-tuple/index.d.ts": [
-        "./node_modules/typescript-tuple/lib/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@redux-saga/core/types/ts3.6/effects.d.ts": [
-        "./node_modules/redux/index.d.ts",
-        "./node_modules/typescript-tuple/index.d.ts",
-        "./node_modules/@redux-saga/types/types/ts3.6/index.d.ts",
-        "./node_modules/@redux-saga/core/types/ts3.6/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@redux-saga/core/types/ts3.6/index.d.ts": [
-        "./node_modules/redux/index.d.ts",
-        "./node_modules/@redux-saga/types/types/ts3.6/index.d.ts",
-        "./node_modules/@redux-saga/core/types/ts3.6/effects.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/redux-saga/index.d.ts": [
-        "./node_modules/@redux-saga/core/types/ts3.6/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/qs/index.d.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "./node_modules/@types/react-loadable/index.d.ts": [
         "./node_modules/@types/react/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/history/DOMUtils.d.ts": [
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/history/createBrowserHistory.d.ts": [
-        "./node_modules/@types/history/index.d.ts",
-        "./node_modules/@types/history/DOMUtils.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/history/createHashHistory.d.ts": [
-        "./node_modules/@types/history/index.d.ts",
-        "./node_modules/@types/history/DOMUtils.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/history/createMemoryHistory.d.ts": [
-        "./node_modules/@types/history/index.d.ts",
-        "./node_modules/@types/history/DOMUtils.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/history/LocationUtils.d.ts": [
-        "./node_modules/@types/history/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/history/PathUtils.d.ts": [
-        "./node_modules/@types/history/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/history/index.d.ts": [
-        "./node_modules/@types/history/createBrowserHistory.d.ts",
-        "./node_modules/@types/history/createHashHistory.d.ts",
-        "./node_modules/@types/history/createMemoryHistory.d.ts",
-        "./node_modules/@types/history/LocationUtils.d.ts",
-        "./node_modules/@types/history/PathUtils.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/react-router/index.d.ts": [
-        "./node_modules/@types/react/index.d.ts",
-        "./node_modules/@types/history/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./node_modules/@types/react-router-dom/index.d.ts": [
-        "./node_modules/@types/react-router/index.d.ts",
-        "./node_modules/@types/react/index.d.ts",
-        "./node_modules/@types/history/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "./src/client/redux/reducers.ts": [
-        "./node_modules/redux/index.d.ts",
-        "./src/client/types/resume-app/index.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -2263,6 +2597,56 @@
       "../../.nvm/versions/node/v12.13.0/lib/node_modules/typescript/lib/lib.esnext.bigint.d.ts",
       "./node_modules/tslib/tslib.d.ts",
       "./src/client/worker.ts",
+      "./node_modules/@types/react/global.d.ts",
+      "./node_modules/csstype/index.d.ts",
+      "./node_modules/@types/prop-types/index.d.ts",
+      "./node_modules/@types/react/index.d.ts",
+      "./node_modules/react-hot-loader/index.d.ts",
+      "./node_modules/@types/history/DOMUtils.d.ts",
+      "./node_modules/@types/history/createBrowserHistory.d.ts",
+      "./node_modules/@types/history/createHashHistory.d.ts",
+      "./node_modules/@types/history/createMemoryHistory.d.ts",
+      "./node_modules/@types/history/LocationUtils.d.ts",
+      "./node_modules/@types/history/PathUtils.d.ts",
+      "./node_modules/@types/history/index.d.ts",
+      "./node_modules/@types/react-router/index.d.ts",
+      "./node_modules/@types/react-router-dom/index.d.ts",
+      "./node_modules/symbol-observable/index.d.ts",
+      "./node_modules/redux/index.d.ts",
+      "./node_modules/@types/hoist-non-react-statics/index.d.ts",
+      "./node_modules/@types/react-redux/index.d.ts",
+      "./src/client/types/resume-app/index.ts",
+      "./node_modules/@types/qs/index.d.ts",
+      "./src/client/utils/constants.ts",
+      "./src/client/modules/list/list-actions.ts",
+      "./src/client/components/home/home-component.tsx",
+      "./src/client/components/home/index.ts",
+      "./node_modules/reselect/lib/index.d.ts",
+      "./src/client/modules/list/list-selectors.ts",
+      "./src/client/containers/home-contaier.ts",
+      "./src/client/hoc/header/header-hoc.tsx",
+      "./src/client/hoc/header/index.ts",
+      "./src/client/hoc/layout/layout-hoc.tsx",
+      "./src/client/hoc/layout/index.ts",
+      "./src/client/hoc/main/main-hoc.tsx",
+      "./src/client/hoc/main/index.ts",
+      "./src/client/hoc/side-nav/side-nav-hoc.tsx",
+      "./src/client/hoc/side-nav/index.ts",
+      "./src/client/hoc/index.ts",
+      "./src/client/components/app/app-component.tsx",
+      "./src/client/components/app/index.ts",
+      "./node_modules/typescript-logic/index.d.ts",
+      "./node_modules/typescript-compare/index.d.ts",
+      "./node_modules/typescript-tuple/lib/utils.d.ts",
+      "./node_modules/typescript-tuple/lib/index.d.ts",
+      "./node_modules/typescript-tuple/index.d.ts",
+      "./node_modules/@redux-saga/types/types/ts3.6/index.d.ts",
+      "./node_modules/@redux-saga/core/types/ts3.6/index.d.ts",
+      "./node_modules/@redux-saga/core/types/ts3.6/effects.d.ts",
+      "./node_modules/redux-saga/effects.d.ts",
+      "./src/client/modules/list/list-worker.ts",
+      "./src/client/modules/list/list-watchers.ts",
+      "./src/client/modules/index.ts",
       [
         "./src/client/modules/item/item-actions.ts",
         [
@@ -2277,74 +2661,21 @@
         ]
       ],
       "./node_modules/axios/index.d.ts",
-      "./node_modules/http-status-codes/index.d.ts",
-      "./node_modules/symbol-observable/index.d.ts",
-      "./node_modules/redux/index.d.ts",
       "./src/client/utils/api.ts",
       "./src/client/modules/item/item-reducer.ts",
       "./src/client/modules/item/item-watchers.ts",
       "./src/client/modules/item/item-worker.ts",
-      "./src/client/modules/list/list-actions.ts",
       "./src/client/modules/list/list-api.ts",
       "./src/client/modules/list/list-reducer.ts",
-      "./src/client/modules/list/list-watchers.ts",
-      "./src/client/modules/list/list-worker.ts",
+      "./src/client/redux/reducers.ts",
+      "./node_modules/redux-devtools-extension/index.d.ts",
+      "./node_modules/redux-saga/index.d.ts",
       "./src/client/redux/store/dev.ts",
       "./src/client/redux/store/prod.ts",
       "./src/client/types/lib.d.ts",
-      "./node_modules/@types/react/global.d.ts",
-      "./node_modules/csstype/index.d.ts",
-      "./node_modules/@types/prop-types/index.d.ts",
-      "./node_modules/@types/react/index.d.ts",
       "./node_modules/@types/react-dom/index.d.ts",
-      "./node_modules/react-hot-loader/index.d.ts",
-      "./node_modules/@types/hoist-non-react-statics/index.d.ts",
-      "./node_modules/@types/react-redux/index.d.ts",
-      [
-        "./src/client/start/dev.tsx",
-        [
-          {
-            "file": "./src/client/start/dev.tsx",
-            "start": 177,
-            "length": 19,
-            "messageText": "Cannot find module '../components/app'.",
-            "category": 1,
-            "code": 2307
-          },
-          {
-            "file": "./src/client/start/dev.tsx",
-            "start": 224,
-            "length": 12,
-            "messageText": "Cannot find module '../modules'.",
-            "category": 1,
-            "code": 2307
-          },
-          {
-            "file": "./src/client/start/dev.tsx",
-            "start": 260,
-            "length": 20,
-            "messageText": "File '/home/eneto/code/interview-codingchallenge-fsjs/src/client/redux/store/dev.ts' is not a module.",
-            "category": 1,
-            "code": 2306
-          },
-          {
-            "file": "./src/client/start/dev.tsx",
-            "start": 755,
-            "length": 3,
-            "code": 2339,
-            "category": 1,
-            "messageText": "Property 'hot' does not exist on type 'NodeModule'."
-          },
-          {
-            "file": "./src/client/start/dev.tsx",
-            "start": 773,
-            "length": 3,
-            "code": 2339,
-            "category": 1,
-            "messageText": "Property 'hot' does not exist on type 'NodeModule'."
-          }
-        ]
-      ],
+      "./src/client/start/dev.tsx",
+      "./src/client/start/prod.tsx",
       "./node_modules/@types/node/globals.d.ts",
       "./node_modules/@types/node/assert.d.ts",
       "./node_modules/@types/node/async_hooks.d.ts",
@@ -2391,163 +2722,8 @@
       "./node_modules/@types/node/ts3.2/util.d.ts",
       "./node_modules/@types/node/ts3.2/globals.d.ts",
       "./node_modules/@types/node/ts3.2/index.d.ts",
-      "./node_modules/@redux-saga/types/types/ts3.6/index.d.ts",
-      "./node_modules/typescript-logic/index.d.ts",
-      "./node_modules/typescript-compare/index.d.ts",
-      "./node_modules/typescript-tuple/lib/utils.d.ts",
-      "./node_modules/typescript-tuple/lib/index.d.ts",
-      "./node_modules/typescript-tuple/index.d.ts",
-      "./node_modules/@redux-saga/core/types/ts3.6/effects.d.ts",
-      "./node_modules/@redux-saga/core/types/ts3.6/index.d.ts",
-      "./node_modules/redux-saga/index.d.ts",
-      "./node_modules/@types/qs/index.d.ts",
       "./node_modules/@types/react-loadable/index.d.ts",
-      "./node_modules/@types/history/DOMUtils.d.ts",
-      "./node_modules/@types/history/createBrowserHistory.d.ts",
-      "./node_modules/@types/history/createHashHistory.d.ts",
-      "./node_modules/@types/history/createMemoryHistory.d.ts",
-      "./node_modules/@types/history/LocationUtils.d.ts",
-      "./node_modules/@types/history/PathUtils.d.ts",
-      "./node_modules/@types/history/index.d.ts",
-      "./node_modules/@types/react-router/index.d.ts",
-      "./node_modules/@types/react-router-dom/index.d.ts",
-      "./src/client/types/resume-app/index.d.ts",
-      [
-        "./src/client/modules/item/item-api.ts",
-        [
-          {
-            "file": "./src/client/modules/item/item-api.ts",
-            "start": 392,
-            "length": 2,
-            "messageText": "'id' is declared but its value is never read.",
-            "category": 1,
-            "code": 6133,
-            "reportsUnnecessary": true
-          },
-          {
-            "file": "./src/client/modules/item/item-api.ts",
-            "start": 472,
-            "length": 23,
-            "code": 2345,
-            "category": 1,
-            "messageText": {
-              "messageText": "Argument of type 'string | undefined' is not assignable to parameter of type 'string'.",
-              "category": 1,
-              "code": 2345,
-              "next": [
-                {
-                  "messageText": "Type 'undefined' is not assignable to type 'string'.",
-                  "category": 1,
-                  "code": 2322
-                }
-              ]
-            }
-          },
-          {
-            "file": "./src/client/modules/item/item-api.ts",
-            "start": 515,
-            "length": 38,
-            "messageText": "Not all code paths return a value.",
-            "category": 1,
-            "code": 7030
-          },
-          {
-            "file": "./src/client/modules/item/item-api.ts",
-            "start": 676,
-            "length": 5,
-            "messageText": "Parameter 'error' implicitly has an 'any' type.",
-            "category": 1,
-            "code": 7006
-          }
-        ]
-      ],
-      [
-        "./src/client/redux/reducers.ts",
-        [
-          {
-            "file": "./src/client/redux/reducers.ts",
-            "start": 108,
-            "length": 15,
-            "messageText": "Cannot find module '../../modules'.",
-            "category": 1,
-            "code": 2307
-          }
-        ]
-      ],
-      [
-        "./src/client/start/prod.tsx",
-        [
-          {
-            "file": "./src/client/start/prod.tsx",
-            "start": 7,
-            "length": 5,
-            "messageText": "Module '\"/home/eneto/code/interview-codingchallenge-fsjs/node_modules/@types/react/index\"' can only be default-imported using the 'esModuleInterop' flag",
-            "category": 1,
-            "code": 1259,
-            "relatedInformation": [
-              {
-                "file": "./node_modules/@types/react/index.d.ts",
-                "start": 2567,
-                "length": 15,
-                "messageText": "This module is declared with using 'export =', and can only be used with a default import when using the 'esModuleInterop' flag.",
-                "category": 1,
-                "code": 2594
-              }
-            ]
-          },
-          {
-            "file": "./src/client/start/prod.tsx",
-            "start": 162,
-            "length": 20,
-            "messageText": "Cannot find module '../components/app/'.",
-            "category": 1,
-            "code": 2307
-          },
-          {
-            "file": "./src/client/start/prod.tsx",
-            "start": 210,
-            "length": 12,
-            "messageText": "Cannot find module '../modules'.",
-            "category": 1,
-            "code": 2307
-          },
-          {
-            "file": "./src/client/start/prod.tsx",
-            "start": 254,
-            "length": 32,
-            "messageText": "Cannot find module '../modules/users/users-reducer'.",
-            "category": 1,
-            "code": 2307
-          },
-          {
-            "file": "./src/client/start/prod.tsx",
-            "start": 319,
-            "length": 21,
-            "messageText": "File '/home/eneto/code/interview-codingchallenge-fsjs/src/client/redux/store/prod.ts' is not a module.",
-            "category": 1,
-            "code": 2306
-          },
-          {
-            "file": "./src/client/start/prod.tsx",
-            "start": 448,
-            "length": 19,
-            "code": 2322,
-            "category": 1,
-            "messageText": {
-              "messageText": "Type '{ user: any; }' is not assignable to type 'AppState'.",
-              "category": 1,
-              "code": 2322,
-              "next": [
-                {
-                  "messageText": "Object literal may only specify known properties, and 'user' does not exist in type 'AppState'.",
-                  "category": 1,
-                  "code": 2353
-                }
-              ]
-            }
-          }
-        ]
-      ]
+      "./src/client/modules/item/item-api.ts"
     ]
   },
   "version": "3.7.2"

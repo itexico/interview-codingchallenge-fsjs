@@ -21,7 +21,7 @@ const postcssNormalize = require("postcss-normalize");
 process.env.SERVER="false";
 process.env.NODE_ENV="production";
 
-const vars = require('./var');
+const vars = require('./vars');
 const env = vars("/", new RegExp(/^CLIENT_/i));
 
 const appPackageJson = require(path.join(__dirname, '../package.json'));
@@ -105,7 +105,7 @@ module.exports = {
             ? "source-map"
             : false,
 
-    entry: path.join(__dirname, '../src/prod.ts'),
+    entry: path.join(__dirname, '../src/client/prod.ts'),
     output: {
         path: path.join(__dirname, '../build'),
 

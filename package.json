@@ -24,6 +24,7 @@
         "build-server:babel": "NODE_ENV=production IS_SERVER=true babel --config-file ./babel.config.js ./src --extensions .ts --out-dir ./dist-server-babel",
         "build-server:tsc": "tsc --traceResolution -p ./tsconfig.server.json",
         "build-server:webpack": "NODE_ENV=production SERVER=true webpack --mode=production --config=config/webpack.server.js --color",
+        "build-client": "NODE_ENV=production SERVER=false webpack --mode=production --config=config/webpack.prod.js --color",
         "build": "npm run clean && run-p -l build-server:*",
         "postbuild": "prettier ./dist*/*.js ./dist*/**/*.js ./dist*/**/**/*.js ./dist*/**/**/**/*.js ./dist*/**/**/**/**/*.js ./dist*/**/**/**/**/**/*.js --write",
         "fix:client": "eslint --config ./.eslint.client.json ./src/client/*.{tsx,ts} ./src/client/**/*.{tsx,ts} ./src/client/**/**/*.{tsx,ts} ./src/client/**/**/**/*.{tsx,ts} --fix",

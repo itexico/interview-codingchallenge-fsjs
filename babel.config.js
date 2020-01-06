@@ -48,24 +48,13 @@ module.exports = function (api) {
                     ["@babel/preset-env", {
                         targets: {
                             node: "current",
-                            browsers: [
-                                ">1%",
-                                "last 4 versions",
-                                "ie >= 11",
-                                "edge >= 16",
-                                "firefox >= 43",
-                                "Firefox ESR",
-                                "chrome >= 47",
-                                "ChromeAndroid >= 69.0",
-                                "safari >= 11"
-                              ],
-                              useBuiltIns: "entry",
-                              corejs: 3,
-                              modules: false
-                        }
+                        },
+                        useBuiltIns: "entry",
+                        corejs: 3,
+                        modules: false
                     }],
                     "@babel/preset-react",
-                    "@babe/preset-typescript"
+                    "@babel/preset-typescript"
                 ],
                 plugins: [
                     "@babel/plugin-transform-runtime",
@@ -102,7 +91,7 @@ module.exports = function (api) {
             }
         }
 
-        if (NODE_ENV === 'development') {
+        if (NODE_ENV === 'test') {
             return {
                 presets: [
                     ["@babel/preset-env", {
