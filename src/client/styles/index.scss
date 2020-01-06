@@ -1,0 +1,30 @@
+:root {
+  @import "normalize.scss/normalize.scss"
+}
+
+@import "./constants.scss";
+@import "./colors.scss";
+@import "./fonts.scss";
+@import "./layout.scss";
+
+html {
+    font-size: $font-size;
+    margin: $zero;
+    padding: $zero;
+}
+
+body {
+    box-sizing: $b-box;
+    width: $max-width;
+    height: $max-heigth;
+    background-color: $background-color;
+    font-size: 1.6rem;
+    font-family: "Roboto", sans-serif;
+    color: $font-color;
+}
+
+*,*::before,*::after {
+    box-sizing: inherit;
+    margin: $zero;
+    padding: $zero;
+}
