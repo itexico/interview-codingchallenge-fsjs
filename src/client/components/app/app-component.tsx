@@ -1,31 +1,34 @@
 import * as React from "react";
 import { hot } from "react-hot-loader";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import homeContaier from "../../containers/home-contaier";
-import { Header, Layout, Main, SideNav } from "../../hoc";
+import { BrowserRouter, Route } from "react-router-dom";
+import { Layout } from "../../hoc/layout";
+import { Header } from "../../hoc/header";
+import { Main } from "../../hoc/main";
+import { SideNav } from "../../hoc/side-nav";
 import { HOME } from "../../utils/constants";
+import { Home } from "../../containers";
 
-function MainComponent (): React.ReactElement {
+function App(): React.ReactElement {
     return (
-        <Layout>
-            <BrowserRouter>
-                <SideNav>
-                    <nav>SideNav</nav>
-                </SideNav>
-                <Main>
+        <div className="eneto">
+            <Layout>
+                <BrowserRouter>
                     <Header>
-                        <div>Header</div>
-                        <div>son 2</div>
+                        <button type="button"> button</button>
+                        <span>Header</span>
                     </Header>
-                    <main className="app-layout-main__content">
-                        <Switch>
-                        <Route exact path={HOME} component={homeContaier} />
-                        </Switch>
-                    </main>
-                </Main>
-            </BrowserRouter>
-        </Layout>
+                    <Main>
+                        <SideNav>
+                            <div>link</div>
+                        </SideNav>
+                        <main>
+                            <Route exact path={HOME} component={Home} />
+                        </main>
+                    </Main>
+                </BrowserRouter>
+            </Layout>
+        </div>
     );
 }
 
-export const App = process.env.NODE_ENV === "development" ? hot(module)(MainComponent) : MainComponent;
+export default hot(module)(App);

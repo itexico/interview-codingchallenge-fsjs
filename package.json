@@ -4,25 +4,30 @@
     "type": "commonjs",
     "description": "Hey, welcome to the first coding challenge of your interview process, you'll be presented with a set of steps to accomplish in order to get yourself graded on",
     "directories": {
-        "test": "test"
+        "test": "test",
+        "src": "src"
     },
     "engines": {
         "node": "12.14.0",
         "tsc": "3.7.4"
     },
     "scripts": {
+        "muta": "NODE_ENV=test stryker run",
+        "test:mutation": "stryker run",
+        "stryker:init": "stryker init",
+        "test": "nodemon --config ./nodemon.test.json",
+        "start:db": "docker stop $(docker ps -aq) && docker rm $(docker ps -aq) && docker-compose up -d",
         "start-client": "NODE_ENV=development webpack-dev-server --mode=development --config=config/webpack.client.js",
         "start-server": "nodemon --inspect ./src/server/index.ts",
         "start": "run-p -l start-*",
-        "clean": "rimraf dist* && rimraf reports && rimraf build && rimraf tsconfig.*.tsbuildinfo",
-        "muta": "NODE_ENV=test stryker run",
-        "pretty:styles": "prettier-stylelint ./config/*.js ./src/client/hoc/**/* ./src/client/components/**/* --color --write",
+        "clean": "rimraf dist* && rimraf reports && rimraf build && rimraf tsconfig.*.tsbuildinfo && rimraf ./data/* && rimraf ./mongo-volume/*",
+        "pretty:styles": "prettier-stylelint ./src/client/styles/*.scss --color --write",
         "pretty:code": "prettier ./src/*.{ts,tsx} ./src/**/*.{ts,tsx} ./src/**/**/*.{ts,tsx} ./src/**/**/**/*.{ts,tsx} ./src/**/**/**/**/*.{ts,tsx} ./src/**/**/**/**/**/*.{ts,tsx} --color --write",
-        "pretty:test": "prettier ./mocha/**/*.test.ts --color --write",
-        "pretty:util": "prettier ./dist/*.js ./config/* ./babel.config.js --color --write",
+        "pretty:test": "prettier ./test/mocha/**/*.test.ts --color --write",
+        "pretty:util": "prettier ./dist/*.js ./config/* babel.config.js --color --write",
         "pretty": "run-p -l pretty:*",
-        "build-server:babel": "NODE_ENV=production IS_SERVER=true babel --config-file ./babel.config.js ./src --extensions .ts --out-dir ./dist-server-babel",
-        "build-server:tsc": "tsc --traceResolution -p ./tsconfig.server.json",
+        "build-server:babel": "NODE_ENV=production IS_SERVER=true babel --config-file babel.config.js ./src --extensions .ts --out-dir ./dist-server-babel",
+        "build-server:tsc": "tsc --build ./tsconfig.server.json",
         "build-server:webpack": "NODE_ENV=production SERVER=true webpack --mode=production --config=config/webpack.server.js --color",
         "build-client": "NODE_ENV=production SERVER=false webpack --mode=production --config=config/webpack.prod.js --color",
         "build": "npm run clean && run-p -l build-server:*",
@@ -32,8 +37,8 @@
         "fix:styles": "stylelint --config ./.stylelintrc.js ./src/client/styles/*.scss -s scss --fix",
         "fix": "npm run clean && run-p -l fix:*",
         "client": "NODE_ENV=development IS_SERVER=false webpack-dev-server --config=config/webpack.prod.js --mode=development --color",
-        "type-check:client": "tsc -p ./tsconfig.client.json",
-        "type-check:server": "tsc -p ./tsconfig.server.json",
+        "type-check:client": "tsc ./tsconfig.client.json",
+        "type-check:server": "tsc ./tsconfig.server.json",
         "type-check": "run-p -l type-check:*"
     },
     "browserslist": {
@@ -265,6 +270,7 @@
         "react-app-polyfill": "1.0.5",
         "react-dev-utils": "9.1.0",
         "react-hot-loader": "4.12.18",
+        "react-templates": "0.6.3",
         "redux-devtools-extension": "2.13.8",
         "resolve": "1.13.1",
         "resolve-url-loader": "3.1.1",

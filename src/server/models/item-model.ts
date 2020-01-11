@@ -1,10 +1,10 @@
-import mongoose from "mongoose";
+import { Mongoose } from "mongoose";
 import { ItemModel } from "../../types/types";
 
-const Item = new mongoose.Schema<ItemModel>({
-    name: { type: String, required: true },
-    description: { type: String, required: false },
-    list: { type: mongoose.Schema.Types.ObjectId, required: true },
-});
+export function itemsFactory (mongoose: Mongoose) {
+    const item = new mongoose.Schema<ItemModel>({
+        name: { type: String, required: true, unique: true, minLength: 3, maxLength: 20 },
+    });
 
-export const ItemSchema = mongoose.model<ItemModel>("Item", Item);
+    return mongoose.model<ItemModel>("Item", item);
+}

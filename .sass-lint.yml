@@ -1,0 +1,53 @@
+files:
+    include:
+        - src/**/*.scss
+    ignore:
+        - /node_modules/**
+options:
+    formatter: table
+    merge-default-rules: false
+rules:
+    property-units:
+        global: ['px', '%', 's', 'rem', 'vh', 'vw', 'rf', 'fr']
+    variable-name-format:
+        - 2
+        - convention: '^[a-zA-Z_-]+$'
+          convention-explanation: Variables should only be letters, underscores and dashes
+    zero-unit: 2
+    bem-depth: 2
+    indentation: 0
+    hex-notation: 2
+    nesting-depth: 2
+    space-between-parens: 2
+    space-before-colon: 2
+    space-before-brace: 2
+    space-before-bang: 2
+    space-around-operator: 2
+    space-after-comma: 2
+    space-after-colon: 2
+    space-after-bang: 2
+    single-line-per-selector: 2
+    shorthand-values: 2
+    pseudo-element: 2
+    one-declaration-per-line: 2
+    no-url-protocols: 2
+    no-transition-all: 0
+    no-trailing-zero: 2
+    no-trailing-whitespace: 2
+    no-universal-selectors: 1
+    no-important: 0
+    no-ids: 1
+    no-empty-rulesets: 2
+    no-css-comments: 1
+    final-newline: 2
+    empty-line-between-blocks: 2
+    brace-style: 2
+    border-zero: 0
+    attribute-quotes: 2
+    no-combinators: 0
+    no-attribute-selectors: 0
+    force-pseudo-nesting: 0
+    force-element-nesting: 0
+    force-attribute-nesting: 0
+    url-quotes: 2
+    no-extends: 0

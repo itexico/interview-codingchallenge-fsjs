@@ -1,37 +1,50 @@
- 
-.app-layout {
-    box-sizing: $b-box;
-    width: inherit;
-    heigth: inherit;
-    margin: $zero;
-    background-color: white;
-    padding: $zero;
+.eneto {
+  .app-layout {
     display: flex;
-    flex-flow: row wrap;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+    background-color: rgba(250, 251, 252, 0.1);
 
-    &-side-nav {
-        flex: .2;
-        width: 20%;
-        background-color: $primary-light-color;
-        color: $font-label;
-        box-shadow: $shadow;
+    &-header {
+      position: fixed;
+      width: 100%;
+      padding: 1rem;
+      background-color: $primary-color;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      color: $color-text;
     }
 
     &-main {
-        flex: .8;
-        width: 80%;
-        heigth: 100%;
+      flex: 1;
+      display: flex;
+      margin: 0;
+      padding: 0;
     }
 
-    &-header {
-        flex: 1;
-        padding: 2rem 1rem;
-        background-color: $primary-color;
-        color: $font-label;
-        box-shadow: $shadow;
+    &-side-nav {
+      display: none;
     }
 
-    &-main__content {
-        padding: 2rem;
+    &-fixed-footer {
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      z-index: 7;
     }
+  }
+}
+
+@include tablet {
+  .app-layout-side-nav {
+    width: 28rem;
+    display: none;
+    overflow: hidden;
+    min-width: 28rem;
+    flex: 0 0 28rem;
+    padding: 8rem 1rem;
+    background-color: $primary-color;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 }

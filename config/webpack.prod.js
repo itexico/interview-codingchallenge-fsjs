@@ -18,20 +18,17 @@ const ModuleNotFoundPlugin = require("react-dev-utils/ModuleNotFoundPlugin");
 const ForkTsCheckerWebpackPlugin = require("react-dev-utils/ForkTsCheckerWebpackPlugin");
 const typescriptFormatter = require("react-dev-utils/typescriptFormatter");
 const postcssNormalize = require("postcss-normalize");
-process.env.SERVER="false";
-process.env.NODE_ENV="production";
+process.env.SERVER = "false";
+process.env.NODE_ENV = "production";
 
-const vars = require('./vars');
+const vars = require("./vars");
 const env = vars("/", new RegExp(/^CLIENT_/i));
 
-const appPackageJson = require(path.join(__dirname, '../package.json'));
+const appPackageJson = require(path.join(__dirname, "../package.json"));
 
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== "false";
 
-const imageInlineSizeLimit = parseInt(
-    process.env.IMAGE_INLINE_SIZE_LIMIT || "10000"
-);
-
+const imageInlineSizeLimit = parseInt(process.env.IMAGE_INLINE_SIZE_LIMIT || "10000");
 
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
@@ -40,8 +37,7 @@ const sassModuleRegex = /\.module\.(scss|sass)$/;
 
 const isEnvProduction = process.env.NODE_ENV === "production";
 
-const isEnvProductionProfile =
-    isEnvProduction && process.argv.includes("--profile");
+const isEnvProductionProfile = isEnvProduction && process.argv.includes("--profile");
 
 const publicPath = "/";
 
@@ -51,9 +47,7 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
     const loaders = [
         {
             loader: MiniCssExtractPlugin.loader,
-            options: shouldUseRelativeAssetPaths
-                ? { publicPath: "../../" }
-                : {},
+            options: shouldUseRelativeAssetPaths ? { publicPath: "../../" } : {},
         },
         {
             loader: require.resolve("css-loader"),
@@ -101,13 +95,11 @@ module.exports = {
     mode: "production",
 
     bail: true,
-    devtool: shouldUseSourceMap
-            ? "source-map"
-            : false,
+    devtool: shouldUseSourceMap ? "source-map" : false,
 
-    entry: path.join(__dirname, '../src/client/prod.ts'),
+    entry: path.join(__dirname, "../src/client/prod.ts"),
     output: {
-        path: path.join(__dirname, '../build'),
+        path: path.join(__dirname, "../build"),
 
         pathinfo: false,
 
@@ -119,10 +111,8 @@ module.exports = {
 
         publicPath,
 
-        devtoolModuleFilenameTemplate:  info =>
-                  path
-                      .relative(path.join(__dirname, '../src/'), info.absoluteResourcePath)
-                      .replace(/\\/g, "/"),
+        devtoolModuleFilenameTemplate: (info) =>
+            path.relative(path.join(__dirname, "../src/"), info.absoluteResourcePath).replace(/\\/g, "/"),
 
         jsonpFunction: `webpackJsonp${appPackageJson.name}`,
 
@@ -184,25 +174,19 @@ module.exports = {
         },
 
         runtimeChunk: {
-            name: entrypoint => `runtime-${entrypoint.name}`,
+            name: (entrypoint) => `runtime-${entrypoint.name}`,
         },
     },
     resolve: {
-        modules: ["node_modules", path.join(__dirname, "../node_modules/")].concat(
-             []
-        ),
+        modules: ["node_modules", path.join(__dirname, "../node_modules/")].concat([]),
 
-        extensions: ["ts", "tsx", "js", "jsx"]
-            .map(ext => `.${ext}`)
-            .filter(ext => true || !ext.includes("ts")),
+        extensions: ["ts", "tsx", "js", "jsx"].map((ext) => `.${ext}`).filter((ext) => true || !ext.includes("ts")),
         alias: {
             "react-native": "react-native-web",
-                "react-dom$": "react-dom/profiling",
-                "scheduler/tracing": "scheduler/tracing-profiling",
-            },
-        plugins: [
-            new ModuleScopePlugin(path.join(__dirname, "../src/"), [path.join(__dirname, "../package.json")]),
-        ],
+            "react-dom$": "react-dom/profiling",
+            "scheduler/tracing": "scheduler/tracing-profiling",
+        },
+        plugins: [new ModuleScopePlugin(path.join(__dirname, "../src/"), [path.join(__dirname, "../package.json")])],
     },
 
     module: {
@@ -226,20 +210,15 @@ module.exports = {
                         include: path.join(__dirname, "../src/"),
                         loader: require.resolve("babel-loader"),
                         options: {
-                            customize: require.resolve(
-                                "babel-preset-react-app/webpack-overrides"
-                            ),
+                            customize: require.resolve("babel-preset-react-app/webpack-overrides"),
 
                             plugins: [
                                 [
-                                    require.resolve(
-                                        "babel-plugin-named-asset-import"
-                                    ),
+                                    require.resolve("babel-plugin-named-asset-import"),
                                     {
                                         loaderMap: {
                                             svg: {
-                                                ReactComponent:
-                                                    "@svgr/webpack?-svgo,+titleProp,+ref![path]",
+                                                ReactComponent: "@svgr/webpack?-svgo,+titleProp,+ref![path]",
                                             },
                                         },
                                     },
@@ -261,14 +240,7 @@ module.exports = {
                             babelrc: false,
                             configFile: false,
                             compact: false,
-                            presets: [
-                                [
-                                    require.resolve(
-                                        "babel-preset-react-app/dependencies"
-                                    ),
-                                    { helpers: true },
-                                ],
-                            ],
+                            presets: [[require.resolve("babel-preset-react-app/dependencies"), { helpers: true }]],
                             cacheDirectory: true,
 
                             cacheCompression: false,
@@ -304,8 +276,7 @@ module.exports = {
                         use: getStyleLoaders(
                             {
                                 importLoaders: 2,
-                                sourceMap:
-                                    isEnvProduction && shouldUseSourceMap,
+                                sourceMap: isEnvProduction && shouldUseSourceMap,
                             },
                             "sass-loader"
                         ),
@@ -318,8 +289,7 @@ module.exports = {
                         use: getStyleLoaders(
                             {
                                 importLoaders: 2,
-                                sourceMap:
-                                    isEnvProduction && shouldUseSourceMap,
+                                sourceMap: isEnvProduction && shouldUseSourceMap,
                                 modules: true,
                                 getLocalIdent: getCSSModuleLocalIdent,
                             },
@@ -330,14 +300,7 @@ module.exports = {
                     {
                         loader: require.resolve("file-loader"),
 
-                        exclude: [
-                            /\.(js|mjs|jsx|ts|tsx)$/,
-                            /\.html$/,
-                            /\.json$/,
-                            /\.css$/,
-                            /\.ejs$/,
-
-                        ],
+                        exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/, /\.css$/, /\.ejs$/],
                         options: {
                             name: "static/media/[name].[hash:8].[ext]",
                         },
@@ -351,21 +314,21 @@ module.exports = {
             Object.assign(
                 {},
 
-                    {
-                          minify: {
-                              removeComments: true,
-                              collapseWhitespace: true,
-                              removeRedundantAttributes: true,
-                              useShortDoctype: true,
-                              removeEmptyAttributes: true,
-                              removeStyleLinkTypeAttributes: true,
-                              keepClosingSlash: true,
-                              minifyJS: true,
-                              minifyCSS: true,
-                              minifyURLs: true,
-                          },
-                          template: path.join(__dirname, '../public/index.html')
-                      }
+                {
+                    minify: {
+                        removeComments: true,
+                        collapseWhitespace: true,
+                        removeRedundantAttributes: true,
+                        useShortDoctype: true,
+                        removeEmptyAttributes: true,
+                        removeStyleLinkTypeAttributes: true,
+                        keepClosingSlash: true,
+                        minifyJS: true,
+                        minifyCSS: true,
+                        minifyURLs: true,
+                    },
+                    template: path.join(__dirname, "../public/index.html"),
+                }
             )
         ),
 
@@ -375,10 +338,10 @@ module.exports = {
 
         new webpack.DefinePlugin(env.stringified),
 
-            new MiniCssExtractPlugin({
-                filename: "static/css/[name].[contenthash:8].css",
-                chunkFilename: "static/css/[name].[contenthash:8].chunk.css",
-            }),
+        new MiniCssExtractPlugin({
+            filename: "static/css/[name].[contenthash:8].css",
+            chunkFilename: "static/css/[name].[contenthash:8].chunk.css",
+        }),
 
         new ManifestPlugin({
             fileName: "asset-manifest.json",
@@ -388,9 +351,7 @@ module.exports = {
                     manifest[file.name] = file.path;
                     return manifest;
                 }, seed);
-                const entrypointFiles = entrypoints.main.filter(
-                    fileName => !fileName.endsWith(".map")
-                );
+                const entrypointFiles = entrypoints.main.filter((fileName) => !fileName.endsWith(".map"));
 
                 return {
                     files: manifestFiles,
@@ -401,39 +362,35 @@ module.exports = {
 
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
 
-            new WorkboxWebpackPlugin.GenerateSW({
-                clientsClaim: true,
-                exclude: [/\.map$/, /asset-manifest\.json$/],
-                importWorkboxFrom: "cdn",
-                navigateFallback: "/index.html",
-                navigateFallbackBlacklist: [
-                    new RegExp("^/_"),
+        new WorkboxWebpackPlugin.GenerateSW({
+            clientsClaim: true,
+            exclude: [/\.map$/, /asset-manifest\.json$/],
+            importWorkboxFrom: "cdn",
+            navigateFallback: "/index.html",
+            navigateFallbackBlacklist: [new RegExp("^/_"), new RegExp("/[^/?]+\\.[^/]+$")],
+        }),
 
-                    new RegExp("/[^/?]+\\.[^/]+$"),
-                ],
+        new ForkTsCheckerWebpackPlugin({
+            typescript: resolve.sync("typescript", {
+                basedir: path.join(__dirname, "../node_modules/"),
             }),
+            async: false,
+            useTypescriptIncrementalApi: true,
+            checkSyntacticErrors: true,
+            resolveModuleNameModule: undefined,
+            resolveTypeReferenceDirectiveModule: undefined,
+            tsconfig: path.join(__dirname, "../tsconfig.client.json"),
+            reportFiles: [
+                "**",
+                "!**/__tests__/**",
+                "!**/?(*.)(spec|test).*",
+                "!**/src/setupProxy.*",
+                "!**/src/setupTests.*",
+            ],
+            silent: false,
 
-            new ForkTsCheckerWebpackPlugin({
-                typescript: resolve.sync("typescript", {
-                    basedir: path.join(__dirname, "../node_modules/"),
-                }),
-                async: false,
-                useTypescriptIncrementalApi: true,
-                checkSyntacticErrors: true,
-                resolveModuleNameModule: undefined,
-                resolveTypeReferenceDirectiveModule: undefined,
-                tsconfig:  path.join(__dirname, "../tsconfig.client.json"),
-                reportFiles: [
-                    "**",
-                    "!**/__tests__/**",
-                    "!**/?(*.)(spec|test).*",
-                    "!**/src/setupProxy.*",
-                    "!**/src/setupTests.*",
-                ],
-                silent: false,
-
-                formatter: typescriptFormatter,
-            }),
+            formatter: typescriptFormatter,
+        }),
     ].filter(Boolean),
 
     node: {

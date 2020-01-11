@@ -1,0 +1,44 @@
+@mixin tablet {
+  @media only screen and (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin desktop-hd {
+  @media only screen and (min-width: #{$desktop-hd}) {
+    @content;
+  }
+}
+
+@mixin desktop-hq {
+  @media only screen and (min-width: #{$desktop-hq}) {
+    @content;
+  }
+}
+
+@mixin desktop-3k {
+  @media only screen and (min-width: #{$desktop-3k}) {
+    @content;
+  }
+}
+
+@mixin desktop-4k {
+  @media only screen and (min-width: #{$desktop-4k}) {
+    @content;
+  }
+}
+
+@mixin fontSmooth {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin headingShadow {
+  text-shadow: 4px 4px 4px #aaa;
+}

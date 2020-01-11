@@ -1,0 +1,7 @@
+{
+    "node": "~/.nvm/versions/node/v12.14.1/bin",
+    "plugins": [
+        "./my-plugin",
+        "jsdom-quokka-plugin"
+    ]
+}

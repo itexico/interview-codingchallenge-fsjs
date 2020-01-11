@@ -1,13 +1,17 @@
 import * as express from "express";
 import { CREATED, getStatusText, NOT_ACCEPTABLE, NO_CONTENT, OK } from "http-status-codes";
-import { ItemModel, NewItem } from "../../types/types";
-import { ItemSchema, ListSchema } from "../models";
+import { DB, ItemModel, NewItem } from "../../types/types";
 import { AppError } from "../utils/AppError";
 import { apiResponse } from "../utils/response";
 
 export class ItemsController {
-    public constructor () {
+    public constructor (private db: DB) {
         this.addItemByListId = this.addItemByListId.bind(this);
+        this.getItemsByListId = this.getItemsByListId.bind(this);
+        this.deleteItemsByListId = this.deleteItemsByListId.bind(this);
+        this.getItemByListIdAndItemId = this.getItemByListIdAndItemId.bind(this);
+        this.deleteItemByListIdAndItemId = this.deleteItemByListIdAndItemId.bind(this);
+        this.updateItemByListIdAndItemId = this.updateItemByListIdAndItemId.bind(this);
     }
 
     /**
@@ -19,7 +23,7 @@ export class ItemsController {
      * @memberof ItemsController
      */
     private isRrealList (id: string) {
-        return ListSchema.findById(id).exec();
+        return this.db.Lists.findById(id).exec();
     }
 
     /**
@@ -45,7 +49,7 @@ export class ItemsController {
                     throw new AppError("Items must be within valid list", NOT_ACCEPTABLE);
                 }
 
-                return new ItemSchema(item).save();
+                return new this.db.Items(item).save();
             })
             .then((saved: ItemModel) => apiResponse(res, saved, CREATED))
             .catch(next);
@@ -65,7 +69,7 @@ export class ItemsController {
         res: express.Response,
         next: express.NextFunction
     ): Promise<express.Response | void> {
-        return ItemSchema.find({ list: req.params.idList })
+        return this.db.Items.find({ list: req.params.idList })
             .exec()
             .then((items) => apiResponse(res, items, OK))
             .catch(next);
@@ -85,7 +89,7 @@ export class ItemsController {
         res: express.Response,
         next: express.NextFunction
     ): Promise<express.Response | void> {
-        return ItemSchema.deleteMany({ list: req.params.idList })
+        return this.db.Items.deleteMany({ list: req.params.idList })
             .exec()
             .then(() => apiResponse(res, getStatusText(NO_CONTENT), NO_CONTENT))
             .catch(next);
@@ -107,7 +111,7 @@ export class ItemsController {
     ): Promise<express.Response | void> {
         const { idList = "", id = "" } = req.query;
 
-        return ItemSchema.findOne({ _id: id, list: idList })
+        return this.db.Items.findOne({ _id: id, list: idList })
             .exec()
             .then((item) => apiResponse(res, item, OK))
             .catch(next);
@@ -129,7 +133,7 @@ export class ItemsController {
     ): Promise<express.Response | void> {
         const { idList = "", id = "" } = req.query;
 
-        return ItemSchema.deleteOne({ _id: id, list: idList })
+        return this.db.Items.deleteOne({ _id: id, list: idList })
             .exec()
             .then(() => apiResponse(res, getStatusText(NO_CONTENT), NO_CONTENT))
             .catch(next);
@@ -152,7 +156,7 @@ export class ItemsController {
         const { idList = "", id = "" } = req.query;
 
         const { body } = req;
-        return ItemSchema.findOneAndUpdate({ _id: id, list: idList }, body, { new: true })
+        return this.db.Items.findOneAndUpdate({ _id: id, list: idList }, body, { new: true })
             .exec()
             .then((updated) => apiResponse(res, updated, NO_CONTENT))
             .catch(next);

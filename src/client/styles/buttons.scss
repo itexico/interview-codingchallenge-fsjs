@@ -1,0 +1,74 @@
+.btn {
+  display: inline-flex;
+  position: relative;
+  white-space: nowrap;
+  text-decoration: none;
+  line-height: 1;
+  border-radius: $radius;
+  padding: $space-xs $space-sm;
+  font-size: $btn-font-size;
+  color: $color-link;
+  transition: 0.2s;
+
+  &:active {
+    transition: none;
+  }
+
+  .icon {
+    color: inherit;
+    flex-shrink: 0;
+  }
+
+  &--primary {
+    // main button
+    background-color: $btn-primary-bg;
+    color: $btn-primary-label;
+
+    @include fontSmooth;
+
+    &:visited {
+      color: $btn-primary-label;
+    }
+
+    &:hover {
+      background-color: $btn-primary-hover;
+    }
+
+    &:active {
+      background-color: $btn-primary-active;
+    }
+  }
+
+  &--secondary {
+    // subtle version, used for secondary actions or in combo with primary/accent button
+    background-color: $btn-secondary-bg;
+    color: $btn-secondary-label;
+
+    &:visited {
+      color: $btn-secondary-label;
+    }
+
+    &:active {
+      background-color: $btn-secondary-active;
+    }
+  }
+
+  /* button size */
+  &--sm {
+    font-size: $btn-sm;
+  }
+
+  &--md {
+    font-size: $btn-md;
+  }
+
+  &--lg {
+    font-size: $btn-lg;
+  }
+
+  &--full-width {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+}

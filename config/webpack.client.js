@@ -1,6 +1,6 @@
 "use strict";
-process.env.SERVER="false";
-process.env.NODE_ENV="development";
+process.env.SERVER = "false";
+process.env.NODE_ENV = "development";
 
 const path = require("path");
 const webpack = require("webpack");
@@ -12,7 +12,7 @@ const InterpolateHtmlPlugin = require("react-dev-utils/InterpolateHtmlPlugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const WatchMissingNodeModulesPlugin = require("react-dev-utils/WatchMissingNodeModulesPlugin");
 const ModuleNotFoundPlugin = require("react-dev-utils/ModuleNotFoundPlugin");
-const vars = require('./vars');
+const vars = require("./vars");
 const postcssNormalize = require("postcss-normalize");
 
 const env = vars("/", new RegExp(/^CLIENT_/i));
@@ -24,60 +24,39 @@ module.exports = {
     devtool: "source-map",
     name: "client",
     target: "web",
-    entry: [
-        require.resolve(path.join(__dirname, '../src/client/dev.ts'))
-    ],
+    entry: [require.resolve(path.join(__dirname, "../src/client/dev.ts"))],
     output: {
-        path:  path.resolve(__dirname, "../public/"),
+        path: path.resolve(__dirname, "../public/"),
         pathinfo: true,
         filename: "static/js/[name]-bundle.js",
         futureEmitAssets: true,
         chunkFilename: "static/js/[name].chunk.js",
         publicPath: "/",
-        devtoolModuleFilenameTemplate: info =>
-            path.resolve(info.absoluteResourcePath).replace(/\\/g, "/"),
+        devtoolModuleFilenameTemplate: (info) => path.resolve(info.absoluteResourcePath).replace(/\\/g, "/"),
         jsonpFunction: `webpackJsonp-eneto-app`,
         globalObject: "this",
     },
     devServer: {
-        port: 3001,
-        contentBase: 'public',
+        port: Number(process.env.CLIENT_PORT) || 3001,
+        contentBase: "public",
+        disableHostCheck: true,
         hot: true,
-        stats:{
-            colors: true
+        watchContentBase: true,
+        stats: {
+            colors: true,
         },
         quiet: false,
+        transportMode: "ws",
         host: "localhost",
         overlay: true,
         historyApiFallback: {
             disableDotRule: true,
         },
     },
-    optimization: {
-        splitChunks: {
-            automaticNameDelimiter: "_",
-            cacheGroups: {
-                common: {
-                    name: "common",
-                    minChunks: 2,
-                    chunks: "async",
-                    priority: 10,
-                    reuseExistingChunk: true,
-                    enforce: true,
-                },
-                vendor: {
-                    name: "vendor",
-                    chunks: "all",
-                    test: /node_modules/,
-                    priority: 20,
-                },
-            },
-        },
-    },
     resolve: {
         alias: {
-            'react-dom': '@hot-loader/react-dom',
-          },
+            "react-dom": "@hot-loader/react-dom",
+        },
         extensions: [".ts", ".tsx", ".js"],
     },
     module: {
@@ -85,15 +64,15 @@ module.exports = {
             {
                 test: /\.(ts|js)x?$/,
                 exclude: /node_modules/,
-                use: [{ loader: 'babel-loader' }]
+                use: [{ loader: "babel-loader" }],
             },
             {
                 test: /\.(scss)$/,
                 use: [
-                    { loader: 'style-loader' },
-                    { loader: 'css-loader' },
+                    { loader: "style-loader" },
+                    { loader: "css-loader" },
                     {
-                        loader: 'postcss-loader',
+                        loader: "postcss-loader",
                         options: {
                             ident: "postcss",
                             plugins: () => [
@@ -108,12 +87,11 @@ module.exports = {
                                 postcssNormalize(),
                             ],
                             sourceMap: true,
-                        }
+                        },
                     },
-                    { loader: 'sass-loader' },
-                ]
-            }
-            ,
+                    { loader: "sass-loader" },
+                ],
+            },
             {
                 test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
                 loader: require.resolve("url-loader"),
@@ -125,19 +103,12 @@ module.exports = {
             {
                 loader: require.resolve("file-loader"),
 
-                exclude: [
-                    /\.(js|mjs|jsx|ts|tsx)$/,
-                    /\.html$/,
-                    /\.json$/,
-                    /\.scss$/,
-                    /\.css$/,
-                ],
+                exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/, /\.scss$/, /\.css$/],
                 options: {
                     name: "static/media/[name].[ext]",
                 },
             },
-
-        ]
+        ],
     },
     plugins: [
         new HtmlWebpackPlugin(
@@ -145,7 +116,7 @@ module.exports = {
                 {},
                 {
                     inject: true,
-                    template: path.join(__dirname, '../public/index.html'),
+                    template: path.join(__dirname, "../public/index.html"),
                 }
             )
         ),
@@ -172,9 +143,7 @@ module.exports = {
                     manifest[file.name] = file.path;
                     return manifest;
                 }, seed);
-                const entrypointFiles = entrypoints.main.filter(
-                    fileName => !fileName.endsWith(".map")
-                );
+                const entrypointFiles = entrypoints.main.filter((fileName) => !fileName.endsWith(".map"));
 
                 return {
                     files: manifestFiles,
@@ -190,11 +159,7 @@ module.exports = {
             exclude: [/\.map$/, /asset-manifest\.json$/],
             importWorkboxFrom: "cdn",
             navigateFallback: "/index.html",
-            navigateFallbackBlacklist: [
-                new RegExp("^/_"),
-
-                new RegExp("/[^/?]+\\.[^/]+$"),
-            ],
+            navigateFallbackBlacklist: [new RegExp("^/_"), new RegExp("/[^/?]+\\.[^/]+$")],
         }),
     ].filter(Boolean),
 
@@ -210,4 +175,4 @@ module.exports = {
     },
 
     performance: false,
-}
+};

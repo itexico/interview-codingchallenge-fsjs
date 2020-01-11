@@ -10,31 +10,35 @@ const webpack = require("webpack");
 process.env.SERVER = "true";
 
 const vars = require("./vars")("/", new RegExp(/^SERVER_/i));
-const {NODE_ENV="development"} = process.env;
+const { NODE_ENV = "development" } = process.env;
 
-const plugins = NODE_ENV === "production" ? [new webpack.DefinePlugin(vars.stringified),
-new ForkTsCheckerWebpackPlugin({
-    typescript: resolve.sync("typescript", {
-        basedir: path.join(__dirname, "../node_modules/"),
-    }),
-    async: true,
-    useTypescriptIncrementalApi: true,
-    checkSyntacticErrors: true,
-    resolveModuleNameModule: undefined,
-    resolveTypeReferenceDirectiveModule: undefined,
-    tsconfig: path.join(__dirname, "../tsconfig.server.json"),
-    reportFiles: [
-        "**/src/server/**",
-        "!**/__tests__/**",
-        "!**/?(*.)(spec|test).*",
-        "!**/src/setupProxy.*",
-        "!**/src/setupTests.*",
-    ],
-    silent: false,
+const plugins =
+    NODE_ENV === "production"
+        ? [
+              new webpack.DefinePlugin(vars.stringified),
+              new ForkTsCheckerWebpackPlugin({
+                  typescript: resolve.sync("typescript", {
+                      basedir: path.join(__dirname, "../node_modules/"),
+                  }),
+                  async: true,
+                  useTypescriptIncrementalApi: true,
+                  checkSyntacticErrors: true,
+                  resolveModuleNameModule: undefined,
+                  resolveTypeReferenceDirectiveModule: undefined,
+                  tsconfig: path.join(__dirname, "../tsconfig.server.json"),
+                  reportFiles: [
+                      "**/src/server/**",
+                      "!**/__tests__/**",
+                      "!**/?(*.)(spec|test).*",
+                      "!**/src/setupProxy.*",
+                      "!**/src/setupTests.*",
+                  ],
+                  silent: false,
 
-    formatter: typescriptFormatter,
-}),
-] : [new webpack.DefinePlugin(vars.stringified)];
+                  formatter: typescriptFormatter,
+              }),
+          ]
+        : [new webpack.DefinePlugin(vars.stringified)];
 module.exports = {
     target: "node",
     node: {

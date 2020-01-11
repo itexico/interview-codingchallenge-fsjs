@@ -1,10 +1,11 @@
-import express from "express";
+import * as express from "express";
 import { BAD_REQUEST, getStatusText, INTERNAL_SERVER_ERROR, NOT_FOUND } from "http-status-codes";
 import isAlpha from "validator/lib/isAlpha";
 import isEmpty from "validator/lib/isEmpty";
 import { ListInfo } from "../../types/types";
 import { printErrors } from "./display-errors";
 import { logger } from "./logger";
+import { DUPLICATE_ERROR } from "./constants";
 
 /**
  * @description Validates auth header, this middleware just prints out the auth cookie.
@@ -54,6 +55,13 @@ export function errorHandler (
 ): express.Response {
     logger.error("Error Handler");
     printErrors(err);
+    console.log({ ...err });
+
+    const { code } = err;
+    if (code === DUPLICATE_ERROR) {
+        return res.status(BAD_REQUEST).send({ success: false, message: `Error ${err.keyValue.name} already exists` });
+    }
+
     if (err.kind === "ObjectId") {
         return res.status(NOT_FOUND).send({ success: false, message: getStatusText(NOT_FOUND) });
     }

@@ -1,31 +1,47 @@
 import * as React from "react";
-import { RouteComponentProps } from "react-router-dom";
+import { ListModel } from "../../../types/types";
 import { GetAllLists } from "../../modules/list/list-actions";
 
-export interface HomeProps extends RouteComponentProps {
-    getAllLists: GetAllLists
+export interface HomeProps {
+    sideNav: boolean;
+    isLoading: boolean;
+    lists: ListModel[];
+    getAllLists: GetAllLists;
 }
 
-export type HomeState = any;
+export interface HomeState {
+    [x: string]: string;
+}
 
-export class Home extends React.PureComponent<HomeProps, HomeState> {
+export class Home extends React.Component<HomeProps, HomeState> {
+    public state: HomeState;
 
-    public constructor (props: HomeProps) {
+    public constructor(props: HomeProps) {
         super(props);
 
+        this.state = {
+            listName: "",
+        };
+
+        this.onChangeHandler = this.onChangeHandler.bind(this);
     }
 
-    public componentDidMount () {
-        const {getAllLists} = this.props;
+    public componentDidMount(): void {
+        console.log("COmponenetMounted");
+        const { getAllLists } = this.props;
 
         getAllLists();
     }
 
-    public render (): React.ReactElement<HomeProps> {
-        return (
-            <div>
-                Home component
-            </div>
-        )
+    private onChangeHandler(evt: React.ChangeEvent<HTMLInputElement>) {
+        const { name, value } = evt.currentTarget;
+        this.setState({ [name]: value });
+    }
+
+    public render(): React.ReactElement<HomeProps> {
+        const {listName} = this.state;
+        return (<div>
+            <input type="text" value={listName} onChange={this.onChangeHandler} />
+        </div>)
     }
 }

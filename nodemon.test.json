@@ -1,0 +1,17 @@
+{
+    "verbose": true,
+    "watch": ["test"],
+    "ext": "ts",
+    "exec": "npm run start:db && cross-env NODE_ENV=test mocha -r ts-node/register --project ./tsconfig.server.json  test/mocha/**/*.test.ts --recursive --watch",
+    "env": {
+        "NODE_ENV": "development",
+        "PORT": "5000",
+        "SERVER_DB_USER": "eneto",
+        "SERVER_DB_PASSWORD": "hireme",
+        "SERVER_DB_NAME": "list-sb",
+        "SERVER_DB_URI": "localhost",
+        "SERVER_DB_PORT": "27017",
+        "ROUTE_LISTS":"/api/v1/lists",
+        "ROUTE_LIST_BY_iD": "/api/v1/lists/:id"
+    }
+}

@@ -1,8 +1,6 @@
-import bodyParser from "body-parser";
-import compression from "compression";
-import cookie from "cookie-parser";
-import cors from "cors";
-import express from "express";
+import * as bodyParser from "body-parser";
+import * as cors from "cors";
+import * as express from "express";
 import { routes } from "./routes";
 import { errorHandler, validateAuthHeader } from "./utils/middlewares";
 
@@ -13,11 +11,7 @@ import { errorHandler, validateAuthHeader } from "./utils/middlewares";
  */
 export function expressApp (): express.Application {
     const app: express.Application = express();
-    if (process.env.NODE_ENV === "production") {
-        app.use(compression());
-    }
     app.use(cors());
-    app.use(cookie());
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true, limit: "5m" }));
     app.use(validateAuthHeader);

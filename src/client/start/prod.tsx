@@ -1,7 +1,7 @@
 import * as React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
-import { App } from "../components/app/";
+import { App } from "../components/app";
 import { rootSagas } from "../modules";
 import { configureStore } from "../redux/store/prod";
 import "../styles/index.scss";

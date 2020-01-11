@@ -1,14 +1,15 @@
 version: '3'
 services:
   mongodb:
+    restart: always
     image: mongo
     container_name: interview
-    volumes:
-      - mongodb:/data/db
-      - mongodb_config:/data/configdb
+#    volumes:
+#      - mongodb:/data/db
+#      - mongodb_config:/data/configdb
     ports:
         - 27017:27017
     command: mongod
-volumes:
-  mongodb:
-  mongodb_config:
+#volumes:
+#  mongodb:
+#  mongodb_config:

@@ -6,11 +6,13 @@ import { App } from "../components/app";
 import { rootSagas } from "../modules";
 import { store } from "../redux/store/dev";
 import "../styles/index.scss";
-import { unregister } from "../worker";
+import * as all from "../utils/constants";
 
+console.log({ ...all });
+console.log(rootSagas);
 store.runSaga(rootSagas);
 store.subscribe(() => localStorage.setItem("initApp", JSON.stringify(store.getState())));
-function init (): void {
+function init(): void {
     render(
         <AppContainer>
             <Provider store={store}>
@@ -28,5 +30,3 @@ if (process.env.NODE_ENV === "development" && (module as any).hot) {
         init();
     });
 }
-
-unregister();

@@ -1,30 +1,50 @@
-:root {
-  @import "normalize.scss/normalize.scss"
-}
-
+@import "~normalize.scss/normalize.scss";
 @import "./constants.scss";
 @import "./colors.scss";
-@import "./fonts.scss";
+@import "./mixins.scss";
+@import "./letters.scss";
 @import "./layout.scss";
 
 html {
-    font-size: $font-size;
-    margin: $zero;
-    padding: $zero;
+  font-size: 62.5%;
+  font-family: sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: $bg;
 }
 
 body {
-    box-sizing: $b-box;
-    width: $max-width;
-    height: $max-heigth;
-    background-color: $background-color;
-    font-size: 1.6rem;
-    font-family: "Roboto", sans-serif;
-    color: $font-color;
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: #333;
 }
 
-*,*::before,*::after {
-    box-sizing: inherit;
-    margin: $zero;
-    padding: $zero;
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+@include desktop-3k {
+  html {
+    font-size: 100%;
+  }
+}
+
+@include desktop-4k {
+  html {
+    font-size: 225%;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
