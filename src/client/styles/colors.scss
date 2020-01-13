@@ -1,0 +1,17 @@
+$background-color: #eee;
+
+$primary-color: $teal;
+$primary-color-dark: darken($primary-color, 10%);
+$primary-color-light: lighten($primary-color, 10%);
+
+$secondary-color: $yellow;
+$secondary-color-dark: darken($secondary-color, 10%);
+$secondary-color-light: lighten($secondary-color, 10%);
+
+$danger-color: $danger;
+$danger-color-dark: darken($danger-color, 10%);
+$danger-color-light: lighten($danger-color, 10%);
+
+$color-text: $gray-dark;
+$white-color: #fff;
+$header-bg: gb(250, 251, 252);

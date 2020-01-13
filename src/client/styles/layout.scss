@@ -1,0 +1,50 @@
+.eneto {
+  .app-layout {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+    background-color: rgba(250, 251, 252, 0.1);
+
+    &-header {
+      position: fixed;
+      width: 100%;
+      padding: 1rem;
+      background-color: $primary-color;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      color: $color-text;
+    }
+
+    &-main {
+      flex: 1;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    &-side-nav {
+      display: none;
+    }
+
+    &-fixed-footer {
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      z-index: 7;
+    }
+  }
+}
+
+@include tablet {
+  .app-layout-side-nav {
+    width: 28rem;
+    display: none;
+    overflow: hidden;
+    min-width: 28rem;
+    flex: 0 0 28rem;
+    padding: 8rem 1rem;
+    background-color: $primary-color;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
