@@ -2,6 +2,8 @@ import express from 'express';
 import { json, urlencoded } from 'body-parser';
 import morgan from 'morgan';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
+import auth from './utils/auth';
 
 import listRouter from './resources/list/list.router';
 import itemRouter from './resources/item/item.router';
@@ -15,6 +17,8 @@ app.use(cors());
 app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use(morgan('dev'));
+app.use(cookieParser());
+app.use(auth);
 
 app.get('/', (req, res) => {
   res.send({ message: 'Hello World' });

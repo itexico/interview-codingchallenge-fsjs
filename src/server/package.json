@@ -13,6 +13,7 @@
   "dependencies": {
     "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "cuid": "^2.1.4",
     "dotenv": "^6.1.0",
