@@ -1,0 +1,21 @@
+<app-spinner *ngIf="isLoading$ | async"></app-spinner>
+
+<ul class="list-group" *ngIf="(lists$ | async) as lists; else noLists">
+  <li *ngFor="let list of lists" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+    <a [routerLink]="['/list', list._id]">{{ list.name }}</a>
+    <div>
+      <button class="btn btn-info mr-2">
+        <i class="fa fa-pencil"></i>
+      </button>
+      <button class="btn btn-danger">
+        <i class="fa fa-trash-o"></i>
+      </button>
+    </div>
+  </li>
+</ul>
+
+<ng-template #noLists>
+  <div class="alert alert-info">
+    You dont have any list yet... add one!
+  </div>
+</ng-template>
