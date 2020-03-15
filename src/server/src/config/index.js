@@ -4,6 +4,7 @@ const env = process.env.NODE_ENV || 'development';
 const baseConfig = {
   env,
   isDev: env === 'development',
+  isTest: env === 'testing',
   port: 3000
 };
 
@@ -13,6 +14,10 @@ switch (env) {
   case 'dev':
   case 'development':
     envConfig = require('./dev').config;
+    break;
+  case 'test':
+  case 'testing':
+    envConfig = require('./test').config;
     break;
   case 'prod':
   case 'production':

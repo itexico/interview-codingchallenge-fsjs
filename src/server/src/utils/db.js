@@ -11,6 +11,8 @@ export const connect = (url = options.dbUrl, opts = {}) => {
         useNewUrlParser: true
       }
     )
-    .then(() => console.log('DB Connected'))
+    .then(() =>
+      console.log(`DB Connected: ${mongoose.connection.db.databaseName}`)
+    )
     .catch(err => console.log(`DB Connection Error: ${err.message}`));
 };

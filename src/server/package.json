@@ -8,7 +8,12 @@
     "build": "babel src --out-dir dist",
     "dev": "nodemon --exec npm run restart",
     "restart": "rimraf dist && npm run build && npm run start",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "test": "NODE_ENV=testing jest --forceExit --detectOpenHandles  --silent",
+    "test-routes": "npm run test -t router",
+    "test-models": "npm run test -t model",
+    "test-controllers": "npm run test -t controllers",
+    "test-api": "npm run test server.spec.js"
   },
   "dependencies": {
     "bcrypt": "^3.0.2",
@@ -22,6 +27,7 @@
     "lodash": "^4.17.11",
     "mongoose": "^5.3.13",
     "morgan": "^1.9.1",
+    "supertest": "^4.0.2",
     "validator": "^10.9.0"
   },
   "devDependencies": {
@@ -49,5 +55,15 @@
     "nodemon": "^1.18.3",
     "prettier": "^1.15.2",
     "rimraf": "^2.6.2"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/",
+    "testEnvironment": "node",
+    "setupTestFrameworkScriptFile": "<rootDir>/test-db-setup.js",
+    "testPathIgnorePatterns": [
+      "dist/"
+    ],
+    "restoreMocks": true
   }
 }
