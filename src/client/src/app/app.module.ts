@@ -6,21 +6,28 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './screens/not-found/not-found.component';
-import { ItemsComponent } from './screens/items/items.component';
-import { ListsComponent } from './screens/lists/lists.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { HomeComponent } from './screens/home/home.component';
+import { EditModalComponent } from './components/edit-modal/edit-modal.component';
+import { ListComponent } from './screens/list/list.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
-    ItemsComponent,
-    ListsComponent,
     SpinnerComponent,
-    HomeComponent
+    HomeComponent,
+    EditModalComponent,
+    ListComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    NgbModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

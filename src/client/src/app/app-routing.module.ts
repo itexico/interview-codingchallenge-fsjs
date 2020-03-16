@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './screens/not-found/not-found.component';
-import { ListsComponent } from './screens/lists/lists.component';
-import { ItemsComponent } from './screens/items/items.component';
 import { HomeComponent } from './screens/home/home.component';
+import { ListComponent } from './screens/list/list.component';
 
 const routes: Routes = [
   {
@@ -17,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'list/:id',
-    component: ListsComponent
+    component: ListComponent
   },
   {
     path: '**',

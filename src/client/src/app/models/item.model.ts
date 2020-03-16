@@ -1,4 +1,4 @@
-export interface List {
+export interface Item {
   _id?: string;
   name: string;
   list: string;

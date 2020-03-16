@@ -10,6 +10,6 @@ export class AppComponent implements OnInit {
   constructor(private api: ApiService) {}
 
   ngOnInit(): void {
-    this.api.loadLists().subscribe();
+    this.api.loadLists();
   }
 }

@@ -4,10 +4,10 @@
   <li *ngFor="let list of lists" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
     <a [routerLink]="['/list', list._id]">{{ list.name }}</a>
     <div>
-      <button class="btn btn-info mr-2">
+      <button class="btn btn-info mr-2" (click)="showModal(list)">
         <i class="fa fa-pencil"></i>
       </button>
-      <button class="btn btn-danger">
+      <button class="btn btn-danger" (click)="onDelete(list._id)">
         <i class="fa fa-trash-o"></i>
       </button>
     </div>
@@ -19,3 +19,24 @@
     You dont have any list yet... add one!
   </div>
 </ng-template>
+
+
+<h4 class="mt-5">Add new list</h4>
+<div class="form">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <div class="input-group">
+      <input class="form-control"
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Pizzas, Colors, Books, etc..."
+              #listInput>
+      <button class="btn btn-primary" (click)="onSave(listInput)">
+        <i class="fa fa-save"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<app-edit-modal (update)="onUpdate($event)"></app-edit-modal>
