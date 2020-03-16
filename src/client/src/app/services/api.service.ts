@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { List } from '../models/list.model';
 import { environment } from 'src/environments/environment';
 import { Item } from '../models/item.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class ApiService {
   lists$ = new BehaviorSubject([]);
   list$ = new BehaviorSubject(null);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   loadLists(): void {
     this.isLoading$.next(true);
@@ -48,6 +49,9 @@ export class ApiService {
         }),
         catchError((error, caught) => {
           console.log('Error', error);
+          if (error.status === 404) {
+            this.router.navigate(['/404']);
+          }
           return of(error);
         })
       )

@@ -1,1 +1,12 @@
-<p>not-found works!</p>
+
+<h3>Oops! Not found</h3>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">404</li>
+  </ol>
+</nav>
+
+<p class="alert alert-danger">
+  We couldn't find the resource that you are looking for. <a [routerLink]="['/home']">Go to Home</a>.
+</p>

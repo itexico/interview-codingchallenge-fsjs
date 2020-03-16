@@ -19,8 +19,12 @@ const routes: Routes = [
     component: ListComponent
   },
   {
-    path: '**',
+    path: '404',
     component: NotFoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/404'
   }
 ];
 

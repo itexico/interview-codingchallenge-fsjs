@@ -3,6 +3,12 @@
 <ng-template #homeTemplate>
 
   <ng-container *ngIf="(lists$ | async) as lists">
+    <h3>Home</h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Home</li>
+      </ol>
+    </nav>
     <ul class="list-group" *ngIf="!!lists.length; else noLists">
       <li *ngFor="let list of lists" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
         <a [routerLink]="['/list', list._id]">{{ list.name }}</a>
