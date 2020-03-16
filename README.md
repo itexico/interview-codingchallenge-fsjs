@@ -1,3 +1,92 @@
+# Didier Perez Submission
+
+## Server side
+The code is written in ES6 so it needs to be transpiled before run.
+
+Download dependencies:
+```
+npm install
+```
+
+Build the project: 
+```
+npm run build
+```
+
+Start the server: 
+```
+npm run start
+```
+
+Or if you want to start the dev mode (start the sever with change detection rebuild) ommit the 2 above and use:
+```
+npm run dev
+```
+
+This will start up a server on 3000: `http://localhost:3000`.
+
+
+
+### To run unit test just run the following commands
+
+To test the API (Endpoints and middleware) 
+```
+npm run test-api
+```
+
+To test the routes 
+```
+npm run test-routes
+```
+
+To test the models 
+```
+npm run test-models
+```
+
+To test the controlles 
+```
+npm run test-controlles
+```
+
+## Client side
+Just a regular Angular 9 application.
+
+Download dependencies:
+```
+npm install
+```
+
+Build the project:
+```
+npm run build
+```
+
+Or just serve the project:
+```
+npm run start
+```
+
+This will start up a server on 4200: `http://localhost:4200`
+
+## Features
+
+As an individual, 
+  - [x] I need a way to create lists of my favorite stuff ( so cliche, right? ) so, several lists of different stuff (books, movies, stores, pizza flavors, whatevs...)
+  - [x] I need a way to add, edit, and delete items on such lists
+  - [x] I need a way to view the lists I create
+As a developer,
+  - [x] I need the node_modules to be ignored by git 
+  - [x] I need to be able to access the CRUD capabilities of the lists through a RESTful API, json based, from external domains
+  - [x] I need schemas ( mongoose preferred ) for the Lists and Items entities
+  - [x] I need an exposed CRUD API to affect the Lists and Items entities using the correct HTTP verbs for each
+    - [x] Create, update, remove, fetch all and fetch by id should be supported for lists and items (10 endpoints total)
+  - [x] I need middleware to happen on each request validating that the user has a cookie named "auth" or not (log the value to output, we are not managing authentication of any kind just yet)
+  - [x] I need a test suite testing the endpoints 
+  - [x] I need a test suite testing the middleware covering the cases where the user has a cookie named "auth", a cookie with another name or no cookie at all
+
+=========================================================================
+
 # Let's code some JS!
 
 Hey, welcome to the first coding challenge of your interview process, you'll be presented with a set of steps to accomplish in order to get yourself graded on 
