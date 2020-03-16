@@ -4,6 +4,7 @@ import { map, delay, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { List } from '../models/list.model';
 import { environment } from 'src/environments/environment';
+import { Item } from '../models/item.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import { environment } from 'src/environments/environment';
 export class ApiService {
   isLoading$ = new BehaviorSubject(false);
   lists$ = new BehaviorSubject([]);
+  list$ = new BehaviorSubject(null);
 
   constructor(private http: HttpClient) {}
 
@@ -23,6 +25,25 @@ export class ApiService {
         map(response => {
           this.isLoading$.next(false);
           this.lists$.next(response as List[]);
+          return response as List[];
+        }),
+        catchError((error, caught) => {
+          console.log('Error', error);
+          return of(error);
+        })
+      )
+      .subscribe(() => {});
+  }
+
+  loadList(id: string): void {
+    this.isLoading$.next(true);
+
+    this.http
+      .get(`${environment.apiUrl}list/${id}`)
+      .pipe(
+        map(response => {
+          this.isLoading$.next(false);
+          this.list$.next(response as List[]);
           return response as List[];
         }),
         catchError((error, caught) => {
@@ -55,9 +76,41 @@ export class ApiService {
       );
   }
 
-  deleteList(id): Observable<any> {
+  deleteList(id: string): Observable<any> {
     this.isLoading$.next(true);
     return this.http.delete(`${environment.apiUrl}list/${id}`).pipe(
+      map(response => {
+        this.isLoading$.next(false);
+        return response;
+      })
+    );
+  }
+
+  createItem(item: Item): Observable<Item> {
+    this.isLoading$.next(true);
+    return this.http.post(environment.apiUrl + 'item', { ...item }).pipe(
+      map(response => {
+        this.isLoading$.next(false);
+        return response as Item;
+      })
+    );
+  }
+
+  updateItem(item: Item): Observable<Item> {
+    this.isLoading$.next(true);
+    return this.http
+      .put(`${environment.apiUrl}item/${item._id}`, { ...item })
+      .pipe(
+        map(response => {
+          this.isLoading$.next(false);
+          return response as Item;
+        })
+      );
+  }
+
+  deleteItem(id: string): Observable<any> {
+    this.isLoading$.next(true);
+    return this.http.delete(`${environment.apiUrl}item/${id}`).pipe(
       map(response => {
         this.isLoading$.next(false);
         return response;

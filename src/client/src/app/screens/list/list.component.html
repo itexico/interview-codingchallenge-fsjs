@@ -1,1 +1,55 @@
-<p>list works!</p>
+<app-spinner *ngIf="(isLoading$ | async); else listTemplate"></app-spinner>
+
+<ng-template #listTemplate>
+
+  <ng-container *ngIf="(list$ | async) as list">
+    <h3>{{ list.name }}</h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ list.name }}</li>
+      </ol>
+    </nav>
+    <ul class="list-group" *ngIf="!!list.items.length; else noItems">
+      <li *ngFor="let item of list.items" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        <span>{{ item.name }}</span>
+        <div>
+          <button class="btn btn-info mr-2" (click)="showModal(item)">
+            <i class="fa fa-pencil"></i>
+          </button>
+          <button class="btn btn-danger" (click)="onDelete(item._id)">
+            <i class="fa fa-trash-o"></i>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </ng-container>
+
+  <ng-template #noItems>
+    <div class="alert alert-info">
+      What are you waiting for? Add some items to your list now!
+    </div>
+  </ng-template>
+
+
+  <h4 class="mt-5">Add new item</h4>
+  <div class="form">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <div class="input-group">
+        <input class="form-control"
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Pizzas, Colors, Books, etc..."
+                #itemInput>
+        <button class="btn btn-primary" (click)="onSave(itemInput)">
+          <i class="fa fa-save"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <app-edit-modal (update)="onUpdate($event)"></app-edit-modal>
+
+</ng-template>
