@@ -1,0 +1,22 @@
+{
+  "name": "interview-codingchallenge-fsjs",
+  "version": "1.0.0",
+  "description": "Itexico Interview Coding Challenge",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/limbian/interview-codingchallenge-fsjs.git"
+  },
+  "author": "Luis Jose Aguilar Espinosa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/limbian/interview-codingchallenge-fsjs/issues"
+  },
+  "homepage": "https://github.com/limbian/interview-codingchallenge-fsjs#readme"
+}
