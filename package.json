@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/limbian/interview-codingchallenge-fsjs#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.15"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
