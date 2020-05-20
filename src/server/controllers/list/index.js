@@ -38,7 +38,13 @@ router.get("/:listId", async (req, res, next) => {
     const list = await List.findById(listId).exec();
 
     if (!list) return res.status(404).json({ list: null });
-    res.status(200).json({ list });
+    res.status(200).json({
+      list: {
+        listId: list._id,
+        title: list.title,
+        items: list.items.length,
+      },
+    });
   } catch (error) {
     next(error);
   }

@@ -131,4 +131,15 @@ describe("ENDPOINTS LIST /lists*", () => {
 
     mockLists.push(zeroStringResponnse.body.list);
   });
+
+  it("should fetch a list by id without populated items", async () => {
+    const response = await request(app).get(`/lists/${mockLists[0].listId}`);
+    const { list } = response.body;
+
+    expect(response.statusCode).toBe(200);
+
+    expect(list.listId).toBe(mockLists[0].listId);
+    expect(list.title).toBe("0");
+    expect(list.items).toEqual(0);
+  });
 });
