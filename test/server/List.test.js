@@ -76,8 +76,13 @@ describe("ENDPOINTS LIST /lists*", () => {
     expect(response.statusCode).toBe(200);
     expect(lists.length).toBe(2);
 
+    expect(lists[0]).toHaveProperty("listId");
     expect(lists[0].title).toBe(mockLists[0].title);
+    expect(lists[0].items).toBe(0);
+
+    expect(lists[1]).toHaveProperty("listId");
     expect(lists[1].title).toBe("0");
+    expect(lists[1].items).toBe(0);
   });
 
   it("should update the list title", async () => {

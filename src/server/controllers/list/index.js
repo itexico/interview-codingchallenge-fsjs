@@ -24,7 +24,13 @@ router.get("/", async (req, res, next) => {
   try {
     const lists = await List.find().exec();
 
-    res.status(200).json({ lists });
+    res.status(200).json({
+      lists: lists.map((list) => ({
+        listId: list._id,
+        title: list.title,
+        items: list.items.length,
+      })),
+    });
   } catch (error) {
     next(error);
   }
