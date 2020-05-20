@@ -70,4 +70,17 @@ router.post("/", async (req, res) => {
   }
 });
 
+// DELETE /lists/:id - Delete a list by id
+router.delete("/:id", async (req, res) => {
+  try {
+    const list = await List.deleteOne({ _id: req.params.id });
+    res.status(200).json({ list });
+  } catch (error) {
+    res.status(500).json({
+      message: "Error occurred creating a new list",
+      error,
+    });
+  }
+});
+
 export const listRouter = router;
