@@ -1,6 +1,8 @@
 import { Router } from "express";
-import { List } from "../../models/List";
 import { Types } from "mongoose";
+
+import { List } from "../../models/List";
+import { Item } from "../../models/Item";
 
 const router = Router();
 
@@ -12,6 +14,9 @@ const router = Router();
  * POST /lists - Create a new list
  * PUT /lists/:listId - Update a list by id
  * DELETE /lists/:listId - Delete a list by id
+ *
+ * GET /lists/:listId/items - Retrieve all list items
+ * POST /lists/:listId/items - Add a new item to a list
  * */
 
 // GET /lists - Retrieve all lists
@@ -73,6 +78,26 @@ router.delete("/:listId", async (req, res, next) => {
   try {
     await List.deleteOne({ _id: listId }).exec();
     res.status(200).json({ listId });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// POST /lists/:listId/items - Add a new item to a list
+router.post("/:listId/items", async (req, res, next) => {
+  const { listId } = req.params;
+  const { title } = req.body;
+  const itemId = Types.ObjectId();
+
+  const list = await List.findById(listId).exec();
+  const item = new Item({ _id: itemId, title, list: listId });
+
+  try {
+    await item.save();
+    list.items.push(item);
+    await list.save();
+
+    res.status(200).json({ item });
   } catch (error) {
     next(error);
   }
