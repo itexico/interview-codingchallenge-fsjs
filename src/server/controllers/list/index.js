@@ -144,7 +144,13 @@ router.get("/:listId/items", async (req, res, next) => {
       return res.status(404).json({ message: "List not found" });
     }
 
-    res.status(200).json({ items: list.items });
+    res.status(200).json({
+      items: list.items.map((item) => ({
+        itemId: item._id,
+        listId: item.list,
+        title: item.title,
+      })),
+    });
   } catch (error) {
     next(error);
   }

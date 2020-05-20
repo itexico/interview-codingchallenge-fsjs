@@ -121,9 +121,22 @@ describe("Item Model Operations", () => {
     mockItems.push(zeroStringResponse.body.item);
   });
 
-  // it("should return the 2 items created in the list", () => {
-  //   expect(false).toBe(true);
-  // });
+  it("should return the 2 items created in the list", async () => {
+    const { listId } = mockLists[0];
+
+    const response = await request(app).get(`/lists/${listId}/items`);
+    const { items } = response.body;
+
+    expect(response.statusCode).toBe(200);
+
+    expect(items[0]).toHaveProperty("itemId");
+    expect(items[0]).toHaveProperty("listId", listId);
+    expect(items[0]).toHaveProperty("title", "My first item");
+
+    expect(items[1]).toHaveProperty("itemId");
+    expect(items[1]).toHaveProperty("listId", listId);
+    expect(items[1]).toHaveProperty("title", "0");
+  });
 
   // it("should update an item by item id", () => {
   //   expect(false).toBe(true);
