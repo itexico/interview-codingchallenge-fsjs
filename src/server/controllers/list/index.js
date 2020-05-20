@@ -50,6 +50,12 @@ router.post("/", async (req, res, next) => {
   const listId = Types.ObjectId();
   const list = new List({ _id: listId, title, items: [] });
 
+  if ((!title && title !== "0") || title.length === 0) {
+    return res
+      .status(400)
+      .json({ message: "Title property should be a non-empty string" });
+  }
+
   try {
     await list.save();
     res.status(201).json({

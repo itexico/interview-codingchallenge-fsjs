@@ -2,7 +2,7 @@ import request from "supertest";
 import { connectDB, disconnectDB } from "../../src/server/database";
 import app from "../../src/server/app";
 
-const mockLists = [{ title: "My first list" }, { title: "My second list" }];
+const mockLists = [{ title: "My first list" }];
 
 describe("ENDPOINTS LIST /lists*", () => {
   beforeAll(async () => {
@@ -30,5 +30,38 @@ describe("ENDPOINTS LIST /lists*", () => {
     expect(list).toHaveProperty("listId");
     expect(list).toHaveProperty("title", mockLists[0].title);
     expect(list).toHaveProperty("items", 0);
+  });
+
+  it("should error if title is not sent in creation properly", async () => {
+    const undefinedResponse = await request(app)
+      .post("/lists")
+      .send({ title: undefined });
+
+    const nullResponse = await request(app)
+      .post("/lists")
+      .send({ title: null });
+
+    const emptyResponse = await request(app).post("/lists").send({ title: "" });
+
+    const nonStringResponse = await request(app)
+      .post("/lists")
+      .send({ title: 0 });
+
+    const zeroStringResponnse = await request(app)
+      .post("/lists")
+      .send({ title: "0" });
+
+    expect(undefinedResponse.statusCode).toBe(400);
+    expect(nullResponse.statusCode).toBe(400);
+    expect(emptyResponse.statusCode).toBe(400);
+    expect(nonStringResponse.statusCode).toBe(400);
+    expect(zeroStringResponnse.statusCode).toBe(201);
+
+    expect(undefinedResponse.body).toHaveProperty("message");
+    expect(nullResponse.body).toHaveProperty("message");
+    expect(emptyResponse.body).toHaveProperty("message");
+    expect(nonStringResponse.body).toHaveProperty("message");
+
+    expect(zeroStringResponnse.body).toHaveProperty("list");
   });
 });
