@@ -19,3 +19,5 @@ app.use(bodyParser.json());
 route(app);
 
 app.listen(PORT, () => `Itexico API on http://localhost:${PORT}`);
+
+export default app;
