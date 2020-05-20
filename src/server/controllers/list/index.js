@@ -156,11 +156,23 @@ router.post("/:listId/items", async (req, res, next) => {
   const { title } = req.body;
   const itemId = Types.ObjectId();
 
-  const list = await List.findById(listId).exec();
-  const item = new Item({ _id: itemId, title, list: listId });
+  if ((!title && title !== "0") || title.length === 0) {
+    return res
+      .status(400)
+      .json({ message: "Title property should be a non-empty string" });
+  }
 
   try {
+    const list = await List.findById(listId).exec();
+
+    if (!list) {
+      return res.status(404).json({ message: "List not found" });
+    }
+
+    const item = new Item({ _id: itemId, title, list: listId });
+
     await item.save();
+
     list.items.push(item);
     await list.save();
 
