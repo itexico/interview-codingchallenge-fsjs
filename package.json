@@ -7,9 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "jest",
-    "tdd": "jest --watch",
-    "start:server": "nodemon --exec babel-node -- src/server/index.js"
+    "start:server": "nodemon --exec babel-node -- src/server/index.js",
+    "tdd:server": "jest --watch -c jest.server.config.js",
+    "test:server": "jest -c jest.server.config.js"
   },
   "repository": {
     "type": "git",
@@ -37,10 +37,5 @@
     "nodemon": "^2.0.4",
     "regenerator-runtime": "^0.13.5",
     "supertest": "^4.0.2"
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.jsx?$": "babel-jest"
-    }
   }
 }
