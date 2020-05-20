@@ -5,8 +5,8 @@ import { Item } from "../../models/Item";
  * Endpoints
  *
  * GET /items/:itemId - Retrieve an item from a list
- * PATCH /items/:itemId - Update a list by id
- * DELETE /items/:itemId - Delete a list by id
+ * PATCH /items/:itemId - Update an item by id
+ * DELETE /items/:itemId - Delete an item by id
  * */
 
 const router = Router();
@@ -26,15 +26,16 @@ router.get("/:itemId", async (req, res, next) => {
   }
 });
 
-// Get list by id
-router.get("/:id", (req, res) => {
-  const { id } = req.params;
-  const list = lists.find((list) => list.id === Number(id));
+// PATCH /items/:itemId - Update an item by id
+router.patch("/:itemId", async (req, res, next) => {
+  const { itemId } = req.params;
+  const patchObject = { ...req.body };
 
-  if (list) {
-    res.json({ list });
-  } else {
-    res.status(404).json({ message: "The list requested is not found" });
+  try {
+    await Item.updateOne({ _id: itemId }, patchObject).exec();
+    res.status(200).json({ itemId });
+  } catch (error) {
+    next(error);
   }
 });
 
