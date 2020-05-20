@@ -43,7 +43,7 @@ router.get("/:listId", async (req, res, next) => {
   try {
     const list = await List.findById(listId).exec();
 
-    if (!list) return res.status(404).json({ list: null });
+    if (!list) return res.status(404).json({ message: "List not found" });
     res.status(200).json({
       list: {
         listId: list._id,
@@ -97,10 +97,13 @@ router.patch("/:listId", async (req, res, next) => {
     const list = await List.findByIdAndUpdate(
       listId,
       { title },
-      {
-        new: true,
-      }
+      { new: true }
     ).exec();
+
+    if (!list) {
+      return res.status(404).json({ message: "List not found" });
+    }
+
     res.status(200).json({
       list: { listId: list._id, title: list.title, items: list.items.length },
     });

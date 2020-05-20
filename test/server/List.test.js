@@ -137,6 +137,16 @@ describe("ENDPOINTS LIST /lists*", () => {
     mockLists.push(zeroStringResponnse.body.list);
   });
 
+  it("should error updating the list if id does not exist", async () => {
+    const response = await request(app)
+      .patch(`/lists/123511822291147113225734`)
+      .send({ title: "My non existent list" });
+
+    expect(response.statusCode).toBe(404);
+
+    expect(response.body).toHaveProperty("message");
+  });
+
   it("should fetch a list by id without populated items", async () => {
     const response = await request(app).get(`/lists/${mockLists[0].listId}`);
     const { list } = response.body;
@@ -157,7 +167,7 @@ describe("ENDPOINTS LIST /lists*", () => {
     expect(notFountIdResponse.statusCode).toBe(404);
     expect(invalidObjectIdResponse.statusCode).toBe(500);
 
-    expect(notFountIdResponse.body.list).toBe(null);
+    expect(notFountIdResponse.body).toHaveProperty("message");
     expect(invalidObjectIdResponse.body).toHaveProperty("message");
   });
 });
