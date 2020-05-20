@@ -170,4 +170,28 @@ describe("ENDPOINTS LIST /lists*", () => {
     expect(notFountIdResponse.body).toHaveProperty("message");
     expect(invalidObjectIdResponse.body).toHaveProperty("message");
   });
+
+  it("should delete a list by id", async () => {
+    const response = await request(app).delete(`/lists/${mockLists[1].listId}`);
+    const { list } = response.body;
+
+    expect(response.statusCode).toBe(200);
+
+    expect(list.listId).toBe(mockLists[1].listId);
+    expect(list.title).toBe(mockLists[1].title);
+    expect(list.items).toEqual(mockLists[1].items);
+  });
+
+  it("should error when deleting a list with invalid or not-found id", async () => {
+    const invalidObjectIdResponse = await request(app).delete(`/lists/123`);
+    const notFountIdResponse = await request(app).delete(
+      `/lists/123511822291147113225734`
+    );
+
+    expect(notFountIdResponse.statusCode).toBe(404);
+    expect(invalidObjectIdResponse.statusCode).toBe(500);
+
+    expect(notFountIdResponse.body).toHaveProperty("message");
+    expect(invalidObjectIdResponse.body).toHaveProperty("message");
+  });
 });
