@@ -73,12 +73,22 @@ router.post("/", async (req, res, next) => {
 // PATCH /lists/:listId - Update a list by id
 router.patch("/:listId", async (req, res, next) => {
   const { listId } = req.params;
-  const patchObject = { ...req.body };
+  const { title } = req.body;
+
+  if ((!title && title !== "0") || title.length === 0) {
+    return res
+      .status(400)
+      .json({ message: "Title property should be a non-empty string" });
+  }
 
   try {
-    const list = await List.findByIdAndUpdate(listId, patchObject, {
-      new: true,
-    }).exec();
+    const list = await List.findByIdAndUpdate(
+      listId,
+      { title },
+      {
+        new: true,
+      }
+    ).exec();
     res.status(200).json({
       list: { listId: list._id, title: list.title, items: list.items.length },
     });

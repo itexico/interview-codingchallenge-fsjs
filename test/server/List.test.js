@@ -94,4 +94,41 @@ describe("ENDPOINTS LIST /lists*", () => {
     expect(list.title).toBe(newTitle);
     expect(list.items).toBe(mockLists[0].items);
   });
+
+  it("should error if title is not sent in update properly", async () => {
+    const undefinedResponse = await request(app)
+      .patch(`/lists/${mockLists[0].listId}`)
+      .send({ title: undefined });
+
+    const nullResponse = await request(app)
+      .patch(`/lists/${mockLists[0].listId}`)
+      .send({ title: null });
+
+    const emptyResponse = await request(app)
+      .patch(`/lists/${mockLists[0].listId}`)
+      .send({ title: "" });
+
+    const nonStringResponse = await request(app)
+      .patch(`/lists/${mockLists[0].listId}`)
+      .send({ title: 0 });
+
+    const zeroStringResponnse = await request(app)
+      .patch(`/lists/${mockLists[0].listId}`)
+      .send({ title: "0" });
+
+    expect(undefinedResponse.statusCode).toBe(400);
+    expect(nullResponse.statusCode).toBe(400);
+    expect(emptyResponse.statusCode).toBe(400);
+    expect(nonStringResponse.statusCode).toBe(400);
+    expect(zeroStringResponnse.statusCode).toBe(200);
+
+    expect(undefinedResponse.body).toHaveProperty("message");
+    expect(nullResponse.body).toHaveProperty("message");
+    expect(emptyResponse.body).toHaveProperty("message");
+    expect(nonStringResponse.body).toHaveProperty("message");
+
+    expect(zeroStringResponnse.body).toHaveProperty("list");
+
+    mockLists.push(zeroStringResponnse.body.list);
+  });
 });
