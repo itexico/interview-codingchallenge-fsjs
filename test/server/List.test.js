@@ -4,7 +4,7 @@ import app from "../../src/server/app";
 
 const mockLists = [{ title: "My first list" }];
 
-describe("ENDPOINTS LIST /lists*", () => {
+describe("List Model Operations", () => {
   beforeAll(async () => {
     await connectDB();
   });
