@@ -20,14 +20,21 @@ router.get("/", (req, res) => {
 });
 
 // GET /lists/:id - Retrieve a list by id
-router.get("/:id", (req, res) => {
-  const { id } = req.params;
-  const list = lists.find((list) => list.id === Number(id));
+router.get("/:id", async (req, res) => {
+  try {
+    const list = await List.findById(req.params.id).exec();
 
-  if (list) {
-    res.json({ list });
-  } else {
-    res.status(404).json({ message: "The list requested is not found" });
+    if (!list) {
+      return res.status(404).json({
+        message: "The list requested was not found",
+      });
+    }
+    res.status(200).json({ list });
+  } catch (error) {
+    res.status(500).json({
+      message: "Error occurred fetching a list",
+      error,
+    });
   }
 });
 
@@ -49,7 +56,8 @@ router.post("/", async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({
-      message: error,
+      message: "Error occurred creating a new list",
+      error,
     });
   }
 });
