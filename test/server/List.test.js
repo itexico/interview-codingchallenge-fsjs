@@ -30,6 +30,8 @@ describe("ENDPOINTS LIST /lists*", () => {
     expect(list).toHaveProperty("listId");
     expect(list).toHaveProperty("title", mockLists[0].title);
     expect(list).toHaveProperty("items", 0);
+
+    mockLists[0] = list;
   });
 
   it("should error if title is not sent in creation properly", async () => {
@@ -63,6 +65,8 @@ describe("ENDPOINTS LIST /lists*", () => {
     expect(nonStringResponse.body).toHaveProperty("message");
 
     expect(zeroStringResponnse.body).toHaveProperty("list");
+
+    mockLists.push(zeroStringResponnse.body.list);
   });
 
   it("should fetch 2 created lists", async () => {
@@ -74,5 +78,20 @@ describe("ENDPOINTS LIST /lists*", () => {
 
     expect(lists[0].title).toBe(mockLists[0].title);
     expect(lists[1].title).toBe("0");
+  });
+
+  it("should update the list title", async () => {
+    const newTitle = "My first list updated";
+
+    const response = await request(app)
+      .patch(`/lists/${mockLists[0].listId}`)
+      .send({ title: newTitle });
+    const { list } = response.body;
+
+    expect(response.statusCode).toBe(200);
+
+    expect(list.listId).toBe(mockLists[0].listId);
+    expect(list.title).toBe(newTitle);
+    expect(list.items).toBe(mockLists[0].items);
   });
 });

@@ -76,8 +76,12 @@ router.patch("/:listId", async (req, res, next) => {
   const patchObject = { ...req.body };
 
   try {
-    await List.updateOne({ _id: listId }, patchObject).exec();
-    res.status(200).json({ listId });
+    const list = await List.findByIdAndUpdate(listId, patchObject, {
+      new: true,
+    }).exec();
+    res.status(200).json({
+      list: { listId: list._id, title: list.title, items: list.items.length },
+    });
   } catch (error) {
     next(error);
   }
