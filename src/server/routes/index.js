@@ -1,5 +1,5 @@
-import { listRouter } from "./list";
-import { itemsRouter } from "./item";
+import { listRouter } from "./lists";
+import { itemsRouter } from "./items";
 
 export const route = (app) => {
   app.use("/lists", listRouter);
