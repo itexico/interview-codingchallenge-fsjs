@@ -12,7 +12,7 @@ const router = Router();
  * GET /lists - Retrieve all lists
  * GET /lists/:listId - Retrieve a list by id
  * POST /lists - Create a new list
- * PUT /lists/:listId - Update a list by id
+ * PATCH /lists/:listId - Update a list by id
  * DELETE /lists/:listId - Delete a list by id
  *
  * GET /lists/:listId/items - Retrieve all list items
@@ -58,7 +58,7 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-// PUT /lists/:listId - Update a list by id
+// PATCH /lists/:listId - Update a list by id
 router.patch("/:listId", async (req, res, next) => {
   const { listId } = req.params;
   const patchObject = { ...req.body };
@@ -78,6 +78,18 @@ router.delete("/:listId", async (req, res, next) => {
   try {
     await List.deleteOne({ _id: listId }).exec();
     res.status(200).json({ listId });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// GET /lists/:listId/items - Retrieve all list items
+router.get("/:listId/items", async (req, res, next) => {
+  const { listId } = req.params;
+
+  try {
+    const list = await List.findById(listId).populate("items").exec();
+    res.status(200).json({ items: list.items });
   } catch (error) {
     next(error);
   }
