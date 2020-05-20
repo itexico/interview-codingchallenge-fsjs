@@ -147,4 +147,17 @@ describe("ENDPOINTS LIST /lists*", () => {
     expect(list.title).toBe("0");
     expect(list.items).toEqual(0);
   });
+
+  it("should error when fetching a list with invalid or not-found id", async () => {
+    const invalidObjectIdResponse = await request(app).get(`/lists/123`);
+    const notFountIdResponse = await request(app).get(
+      `/lists/123511822291147113225734`
+    );
+
+    expect(notFountIdResponse.statusCode).toBe(404);
+    expect(invalidObjectIdResponse.statusCode).toBe(500);
+
+    expect(notFountIdResponse.body.list).toBe(null);
+    expect(invalidObjectIdResponse.body).toHaveProperty("message");
+  });
 });
