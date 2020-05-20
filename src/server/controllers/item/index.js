@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { Item } from "../../models/Item";
+import { List } from "../../models/List";
 
 /**
  * Endpoints
@@ -33,6 +34,23 @@ router.patch("/:itemId", async (req, res, next) => {
 
   try {
     await Item.updateOne({ _id: itemId }, patchObject).exec();
+    res.status(200).json({ itemId });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// DELETE /items/:itemId - Delete an item by id
+router.delete("/:itemId", async (req, res, next) => {
+  const { itemId } = req.params;
+
+  try {
+    const item = await Item.findByIdAndDelete(itemId).exec();
+    const list = await List.findById(item.list).exec();
+
+    list.items.pull({ _id: itemId });
+    list.save();
+
     res.status(200).json({ itemId });
   } catch (error) {
     next(error);
