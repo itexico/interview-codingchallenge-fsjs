@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:server": "nodemon --exec babel-node -- src/server/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,15 @@
   "bugs": {
     "url": "https://github.com/limbian/interview-codingchallenge-fsjs/issues"
   },
-  "homepage": "https://github.com/limbian/interview-codingchallenge-fsjs#readme"
+  "homepage": "https://github.com/limbian/interview-codingchallenge-fsjs#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "nodemon": "^2.0.4"
+  }
 }
