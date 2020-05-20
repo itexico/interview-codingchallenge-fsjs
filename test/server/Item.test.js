@@ -237,11 +237,41 @@ describe("Item Model Operations", () => {
     expect(nonExistentResponse.body).toHaveProperty("message");
   });
 
-  // it("should delete an item by item id", () => {
-  //   expect(false).toBe(true);
-  // });
+  it("should delete an item by item id", async () => {
+    const { listId } = mockLists[0];
+    const { itemId } = mockItems[1];
 
-  // it("should error when deleting an item with invalid item id", () => {
-  //   expect(false).toBe(true);
-  // });
+    const itemResponse = await request(app).delete(`/items/${itemId}`);
+    const { item } = itemResponse.body;
+
+    expect(item).toHaveProperty("itemId");
+    expect(item).toHaveProperty("listId", listId);
+    expect(item).toHaveProperty("title", "My second item updated");
+
+    const listResponse = await request(app).get(`/lists/${listId}/items`);
+    const { items } = listResponse.body;
+    const deletedItem = items.find((item) => item.itemId === itemId);
+
+    expect(deletedItem).toBeFalsy();
+  });
+
+  it("should error when deleting an item with invalid item id", async () => {
+    const { listId } = mockLists[0];
+
+    const invalidResponse = await request(app).delete(`/items/${invalidId}`);
+    const nonExistentResponse = await request(app).delete(
+      `/items/${nonExistentId}`
+    );
+
+    expect(invalidResponse.statusCode).toBe(500);
+    expect(nonExistentResponse.statusCode).toBe(404);
+
+    expect(invalidResponse.body).toHaveProperty("message");
+    expect(nonExistentResponse.body).toHaveProperty("message");
+
+    const listResponse = await request(app).get(`/lists/${listId}/items`);
+    const { items } = listResponse.body;
+
+    expect(items.length).toBe(1);
+  });
 });

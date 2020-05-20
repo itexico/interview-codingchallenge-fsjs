@@ -48,7 +48,7 @@ router.patch("/:itemId", async (req, res, next) => {
     const item = await Item.findByIdAndUpdate(
       itemId,
       { title },
-      { new: true }
+      { new: true, useFindAndModify: false }
     ).exec();
 
     if (!item) {
@@ -72,13 +72,26 @@ router.delete("/:itemId", async (req, res, next) => {
   const { itemId } = req.params;
 
   try {
-    const item = await Item.findByIdAndDelete(itemId).exec();
+    const item = await Item.findByIdAndDelete(itemId, {
+      useFindAndModify: false,
+    }).exec();
+
+    if (!item) {
+      return res.status(404).json({ message: "Item not found" });
+    }
+
     const list = await List.findById(item.list).exec();
 
     list.items.pull({ _id: itemId });
     list.save();
 
-    res.status(200).json({ itemId });
+    res.status(200).json({
+      item: {
+        itemId: item._id,
+        listId: item.list,
+        title: item.title,
+      },
+    });
   } catch (error) {
     next(error);
   }
