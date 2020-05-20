@@ -8,10 +8,10 @@ const router = Router();
  * Endpoints
  *
  * GET /lists - Retrieve all lists
- * GET /lists/:id - Retrieve a list by id
+ * GET /lists/:listId - Retrieve a list by id
  * POST /lists - Create a new list
- * PUT /lists/:id - Update a list by id
- * DELETE /lists/:id - Delete a list by id
+ * PUT /lists/:listId - Update a list by id
+ * DELETE /lists/:listId - Delete a list by id
  * */
 
 // GET /lists - Retrieve all lists
@@ -25,12 +25,12 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-// GET /lists/:id - Retrieve a list by id
-router.get("/:id", async (req, res, next) => {
-  const { id } = req.params;
+// GET /lists/:listId - Retrieve a list by id
+router.get("/:listId", async (req, res, next) => {
+  const { listId } = req.params;
 
   try {
-    const list = await List.findById(id).exec();
+    const list = await List.findById(listId).exec();
 
     if (!list) return res.status(404).json({ list: null });
     res.status(200).json({ list });
@@ -42,37 +42,37 @@ router.get("/:id", async (req, res, next) => {
 // POST /lists - Create a new list
 router.post("/", async (req, res, next) => {
   const { title } = req.body;
-  const id = Types.ObjectId();
-  const list = new List({ _id: id, title, items: [] });
+  const listId = Types.ObjectId();
+  const list = new List({ _id: listId, title, items: [] });
 
   try {
     await list.save();
-    res.status(201).json({ id });
+    res.status(201).json({ listId });
   } catch (error) {
     next(error);
   }
 });
 
-// PUT /lists/:id - Update a list by id
-router.patch("/:id", async (req, res, next) => {
-  const { id } = req.params;
+// PUT /lists/:listId - Update a list by id
+router.patch("/:listId", async (req, res, next) => {
+  const { listId } = req.params;
   const patchObject = { ...req.body };
 
   try {
-    await List.updateOne({ _id: id }, patchObject).exec();
-    res.status(200).json({ id });
+    await List.updateOne({ _id: listId }, patchObject).exec();
+    res.status(200).json({ listId });
   } catch (error) {
     next(error);
   }
 });
 
-// DELETE /lists/:id - Delete a list by id
-router.delete("/:id", async (req, res, next) => {
-  const { id } = req.params;
+// DELETE /lists/:listId - Delete a list by id
+router.delete("/:listId", async (req, res, next) => {
+  const { listId } = req.params;
 
   try {
-    await List.deleteOne({ _id: id }).exec();
-    res.status(200).json({ id });
+    await List.deleteOne({ _id: listId }).exec();
+    res.status(200).json({ listId });
   } catch (error) {
     next(error);
   }
