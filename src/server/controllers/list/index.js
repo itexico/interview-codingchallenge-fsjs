@@ -15,71 +15,53 @@ const router = Router();
  * */
 
 // GET /lists - Retrieve all lists
-router.get("/", async (req, res) => {
+router.get("/", async (req, res, next) => {
   try {
     const lists = await List.find().exec();
+
     res.status(200).json({ lists });
   } catch (error) {
-    res.status(500).json({
-      message: "Error occurred fetching the lists",
-      error,
-    });
+    next(error);
   }
 });
 
 // GET /lists/:id - Retrieve a list by id
-router.get("/:id", async (req, res) => {
-  try {
-    const list = await List.findById(req.params.id).exec();
+router.get("/:id", async (req, res, next) => {
+  const { id } = req.params;
 
-    if (!list) {
-      return res.status(404).json({
-        message: "The list requested was not found",
-      });
-    }
+  try {
+    const list = await List.findById(id).exec();
+
+    if (!list) return res.status(404).json({ list: null });
     res.status(200).json({ list });
   } catch (error) {
-    res.status(500).json({
-      message: "Error occurred fetching a list",
-      error,
-    });
+    next(error);
   }
 });
 
 // POST /lists - Create a new list
-router.post("/", async (req, res) => {
-  const listId = Types.ObjectId();
-
-  const list = new List({
-    _id: listId,
-    title: req.body.title,
-    items: [],
-  });
+router.post("/", async (req, res, next) => {
+  const { title } = req.body;
+  const id = Types.ObjectId();
+  const list = new List({ _id: id, title, items: [] });
 
   try {
     await list.save();
-    res.status(201).json({
-      message: `You've successfully created a new list`,
-      list,
-    });
+    res.status(201).json({ id });
   } catch (error) {
-    res.status(500).json({
-      message: "Error occurred creating a new list",
-      error,
-    });
+    next(error);
   }
 });
 
 // DELETE /lists/:id - Delete a list by id
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", async (req, res, next) => {
+  const { id } = req.params;
+
   try {
-    const list = await List.deleteOne({ _id: req.params.id });
-    res.status(200).json({ list });
+    await List.deleteOne({ _id: id });
+    res.status(200).json({ id });
   } catch (error) {
-    res.status(500).json({
-      message: "Error occurred creating a new list",
-      error,
-    });
+    next(error);
   }
 });
 
