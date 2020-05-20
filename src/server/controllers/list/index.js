@@ -53,6 +53,19 @@ router.post("/", async (req, res, next) => {
   }
 });
 
+// PUT /lists/:id - Update a list by id
+router.patch("/:id", async (req, res, next) => {
+  const { id } = req.params;
+  const patchObject = { ...req.body };
+
+  try {
+    await List.updateOne({ _id: id }, patchObject).exec();
+    res.status(200).json({ id });
+  } catch (error) {
+    next(error);
+  }
+});
+
 // DELETE /lists/:id - Delete a list by id
 router.delete("/:id", async (req, res, next) => {
   const { id } = req.params;
