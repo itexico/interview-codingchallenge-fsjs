@@ -19,9 +19,15 @@ router.get("/:itemId", async (req, res, next) => {
   try {
     const item = await Item.findById(itemId).exec();
 
-    if (!item) return res.status(404).json({ item: null });
+    if (!item) return res.status(404).json({ message: "Item not found" });
 
-    res.status(200).json({ item });
+    res.status(200).json({
+      item: {
+        itemId: item._id,
+        listId: item.list,
+        title: item.title,
+      },
+    });
   } catch (error) {
     next(error);
   }

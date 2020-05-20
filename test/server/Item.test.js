@@ -212,13 +212,30 @@ describe("Item Model Operations", () => {
     mockItems[1] = zeroStringResponse.body.item;
   });
 
-  // it("should fetch an item by item id", () => {
-  //   expect(false).toBe(true);
-  // });
+  it("should fetch an item by item id", async () => {
+    const { listId } = mockLists[0];
+    const { itemId } = mockItems[1];
 
-  // it("should error when fetching an item with invalid item id", () => {
-  //   expect(false).toBe(true);
-  // });
+    const response = await request(app).get(`/items/${itemId}`);
+    const { item } = response.body;
+
+    expect(item).toHaveProperty("itemId");
+    expect(item).toHaveProperty("listId", listId);
+    expect(item).toHaveProperty("title", "My second item updated");
+  });
+
+  it("should error when fetching an item with invalid item id", async () => {
+    const invalidResponse = await request(app).get(`/items/${invalidId}`);
+    const nonExistentResponse = await request(app).get(
+      `/items/${nonExistentId}`
+    );
+
+    expect(invalidResponse.statusCode).toBe(500);
+    expect(nonExistentResponse.statusCode).toBe(404);
+
+    expect(invalidResponse.body).toHaveProperty("message");
+    expect(nonExistentResponse.body).toHaveProperty("message");
+  });
 
   // it("should delete an item by item id", () => {
   //   expect(false).toBe(true);
