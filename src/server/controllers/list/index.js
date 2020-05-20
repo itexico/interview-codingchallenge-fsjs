@@ -52,7 +52,13 @@ router.post("/", async (req, res, next) => {
 
   try {
     await list.save();
-    res.status(201).json({ listId });
+    res.status(201).json({
+      list: {
+        listId: list._id,
+        title: list.title,
+        items: list.items.length,
+      },
+    });
   } catch (error) {
     next(error);
   }
