@@ -8,8 +8,8 @@
   },
   "scripts": {
     "start:server": "nodemon --exec babel-node -- src/server/index.js",
-    "tdd:server": "jest --watch -c jest.server.config.js",
-    "test:server": "jest -c jest.server.config.js"
+    "tdd:server": "jest --watch -c jest.server.config.js --runInBand --detectOpenHandles",
+    "test:server": "jest -c jest.server.config.js --runInBand --detectOpenHandles"
   },
   "repository": {
     "type": "git",
@@ -33,7 +33,9 @@
     "@babel/preset-env": "^7.9.6",
     "babel-jest": "^26.0.1",
     "core-js": "^3.6.5",
+    "dotenv": "^8.2.0",
     "jest": "^26.0.1",
+    "mongodb-memory-server": "^6.6.0",
     "nodemon": "^2.0.4",
     "regenerator-runtime": "^0.13.5",
     "supertest": "^4.0.2"

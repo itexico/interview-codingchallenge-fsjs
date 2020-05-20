@@ -1,10 +1,15 @@
+import dotenv from "dotenv";
+import path from "path";
+
+dotenv.config({ path: path.resolve(__dirname, ".env") });
+
 import app from "./app";
 import { connectDB } from "./database";
 
-const PORT = 3000;
-const DB_USER = "developer";
-const DB_PASSWORD = "developer2020";
-
-connectDB(DB_USER, DB_PASSWORD)
-  .then(() => app.listen(PORT, () => `Itexico API on http://localhost:${PORT}`))
+connectDB()
+  .then(() =>
+    app.listen(process.env.PORT, () =>
+      console.log(`Itexico API on http://localhost:${process.env.PORT}`)
+    )
+  )
   .catch((error) => console.log("Error connecting to the database."));
