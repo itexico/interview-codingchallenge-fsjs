@@ -64,4 +64,15 @@ describe("ENDPOINTS LIST /lists*", () => {
 
     expect(zeroStringResponnse.body).toHaveProperty("list");
   });
+
+  it("should fetch 2 created lists", async () => {
+    const response = await request(app).get("/lists");
+    const { lists } = response.body;
+
+    expect(response.statusCode).toBe(200);
+    expect(lists.length).toBe(2);
+
+    expect(lists[0].title).toBe(mockLists[0].title);
+    expect(lists[1].title).toBe("0");
+  });
 });
