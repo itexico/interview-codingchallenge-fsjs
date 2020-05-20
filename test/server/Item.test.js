@@ -138,17 +138,79 @@ describe("Item Model Operations", () => {
     expect(items[1]).toHaveProperty("title", "0");
   });
 
-  // it("should update an item by item id", () => {
-  //   expect(false).toBe(true);
-  // });
+  it("should update an item by item id", async () => {
+    const { listId } = mockLists[0];
+    const { itemId } = mockItems[0];
 
-  // it("should error when updating an item with invalid item id", () => {
-  //   expect(false).toBe(true);
-  // });
+    const itemResponse = await request(app)
+      .patch(`/items/${itemId}`)
+      .send({ title: "My first item updated" });
 
-  // it("should error when updating an item with invalid title", () => {
-  //   expect(false).toBe(true);
-  // });
+    const { item } = itemResponse.body;
+
+    expect(itemResponse.statusCode).toBe(200);
+
+    expect(item).toHaveProperty("itemId");
+    expect(item).toHaveProperty("listId", listId);
+    expect(item).toHaveProperty("title", "My first item updated");
+
+    mockItems[0] = item;
+  });
+
+  it("should error when updating an item with invalid item id", async () => {
+    const invalidResponse = await request(app)
+      .patch(`/items/${invalidId}`)
+      .send({ title: "My invalid item" });
+
+    const nonExistentResponse = await request(app)
+      .patch(`/items/${nonExistentId}`)
+      .send({ title: "My non existent item" });
+
+    expect(invalidResponse.statusCode).toBe(500);
+    expect(nonExistentResponse.statusCode).toBe(404);
+
+    expect(invalidResponse.body).toHaveProperty("message");
+    expect(nonExistentResponse.body).toHaveProperty("message");
+  });
+
+  it("should error when updating an item with invalid title", async () => {
+    const { itemId } = mockItems[1];
+
+    const emptyResponse = await request(app)
+      .patch(`/items/${itemId}`)
+      .send({ title: "" });
+
+    const undefinedResponse = await request(app)
+      .patch(`/items/${itemId}`)
+      .send({});
+
+    const nullResponse = await request(app)
+      .patch(`/items/${itemId}`)
+      .send({ title: null });
+
+    const nonStringResponse = await request(app)
+      .patch(`/items/${itemId}`)
+      .send({ title: 0 });
+
+    const zeroStringResponse = await request(app)
+      .patch(`/items/${itemId}`)
+      .send({ title: "My second item updated" });
+
+    expect(undefinedResponse.statusCode).toBe(400);
+    expect(nullResponse.statusCode).toBe(400);
+    expect(emptyResponse.statusCode).toBe(400);
+    expect(nonStringResponse.statusCode).toBe(400);
+    expect(zeroStringResponse.statusCode).toBe(200);
+
+    expect(undefinedResponse.body).toHaveProperty("message");
+    expect(nullResponse.body).toHaveProperty("message");
+    expect(emptyResponse.body).toHaveProperty("message");
+    expect(nonStringResponse.body).toHaveProperty("message");
+
+    expect(zeroStringResponse.body).toHaveProperty("item");
+
+    mockItems[1] = zeroStringResponse.body.item;
+  });
 
   // it("should fetch an item by item id", () => {
   //   expect(false).toBe(true);

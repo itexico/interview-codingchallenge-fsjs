@@ -30,11 +30,32 @@ router.get("/:itemId", async (req, res, next) => {
 // PATCH /items/:itemId - Update an item by id
 router.patch("/:itemId", async (req, res, next) => {
   const { itemId } = req.params;
-  const patchObject = { ...req.body };
+  const { title } = req.body;
+
+  if ((!title && title !== "0") || title.length === 0) {
+    return res
+      .status(400)
+      .json({ message: "Title property should be a non-empty string" });
+  }
 
   try {
-    await Item.updateOne({ _id: itemId }, patchObject).exec();
-    res.status(200).json({ itemId });
+    const item = await Item.findByIdAndUpdate(
+      itemId,
+      { title },
+      { new: true }
+    ).exec();
+
+    if (!item) {
+      return res.status(404).json({ message: "Item not found" });
+    }
+
+    res.status(200).json({
+      item: {
+        itemId: item._id,
+        listId: item.list,
+        title: item.title,
+      },
+    });
   } catch (error) {
     next(error);
   }
