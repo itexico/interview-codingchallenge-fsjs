@@ -139,6 +139,11 @@ router.get("/:listId/items", async (req, res, next) => {
 
   try {
     const list = await List.findById(listId).populate("items").exec();
+
+    if (!list) {
+      return res.status(404).json({ message: "List not found" });
+    }
+
     res.status(200).json({ items: list.items });
   } catch (error) {
     next(error);
@@ -159,7 +164,13 @@ router.post("/:listId/items", async (req, res, next) => {
     list.items.push(item);
     await list.save();
 
-    res.status(200).json({ item });
+    res.status(201).json({
+      item: {
+        itemId: item._id,
+        listId: item.list,
+        title: item.title,
+      },
+    });
   } catch (error) {
     next(error);
   }
