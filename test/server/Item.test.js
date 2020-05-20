@@ -4,6 +4,9 @@ import app from "../../src/server/app";
 
 const mockLists = [];
 
+const nonExistentId = "523510229168172350112114";
+const invalidId = "123";
+
 describe("Item Model Operations", () => {
   beforeAll(async () => {
     await connectDB();
@@ -31,16 +34,11 @@ describe("Item Model Operations", () => {
   });
 
   it("should error fetching an empty list with invalid list id", async () => {
-    const nonExistentListId = "523510229168172350112114";
-    const invalidListId = "123";
-
     const nonExistentResponse = await request(app).get(
-      `/lists/${nonExistentListId}/items`
+      `/lists/${nonExistentId}/items`
     );
 
-    const invalidResponse = await request(app).get(
-      `/lists/${invalidListId}/items`
-    );
+    const invalidResponse = await request(app).get(`/lists/${invalidId}/items`);
 
     expect(nonExistentResponse.statusCode).toBe(404);
     expect(invalidResponse.statusCode).toBe(500);
