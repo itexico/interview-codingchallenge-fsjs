@@ -71,7 +71,7 @@ router.delete("/:id", async (req, res, next) => {
   const { id } = req.params;
 
   try {
-    await List.deleteOne({ _id: id });
+    await List.deleteOne({ _id: id }).exec();
     res.status(200).json({ id });
   } catch (error) {
     next(error);
