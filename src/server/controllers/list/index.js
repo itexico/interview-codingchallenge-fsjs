@@ -15,8 +15,16 @@ const router = Router();
  * */
 
 // GET /lists - Retrieve all lists
-router.get("/", (req, res) => {
-  res.json({ lists });
+router.get("/", async (req, res) => {
+  try {
+    const lists = await List.find().exec();
+    res.status(200).json({ lists });
+  } catch (error) {
+    res.status(500).json({
+      message: "Error occurred fetching the lists",
+      error,
+    });
+  }
 });
 
 // GET /lists/:id - Retrieve a list by id
