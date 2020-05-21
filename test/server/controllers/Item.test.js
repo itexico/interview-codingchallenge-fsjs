@@ -1,6 +1,6 @@
 import request from "supertest";
-import { connectDB, disconnectDB } from "../../src/server/database";
-import app from "../../src/server/app";
+import { connectDB, disconnectDB } from "../../../src/server/database";
+import app from "../../../src/server/app";
 
 const mockLists = [];
 const mockItems = [];
