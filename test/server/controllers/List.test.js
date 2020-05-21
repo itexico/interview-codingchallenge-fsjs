@@ -1,3 +1,6 @@
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
 import request from "supertest";
 import { connectDB, disconnectDB } from "../../../src/server/database";
 import app from "../../../src/server/app";
