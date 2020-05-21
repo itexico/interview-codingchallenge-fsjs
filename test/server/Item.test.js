@@ -44,8 +44,8 @@ describe("Item Model Operations", () => {
     expect(nonExistentResponse.statusCode).toBe(404);
     expect(invalidResponse.statusCode).toBe(500);
 
-    expect(nonExistentResponse.body).toHaveProperty("message");
-    expect(invalidResponse.body).toHaveProperty("message");
+    expect(nonExistentResponse.body).toHaveProperty("error");
+    expect(invalidResponse.body).toHaveProperty("error");
   });
 
   it("should add a new item to a list", async () => {
@@ -78,8 +78,8 @@ describe("Item Model Operations", () => {
     expect(nonExistentResponse.statusCode).toBe(404);
     expect(invalidResponse.statusCode).toBe(500);
 
-    expect(nonExistentResponse.body).toHaveProperty("message");
-    expect(invalidResponse.body).toHaveProperty("message");
+    expect(nonExistentResponse.body).toHaveProperty("error");
+    expect(invalidResponse.body).toHaveProperty("error");
   });
 
   it("should error when adding an item with invalid title", async () => {
@@ -111,10 +111,10 @@ describe("Item Model Operations", () => {
     expect(nonStringResponse.statusCode).toBe(400);
     expect(zeroStringResponse.statusCode).toBe(201);
 
-    expect(undefinedResponse.body).toHaveProperty("message");
-    expect(nullResponse.body).toHaveProperty("message");
-    expect(emptyResponse.body).toHaveProperty("message");
-    expect(nonStringResponse.body).toHaveProperty("message");
+    expect(undefinedResponse.body).toHaveProperty("error");
+    expect(nullResponse.body).toHaveProperty("error");
+    expect(emptyResponse.body).toHaveProperty("error");
+    expect(nonStringResponse.body).toHaveProperty("error");
 
     expect(zeroStringResponse.body).toHaveProperty("item");
 
@@ -169,8 +169,8 @@ describe("Item Model Operations", () => {
     expect(invalidResponse.statusCode).toBe(500);
     expect(nonExistentResponse.statusCode).toBe(404);
 
-    expect(invalidResponse.body).toHaveProperty("message");
-    expect(nonExistentResponse.body).toHaveProperty("message");
+    expect(invalidResponse.body).toHaveProperty("error");
+    expect(nonExistentResponse.body).toHaveProperty("error");
   });
 
   it("should error when updating an item with invalid title", async () => {
@@ -202,10 +202,10 @@ describe("Item Model Operations", () => {
     expect(nonStringResponse.statusCode).toBe(400);
     expect(zeroStringResponse.statusCode).toBe(200);
 
-    expect(undefinedResponse.body).toHaveProperty("message");
-    expect(nullResponse.body).toHaveProperty("message");
-    expect(emptyResponse.body).toHaveProperty("message");
-    expect(nonStringResponse.body).toHaveProperty("message");
+    expect(undefinedResponse.body).toHaveProperty("error");
+    expect(nullResponse.body).toHaveProperty("error");
+    expect(emptyResponse.body).toHaveProperty("error");
+    expect(nonStringResponse.body).toHaveProperty("error");
 
     expect(zeroStringResponse.body).toHaveProperty("item");
 
@@ -233,8 +233,8 @@ describe("Item Model Operations", () => {
     expect(invalidResponse.statusCode).toBe(500);
     expect(nonExistentResponse.statusCode).toBe(404);
 
-    expect(invalidResponse.body).toHaveProperty("message");
-    expect(nonExistentResponse.body).toHaveProperty("message");
+    expect(invalidResponse.body).toHaveProperty("error");
+    expect(nonExistentResponse.body).toHaveProperty("error");
   });
 
   it("should delete an item by item id", async () => {
@@ -266,8 +266,8 @@ describe("Item Model Operations", () => {
     expect(invalidResponse.statusCode).toBe(500);
     expect(nonExistentResponse.statusCode).toBe(404);
 
-    expect(invalidResponse.body).toHaveProperty("message");
-    expect(nonExistentResponse.body).toHaveProperty("message");
+    expect(invalidResponse.body).toHaveProperty("error");
+    expect(nonExistentResponse.body).toHaveProperty("error");
 
     const listResponse = await request(app).get(`/lists/${listId}/items`);
     const { items } = listResponse.body;

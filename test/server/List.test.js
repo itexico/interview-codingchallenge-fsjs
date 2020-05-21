@@ -59,10 +59,10 @@ describe("List Model Operations", () => {
     expect(nonStringResponse.statusCode).toBe(400);
     expect(zeroStringResponnse.statusCode).toBe(201);
 
-    expect(undefinedResponse.body).toHaveProperty("message");
-    expect(nullResponse.body).toHaveProperty("message");
-    expect(emptyResponse.body).toHaveProperty("message");
-    expect(nonStringResponse.body).toHaveProperty("message");
+    expect(undefinedResponse.body).toHaveProperty("error");
+    expect(nullResponse.body).toHaveProperty("error");
+    expect(emptyResponse.body).toHaveProperty("error");
+    expect(nonStringResponse.body).toHaveProperty("error");
 
     expect(zeroStringResponnse.body).toHaveProperty("list");
 
@@ -127,10 +127,10 @@ describe("List Model Operations", () => {
     expect(nonStringResponse.statusCode).toBe(400);
     expect(zeroStringResponnse.statusCode).toBe(200);
 
-    expect(undefinedResponse.body).toHaveProperty("message");
-    expect(nullResponse.body).toHaveProperty("message");
-    expect(emptyResponse.body).toHaveProperty("message");
-    expect(nonStringResponse.body).toHaveProperty("message");
+    expect(undefinedResponse.body).toHaveProperty("error");
+    expect(nullResponse.body).toHaveProperty("error");
+    expect(emptyResponse.body).toHaveProperty("error");
+    expect(nonStringResponse.body).toHaveProperty("error");
 
     expect(zeroStringResponnse.body).toHaveProperty("list");
 
@@ -144,7 +144,7 @@ describe("List Model Operations", () => {
 
     expect(response.statusCode).toBe(404);
 
-    expect(response.body).toHaveProperty("message");
+    expect(response.body).toHaveProperty("error");
   });
 
   it("should fetch a list by id without populated items", async () => {
@@ -167,8 +167,8 @@ describe("List Model Operations", () => {
     expect(notFountIdResponse.statusCode).toBe(404);
     expect(invalidObjectIdResponse.statusCode).toBe(500);
 
-    expect(notFountIdResponse.body).toHaveProperty("message");
-    expect(invalidObjectIdResponse.body).toHaveProperty("message");
+    expect(notFountIdResponse.body).toHaveProperty("error");
+    expect(invalidObjectIdResponse.body).toHaveProperty("error");
   });
 
   it("should delete a list by id", async () => {
@@ -191,7 +191,7 @@ describe("List Model Operations", () => {
     expect(notFountIdResponse.statusCode).toBe(404);
     expect(invalidObjectIdResponse.statusCode).toBe(500);
 
-    expect(notFountIdResponse.body).toHaveProperty("message");
-    expect(invalidObjectIdResponse.body).toHaveProperty("message");
+    expect(notFountIdResponse.body).toHaveProperty("error");
+    expect(invalidObjectIdResponse.body).toHaveProperty("error");
   });
 });

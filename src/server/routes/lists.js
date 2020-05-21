@@ -6,6 +6,7 @@ import {
   createSingleList,
   updateSingleList,
   deleteSingleList,
+  listErrorHandler,
 } from "../controllers/lists";
 
 import { getAllItems, createSingleItem } from "../controllers/items";
@@ -20,5 +21,7 @@ router.delete("/:listId", deleteSingleList);
 
 router.get("/:listId/items", getAllItems);
 router.post("/:listId/items", createSingleItem);
+
+router.use(listErrorHandler);
 
 export const listRouter = router;
