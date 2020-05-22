@@ -96,8 +96,8 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
-.env.test
+# ENABLED SAVING ON GIT TO SHARE DB WITH REVIEWER
+# .env
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
