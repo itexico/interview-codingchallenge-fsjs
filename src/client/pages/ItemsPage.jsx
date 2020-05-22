@@ -4,11 +4,14 @@ import Form from "../organisms/Form";
 import EditableBox from "../molecules/EditableBox";
 import { useGetJSON, useSendJSON } from "../http";
 import { useParams } from "react-router-dom";
+import Loading from "../atoms/Loading";
 
 const ItemsPage = () => {
   const { listId } = useParams();
   const [list, setList] = useState({});
   const [items, setItems] = useState([]);
+  const [loadingList, setLoadingList] = useState(true);
+  const [loadingItems, setLoadingItems] = useState(true);
   const [getListJSON, abortGetListJSON] = useGetJSON();
   const [getItemsJSON, abortGetItemsJSON] = useGetJSON();
   const [createItemJSON, abortCreateItemJSON] = useSendJSON();
@@ -17,11 +20,17 @@ const ItemsPage = () => {
 
   useEffect(() => {
     getListJSON(`/lists/${listId}`)
-      .then(({ list }) => setList(list))
+      .then(({ list }) => {
+        setList(list);
+        setLoadingList(false);
+      })
       .catch((error) => console.log(error));
 
     getItemsJSON(`/lists/${listId}/items`)
-      .then(({ items }) => setItems(items))
+      .then(({ items }) => {
+        setItems(items);
+        setLoadingItems(false);
+      })
       .catch((error) => console.log(error));
 
     return () => {
@@ -86,11 +95,14 @@ const ItemsPage = () => {
       />
     ));
 
-  return (
+  return loadingList || loadingItems ? (
+    <Loading />
+  ) : (
     <AppLayout
       pageTitle={list.title}
       boxesSlot={renderItemBoxes()}
       formSlot={renderForm()}
+      withBackToLists
     />
   );
 };

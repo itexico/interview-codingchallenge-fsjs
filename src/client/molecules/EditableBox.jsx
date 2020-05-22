@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Action = styled.button`
   transition: background-color 600ms ease;
@@ -135,7 +136,7 @@ const EditableBox = ({
         ) : (
           <Title>
             {withLink ? (
-              <a href={`/list/${id}`}>{title}</a>
+              <Link to={`/list/${id}`}>{title}</Link>
             ) : (
               <span>{title}</span>
             )}

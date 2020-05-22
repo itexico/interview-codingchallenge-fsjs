@@ -3,9 +3,11 @@ import AppLayout from "../templates/AppLayout";
 import Form from "../organisms/Form";
 import EditableBox from "../molecules/EditableBox";
 import { useGetJSON, useSendJSON } from "../http";
+import Loading from "../atoms/Loading";
 
 const ListsPage = () => {
   const [lists, setLists] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [getListsJSON, abortGetListsJSON] = useGetJSON();
   const [createListJSON, abortCreateListJSON] = useSendJSON();
   const [deleteListJSON, abortDeleteListJSON] = useSendJSON();
@@ -13,7 +15,10 @@ const ListsPage = () => {
 
   useEffect(() => {
     getListsJSON("/lists")
-      .then(({ lists: fetchedLists }) => setLists(fetchedLists))
+      .then(({ lists: fetchedLists }) => {
+        setLists(fetchedLists);
+        setLoading(false);
+      })
       .catch((error) => console.log(error));
     return () => abortGetListsJSON();
   }, []);
@@ -72,7 +77,9 @@ const ListsPage = () => {
       />
     ));
 
-  return (
+  return loading ? (
+    <Loading />
+  ) : (
     <AppLayout
       pageTitle="Your lists 🤓"
       boxesSlot={renderListBoxes()}

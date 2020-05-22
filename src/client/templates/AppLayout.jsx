@@ -1,6 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+const StyledLink = styled(Link)`
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: var(--color-contrast);
+`;
 
 const CounterShadow = styled.span`
   z-index: -1;
@@ -54,10 +61,18 @@ const StyledAppLayout = styled.div`
   }
 `;
 
-const AppLayout = ({ pageTitle, formSlot, boxesSlot }) => {
+const AppLayout = ({
+  pageTitle,
+  formSlot,
+  boxesSlot,
+  withBackToLists = false,
+}) => {
   return (
     <StyledAppLayout>
       <FormSlot>
+        {withBackToLists && (
+          <StyledLink to="/">&lt;&lt; Back to all lists</StyledLink>
+        )}
         <PageTitle>{pageTitle}</PageTitle>
         {formSlot}
       </FormSlot>
@@ -71,6 +86,7 @@ AppLayout.propTypes = {
   pageTitle: PropTypes.string.isRequired,
   formSlot: PropTypes.oneOfType([PropTypes.func, PropTypes.node]).isRequired,
   boxesSlot: PropTypes.oneOfType([PropTypes.func, PropTypes.node]).isRequired,
+  withBackToLists: PropTypes.bool,
 };
 
 export default AppLayout;
