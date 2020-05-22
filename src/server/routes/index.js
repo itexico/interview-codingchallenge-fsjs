@@ -1,11 +1,13 @@
+import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+
 import { listRouter } from "./lists";
 import { itemsRouter } from "./items";
 import { authenticated } from "../middlewares/auth";
 
-import bodyParser from "body-parser";
-import cookieParser from "cookie-parser";
-
 export const route = (app) => {
+  app.use(cors());
   app.use(cookieParser());
   app.use(bodyParser.json());
 
