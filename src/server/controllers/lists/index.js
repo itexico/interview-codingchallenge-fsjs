@@ -1,6 +1,7 @@
 import { Types } from "mongoose";
 
 import { List } from "../../models/List";
+import { Item } from "../../models/Item";
 import {
   mapSuccessListResponse,
   mapErrorListResponse,
@@ -82,6 +83,8 @@ export const deleteSingleList = async (req, res, next) => {
 
     if (!list)
       return res.status(404).json(mapErrorListResponse(LIST_NOT_FOUND_ERROR));
+
+    await Item.deleteMany({ list: listId }).exec();
 
     res.status(200).json(mapSuccessListResponse(list));
   } catch (error) {

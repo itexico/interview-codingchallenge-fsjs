@@ -17,7 +17,7 @@ export const getAllItems = async (req, res, next) => {
     const list = await List.findById(listId).populate("items").exec();
 
     if (!list) {
-      return res.status(404).json(mapErrorItemResponse(LIST_NOT_FOUND_ERROR));
+      return res.status(404).json(mapErrorListResponse(LIST_NOT_FOUND_ERROR));
     }
 
     res.status(200).json(mapSuccessItemResponse(list.items));
