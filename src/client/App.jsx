@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 
+import NotFoundPage from "./pages/NotFoundPage";
 import ItemsPage from "./pages/ItemsPage";
 import ListsPage from "./pages/ListsPage";
 
@@ -31,7 +32,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-size: 1.2rem;
-    font-family: 'Poppins';
+    font-family: 'Poppins', 'helvetica', 'arial';
     color: var(--color-main);
   }
 
@@ -56,6 +57,9 @@ const App = () => {
           </Route>
           <Route exact path="/list/:listId">
             <ItemsPage />
+          </Route>
+          <Route path="*">
+            <NotFoundPage />
           </Route>
         </Switch>
       </Router>
