@@ -1,0 +1,36 @@
+{
+  "name": "interview-codingchallenge-fsjs",
+  "version": "1.0.0",
+  "description": "list manager",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "bootstrap": "^3.3.7",
+    "cookie-session": "^2.0.0-beta.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "prestart": "start mongod --dbpath d:\\mongodb\\data",
+    "start": "node ./src/server/bin/www",
+    "client": "node ./src/client/bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeMagio/interview-codingchallenge-fsjs.git"
+  },
+  "keywords": [
+    "challenge",
+    "full-stack"
+  ],
+  "author": "José Luis Muñoz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeMagio/interview-codingchallenge-fsjs/issues"
+  },
+  "homepage": "https://github.com/LeMagio/interview-codingchallenge-fsjs#readme"
+}

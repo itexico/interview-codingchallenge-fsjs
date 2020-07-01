@@ -1,0 +1,42 @@
+<div class="form-horizontal col-sm-6">
+    <form name="manageForm" autocomplete="off">
+        <h2>{{action}}</h2>
+        <div class="form-group" ng-class="{error: manageForm.name.$invalid && !manageForm.name.$pristine}">
+            <label for="name" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="name" ng-model="editingList.list.name" required placeholder="List name">
+            </div>
+            <span ng-show="manageForm.name.$error.required && !manageForm.name.$pristine" class="help-inline">
+                The name is required</span>
+        </div>
+        
+        <div class="form-group">
+            <label for="description" class="col-sm-2 control-label">Description</label>
+            <div  class="col-sm-10">
+                <textarea class="form-control" rows="3" name="description" ng-model="editingList.list.description"></textarea>
+            </div>
+        </div>
+        <div class="well">
+            <div class="form-group">
+                <button ng-click="editingList.addItem()" type="button" class="btn btn-default btn-success pull-right">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add item
+                </button>
+            </div>
+            <div ng-repeat="element in editingList.list.items track by $index">
+                <div class="input-group form-group">
+                    <input type="text" class="form-control" placeholder="Item" ng-model="element.name" required>
+                    <span class="input-group-btn">
+                        <button ng-click="editingList.removeItem($index)" class="btn btn-danger glyphicon glyphicon-remove" type="button" aria-hidden="true"></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <br>
+        <a href="#/" class="btn">Cancel</a>
+        <button ng-click="editingList.save()" ng-disabled="manageForm.$invalid"
+                class="btn btn-primary">Save</button>
+        <button ng-click="editingList.destroy()"
+                ng-show="editingList.list._id" class="btn btn-danger">Delete</button>
+    </form>
+</div>
