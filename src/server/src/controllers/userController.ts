@@ -14,7 +14,7 @@ const authUser = asyncHandler(async (req, res) => {
   if (user && (await user.matchPassword(password))) {
     res.json({
       _id: user._id,
-      name: user.name,
+      fullname: user.fullname,
       email: user.email,
       isAdmin: user.isAdmin,
       //   token: generateToken(user._id),
@@ -24,9 +24,6 @@ const authUser = asyncHandler(async (req, res) => {
     // this will set a cookie on the user
     // keep them logged in
     req.session.userId = user.id;
-
-    console.log('Cookie: ', req.session.userId);
-    console.log('User info: ', user);
 
     return { user };
   } else {
@@ -67,9 +64,6 @@ const registerUser = asyncHandler(async (req, res) => {
     // this will set a cookie on the user
     // keep them logged in
     req.session.userId = user._id;
-
-    // console.log('Cookie: ', req.session.cookie);
-    // console.log('User info: ', user);
 
     return { user };
   } else {

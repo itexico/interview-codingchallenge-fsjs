@@ -6,9 +6,6 @@ import { List } from '../models/listModel';
 // @desc GET /api/lists/:id/items
 // @access Public
 const getListItems = asyncHandler(async (req, res) => {
-  //   const { listId } = req.params;
-  //   const items = await Item.find({});
-
   const list = await List.findById(req.params.id).populate('items').exec();
 
   if (list) {
@@ -22,8 +19,8 @@ const getListItems = asyncHandler(async (req, res) => {
 // @desc Get list item by ID
 // @desc GET /api/lists/:id/items
 // @access Public
-const getListItemById = asyncHandler(async (_, res) => {
-  const item = await Item.findById(_.params.id);
+const getListItemById = asyncHandler(async (req, res) => {
+  const item = await Item.findById(req.params.id);
 
   if (item) {
     res.json(item);
@@ -41,7 +38,6 @@ const createListItem = asyncHandler(async (req, res) => {
   const list = await List.findById(req.params.id);
 
   const item = await Item.create({
-    // _id: itemId,
     title,
     featuredImage,
     description,
@@ -49,13 +45,6 @@ const createListItem = asyncHandler(async (req, res) => {
   });
 
   if (item) {
-    // const item = {
-    //   title,
-    //   featuredImage,
-    //   description,
-    //   // user: req.params.user._id,
-    // };
-
     list.items.push(item);
 
     list.numItems = list.items.length;
@@ -64,7 +53,7 @@ const createListItem = asyncHandler(async (req, res) => {
 
     res.status(201).json({
       _id: item._id,
-      //   user: list.user,
+
       title: item.title,
       featuredImage: item.featuredImage,
       description: item.description,
@@ -113,10 +102,9 @@ const deleteItemList = asyncHandler(async (req, res) => {
 });
 
 export {
-    getListItems,
-    getListItemById,
-    createListItem,
-    updateItemList,
-    deleteItemList,
+  getListItems,
+  getListItemById,
+  createListItem,
+  updateItemList,
+  deleteItemList,
 };
-

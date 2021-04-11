@@ -1,10 +1,10 @@
 import express from 'express';
 import {
-  getLists,
-  getListById,
-  deleteList,
-  updateList,
   createList,
+  deleteList,
+  getListById,
+  getLists,
+  updateList,
 } from '../controllers/listController';
 // import { admin, protect } from '../middleware/authMiddleware.js';
 const router = express.Router();

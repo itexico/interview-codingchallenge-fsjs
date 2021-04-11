@@ -4,7 +4,7 @@ import {
   deleteItemList,
   getListItemById,
   getListItems,
-  updateItemList,
+  updateItemList
 } from '../controllers/itemController';
 
 const router = express.Router();

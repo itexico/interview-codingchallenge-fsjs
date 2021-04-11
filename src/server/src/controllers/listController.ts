@@ -102,4 +102,4 @@ const updateList = asyncHandler(async (req, res) => {
   }
 });
 
-export { getLists, getListById, deleteList, createList, updateList };
+export { getLists, getListById, createList, updateList, deleteList };

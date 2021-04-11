@@ -1,13 +1,13 @@
 import express from 'express';
 import {
   authUser,
-  registerUser,
-  getUserProfile,
-  updateUserProfile,
-  getUsers,
   deleteUser,
   getUserById,
+  getUserProfile,
+  getUsers,
+  registerUser,
   updateUser,
+  updateUserProfile,
 } from '../controllers/userController.js';
 // import { protect, admin } from '../middleware/authMiddleware.js';
 const router = express.Router();

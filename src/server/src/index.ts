@@ -8,11 +8,9 @@ import morgan from 'morgan';
 import path from 'path';
 import connectDB from './config/db.js';
 import { COOKIE_NAME, __prod__ } from './constants';
+import itemRoutes from './routes/itemRoutes';
 import listRoutes from './routes/listRoutes';
 import userRoutes from './routes/userRoutes';
-import itemRoutes from './routes/itemRoutes'
-// import orderRoutes from './routes/orderRoutes.js';
-// import uploadRoutes from './routes/uploadRoutes.js';
 // import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 
 const main = async () => {
@@ -62,18 +60,16 @@ const main = async () => {
   app.use('/api/lists', listRoutes);
   app.use('/api/lists', itemRoutes);
   app.use('/api/users', userRoutes);
-  // app.use('/api/orders', orderRoutes);
-  // app.use('/api/upload', uploadRoutes);
 
   const __dirname = path.resolve();
 
   app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
   if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '/frontend/build')));
+    app.use(express.static(path.join(__dirname, '/client/build')));
 
     app.get('*', (_, res) =>
-      res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
     );
   } else {
     app.get('/', (_, res) => {

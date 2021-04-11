@@ -1,5 +1,12 @@
-import mongoose from 'mongoose';
+import mongoose, { Document } from 'mongoose';
 import bcrypt from 'bcryptjs';
+
+export interface IUserModel extends Document {
+  fullname: string;
+  email: string;
+  password: string;
+  isAdmin: boolean;
+}
 
 const userSchema = new mongoose.Schema(
   {
@@ -27,11 +34,14 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-userSchema.methods.matchPassword = async function (enteredPassword) {
+userSchema.methods.matchPassword = async function (
+  this: IUserModel,
+  enteredPassword: string
+) {
   return await bcrypt.compare(enteredPassword, this.password);
-};
+} as any;
 
-userSchema.pre('save', async function (next) {
+userSchema.pre('save', async function (this: IUserModel, next) {
   if (!this.isModified('password')) {
     next();
   }
