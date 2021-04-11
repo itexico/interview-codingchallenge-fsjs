@@ -81,9 +81,9 @@ const main = async () => {
 
   // app.use(errorHandler);
 
-  const PORT = process.env.PORT || 6000;
+  const PORT = process.env.PORT || 7000;
 
-  app.listen(PORT, () => {
+  app.listen(7000, () => {
     console.log(
       `Server started on http://localhost:${parseInt(process.env.PORT)}`
     );
