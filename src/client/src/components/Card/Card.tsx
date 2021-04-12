@@ -1,8 +1,8 @@
 import React, { CSSProperties, ReactNode } from 'react';
 
 interface CardProps {
-  cardHeader: ReactNode | ReactNode[];
-  cardTitle: ReactNode | ReactNode[];
+  cardHeader?: ReactNode | ReactNode[];
+  cardTitle?: ReactNode | ReactNode[];
   children: ReactNode | ReactNode[];
   style?: CSSProperties;
 }
