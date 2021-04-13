@@ -11,7 +11,6 @@ import { COOKIE_NAME, __prod__ } from './constants';
 import itemRoutes from './routes/itemRoutes';
 import listRoutes from './routes/listRoutes';
 import userRoutes from './routes/userRoutes';
-// import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 
 const main = async () => {
   dotenv.config();
@@ -76,10 +75,6 @@ const main = async () => {
       res.send('API is running...');
     });
   }
-
-  // app.use(notFound);
-
-  // app.use(errorHandler);
 
   const PORT = process.env.PORT || 7000;
 
