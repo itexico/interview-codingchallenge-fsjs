@@ -143,3 +143,50 @@ describe('DELETE /api/lists/:id/items/:id', function () {
       });
   });
 });
+
+// Auth
+describe('POST /api/users', function () {
+  it('register the user', function () {
+    chai
+      .request(server)
+      .post('/api/users')
+      .send({
+        email: 'coolemail2@gmail.com',
+        password: 'CoolPassword12',
+      })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+        res.body.length.should.be.eql(1);
+      });
+  });
+});
+
+describe('POST /api/users/login', function () {
+  it('login the user', function () {
+    chai
+      .request(server)
+      .post('/api/users/login')
+      .send({
+        email: 'coolemail2@gmail.com',
+        password: 'CoolPassword12',
+      })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+        res.body.length.should.be.eql(1);
+      });
+  });
+});
+
+describe('GET /api/users/:id', () => {
+  it('get a user info including the cookie called auth', function () {
+    chai
+      .request(server)
+      .get('/api/users/60729a32d03f53a958a8b6c7')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+      });
+  });
+});
