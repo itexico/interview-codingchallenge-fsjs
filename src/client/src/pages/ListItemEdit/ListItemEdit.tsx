@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, NavBar } from '../../components';
-import { EditListItem } from '../../components/ListItem/EditListItem';
-import { Loader } from '../../components/Loader/Loader';
+import { EditListItem, Loader, NavBar } from '../../components';
 
 interface ListItemEditProps {}
 
@@ -25,8 +23,6 @@ const ListItemEdit: React.FC<ListItemEditProps> = () => {
     };
   }, [listId]);
 
-  console.log(itemDetails);
-
   return (
     <>
       <NavBar />
@@ -34,7 +30,7 @@ const ListItemEdit: React.FC<ListItemEditProps> = () => {
       {itemDetails === undefined ? (
         <Loader />
       ) : (
-          <EditListItem items={itemDetails} />
+        <EditListItem items={itemDetails} />
       )}
     </>
   );

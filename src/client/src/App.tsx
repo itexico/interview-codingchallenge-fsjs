@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './App.css';
 import Home from './pages/Home/Home';
 import ListDetails from './pages/ListDetails/ListDetails';
 import ListEdit from './pages/ListEdit/ListEdit';

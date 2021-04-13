@@ -2,6 +2,7 @@ import axios from 'axios';
 import { format } from 'date-fns';
 import React, { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { Modal } from '..';
 import { useModal } from '../../hooks/useModal';
 import { ModalConfirmButtons } from '../Modal/utils';
@@ -19,11 +20,28 @@ export const ListItem: React.FC<ListItemProps> = ({ listItem }) => {
   const handleCloseModal = () => toggle();
 
   const handleDeleteItem = async (listId: string, itemId: string) => {
-    const res = await axios.delete(
-      `http://localhost:7000/api/lists/${listId}/items/${itemId}`
-    );
-
-    return res.data.json();
+    await axios
+      .delete(`http://localhost:7000/api/lists/${listId}/items/${itemId}`)
+      .then(
+        (res) =>
+          res &&
+          toast.success(`Your item has been deleted`, {
+            position: 'top-right',
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          })
+      )
+      .then(() => toggle())
+      .then(() =>
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000)
+      )
+      .catch((e) => console.log(e.message));
   };
 
   return (

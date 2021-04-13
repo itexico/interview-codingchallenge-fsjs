@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { NavBar } from '../../components';
-import { EditList } from '../../components/List/EditList';
-import { Loader } from '../../components/Loader/Loader';
+import { EditList, Loader, NavBar } from '../../components';
 
 interface ListEditProps {}
 
-const ListEdit: React.FC<ListEditProps> = ({}) => {
+const ListEdit: React.FC<ListEditProps> = () => {
   const [listDetails, setListDetails] = useState() as any;
   const pathId = window.location.pathname;
   const listId = pathId.substring(pathId.lastIndexOf('/') + 1);

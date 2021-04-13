@@ -2,14 +2,20 @@ import { useState } from 'react';
 
 export const useModal = () => {
   const [isShown, setIsShown] = useState<boolean>(false);
-  const [modalData, setModalData] = useState<string>('');
+  const [isShownForm, setIsShownForm] = useState<boolean>(false);
+
   const toggle = () => {
-   return setIsShown(!isShown), 
-    setModalData(modalData);
+    return setIsShown(!isShown);
   };
+
+  const toogleForm = () => {
+    return setIsShownForm(!isShownForm);
+  };
+
   return {
     isShown,
-    modalData,
     toggle,
+    isShownForm,
+    toogleForm,
   };
 };

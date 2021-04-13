@@ -64,9 +64,9 @@ export const Modal: React.FC<ModalProps> = ({
                   </h3>
                   <div className='mt-2'>
                     
-                      <p className='text-sm text-gray-500'>
+                      <div className='text-sm text-gray-500'>
                         {content}
-                      </p>
+                      </div>
                   </div>
                 </div>
               </div>
