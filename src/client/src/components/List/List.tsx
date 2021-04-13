@@ -1,15 +1,13 @@
-import React from 'react';
 import { format } from 'date-fns';
-import { Card } from '..';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { EditList } from './EditList';
+import { Card } from '..';
 
 interface ListProps {
   lists: any;
 }
 
 export const List: React.FC<ListProps> = ({ lists }) => {
-    
   return (
     <>
       {lists.map((item: any, index: any) => (
@@ -52,102 +50,6 @@ export const List: React.FC<ListProps> = ({ lists }) => {
           </Card>
         </>
       ))}
-
-      {/* {isShown && (
-        <Modal
-          title='Edit List'
-          actions={
-            <ModalConfirmButtons
-              isSave
-              onConfirm={() => console.log('hey')}
-              onCancel={onCancel}
-            />
-          }
-        >
-          <>
-            {lists.map((item: any, index: number) => (
-              <Formik
-                initialValues={{
-                  title: item.title,
-                  description: item.description,
-                  category: item.category,
-                }}
-                onSubmit={async (values) => {
-                  console.log(values);
-
-                  const res = await axios.put(
-                    `http://localhost:7000/api/lists/${item._id}`,
-                    {
-                      title: values.title,
-                      description: values.description,
-                      category: values.category,
-                    }
-                  );
-                  res.data.json();
-
-                  // const { errors } = await createContact({
-                  //   variables: { input: values },
-                  // });
-                  // if (!errors) window.location.reload();
-                }}
-                key={index}
-              >
-                {({ values, handleChange, handleSubmit }) => (
-                  <Form
-                    className='flex flex-col justify-center max-w-full'
-                    onSubmit={handleSubmit}
-                  >
-                    <div className='relative w-full md:w-96'>
-                      <Input
-                        label='Name'
-                        labelColor='black'
-                        focusColor='black'
-                        textAlign='text-left'
-                        htmlFor='List title'
-                        type='text'
-                        id='title'
-                        value={values.title}
-                        onChange={handleChange}
-                        name='title'
-                      />
-                    </div>
-                    <div className='relative w-full md:w-96'>
-                      <Input
-                        label='Description'
-                        labelColor='black'
-                        focusColor='black'
-                        textAlign='text-left'
-                        htmlFor='List description'
-                        type='text'
-                        id='description'
-                        value={values.description}
-                        onChange={handleChange}
-                        name='description'
-                      />
-                    </div>
-                    <div className='relative w-full md:w-96'>
-                      <Input
-                        label='Category'
-                        labelColor='black'
-                        focusColor='black'
-                        textAlign='text-left'
-                        htmlFor='List category'
-                        type='text'
-                        id='category'
-                        value={values.category}
-                        onChange={handleChange}
-                        name='category'
-                      />
-                    </div>
-
-                    <button type='submit'>Hello</button>
-                  </Form>
-                )}
-              </Formik>
-            ))}
-          </>
-        </Modal>
-      )} */}
     </>
   );
 };

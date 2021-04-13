@@ -56,9 +56,22 @@ export const NavBar: React.FC<NavbarProps> = () => {
         <div className='flex ml-auto'>
           <div className='mr-4 md:mr-8 lg:mr-12 relative'>
             <div className='flex items-center'>
-              <span className='mr-5 text-sm font-semibold text-gray-600'>
-                Welcome Alvaro
-              </span>
+              <button className='mr-5 text-sm font-semibold text-gray-600'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  className='h-6 w-6'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke='currentColor'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth={2}
+                    d='M12 6v6m0 0v6m0-6h6m-6 0H6'
+                  />
+                </svg>
+              </button>
               <button
                 type='button'
                 className='bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white'
@@ -72,17 +85,6 @@ export const NavBar: React.FC<NavbarProps> = () => {
                 />
               </button>
             </div>
-
-            {/* <!--
-            Dropdown menu, show/hide based on menu state.
-
-            Entering: "transition ease-out duration-100"
-              From: "transform opacity-0 scale-95"
-              To: "transform opacity-100 scale-100"
-            Leaving: "transition ease-in duration-75"
-              From: "transform opacity-100 scale-100"
-              To: "transform opacity-0 scale-95"
-          --> */}
 
             {isOpenProfile && (
               <div

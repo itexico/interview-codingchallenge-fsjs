@@ -1,6 +1,10 @@
+import axios from 'axios';
 import { format } from 'date-fns';
 import React, { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import { Modal } from '..';
+import { useModal } from '../../hooks/useModal';
+import { ModalConfirmButtons } from '../Modal/utils';
 
 interface ListItemProps {
   listItem: any;
@@ -8,6 +12,20 @@ interface ListItemProps {
 }
 
 export const ListItem: React.FC<ListItemProps> = ({ listItem }) => {
+  const { isShown, toggle } = useModal();
+
+  // Handlers
+  const handleOpenModal = () => toggle();
+  const handleCloseModal = () => toggle();
+
+  const handleDeleteItem = async (listId: string, itemId: string) => {
+    const res = await axios.delete(
+      `http://localhost:7000/api/lists/${listId}/items/${itemId}`
+    );
+
+    return res.data.json();
+  };
+
   return (
     <>
       {listItem.map((item: any) => (
@@ -66,6 +84,7 @@ export const ListItem: React.FC<ListItemProps> = ({ listItem }) => {
             <span className='block ml-3'>
               <button
                 type='button'
+                onClick={handleOpenModal}
                 className='inline-flex items-center px-4 py-2  text-sm font-medium text-gray-700 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-100'
               >
                 <svg
@@ -83,6 +102,20 @@ export const ListItem: React.FC<ListItemProps> = ({ listItem }) => {
                   />
                 </svg>
               </button>
+
+              {isShown && (
+                <Modal
+                  title='Delete level'
+                  content='Are you sure you want to delete this level?'
+                  actions={
+                    <ModalConfirmButtons
+                      isDelete
+                      onConfirm={() => handleDeleteItem(item.list, item._id)}
+                      onCancel={handleCloseModal}
+                    />
+                  }
+                />
+              )}
             </span>
           </div>
         </blockquote>

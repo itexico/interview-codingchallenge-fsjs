@@ -2,14 +2,14 @@ import React, { ReactNode } from 'react';
 
 interface ModalProps {
   title: string;
-  children: any;
+  content: any;
   actions?: ReactNode | ReactNode[];
   hasIcon?: boolean;
 }
 
 export const Modal: React.FC<ModalProps> = ({
   title,
-  children,
+  content,
   actions,
   hasIcon,
 }) => {
@@ -64,9 +64,9 @@ export const Modal: React.FC<ModalProps> = ({
                   </h3>
                   <div className='mt-2'>
                     
-                      <div className='text-sm text-gray-500'>
-                        {children}
-                      </div>
+                      <p className='text-sm text-gray-500'>
+                        {content}
+                      </p>
                   </div>
                 </div>
               </div>
