@@ -43,7 +43,7 @@ const main = async () => {
         httpOnly: true,
         sameSite: 'lax',
         secure: __prod__,
-        domain: __prod__ ? '.codeponder.com' : undefined,
+        domain: __prod__ ? '.alvarocastle.com' : undefined,
       },
       saveUninitialized: false,
       secret: process.env.SESSION_SECRET,
@@ -83,7 +83,7 @@ const main = async () => {
 
   const PORT = process.env.PORT || 7000;
 
-  app.listen(7000, () => {
+  app.listen(PORT, () => {
     console.log(
       `Server started on http://localhost:${parseInt(process.env.PORT)}`
     );

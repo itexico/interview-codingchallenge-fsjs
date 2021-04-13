@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-nocheck
 import asyncHandler from 'express-async-handler';
 // import generateToken from '../utils/generateToken.js';
 import User from '../models/userModel.js';
@@ -17,8 +17,10 @@ const authUser = asyncHandler(async (req, res) => {
       fullname: user.fullname,
       email: user.email,
       isAdmin: user.isAdmin,
-      //   token: generateToken(user._id),
+      auth: req.session.userId,
     });
+
+    console.log(req.session.userId);
 
     // store user id session
     // this will set a cookie on the user
@@ -57,7 +59,7 @@ const registerUser = asyncHandler(async (req, res) => {
       fullname: user.fullname,
       email: user.email,
       isAdmin: user.isAdmin,
-      //   token: generateToken(user._id),
+      auth: (req.session.userId = user._id),
     });
 
     // store user id session
