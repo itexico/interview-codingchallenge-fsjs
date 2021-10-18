@@ -1,8 +1,10 @@
 import { FETCH_ALL, CREATE, UPDATE, DELETE } from '../constants/actionTypes';
 
 export default (favorites = [], action) => {
+
     switch (action.type) {
         case FETCH_ALL:
+            console.log(action.payload);
             return action.payload;
         case CREATE:
             return [...favorites, action.payload];
@@ -13,4 +15,5 @@ export default (favorites = [], action) => {
         default:
             return favorites;
     }
+
 }

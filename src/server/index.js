@@ -7,13 +7,13 @@ import favoritesRoutes from "./routes/favoritesRoutes.js"; // routes
 
 const app = express();
 
-//App routes to handle requests
-app.use("/favorites", favoritesRoutes);
-
 app.use(bodyParser.json({ limit: "30mb", extended: true }));// Body parser middleware
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 app.use(cors()); //To prevent CORS errors
+
+//App routes to handle requests
+app.use("/favorites", favoritesRoutes);
 
 const CONNECTION_URL = 'mongodb+srv://admin:Gama1992!@mycluster.jkhvn.mongodb.net/myFavorites?retryWrites=true&w=majority';
 const PORT = process.env.PORT || 5000;

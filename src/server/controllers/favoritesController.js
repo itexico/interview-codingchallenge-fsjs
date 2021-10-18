@@ -1,4 +1,10 @@
-export const getAllFavorites = async (req, res) => {
+import express from 'express';
+
+import Favorites from '../models/favoritesModels.js';
+
+const router = express.Router();
+
+export const getFavorites = async (req, res) => {
     try {
         const favoritesList = await Favorites.find()
         console.log(favoritesList);
@@ -25,6 +31,7 @@ export const postFavorites = async (req, res) => {
     }
 };
 
+export default router;
 
 // favorites.save()
 //         .then(() =>

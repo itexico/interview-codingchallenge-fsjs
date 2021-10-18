@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from 'mongoose';
 
 const favoritesSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
@@ -6,7 +6,7 @@ const favoritesSchema = mongoose.Schema({
     items: [String],
     owner: String
 });
-const Favorites = mongoose.model("Favorites", favoritesSchema);
 
-module.exports = Favorites;
+var Favorites = mongoose.model("Favorites", favoritesSchema);
 
+export default Favorites;
