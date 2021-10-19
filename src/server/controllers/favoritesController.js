@@ -11,17 +11,24 @@ export const getFavorites = async (req, res) => {
         res.status(200).json(favoritesList);
     } catch (error) {
         console.log(error);
-        res.status(500).json(error)
+        res.status(404).json(error)
     }
 };
 
-export const postFavorites = async (req, res) => {
-    const favorites = req.body
+export const createFavorites = async (req, res) => {
+
+    const { title, _id, owner } = req.body;
+
+    const newFavorites = new Favorites({ title, _id, owner })
+    console.log(newFavorites);
 
     try {
-        await newfavorites.save();
-        console.log("Favorites list has been added successfuly");
-        res.status(201).json(newfavorites)
+        await newFavorites.save();
+
+        console.log("Favorites list has been created successfuly");
+        console.log(newFavorites);
+
+        res.status(201).json(newFavorites);
 
     } catch (error) {
         res.status(500).json({

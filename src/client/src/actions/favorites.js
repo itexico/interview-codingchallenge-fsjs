@@ -15,12 +15,13 @@ export const getFavorites = () => async (dispatch) => { // function in function 
     }
 };
 
-// export const createFavorites = (post) => async (dispatch) => {
-//     try {
-//         const { data } = await api.createPost(post);
+export const createFavorites = (favorites) => async (dispatch) => {
+    try {
+        const { data } = await api.createFavorites(favorites);
+        console.log(data);
 
-//         dispatch({ type: CREATE, payload: data });
-//     } catch (error) {
-//         console.log(error.message);
-//     }
-// };
+        dispatch({ type: CREATE, payload: data });
+    } catch (error) {
+        console.log(error.message);
+    }
+};

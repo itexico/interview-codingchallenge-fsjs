@@ -1,11 +1,8 @@
 import { Modal, Form, Alert, Button } from 'react-bootstrap';
+
 // import { useForm } from 'react-hook-form'
 
 export default function FavoriteItemPage({ isOpen, close }) {
-
-    // const handleSubmit = () => {
-    //     close
-    // }
 
     return (
         <Modal show={isOpen} onHide={close}>
@@ -20,11 +17,10 @@ export default function FavoriteItemPage({ isOpen, close }) {
                         <Form.Control
                             type="text"
                             placeholder="Type a title for list" />
-                        {/*...register("password")*/}
 
                         <Form.Text>
                             <Alert variant="danger">
-                                Are you sure_
+                                Are you sure?
                             </Alert>
                         </Form.Text>
 

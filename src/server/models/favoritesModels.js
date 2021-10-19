@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
 
 const favoritesSchema = mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
+    // _id: mongoose.Schema.Types.ObjectId,
+    _id: String,
     title: { type: String, required: true },
-    items: [String],
+    // items: [String],
     owner: String
 });
 

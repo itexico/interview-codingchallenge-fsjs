@@ -11,8 +11,6 @@ export default function FavoritesPage() {
     const openCreateModal = () => setIsOpenCreateModal(true);
     const closeCreateModal = () => setIsOpenCreateModal(false);
 
-
-
     let filteredLists = [];
 
     return (
