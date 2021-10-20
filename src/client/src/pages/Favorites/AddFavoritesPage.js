@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Modal, Form, Alert, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import uuid from 'react-uuid';
-import { createFavorites } from '../../actions/favorites'
-// import { useForm } from 'react-hook-form'
+import { createFavorites } from '../../actions/favorites';
 
 export default function AddFavoritesPage({ isOpen, close, currentId, setCurrentId }) {
 
@@ -14,7 +13,6 @@ export default function AddFavoritesPage({ isOpen, close, currentId, setCurrentI
         items: []
     });
 
-    // const favorites = useSelector((state) => (currentId ? state.favorites.find((message) => message._id === currentId) : null));
     const dispatch = useDispatch();
 
     // useEffect(() => {
@@ -32,8 +30,8 @@ export default function AddFavoritesPage({ isOpen, close, currentId, setCurrentI
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // console.log(favoritesData);
-        // if (currentId === 0) {
+        // console.log("favoritesData: ", favoritesData);
+
         dispatch(createFavorites(favoritesData));
         clear();
         close();

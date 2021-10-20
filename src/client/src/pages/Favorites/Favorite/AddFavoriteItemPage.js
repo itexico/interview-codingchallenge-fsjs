@@ -8,8 +8,6 @@ import uuid from 'react-uuid';
 
 export default function AddFavoriteItemPage({ isOpen, close, favorite }) {
 
-    console.log('props: ', favorite);
-
     const [favoriteListData, setFavoriteListData] = useState(favorite);
     var newItem = "";
     let favoriteItems = (favorite ? favorite.items : []);

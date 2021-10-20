@@ -1,6 +1,6 @@
 import express from "express";
 
-import { getFavorites, createFavorites, updateFavorites } from "../controllers/favoritesController.js";
+import { getFavorites, createFavorites, updateFavorites, deleteFavoritesItem } from "../controllers/favoritesController.js";
 
 const router = express.Router();
 
@@ -8,5 +8,7 @@ const router = express.Router();
 router.get('/', getFavorites);
 router.post('/', createFavorites);
 router.patch('/:id', updateFavorites);
+router.patch('/favoriteItems/:id', deleteFavoritesItem);
+
 
 export default router;

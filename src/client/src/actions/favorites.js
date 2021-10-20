@@ -1,4 +1,4 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE } from '../constants/actionTypes';
+import { FETCH_ALL, CREATE, UPDATE, DELETE, } from '../constants/actionTypes';
 
 import * as api from '../api/index';
 
@@ -27,6 +27,7 @@ export const createFavorites = (favorites) => async (dispatch) => {
 };
 
 export const updateFavorites = (id, favorite) => async (dispatch) => {
+    // console.log("favorite", favorite);
     try {
         const { data } = await api.updateFavorites(id, favorite);
 
@@ -36,14 +37,13 @@ export const updateFavorites = (id, favorite) => async (dispatch) => {
     }
 };
 
-export const deleteFavoritesItem = (favoriteList, id) => async (dispatch) => {
-    console.log(id);
-    console.log(favoriteList);
-    // try {
-    //     const { data } = await api.updateFavorites(id, favorite);
+export const deleteFavoritesItem = (id, favoriteList) => async (dispatch) => {
 
-    //     dispatch({ type: UPDATE, payload: data });
-    // } catch (error) {
-    //     console.log(error.message);
-    // }
+    try {
+        const { data } = await api.deleteFavoritesItem(id, favoriteList);
+
+        dispatch({ type: UPDATE, payload: data });
+    } catch (error) {
+        console.log(error.message);
+    }
 };

@@ -1,6 +1,5 @@
 import express from 'express';
 
-
 import Favorites from '../models/favoritesModels.js';
 
 const router = express.Router();
@@ -38,19 +37,31 @@ export const createFavorites = async (req, res) => {
 };
 
 export const updateFavorites = async (req, res) => {
-    console.log(req.params);
-    console.log(req.body);
     const { id } = req.params;
-    const { title, owner, _id, items } = req.body;
+    const { title, _id, owner, items } = req.body;
 
     if (!id) return res.status(404).send(`No post with id: ${id}`);
 
-    const updatedFavorites = { title, owner, items, _id: id };
-    console.log(updatedFavorites);
+    const favorite = await Favorites.findById(id);
+    const updatedFavorite = { title, owner, items, _id: id };
 
-    await Favorites.findByIdAndUpdate(id, updatedFavorites, { new: true });
+    await Favorites.findByIdAndUpdate(id, updatedFavorite, { new: true });
 
-    res.json(updatedFavorites);
+    res.status(201).json(updatedFavorite);
+}
+
+export const deleteFavoritesItem = async (req, res) => {
+    const { id } = req.params;
+    const { title, _id, owner, items } = req.body;
+
+    if (!id) return res.status(404).send(`No post with id: ${id}`);
+
+    const favorite = await Favorites.findById(id);
+    const updatedFavorite = { title, owner, items, _id: id };
+
+    await Favorites.findByIdAndUpdate(id, updatedFavorite, { new: true });
+
+    res.status(201).json(updatedFavorite);
 }
 
 export default router;

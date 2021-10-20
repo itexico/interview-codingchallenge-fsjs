@@ -20,7 +20,6 @@ export default function AppRouter() {
             <PrivateRoute exact path={routes.account} component={AccountPage} />
             <PrivateRoute exact path={routes.favorites} component={FavoritesPage} />
             <PrivateRoute exact path={routes.favoriteItem()} component={FavoriteItemPage} />
-            {/* <Route exact path='/login' component={log}></Route> */}
 
             <Route exact path='*' component={NotFoundPage}></Route>
 

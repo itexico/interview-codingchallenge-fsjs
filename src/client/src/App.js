@@ -8,7 +8,6 @@ import Layout from './components/layouts/Layout'
 
 function App() {
 
-  // const [currentId, setCurrentId] = useState(0); 
   const dispatch = useDispatch();
 
   useEffect(() => {
