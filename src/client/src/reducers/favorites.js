@@ -4,14 +4,13 @@ export default (favorites = [], action) => {
 
     switch (action.type) {
         case FETCH_ALL:
-            console.log(action.payload);
             return action.payload;
         case CREATE:
             return [...favorites, action.payload];
         case UPDATE:
-            return favorites.map((post) => (post._id === action.payload._id ? action.payload : post));
+            return favorites.map((favorite) => (favorite._id === action.payload._id ? action.payload : favorite));
         case DELETE:
-            return favorites.filter((post) => post._id !== action.payload);
+            return favorites.filter((favorite) => favorite._id !== action.payload);
         default:
             return favorites;
     }
