@@ -18,8 +18,7 @@ export default function FavoritesPage() {
                 <div className="mx-5 py-5">
                     <h1 className="text-center">My Favorites</h1>
                     <div className="row">
-                        <div className="col-lg-2 col-sm-12">
-                            <h4 className="text-muted text-left p-1">Find</h4>
+                        <div className="d-flex justify-content-end">
                             <button to='/favorites/new' className='btn btn-primary btn-block my-2 text-white' onClick={openCreateModal} > Add New List </button>
                         </div>
                         <div className="col-lg-10 col-sm-12">

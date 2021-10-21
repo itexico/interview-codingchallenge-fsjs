@@ -3,11 +3,10 @@ import userAuth from '../auth/userAuth';
 import routes from '../helpers/routes';
 
 export default function PrivateRoute({ ...rest }) {
-    const location = useLocation();
-    // console.log(location);
     const { isLogged } = userAuth();
+    const location = useLocation();
 
-    if (!isLogged()) return <Redirect to={{ pathname: routes.login, state: { from: location } }} />;
+    if (!isLogged()) return <Redirect to={{ pathname: routes.home, state: { from: location } }} />;
 
     return <Route {...rest} />;
 }

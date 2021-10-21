@@ -1,7 +1,5 @@
-import { Router, Route, Switch } from 'react-router-dom';
-import Navigation from '../components/Navigation';
+import { Route, Switch } from 'react-router-dom';
 import routes from '../helpers/routes';
-import AccountPage from '../pages/AccountPage';
 import FavoriteItemPage from '../pages/Favorites/Favorite/FavoriteItemPage';
 import FavoritesPage from '../pages/Favorites/FavoritesPage';
 import HomePage from '../pages/HomePage';
@@ -17,7 +15,6 @@ export default function AppRouter() {
             <PublicRoute exact path={routes.home} component={HomePage} />
             <PublicRoute exact path={routes.login} component={LoginPage} />
             <PublicRoute exact path={routes.register} component={RegisterPage} />
-            <PrivateRoute exact path={routes.account} component={AccountPage} />
             <PrivateRoute exact path={routes.favorites} component={FavoritesPage} />
             <PrivateRoute exact path={routes.favoriteItem()} component={FavoriteItemPage} />
 

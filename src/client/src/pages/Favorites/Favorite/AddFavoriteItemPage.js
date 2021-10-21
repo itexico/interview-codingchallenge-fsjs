@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Modal, Form, Alert, Button } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { Modal, Form, Button } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import { updateFavorites } from '../../../actions/favorites';
 import uuid from 'react-uuid';
 
