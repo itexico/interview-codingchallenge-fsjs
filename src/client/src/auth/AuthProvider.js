@@ -1,21 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { createContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import roles from '../helpers/roles';
+import routes from '../helpers/routes';
 
 export const AuthContext = createContext();
 
 export default function AuthProvider({ children }) {
     const history = useHistory();
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+
+
+    useEffect(() => {
+        const token = user?.token;
+        setUser(JSON.parse(localStorage.getItem('profile')));
+    }, [])
 
     const login = (userCredentials, fromLocation) => {
-        setUser({ id: 1, name: 'aby', email: 'abimael1992g@gmail.com', role: roles.regular });
+        console.log("login: ", userCredentials);
+        setUser({ userCredentials })
         if (fromLocation) {
             history.push(fromLocation);
         }
+
     };
+
     const logout = () => {
         setUser(null);
     };

@@ -24,7 +24,6 @@ export const createFavorites = async (req, res) => {
         await newFavorites.save();
 
         console.log("Favorites list has been created successfuly");
-        // console.log(newFavorites);
 
         res.status(201).json(newFavorites);
 

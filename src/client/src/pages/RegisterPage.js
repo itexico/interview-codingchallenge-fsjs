@@ -1,53 +1,71 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import routes from "../helpers/routes";
+import { signup } from '../actions/auth';
+
+
 export default function RegisterPage() {
+    const [formData, setformData] = useState({})
+
+    const dispatch = useDispatch();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log(formData);
+        dispatch(signup(formData));
+    };
+
     return (
         <>
-            <section class="vh-100" >
-                <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col-lg-12 col-xl-11">
-                        <div class="card text-black" >
-                            <div class="row justify-content-center">
-                                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-
-                                    <h1 class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</h1>
-
-                                    <form class="mx-1 mx-md-4">
-
-                                        <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                                            <div class="form-outline flex-fill mb-0">
-                                                <label class="form-label" for="form3Example1c">Your Name</label>
-                                                <input type="text" id="form3Example1c" class="form-control" />
+            <section className="vh-100" >
+                <div className="row d-flex justify-content-center align-items-center h-100">
+                    <div className="col-lg-12 col-xl-11">
+                        <div className="card text-black" >
+                            <div className="row justify-content-center">
+                                <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                                    <h1 className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</h1>
+                                    <form className="mx-1 mx-md-4">
+                                        <div className="d-flex flex-row align-items-center mb-4">
+                                            <i className="fas fa-user fa-lg me-3 fa-fw"></i>
+                                            <div className="form-outline flex-fill mb-0" >
+                                                <label className="form-label" >Name</label>
+                                                <input type="text" placeholder="Type your name" autoComplete="new-name" className="form-control"
+                                                    onChange={(e) => setformData({ ...formData, name: e.target.value })} />
                                             </div>
                                         </div>
-                                        <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                                            <div class="form-outline flex-fill mb-0">
-                                                <label class="form-label" for="form3Example3c">Your Email</label>
-                                                <input type="email" id="form3Example3c" class="form-control" />
+                                        <div className="d-flex flex-row align-items-center mb-4">
+                                            <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                            <div className="form-outline flex-fill mb-0">
+                                                <label className="form-label" >Email</label>
+                                                <input type="email" placeholder="Type your email" autoComplete="new-email" className="form-control"
+                                                    onChange={(e) => setformData({ ...formData, email: e.target.value })} />
                                             </div>
                                         </div>
-                                        <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                            <div class="form-outline flex-fill mb-0">
-                                                <label class="form-label" for="form3Example4c">Password</label>
-                                                <input type="password" id="form3Example4c" class="form-control" />
+                                        <div className="d-flex flex-row align-items-center mb-4">
+                                            <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                            <div className="form-outline flex-fill mb-0">
+                                                <label className="form-label" >Password</label>
+                                                <input type="password" placeholder="Type password" className="form-control"
+                                                    onChange={(e) => setformData({ ...formData, password: e.target.value })} />
                                             </div>
                                         </div>
-                                        <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                                            <div class="form-outline flex-fill mb-0">
-                                                <label class="form-label" for="form3Example4cd">Repeat your password</label>
-                                                <input type="password" id="form3Example4cd" class="form-control" />
+                                        <div className="d-flex flex-row align-items-center mb-4">
+                                            <i className="fas fa-key fa-lg me-3 fa-fw"></i>
+                                            <div className="form-outline flex-fill mb-0">
+                                                <label className="form-label">Confirm Password</label>
+                                                <input type="password" placeholder="Repeat password" className="form-control"
+                                                    onChange={(e) => setformData({ ...formData, confirmPassword: e.target.value })} />
                                             </div>
                                         </div>
-                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <button type="button" class="btn btn-primary btn-lg">Register</button>
+                                        <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                            <button type="button" className="btn btn-primary btn-lg"
+                                                as={Link} onClick={handleSubmit}>Register</button>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                                    <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-registration/draw1.png" class="img-fluid" alt="register" />
+                                <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                                    <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-registration/draw1.png" className="img-fluid" alt="register" />
                                 </div>
                             </div>
                         </div>

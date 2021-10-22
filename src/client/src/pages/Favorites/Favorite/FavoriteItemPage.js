@@ -17,7 +17,6 @@ export default function FavoriteItemPage({ favorite }) {
             ...favoriteListData
         };
         var newItemList = favorite.items.filter(item => item.id !== itemId);
-        console.log("updated favorite items: ", newItemList);
         updatedfavoriteData.items = newItemList
         setFavoriteListData(updatedfavoriteData);
 

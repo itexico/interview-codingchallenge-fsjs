@@ -7,7 +7,6 @@ import { Spinner } from "react-bootstrap";
 export default function FavoritesPage() {
 
     const favorites = useSelector((state) => state.favorites);
-    // console.log(favorites);
     const [isOpenCreateModal, setIsOpenCreateModal] = useState(false);
     const openCreateModal = () => setIsOpenCreateModal(true);
     const closeCreateModal = () => setIsOpenCreateModal(false);

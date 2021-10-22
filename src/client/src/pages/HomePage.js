@@ -12,15 +12,10 @@ export default function HomePage() {
                 <Col xs={{ span: 12 }} md={{ span: 6 }} className="mb-5">
                     <h2>Welcome to My Favorites</h2>
                     <p>Here you will be able to manage your favorite lists!</p>
-                    {console.log(isLogged())}
-                    {!isLogged() ? (
-                        <div>
-                            <Link to={routes.login}>Login</Link> &nbsp;
-                            <Button as={Link} to={routes.register} className="ml-2">Register</Button>
-                        </div>
-                    ) : (
-                        <p>Here you will be able to manage your favorite lists!</p>
-                    )}
+                    <div>
+                        <Link to={routes.login}>Login</Link> &nbsp;
+                        <Button as={Link} to={routes.register} className="ml-2">Register</Button>
+                    </div>
                 </Col>
                 <Col>
                     <img

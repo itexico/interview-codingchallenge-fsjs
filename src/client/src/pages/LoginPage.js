@@ -1,12 +1,27 @@
-import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link, useLocation } from 'react-router-dom';
+import { signin } from '../actions/auth';
 import userAuth from '../auth/userAuth';
+import routes from '../helpers/routes';
 
-const userCredentials = {};
+const userCredentials = { email: '', password: '' };
 
 export default function LoginPage() {
+    const [formData, setformData] = useState(userCredentials);
+
+    const dispatch = useDispatch();
+
     const location = useLocation();
 
     const { login } = userAuth();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        dispatch(signin(formData));
+        login(formData, location?.pathname);
+    };
 
     return (
         <section className="vh-100">
@@ -19,27 +34,19 @@ export default function LoginPage() {
                     <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                         <form>
                             <div className="form-outline mb-4">
-                                <label className="form-label" for="form3Example3">Email address</label>
-                                <input type="email" id="form3Example3" className="form-control form-control-lg"
-                                    placeholder="Enter a valid email address" />
+                                <label className="form-label" >Email address</label>
+                                <input type="email" name="email" className="form-control form-control-lg"
+                                    placeholder="Enter a valid email address" onChange={(e) => setformData({ ...formData, email: e.target.value })} />
                             </div>
                             <div className="form-outline mb-3">
-                                <label className="form-label" for="form3Example4">Password</label>
-                                <input type="password" id="form3Example4" className="form-control form-control-lg"
-                                    placeholder="Enter password" />
-                            </div>
-                            <div className="d-flex justify-content-between align-items-center">
-                                <div className="form-check mb-0">
-                                    <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                                    <label className="form-check-label" for="form2Example3">
-                                        Remember me
-                                    </label>
-                                </div>
+                                <label className="form-label">Password</label>
+                                <input type="password" name="password" className="form-control form-control-lg"
+                                    placeholder="Enter password" onChange={(e) => setformData({ ...formData, password: e.target.value })} />
                             </div>
                             <div className="text-center text-lg-start mt-4 pt-2">
-                                <button type="button" className="btn btn-primary btn-lg">Login</button>
-                                <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
-                                    className="link-danger">Register</a></p>
+                                <button type="button" className="btn btn-primary btn-lg" onClick={handleSubmit}>Login</button>
+                                <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <Link
+                                    className="link-danger" as={Link} to={routes.register}>Register</Link></p>
                             </div>
                         </form>
                     </div>
