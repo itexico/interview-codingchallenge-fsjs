@@ -35,7 +35,6 @@ export default function AddFavoritesPage({ isOpen, close, currentId, setCurrentI
         dispatch(createFavorites(favoritesData));
         clear();
         close();
-        // }
     };
 
     return (

@@ -18,7 +18,6 @@ export const getFavorites = () => async (dispatch) => { // function in function 
 export const createFavorites = (favorites) => async (dispatch) => {
     try {
         const { data } = await api.createFavorites(favorites);
-        // console.log(data);
 
         dispatch({ type: CREATE, payload: data });
     } catch (error) {
@@ -27,7 +26,6 @@ export const createFavorites = (favorites) => async (dispatch) => {
 };
 
 export const updateFavorites = (id, favorite) => async (dispatch) => {
-    // console.log("favorite", favorite);
     try {
         const { data } = await api.updateFavorites(id, favorite);
 
@@ -38,7 +36,6 @@ export const updateFavorites = (id, favorite) => async (dispatch) => {
 };
 
 export const deleteFavoritesItem = (id, favoriteList) => async (dispatch) => {
-
     try {
         const { data } = await api.deleteFavoritesItem(id, favoriteList);
 
